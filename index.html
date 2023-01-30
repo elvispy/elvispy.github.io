@@ -54,11 +54,12 @@ document.write('<p><font color="gray" size="1">Photo credit: '+theCredits[whichI
       
         <div class="row ml-1 ml-sm-0">
           <span class="contact-icon text-center" style="line-height: 1em;">
-            <a href="mailto:eaa.vera.2020@aluno.unila.edu.br"><i class="fa fa-envelope-square gm-icon"></i></a>
+            <div data-include="socials"></div>
+            <!--<a href="mailto:eaa.vera.2020@aluno.unila.edu.br"><i class="fa fa-envelope-square gm-icon"></i></a>
             <a href="https://scholar.google.com/citations?user=D3sDR9EAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar-square gs-icon"></i></a>
             <a href="https://github.com/elvispy" target="_blank" title="GitHub"><i class="fab fa-github-square gh-icon"></i></a>
             <a href="https://linkedin.com/in/elvis-agüero-4a043b210/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin li-icon"></i></a>
-            <!--<a href="https://www.facebook.com/andreea.bobu" target="_blank" title="Facebook"><i class="fab fa-facebook-square fb-icon"></i></a> 
+            <a href="https://www.facebook.com/andreea.bobu" target="_blank" title="Facebook"><i class="fab fa-facebook-square fb-icon"></i></a> 
             <a href="https://twitter.com/andreea7b" target="_blank" title="Twitter"><i class="fab fa-twitter-square tw-icon"></i></a> -->
           </span>
         </div>
@@ -387,7 +388,7 @@ document.write('<p><font color="gray" size="1">Photo credit: '+theCredits[whichI
 
   <!-- Footer -->
   <footer>
-    &copy; Copyright 2023 Elvis Agüero.
+    &copy; Copyright 2023 Elvis Agüero. Made using the <a href="https://github.com/alshedivat/al-folio" target="_blank">Al-folio</a> template
     
   </footer>
 
@@ -504,5 +505,17 @@ document.write('<p><font color="gray" size="1">Photo credit: '+theCredits[whichI
     ga('create', '', 'auto');
     ga('send', 'pageview');
   </script>
+
+  <!-- Including HTML for concise code->
+  <script src="jquery.js"></script> --> 
+    <script> 
+    $(function () {
+      var includes = $('[data-include]')
+      $.each(includes, function () {
+        var file = 'assets/html/' + $(this).data('include') + '.html'
+        $(this).load(file)
+      })
+    })
+    </script> 
 </body>
 </html>

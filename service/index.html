@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Andreea Bobu | Service</title>
+  <title>Elvis Aguero | Service</title>
   <meta name="description" content="A beautiful Jekyll theme for academics">
 
   <!-- Fonts and Icons -->
@@ -21,13 +21,10 @@
   <nav id="navbar" class="navbar fixed-top navbar-expand-md grey lighten-5 z-depth-1 navbar-light">
     <div class="container-fluid p-0">
       
-        <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Andreea</span> Bobu</a>
+        <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Elvis</span> Aguero</a>
   	<div class="row ml-1 ml-sm-0">
           <span class="contact-icon text-center" style="line-height: 1em;">
-            <a href="mailto:abobu@berkeley.edu"><i class="fa fa-envelope-square gm-icon"></i></a>
-            <a href="https://scholar.google.com/citations?user=62e5CygAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar-square gs-icon"></i></a>
-            <a href="https://github.com/andreea7b" target="_blank" title="GitHub"><i class="fab fa-github-square gh-icon"></i></a>
-            <a href="https://twitter.com/andreea7b" target="_blank" title="Twitter"><i class="fab fa-twitter-square tw-icon"></i></a>
+            <div data-include="socials"></div>
           </span>
         </div>
     
@@ -47,8 +44,8 @@
           
             
               <li class="nav-item ">
-                  <a class="nav-link" href="/assets/pdf/vitae.pdf">
-                    Curriculum Vitae
+                  <a class="nav-link" href="/assets/pdf/cv_english_v2.pdf">
+                    CV
                     
                   </a>
               </li>
@@ -331,7 +328,7 @@
 
   <!-- Footer -->
   <footer>
-    &copy; Copyright 2020 Andreea Bobu.
+    &copy; Copyright 2020 Elvis Aguero.
     
     
   </footer>
@@ -449,5 +446,17 @@
     ga('create', '', 'auto');
     ga('send', 'pageview');
   </script>
+
+  <!-- Including HTML for concise code-->
+  <script src="jquery.js"></script> 
+    <script> 
+    $(function () {
+      var includes = $('[data-include]')
+      $.each(includes, function () {
+        var file = '../assets/html/' + $(this).data('include') + '.html'
+        $(this).load(file)
+      })
+    })
+  </script> 
 </body>
 </html>
