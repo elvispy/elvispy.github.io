@@ -24,10 +24,13 @@
         <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Elvis</span> Aguero</a>
      	<div class="row ml-1 ml-sm-0">
           <span class="contact-icon text-center" style="line-height: 1em;">
+            <div data-include="socials"></div>
+            <!--
             <a href="mailto:abobu@berkeley.edu"><i class="fa fa-envelope-square gm-icon"></i></a>
             <a href="https://scholar.google.com/citations?user=62e5CygAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar-square gs-icon"></i></a>
             <a href="https://github.com/andreea7b" target="_blank" title="GitHub"><i class="fab fa-github-square gh-icon"></i></a>
             <a href="https://twitter.com/andreea7b" target="_blank" title="Twitter"><i class="fab fa-twitter-square tw-icon"></i></a>
+            -->
           </span>
         </div>
  
@@ -914,5 +917,18 @@
     ga('create', '', 'auto');
     ga('send', 'pageview');
   </script>
+
+  <!-- Including HTML for concise code->
+  <script src="jquery.js"></script> --> 
+  <script> 
+    $(function () {
+      var includes = $('[data-include]')
+      $.each(includes, function () {
+        var file = '../assets/html/' + $(this).data('include') + '.html'
+        $(this).load(file)
+      })
+    })
+    </script> 
+
 </body>
 </html>
