@@ -75,3 +75,8 @@ Style improvements and bug fixes are especially welcome.
 ## License
 
 MIT
+
+## How to test locally
+
+jekyll build (on root)
+jekyll serve
