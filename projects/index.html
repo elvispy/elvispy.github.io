@@ -15,6 +15,12 @@
   <link rel="stylesheet" href="/assets/css/academicons.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="canonical" href="/projects/">
+  
+  <!-- <link rel="stylesheet" href="css/normalize.css"> 
+  <link rel="stylesheet" href="css/skeleton.css"> 
+  <link rel="stylesheet" href="css/custom.css"> -->
+
+   
 </head>
 <body>
   <!-- Header -->
@@ -100,12 +106,147 @@
   <div class="content">
     
   <h1>Projects</h1>
-  <h6>some of the projects I have worked on</h6>
+  <h6>Here are some projects in Chronological order </h6>
+  
+  <h2 class="center-h1"> Research </h2>
+  <hr> 
+
+  <div class="project">
+    
+    <div class="project-description">
+      <img src="/assets/img/km-sphere.gif" alt="Project 1 Image">
+        <h3>The Kinematic Match</h3>
+        <p> We are all happy calculating the trajectory of an object in free-fall. But how do we actually solve what happens just after that, during an inelastic collision?. The interactions involved are highly nonlinear and oftentimes the colliding objects are free to deform as they are in contact.
+          This problem is relevant because it has plenty of applications, from soft robots, to gear teeth and even astrophysics. In general, you have a PDE under some constraints that represents the problem. The KM basically sets a new constraint on the contacting surface by imposing that the angle of incidence between the two objects is smooth.
+          This framework is agnostic to the technique used to approximate the PDE, so it can be implemented using a finite difference scheme, or a finite element, or even a variational method. We have successfully implemented the KM for the case of a rigid sphere impacting against an elastic membrane, and are currently working on other cases, most notably a deformable droplet impacting different surfaces -either rigid or not. </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="project">
+    
+    <div class="project-description">
+      <img src="/assets/img/spintronics.jpeg" alt="Project 1 Image">
+        <h3>Foundational Spintronics Experiments</h3>
+        <p> It is known that current electronics will become unfeasible as devices (transistors, among others) further decrease in size. 
+          Recent Intel chips have around 100 billion transistors, accompanied by significant heat generation. In this scenario, Spintronics emerges as a proposal. Unlike traditional electronics, Spintronics considers not only the charge of electrons but also their spin. The generation, manipulation, and detection of spin currents have garnered great interest academically and industrially due to minimal thermal dissipation in current propagation and, consequently, information. 
+          In this project we study experimentally the properties of materials that have the potential to push this fiels, together with their associated phenomena such as the Spin Hall effect (SHE), its thermodynamic reciprocal (ISHE), and spin pumping (SP). </p>
+    </div>
+  </div>
+
+  
+  <h1 class="center-h1">Service and Outreach </h1>
+  <hr>
+  <div class="project">
+    
+    <div class="project-description">
+      <img src="/assets/img/jt2.jpg" alt="Imagen JT">
+        <h3>Promoting Science Olympiads</h3>
+        <p> Science Olympiads have saved my life (probably). I always wanted to make a difference in the world, but I was somehow destined to fail: I was born in one of the worst countries to receive public education. Yet, I was touched by heaven: Through a policy of investing in Science Olympiads when I was in high school, I was lucky enough to receive proper training and have another chance in life (academically). Now, I'm ready to start a PhD and extremely enthusiastic to give to others what I've received. Since 2019, I teach at "Jovenes Talentos", this program that introduces
+          students to critical thinking in a pure maths perspective.  </p>
+    </div>
+  </div>
+
+  
 
 
 <div id="projects" class="row mt-2 pt-3" style="overflow: visible !important;">
   
-  
+  <!--
+  <div class="docs-section" id="research">
+    <h6 class="docs-header">Research</h6>
+
+    <div class="docs-sub-header" style="margin-top: 5%">Motion tracking algorithms</div>
+
+    <div class="row" style="margin-top: 5%">
+      <div class="five columns column">
+        <img class="u-small_width" src="/assets/img/CUA.png">
+      </div>
+      <div class="seven columns column">
+        <div class="pub_t">Rapid, Topology-based Particle Tracking for High-Resolution 
+              Measurements of Large Complex 3D Motion Fields</div>
+        <div class="pub_a">Mohak Patel, Susan E. Leggett, Alexander K. Landauer, Ian Y. Wong, and
+            Christian Franck</div> 
+        <div class="pub_jc">Nature Scientific Reports 2018</div> 
+        <div class="publ">
+            <ul>
+              <li><a href="https://www.nature.com/articles/s41598-018-23488-y">Paper</a></li>
+              <li><a href="https://github.com/FranckLab/T-PT">Code (Github)</a></li>
+              <li><a href="https://www.brown.edu/academics/engineering/news/2017-07/brown%E2%80%99s-mohak-patel-places-second-society-experimental-mechanics-student-paper-competit">SEM 2nd Place</a></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="row" style="margin-top: 5%">
+        <div class="five columns column">
+          <img class="u-small_width" src="/assets/img/CUA.png">
+        </div>
+        <div class="seven columns column">
+          <div class="pub_t">A q-Factor-Based Digital Image Correlation Algorithm (qDIC) for 
+            Resolving Finite Deformations with Degenerate Speckle Patterns</div>
+          <div class="pub_a">Alexander K. Landauer, Mohak Patel,  David. L. Henann, and
+              Christian Franck</div> 
+          <div class="pub_jc">Experimental Mechanics 2018</div> 
+          <div class="publ">
+              <ul>
+                <li><a href="https://link.springer.com/article/10.1007/s11340-018-0377-4">Paper</a></li>
+                <li><a href="https://github.com/FranckLab/qDIC">Code (Github)</a></li>
+              </ul>
+            </div>
+        </div>
+      </div>
+
+
+        <div class="docs-sub-header" style="margin-top: 5%">Cell Mechanics</div>
+
+        <div class="row" style="margin-top: 5%">
+          <div class="five columns column">
+            <img class="u-small_width" src="/assets/img/CUA.png">
+          </div>
+          <div class="seven columns column">
+            <div class="pub_t">Mechanical Signatures of Metastatic Cancer Cells</div>
+            <div class="pub_a">Mohak Patel*, Susan E. Leggett*, Christian Franck, and 
+              Ian Y. Wong</div> 
+            <div class="pub_jc">Work in Progress</div> 
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 5%">
+            <div class="five columns column">
+              <img class="u-small_width" src="/assets/img/CUA.png">
+            </div>
+            <div class="seven columns column">
+              <div class="pub_t">A cytoskeletal clutch mediates cellular force 
+                transmission in a soft, three-dimensional extracellular matrix</div>
+              <div class="pub_a">Leanna M. Owen, Arjun S. Adhikari, Mohak Patel, 
+                Peter Grimmer, Natascha Leijnse, Min Cheol Kim, Jacob Notbohm, 
+                Christian Franck, and Alexander R. Dunn</div> 
+              <div class="pub_jc">Molecular Biology of the Cell 2017</div> 
+              <div class="publ">
+                  <ul>
+                    <li><a href="https://www.molbiolcell.org/doi/abs/10.1091/mbc.E17-02-0102">Paper</a></li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+          
+          <div class="row" style="margin-top: 7.5%">
+              <div class="pub_t">Phylokinematic analysis reveals role of environment in shaping 
+                sperm flagellar motility</div>
+              <div class="pub_a">Jeffrey S Guasto, Jonathan B Estrada, Filippo Menolascina, 
+                Lisa J Burton, Mohak Patel, Christian Franck, Anette E Hosoi , Richard Zimmer, 
+                and Roman Stocker</div> 
+              <div class="pub_jc">Manuscript Submitted</div> 
+            </div>
+          
+          
+
+  </div>
+  -->
+  <!--
     <div class="project-card">
       
         <a href="/projects/LESS/">
@@ -160,42 +301,9 @@
       </a>
     </div>
   
-    <div class="project-card">
-      
-        <a href="/projects/PBR/">
-      
-        <div class="card">
-          <img class="card-img-top" src="/assets/img/PBR_brain.png" alt="project thumbnail" />
-          <div class="card-body">
-            <h5 class="card-title">Registration of Clinical Brain Images</h5>
-            <p class="card-text">an algorithm for patch-based discrete registration of clinical brain images</p>
-            <div class="row ml-1 mr-1 p-0">
-              
-              
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
   
-    <div class="project-card">
-      
-        <a href="/projects/RepAnalysis/">
-      
-        <div class="card">
-          <img class="card-img-top" src="/assets/img/brainGIF.gif" alt="project thumbnail" />
-          <div class="card-body">
-            <h5 class="card-title">Representations in Clinical Brain Images</h5>
-            <p class="card-text">an analysis of three disease representations in clinical brain images</p>
-            <div class="row ml-1 mr-1 p-0">
-              
-              
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-  
+    
+  -->
   
 </div>
 
@@ -204,7 +312,7 @@
 
   <!-- Footer -->
   <footer>
-    &copy; Copyright 2020 Elvis Aguero.
+    &copy; Copyright 2023 Elvis Aguero.
     
     
   </footer>
@@ -322,5 +430,17 @@
     ga('create', '', 'auto');
     ga('send', 'pageview');
   </script>
+
+  <!-- Including HTML for concise code-->
+   
+  <script> 
+    $(function () {
+      var includes = $('[data-include]')
+      $.each(includes, function () {
+        var file = '../assets/html/' + $(this).data('include') + '.html'
+        $(this).load(file)
+      })
+    })
+    </script> 
 </body>
 </html>

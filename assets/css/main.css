@@ -11232,6 +11232,33 @@ progress { position: fixed; left: 0; top: 56px; z-index: 10; width: 100%; height
 a.project-card .github-icon .stars:hover, a.project-card .github-icon .stars:focus { text-decoration: none; }
 .project-card .github-icon .stars:empty { display: none; }
 
+.project {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  overflow: auto; /* Clearfix for float */
+}
+.project img {
+  width: 30%;
+  max-width: 300px; /* Set a maximum width for responsiveness */
+  height: auto;
+  float: left; /* Float the image to the left */
+  margin-right: 20px;
+}
+.project-description {
+  overflow: hidden; /* Clear the float */
+}
+.project-description h3 {
+  text-align: center;
+}
+.project-description p {
+  text-align: justify;
+}
+
+.center-h1 {
+  text-align: center;
+}
+
 /* Publications */
 .bibliography { padding: 0em; }
 .bibliography .abbr span { width: 65px; }
