@@ -21,6 +21,11 @@ hr { box-sizing: content-box; height: 0; overflow: visible; }
 
 h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 0.5rem; }
 
+:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--indigo);
+}
+
 p { margin-top: 0; margin-bottom: 1rem; }
 
 abbr[title], abbr[data-original-title] { text-decoration: underline; text-decoration: underline dotted; cursor: help; border-bottom: 0; text-decoration-skip-ink: none; }
@@ -175,7 +180,7 @@ mark, .mark { padding: 0.2em; background-color: #fcf8e3; }
 code { font-size: 87.5%; color: #e83e8c; word-break: break-word; }
 a > code { color: inherit; }
 
-kbd { padding: 0.2rem 0.4rem; font-size: 87.5%; color: #fff; background-color: #212529; border-radius: 0.2rem; }
+kbd { padding: 0.2rem 0.4rem; font-size: 87.5%;color: #fff; background-color: var(--purple); border-radius: 0.2rem; }
 kbd kbd { padding: 0; font-size: 100%; font-weight: 700; }
 
 pre { display: block; font-size: 87.5%; color: #212529; }
