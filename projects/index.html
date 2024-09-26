@@ -16,9 +16,6 @@
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="canonical" href="/projects/">
   
-  <!-- <link rel="stylesheet" href="css/normalize.css"> 
-  <link rel="stylesheet" href="css/skeleton.css"> 
-  <link rel="stylesheet" href="css/custom.css"> -->
 
    
 </head>
@@ -29,10 +26,10 @@
       
         <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Elvis</span> Aguero</a>
   	<div class="row ml-1 ml-sm-0">
-          <span class="contact-icon text-center" style="line-height: 1em;">
-            <div data-include="socials"></div>
-          </span>
-        </div>
+      <span class="contact-icon text-center" style="line-height: 1em;">
+        <div data-include="socials"></div>
+      </span>
+    </div>
     
       <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -44,13 +41,10 @@
               About
               
             </a>
-          </li>
-          
-            
-          
+          </li>        
             
               <li class="nav-item ">
-                  <a class="nav-link" href="/assets/pdf/cv_english.pdf">
+                  <a class="nav-link" href="/cv/">
                     CV
                     
                   </a>
@@ -452,7 +446,6 @@
   </script>
 
   <!-- Including HTML for concise code-->
-   
   <script> 
     $(function () {
       var includes = $('[data-include]')
@@ -471,24 +464,29 @@
   if (projects.length > 0) {
     projects[0].focus();
   }
+  let currentIndex = 0;
 
   // Function to handle keyboard navigation with smooth scrolling
   function handleKeyDown(event) {
-    const currentIndex = Array.from(projects).indexOf(document.activeElement);
+    // const currentIndex = Array.from(projects).indexOf(document.activeElement);
 
     // Handle Tab key
     if (event.key === 'Tab') {
-      let nextIndex = currentIndex;
+      // let nextIndex = currentIndex;
 
       if (event.shiftKey) {
         // Shift + Tab
         if (currentIndex > 0) {
-          nextIndex = currentIndex - 1;
+          currentIndex = currentIndex - 1;
+        }else{
+          currentIndex = projects.length - 1;
         }
       } else {
         // Tab
         if (currentIndex < projects.length - 1) {
-          nextIndex = currentIndex + 1;
+          currentIndex = currentIndex + 1;
+        }else{
+          currentIndex = 0;
         }
       }
 
@@ -496,9 +494,9 @@
       event.preventDefault();
 
       // Focus the next project and smoothly scroll to it
-      if (nextIndex >= 0 && nextIndex < projects.length) {
-        projects[nextIndex].focus();
-        projects[nextIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (currentIndex >= 0 && currentIndex < projects.length) {
+        projects[currentIndex].focus();
+        projects[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }
   }
