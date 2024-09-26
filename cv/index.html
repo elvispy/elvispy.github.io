@@ -21,11 +21,18 @@
   <nav id="navbar" class="navbar fixed-top navbar-expand-md grey lighten-5 z-depth-1 navbar-light">
     <div class="container-fluid p-0">
       
-        <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Elvis</span> Aguero</a>
+      <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Elvis</span> Aguero</a>
       
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+	  <div class="row ml-1 ml-sm-0">
+		<span class="contact-icon text-center" style="line-height: 1em;">
+			<div data-include="socials"></div>
+		</span>
+	  </div>
+	
+	<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+
       <div class="collapse navbar-collapse text-right" id="navbarNav">
         <ul class="navbar-nav ml-auto flex-nowrap">
           <li class="nav-item ">
@@ -47,10 +54,6 @@
                   </a>
               </li>
             
-          
-            
-          
-            
               <li class="nav-item ">
                   <a class="nav-link" href="/projects/">
                     Projects
@@ -58,7 +61,6 @@
                   </a>
               </li>
             
-          
             
               <li class="nav-item ">
                   <a class="nav-link" href="/publications/">
@@ -66,7 +68,6 @@
                     
                   </a>
               </li>
-            
           
             
               <li class="nav-item ">
@@ -75,8 +76,6 @@
                     
                   </a>
               </li>
-            
-          
             
           
         </ul>
@@ -98,13 +97,22 @@
   <h6></h6>
 
 
-<!-- Place PDF download link at the top right. -->
+<!-- Place PDF download link at the top right. 
 <div class="row" style="margin-top: -3.5em;">
-	<a class="ml-auto mr-2" href="/assets/pdf/cv_english.pdf" target="_blank">
-	  <img height="60px" src="/assets/img/pdf_icon.svg" />
+	<a class="ml-auto mr-2" href="/cv/" target="_blank">
+	  <img height="60px" src="/assets/img/pdf_icon.jpg" />
 	</a>
 </div>
+-->
 
+<div style="text-align: center;">
+	<iframe src="/assets/pdf/CV_Elvis.pdf" style="width:85%; height:700px;" frameborder="0"></iframe>
+  </div>
+
+<!--
+  
+<embed src="/cv/" width="900" height="375" 
+type="application/pdf">
 <div class="cv">
 	
 		<div class="card mt-3 p-3">
@@ -125,7 +133,7 @@
 					
 						<tr>
 							<td class="p-0 pr-2 font-weight-bold text-right"><b>Languages</b></td>
-							<td class="p-0 pl-2 font-weight-light text-left">Romanian (native), English (fluent), French (intermediate), German (beginner), Turkish (beginner)</td>
+							<td class="p-0 pl-2 font-weight-light text-left">Spanish (native), English (fluent), Portuguese (fluent), Guarani (fluent), French (beginner)</td>
 						</tr>
 					
 				</table>
@@ -1289,7 +1297,7 @@
 			</div>
 		</div>
 	
-</div>
+</div> -->
 
 
   </div>
@@ -1397,6 +1405,17 @@
       $grid.masonry('layout');
     });
   </script>
+
+  <!-- Including HTML for concise code (socials)-->
+  <script> 
+    $(function () {
+      var includes = $('[data-include]')
+      $.each(includes, function () {
+        var file = '../assets/html/' + $(this).data('include') + '.html'
+        $(this).load(file)
+      })
+    })
+    </script> 
 
   <!-- Enable Tooltips -->
   <script type="text/javascript">
