@@ -99,6 +99,7 @@
     </div>
   </progress>
 
+
   <!-- Content -->
   <div class="content">
     
@@ -461,5 +462,49 @@
       })
     })
     </script> 
+
+<script>
+  // Select all project cards
+  const projects = document.querySelectorAll('.project');
+
+  // Set the first project to be focused on page load
+  if (projects.length > 0) {
+    projects[0].focus();
+  }
+
+  // Function to handle keyboard navigation with smooth scrolling
+  function handleKeyDown(event) {
+    const currentIndex = Array.from(projects).indexOf(document.activeElement);
+
+    // Handle Tab key
+    if (event.key === 'Tab') {
+      let nextIndex = currentIndex;
+
+      if (event.shiftKey) {
+        // Shift + Tab
+        if (currentIndex > 0) {
+          nextIndex = currentIndex - 1;
+        }
+      } else {
+        // Tab
+        if (currentIndex < projects.length - 1) {
+          nextIndex = currentIndex + 1;
+        }
+      }
+
+      // Prevent default tab behavior
+      event.preventDefault();
+
+      // Focus the next project and smoothly scroll to it
+      if (nextIndex >= 0 && nextIndex < projects.length) {
+        projects[nextIndex].focus();
+        projects[nextIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }
+
+  // Add event listener for keydown events
+  document.addEventListener('keydown', handleKeyDown);
+</script>
 </body>
 </html>
