@@ -9,8 +9,8 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Brown University</p>
-    <p>School of Engineering, ERC235B</p>
+    <p><a href="https://engineering.brown.edu/"> Brown University </a> </p>
+    <p>School of Engineering</p>
     <p>84 Hope St, Providence, RI, USA</p>
 
 news: true # includes a list of news items
