@@ -1,13 +1,13 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: Engineer, Physicst, Applied Mathematician.
 
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: true # crops the image to make it circular
   more_info: >
     <p><a href="https://engineering.brown.edu/"> Brown University </a> </p>
     <p>School of Engineering</p>
