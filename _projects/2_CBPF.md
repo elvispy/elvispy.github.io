@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Spintronics
-description: a project with a background image and giscus comments
+description: Advancibg oyr understanding of spintronic materials
 img: assets/img/spintronics.jpeg
 importance: 2
 category: work
