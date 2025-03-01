@@ -440,11 +440,21 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/9_project/";
+            },},{id: "projects-simulating-deformable-impacts",
+          title: 'Simulating deformable impacts',
+          description: "The kinematic match method",
+          section: "Projetos",handler: () => {
+              window.location.href = "/pt-br/projects/1_KM/";
             },},{id: "projects-projeto-1",
           title: 'projeto 1',
           description: "com imagem de fundo",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/1_project/";
+            },},{id: "projects-spintronics",
+          title: 'Spintronics',
+          description: "Advancibg oyr understanding of spintronic materials",
+          section: "Projetos",handler: () => {
+              window.location.href = "/pt-br/projects/2_CBPF/";
             },},{id: "projects-projeto-2",
           title: 'projeto 2',
           description: "um projeto com imagem de fundo e comentários do giscus",
@@ -455,21 +465,51 @@ ninja.data = [{
           description: "um projeto que redireciona pra outro website",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/3_project/";
+            },},{id: "projects-promoting-science-olympiads",
+          title: 'Promoting Science Olympiads',
+          description: "another without an image",
+          section: "Projetos",handler: () => {
+              window.location.href = "/pt-br/projects/4_JT/";
             },},{id: "projects-projeto-4",
           title: 'projeto 4',
           description: "outro sem imagem",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/4_project/";
+            },},{id: "projects-battling-corruption-in-paraguay",
+          title: 'Battling corruption in Paraguay',
+          description: "",
+          section: "Projetos",handler: () => {
+              window.location.href = "/pt-br/projects/5_Reaccion/";
             },},{id: "projects-projeto-5",
           title: 'projeto 5',
           description: "um projeto com imagem de fundo",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/5_project/";
+            },},{id: "projects-mathura",
+          title: 'Mathura',
+          description: "Promoting education acess in paraguay",
+          section: "Projetos",handler: () => {
+              window.location.href = "/pt-br/projects/6_Mathura/";
             },},{id: "projects-projeto-6",
           title: 'projeto 6',
           description: "um projeto sem imagem",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/6_project/";
+            },},{id: "projects-similaritysolver-jl",
+          title: 'SimilaritySolver.jl',
+          description: "A symbolic PDE finder for similarity solutions.",
+          section: "Projetos",handler: () => {
+              window.location.href = "/pt-br/projects/7_zsimilarity/";
+            },},{id: "projects-plz-learn-to-code",
+          title: 'Plz learn to code',
+          description: "",
+          section: "Projetos",handler: () => {
+              window.location.href = "/pt-br/projects/9_PE/";
+            },},{id: "projects-i-was-a-summer-intern-at-cern",
+          title: 'I was a summer intern at CERN!.',
+          description: "",
+          section: "Projetos",handler: () => {
+              window.location.href = "/pt-br/projects/announcement_2/";
             },},{
         id: 'social-github',
         title: 'GitHub',
