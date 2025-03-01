@@ -3,11 +3,13 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: You
-middle_name: R.
-last_name: Name
+first_name: Elvis
+middle_name: A.
+last_name: Aguero
+contact_note: >
+  </div> <div style="width: 300px; margin:0 auto;">  <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=m&d=mizrH622KLxxiuSW_Ps1Fc95erDNZI4QVi4xob0wjcI'></script> </div> </div>
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
-icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: 🥑 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://elvispy.github.io # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
@@ -258,8 +260,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Aguero]
+  first_name: [Elvis, A.]
 
   style: apa
   locale: en
