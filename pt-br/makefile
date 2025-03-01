@@ -24,3 +24,5 @@ $(foreach eng,$(EN_FILES),$(eval $(call TRANSLATE_RULE,$(subst /en-us/,/pt-br/,$
 
 # Generate rules for Spanish translations.
 $(foreach eng,$(EN_FILES),$(eval $(call TRANSLATE_RULE,$(subst /en-us/,/es/,$(eng)),$(eng))))
+
+npx prettier . --write
