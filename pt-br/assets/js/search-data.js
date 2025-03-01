@@ -20,21 +20,7 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/pt-br/";
     },
-  },{id: "nav-blog",
-          title: "blog",
-          description: "um tema simples para acadêmicos",
-          section: "Menu de navegação",
-          handler: () => {
-            window.location.href = "/pt-br/blog/";
-          },
-        },{id: "nav-publicações",
-          title: "publicações",
-          description: "publicações por categoria em ordem cronológica reversa. gerado pelo jekyll-scholar.",
-          section: "Menu de navegação",
-          handler: () => {
-            window.location.href = "/pt-br/publications/";
-          },
-        },{id: "nav-projetos",
+  },{id: "nav-projetos",
           title: "projetos",
           description: "Uma crescente coleção de seus projetos interessantes.",
           section: "Menu de navegação",
@@ -55,42 +41,14 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/pt-br/cv/";
           },
-        },{id: "nav-ensino",
-          title: "ensino",
-          description: "Materiais de cursos que você ministrou. Substitua esse texto com sua descrição.",
+        },{id: "nav-submenus",
+          title: "submenus",
+          description: "",
           section: "Menu de navegação",
           handler: () => {
-            window.location.href = "/pt-br/teaching/";
+            window.location.href = "/pt-br/_pages/pt-br/dropdown/";
           },
-        },{id: "nav-membros",
-          title: "membros",
-          description: "membros do grupo de pesquisa ou laboratório",
-          section: "Menu de navegação",
-          handler: () => {
-            window.location.href = "/pt-br/people/";
-          },
-        },{id: "dropdown-publicações",
-              title: "publicações",
-              description: "",
-              section: "Outras opções",
-              handler: () => {
-                window.location.href = "/pt-br";
-              },
-            },{id: "dropdown-projetos",
-              title: "projetos",
-              description: "",
-              section: "Outras opções",
-              handler: () => {
-                window.location.href = "/pt-br";
-              },
-            },{id: "dropdown-blog",
-              title: "blog",
-              description: "",
-              section: "Outras opções",
-              handler: () => {
-                window.location.href = "/pt-br/blog/";
-              },
-            },{id: "post-a-post-with-image-galleries",
+        },{id: "post-a-post-with-image-galleries",
       
         title: "a post with image galleries",
       

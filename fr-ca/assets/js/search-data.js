@@ -41,28 +41,14 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/fr-ca/cv/";
           },
-        },{id: "dropdown-publications",
-              title: "publications",
-              description: "",
-              section: "déroulant",
-              handler: () => {
-                window.location.href = "/fr-ca";
-              },
-            },{id: "dropdown-projects",
-              title: "projects",
-              description: "",
-              section: "déroulant",
-              handler: () => {
-                window.location.href = "/fr-ca";
-              },
-            },{id: "dropdown-blog",
-              title: "blog",
-              description: "",
-              section: "déroulant",
-              handler: () => {
-                window.location.href = "/fr-ca/blog/";
-              },
-            },{id: "post-a-post-with-image-galleries",
+        },{id: "nav-submenus",
+          title: "submenus",
+          description: "",
+          section: "menu de navigation",
+          handler: () => {
+            window.location.href = "/fr-ca/_pages/en-us/dropdown/";
+          },
+        },{id: "post-a-post-with-image-galleries",
       
         title: "a post with image galleries",
       
