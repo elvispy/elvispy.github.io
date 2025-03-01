@@ -393,16 +393,16 @@ ninja.data = [{
           window.location.href = "/blog/2015/formatting-and-links/";
         
       },
-    },{id: "news-a-simple-inline-announcement",
-          title: 'A simple inline announcement.',
+    },{id: "news-um-anúncio-simples-em-uma-linha",
+          title: 'Um anúncio simples em uma linha.',
           description: "",
-          section: "News",},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
+          section: "News",},{id: "news-um-anúncio-longo-com-detalhes",
+          title: 'Um anúncio longo com detalhes',
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+            },},{id: "news-um-anúncio-simples-em-uma-linha-com-markdown-emoji-sparkles-smile",
+          title: 'Um anúncio simples em uma linha com Markdown emoji! :sparkles: :smile:',
           description: "",
           section: "News",},{id: "news-our-paper-impact-of-a-rigid-sphere-onto-an-ellastic-membrane-was-accepted-at-the-proceedings-of-the-royal-society-a",
           title: 'Our paper “Impact of a rigid sphere onto an ellastic membrane” was accepted...',
