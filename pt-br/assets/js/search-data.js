@@ -499,11 +499,11 @@ ninja.data = [{
             window.location.href = "" + updatedUrl;
           },
         },{
-          id: 'lang-fr-ca',
-          title: 'fr-ca',
+          id: 'lang-es',
+          title: 'es',
           section: 'Idiomas',
           handler: () => {
-            window.location.href = "/fr-ca" + updatedUrl;
+            window.location.href = "/es" + updatedUrl;
           },
         },{
       id: 'light-theme',
