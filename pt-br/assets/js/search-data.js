@@ -470,31 +470,6 @@ ninja.data = [{
           description: "com imagem de fundo",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/1_project/";
-            },},{id: "projects-projeto-2",
-          title: 'projeto 2',
-          description: "um projeto com imagem de fundo e comentários do giscus",
-          section: "Projetos",handler: () => {
-              window.location.href = "/pt-br/projects/2_project/";
-            },},{id: "projects-projeto-3-com-um-nome-bem-longo",
-          title: 'projeto 3 com um nome bem longo',
-          description: "um projeto que redireciona pra outro website",
-          section: "Projetos",handler: () => {
-              window.location.href = "/pt-br/projects/3_project/";
-            },},{id: "projects-projeto-4",
-          title: 'projeto 4',
-          description: "outro sem imagem",
-          section: "Projetos",handler: () => {
-              window.location.href = "/pt-br/projects/4_project/";
-            },},{id: "projects-projeto-5",
-          title: 'projeto 5',
-          description: "um projeto com imagem de fundo",
-          section: "Projetos",handler: () => {
-              window.location.href = "/pt-br/projects/5_project/";
-            },},{id: "projects-projeto-6",
-          title: 'projeto 6',
-          description: "um projeto sem imagem",
-          section: "Projetos",handler: () => {
-              window.location.href = "/pt-br/projects/6_project/";
             },},{
         id: 'social-github',
         title: 'GitHub',
