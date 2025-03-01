@@ -5,5 +5,4 @@ inline: true
 related_posts: false
 ---
 
-
 I presented my latest work at the [Brazil-China Joint Mathematical Meeting](https://sbm.org.br/jointmeeting-china/)
