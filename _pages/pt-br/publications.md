@@ -4,7 +4,7 @@ layout: page
 permalink: /publications/
 title: publicações
 description: publicações por categoria em ordem cronológica reversa. gerado pelo jekyll-scholar.
-nav: true
+nav: false
 nav_order: 2
 ---
 
