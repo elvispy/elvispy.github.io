@@ -35,9 +35,3 @@ My work focused in Computational Fluid Mechanics, where I strive to implement re
 I have a wide and expanding set of interests, all of them inspired by an honest quest for truth and scientific rigor. Lately, I have been drawn by ideas spanning areas such as Computational Engineering (classical, deterministic and probabilistic), Learning Algorithms (both their foundations, scalability and safe implementation), Quantum Computing, and even Philosophy. 
 
 On a non-academic note, I also had the pleasure to work alongside teams advocating for anti-corruption public policies in my home country (Paraguay), through implementation of Open Contracting Data Standards. I am also an avid collaborator of the Paraguayan National Math Olympiads.
-
-[comment]: <> (Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.)
-
-[comment]: <> (Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.)
-
-[comment]: <> (Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.>)
