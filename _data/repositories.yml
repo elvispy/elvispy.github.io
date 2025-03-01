@@ -1,15 +1,19 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - elvispy
+  - elvis-aguero
 
 repo_description_lines_max: 2
 
 github_repos:
-  - george-gca/multi-language-al-folio
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - elvispy/kinematic-match-sphere
+  - elvispy/km-dropplet-solidsubstrate-v3
+  - elvispy/km-dropplet-onto-bath
+  - elvispy/SimilaritySolver.jl
+  - elvispy/Introduccion-Programacion-Competitiva
+  - elvispy/JupyterPiensa
+  - elvispy/PiensaPython
+  - elvispy/DepotDelivery.jl
+  - elvispy/JTSoluciones
+  - elvispy/OCPReAccion
+  - elvispy/dncp_scrapper
+  - elvis-aguero/km-disk-vibrating
