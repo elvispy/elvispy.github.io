@@ -23,7 +23,7 @@ This framework is agnostic to the technique used to approximate the PDE, so it c
 
 We have successfully implemented the KM for the case of a rigid sphere impacting against an elastic membrane, and are currently working on other cases, most notably a deformable droplet impacting different surfaces -either rigid or not.
 
-We wrote an article (see {% cite aguero2022impact %}) where we studied both experimentally and numerically the coupled deformable imapct between a solid sphere and an elastic membrane.
+We wrote an article (see {% cite einstein1950meaning %}) where we studied both experimentally and numerically the coupled deformable imapct between a solid sphere and an elastic membrane.
 
 Current work involves extending this framework to other problems. We are currently working on the problem of a deformable water droplet impacting against a fluid bath. Our model is particularly well suited for low velocity impacts, where direct numerical simulations might become computationally too expensive. Here are three of the repositories we have for these problems:
 
