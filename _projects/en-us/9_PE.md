@@ -8,7 +8,7 @@ importance: 4
 category: fun
 ---
 
-I'll back [Evan Chen](https://web.evanchen.cc/techspeech.html) on this one. Please learn to code.
+I'll back [Evan Chen](https://web.evanchen.cc/techspeech.html) on this one. Please learn to code. 
 
 Project Euler is not the best resource to learn coding from first principles, but rather to spark your curiosity into algorithmic thinking. Here's a [cool](https://projecteuler.net/problem=216) problem to think about:
 

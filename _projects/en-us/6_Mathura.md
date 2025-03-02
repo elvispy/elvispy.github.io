@@ -2,7 +2,7 @@
 page_id: prj_mathura
 layout: page
 title: Mathura
-description: Promoting education acess in paraguay
+description: Promoting education access in paraguay
 img: assets/img/mathura.jpg
 importance: 4
 category: personal

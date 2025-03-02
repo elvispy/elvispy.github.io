@@ -5,7 +5,7 @@ title: Promovendo Olimpíadas de Ciência
 description: outro sem imagem
 img: assets/img/jt2.jpg
 importance: 3
-category: pessoal
+category: personal
 ---
 
 As Olimpíadas de Ciência transformaram a maneira como vejo o mundo.

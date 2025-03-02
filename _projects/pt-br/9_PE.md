@@ -5,7 +5,7 @@ title: Por favor, aprenda a programar
 description:
 img: assets/img/PE.png
 importance: 4
-category: diversão
+category: fun
 ---
 
 Eu apoio [Evan Chen](https://web.evanchen.cc/techspeech.html) nessa. Por favor, aprenda a programar.
