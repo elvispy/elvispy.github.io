@@ -36,7 +36,7 @@ ninja.data = [{
           },
         },{id: "nav-cv",
           title: "cv",
-          description: "Esta é uma descrição da página. Você pode modificá-la em &#39;_pages/cv.md&#39;. Também pode alterar ou remover o botão no topo de download de pdf.",
+          description: "",
           section: "Menu de navegação",
           handler: () => {
             window.location.href = "/pt-br/cv/";
@@ -425,43 +425,43 @@ ninja.data = [{
           section: "Novidades",},{id: "news-i-presented-my-latest-work-at-the-annual-meeting-of-the-american-physical-society-division-of-fluid-dynamics",
           title: 'I presented my latest work at the Annual Meeting of the American Physical...',
           description: "",
-          section: "Novidades",},{id: "projects-simulating-deformable-impacts",
-          title: 'Simulating deformable impacts',
-          description: "The kinematic match method",
+          section: "Novidades",},{id: "projects-simulação-de-impactos-deformáveis",
+          title: 'Simulação de Impactos Deformáveis',
+          description: "O método de correspondência cinemática",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/1_KM/";
-            },},{id: "projects-spintronics",
-          title: 'Spintronics',
-          description: "Advancibg oyr understanding of spintronic materials",
+            },},{id: "projects-spintrônica",
+          title: 'Spintrônica',
+          description: "Avançando nossa compreensão dos materiais de spintrônica",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/2_CBPF/";
-            },},{id: "projects-promoting-science-olympiads",
-          title: 'Promoting Science Olympiads',
-          description: "another without an image",
+            },},{id: "projects-promovendo-olimpíadas-de-ciência",
+          title: 'Promovendo Olimpíadas de Ciência',
+          description: "outro sem imagem",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/4_JT/";
-            },},{id: "projects-battling-corruption-in-paraguay",
-          title: 'Battling corruption in Paraguay',
+            },},{id: "projects-combatendo-a-corrupção-no-paraguai",
+          title: 'Combatendo a corrupção no Paraguai',
           description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/5_Reaccion/";
             },},{id: "projects-mathura",
           title: 'Mathura',
-          description: "Promoting education acess in paraguay",
+          description: "Promovendo o acesso à educação no Paraguai",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/6_Mathura/";
             },},{id: "projects-similaritysolver-jl",
           title: 'SimilaritySolver.jl',
-          description: "A symbolic PDE finder for similarity solutions.",
+          description: "Um localizador simbólico de EDPs para soluções de similaridade.",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/7_zsimilarity/";
-            },},{id: "projects-plz-learn-to-code",
-          title: 'Plz learn to code',
+            },},{id: "projects-por-favor-aprenda-a-programar",
+          title: 'Por favor, aprenda a programar',
           description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/9_PE/";
-            },},{id: "projects-i-was-a-summer-intern-at-cern",
-          title: 'I was a summer intern at CERN!.',
+            },},{id: "projects-fui-um-estagiário-de-verão-no-cern",
+          title: 'Fui um estagiário de verão no CERN!.',
           description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/announcement_2/";
