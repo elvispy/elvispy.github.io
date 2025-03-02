@@ -465,11 +465,6 @@ ninja.data = [{
           description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/announcement_2/";
-            },},{id: "projects-projeto-1",
-          title: 'projeto 1',
-          description: "com imagem de fundo",
-          section: "Projetos",handler: () => {
-              window.location.href = "/pt-br/projects/1_project/";
             },},{
         id: 'social-github',
         title: 'GitHub',
