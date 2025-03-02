@@ -447,7 +447,7 @@ ninja.data = [{
               window.location.href = "/es/projects/5_Reaccion/";
             },},{id: "projects-mathura",
           title: 'Mathura',
-          description: "Promoting education acess in paraguay",
+          description: "Promoting education access in paraguay",
           section: "",handler: () => {
               window.location.href = "/es/projects/6_Mathura/";
             },},{id: "projects-similaritysolver-jl",
