@@ -3,25 +3,35 @@ page_id: about
 layout: about
 title: sobre
 permalink: /
-subtitle: <a href='#'>Afiliações</a>. Endereço. Contatos. Lema. Etc.
+subtitle: Engenheiro, Físico, Matemático Aplicado.
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 seu telefone do trabalho</p>
-    <p>123 seu endereço</p>
-    <p>Sua cidade, estado 12345</p>
+    <p><a href="https://engineering.brown.edu/"> Brown University </a> </p>
+    <p>School of Engineering</p>
+    <p>84 Hope St, Providence, RI, USA</p>
 
-news: true # includes a list of news items
-latest_posts: true # includes a list of the newest posts
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
+
+announcements:
+  enabled: true # includes a list of news items
+  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
+  limit: 5 # leave blank to include all the news in the `_news` folder
+
+latest_posts:
+  enabled: false
+  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
+  limit: 3 # leave blank to include all the blog posts
 ---
 
-Escreva sua biografia aqui. Diga ao mundo sobre você. Adicione o link para o seu [subreddit](http://reddit.com) favorito. Você pode colocar uma foto também. O código já está dentro, basta nomear sua foto como `prof_pic.jpg` e colocá-la na pasta `img/`.
+Sou um estudante de doutorado do primeiro ano na Escola de Engenharia da Brown University, após ter concluído um mestrado em Matemática Aplicada, gentilmente supervisionado por [André Nachbin](https://www.wpi.edu/people/faculty/anachbin) no [IMPA](https://impa.br/), que comecei quando tinha 17 anos, e também concluí um bacharelado em Engenharia Física na [UNILA](https://portal.unila.edu.br/)
 
-Coloque seu endereço / caixa postal / outras informações logo abaixo da sua foto. Você também pode desabilitar qualquer um desses elementos editando a propriedade `profile` do cabeçalho YAML do seu `_pages/about.md`. Edite `_bibliography/papers.bib` e o Jekyll renderizará sua [página de publicações](/multi-language-al-folio/publications/) automaticamente.
+Tenho um grande interesse na modelagem e simulação de sistemas físicos complexos, com foco na compreensão, previsão e, eventualmente, na modelagem da dinâmica não linear em ambientes naturais e projetados. Minha curiosidade abrange engenharia computacional (clássica e probabilística), algoritmos de aprendizado, computação quântica e os fundamentos filosóficos da própria modelagem. Sou atraído por essas áreas não apenas por sua riqueza intelectual, mas também por seu potencial para habilitar aplicações significativas da ciência fundamental.
 
-Adicione links para seus perfis de mídias sociais também. Este tema está configurado para usar [Font Awesome icons](https://fontawesome.com/) e [Academicons](https://jpswalsh.github.io/academicons/), como os visto abaixo. Adicione seu Facebook, Twitter, LinkedIn, Google Scholar ou simplesmente desative todos eles.
+Atualmente, minha pesquisa está na interseção da mecânica dos fluidos e da física da matéria mole. Desenvolvo modelos de ordem reduzida e de resolução de interface para estudar problemas como propulsão impulsionada por ondas, dinâmica de impacto não-Hertziana e mistura multifásica em biorreatores para produção de carne cultivada. Esses projetos combinam modelagem teórica, simulação, experimentos e insight físico para enfrentar desafios na fabricação biológica, transporte interfacial e interações fluido-estrutura.
+
+Fora da academia, colaborei com organizações de tecnologia cívica para promover a transparência nas licitações públicas no Paraguai e continuo a contribuir para as Olimpíadas Nacionais de Matemática do Paraguai.
