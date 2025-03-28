@@ -20,9 +20,9 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/pt-br/";
     },
-  },{id: "nav-projetos",
-          title: "projetos",
-          description: "Uma crescente coleção de seus projetos interessantes.",
+  },{id: "nav-projects",
+          title: "projects",
+          description: "Uma coleção crescente de seus projetos legais.",
           section: "Menu de navegação",
           handler: () => {
             window.location.href = "/pt-br/projects/";
@@ -455,8 +455,8 @@ ninja.data = [{
           description: "Um localizador simbólico de EDPs para soluções de similaridade.",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/7_zsimilarity/";
-            },},{id: "projects-por-favor-aprenda-a-programar",
-          title: 'Por favor, aprenda a programar',
+            },},{id: "projects-plz-learn-to-code",
+          title: 'Plz learn to code',
           description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/9_PE/";
