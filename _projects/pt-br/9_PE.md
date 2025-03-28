@@ -1,7 +1,7 @@
 ---
 page_id: prj_PE
 layout: page
-title: Por favor, aprenda a programar
+title: Plz learn to code
 description:
 img: assets/img/PE.png
 importance: 4
