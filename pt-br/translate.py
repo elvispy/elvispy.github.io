@@ -5,10 +5,13 @@ import re
 from time import sleep
 from google import genai
 
+# Supported Languages
 LANGUAGES = {"en": "ENGLISH",
              "pt": "PORGUGUESE",
              "fr": "FRENCH", 
              "es": "SPANISH"}
+
+# Colors to print on the terminal to
 ansi_colors = {
     "black": "\033[30m",
     "red": "\033[31m",
@@ -21,8 +24,10 @@ ansi_colors = {
     "reset": "\033[0m"
 }
 
+#Print with colors
 printc = lambda s, color: print(f"{ansi_colors[color]}{s}{ansi_colors["reset"]}")
 
+# Function to send prompt to 
 def send_prompt(prompt, client=None, i=1):
     try:
         response = client.models.generate_content(
@@ -85,7 +90,7 @@ def main():
         prompt = (
             "I will provide you with two files. The first one is in english, and the second one is a translated version in " + language+ ". \n " + 
             "Tweak the translated version so that it matches the contents from the original file. Of course, maintain the language of the second file. " + 
-            "Preserve any Markdown formatting (headers, lists, code blocks, links, etc.):\n\n" + content + 
+            "Preserve any Markdown/HTML formatting so that syntax is maintained (headers, lists, code blocks, links, etc.):\n\n" + content + 
             "\n\nNow, the translated version before your changes: \n\n" + translated_old + 
             "Your response should contain only one code block in markdown style, delimited by triple backticks"
         )
