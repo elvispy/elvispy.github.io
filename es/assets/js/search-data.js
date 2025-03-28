@@ -425,19 +425,19 @@ ninja.data = [{
           section: "",},{id: "news-i-presented-my-latest-work-at-the-annual-meeting-of-the-american-physical-society-division-of-fluid-dynamics",
           title: 'I presented my latest work at the Annual Meeting of the American Physical...',
           description: "",
-          section: "",},{id: "projects-simulating-deformable-impacts",
-          title: 'Simulating deformable impacts',
-          description: "The kinematic match method",
+          section: "",},{id: "projects-simulación-de-impactos-deformables",
+          title: 'Simulación de impactos deformables',
+          description: "El método de correspondencia cinemática",
           section: "",handler: () => {
               window.location.href = "/es/projects/1_KM/";
-            },},{id: "projects-spintronics",
-          title: 'Spintronics',
-          description: "Advancibg oyr understanding of spintronic materials",
+            },},{id: "projects-espintrónica",
+          title: 'Espintrónica',
+          description: "Avanzando en nuestra comprensión de los materiales espintrónicos",
           section: "",handler: () => {
               window.location.href = "/es/projects/2_CBPF/";
-            },},{id: "projects-promoting-science-olympiads",
-          title: 'Promoting Science Olympiads',
-          description: "another without an image",
+            },},{id: "projects-promoviendo-las-olimpiadas-de-ciencias",
+          title: 'Promoviendo las Olimpiadas de Ciencias',
+          description: "otro sin imagen",
           section: "",handler: () => {
               window.location.href = "/es/projects/4_JT/";
             },},{id: "projects-battling-corruption-in-paraguay",
@@ -447,7 +447,7 @@ ninja.data = [{
               window.location.href = "/es/projects/5_Reaccion/";
             },},{id: "projects-mathura",
           title: 'Mathura',
-          description: "Promoting education access in paraguay",
+          description: "Promoción del acceso a la educación en Paraguay",
           section: "",handler: () => {
               window.location.href = "/es/projects/6_Mathura/";
             },},{id: "projects-similaritysolver-jl",
@@ -455,13 +455,13 @@ ninja.data = [{
           description: "A symbolic PDE finder for similarity solutions.",
           section: "",handler: () => {
               window.location.href = "/es/projects/7_zsimilarity/";
-            },},{id: "projects-plz-learn-to-code",
-          title: 'Plz learn to code',
+            },},{id: "projects-por-favor-aprende-a-programar",
+          title: 'Por favor, aprende a programar',
           description: "",
           section: "",handler: () => {
               window.location.href = "/es/projects/9_PE/";
-            },},{id: "projects-i-was-a-summer-intern-at-cern",
-          title: 'I was a summer intern at CERN!.',
+            },},{id: "projects-fui-becario-de-verano-en-el-cern",
+          title: '¡Fui becario de verano en el CERN!.',
           description: "",
           section: "",handler: () => {
               window.location.href = "/es/projects/announcement_2/";
