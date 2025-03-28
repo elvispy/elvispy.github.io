@@ -7,7 +7,7 @@ from google import genai
 
 # Supported Languages
 LANGUAGES = {"en": "ENGLISH",
-             "pt": "PORGUGUESE",
+             "pt": "PORTUGUESE",
              "fr": "FRENCH", 
              "es": "SPANISH"}
 

@@ -10,6 +10,9 @@ ES_CV    := $(subst /en-us/,/es/,$(CV_FILE))
 .PHONY: all
 all: $(PT_FILES) $(ES_FILES) 
 
+initialize:
+	mamba activate base
+
 # Define a rule template for translating an English file to a target language file.
 # $(1) = target file, $(2) = source file
 define TRANSLATE_RULE
@@ -27,3 +30,4 @@ $(foreach eng,$(EN_FILES),$(eval $(call TRANSLATE_RULE,$(subst /en-us/,/es/,$(en
 
 finalize: 
 	npx prettier . --write
+	mamba deactivate
