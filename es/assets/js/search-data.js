@@ -440,8 +440,8 @@ ninja.data = [{
           description: "otro sin imagen",
           section: "",handler: () => {
               window.location.href = "/es/projects/4_JT/";
-            },},{id: "projects-battling-corruption-in-paraguay",
-          title: 'Battling corruption in Paraguay',
+            },},{id: "projects-luchando-contra-la-corrupción-en-paraguay",
+          title: 'Luchando contra la corrupción en Paraguay',
           description: "",
           section: "",handler: () => {
               window.location.href = "/es/projects/5_Reaccion/";
@@ -452,7 +452,7 @@ ninja.data = [{
               window.location.href = "/es/projects/6_Mathura/";
             },},{id: "projects-similaritysolver-jl",
           title: 'SimilaritySolver.jl',
-          description: "A symbolic PDE finder for similarity solutions.",
+          description: "Un buscador simbólico de EDO para soluciones de similitud.",
           section: "",handler: () => {
               window.location.href = "/es/projects/7_zsimilarity/";
             },},{id: "projects-por-favor-aprende-a-programar",
