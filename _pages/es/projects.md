@@ -1,7 +1,7 @@
 ---
 page_id: projects
 layout: page
-title: projects
+title: proyectos
 permalink: /projects/
 description: Una selección de proyectos en los cuales estuve envuelto.
 nav: true
