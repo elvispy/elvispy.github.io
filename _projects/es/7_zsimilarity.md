@@ -1,3 +1,4 @@
+---
 page_id: prj_sim
 layout: page
 title: SimilaritySolver.jl
