@@ -1,6 +1,6 @@
 ---
 layout: page
-title: I was a summer intern at CERN!.
+title: My summer internship at CERN!
 description:
 importance: 2
 category: work

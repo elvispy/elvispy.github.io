@@ -1,7 +1,7 @@
 ---
 page_id: prj_sim
 layout: page
-title: SimilaritySolver.jl
+title: A dynamic similarity solver for fluid dynamics.
 description: A symbolic PDE finder for similarity solutions.
 img: #assets/img/boundary_layer.png
 importance: 3

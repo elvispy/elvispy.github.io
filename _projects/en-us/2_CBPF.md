@@ -1,7 +1,7 @@
 ---
 page_id: prj_cbpf
 layout: page
-title: Spintronics
+title: The new electronics
 description: Advancibg oyr understanding of spintronic materials
 img: assets/img/spintronics.jpeg
 importance: 2
