@@ -425,7 +425,12 @@ ninja.data = [{
           section: "",},{id: "news-presenté-mi-trabajo-más-reciente-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-sociedad-estadounidense-de-física",
           title: 'Presenté mi trabajo más reciente en la Reunión Anual de la División de...',
           description: "",
-          section: "",},{id: "projects-simulación-de-impactos-deformables",
+          section: "",},{id: "projects-simulating-deformable-impacts",
+          title: 'Simulating deformable impacts',
+          description: "The kinematic match method",
+          section: "",handler: () => {
+              window.location.href = "/es/projects/0_bioreactor/";
+            },},{id: "projects-simulación-de-impactos-deformables",
           title: 'Simulación de impactos deformables',
           description: "El método de correspondencia cinemática",
           section: "",handler: () => {

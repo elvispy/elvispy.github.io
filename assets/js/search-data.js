@@ -22,7 +22,7 @@ ninja.data = [{
     },
   },{id: "nav-projects",
           title: "projects",
-          description: "A growing collection of your cool projects.",
+          description: "A growing collection of my cool projects.",
           section: "Navigation menu",
           handler: () => {
             window.location.href = "/projects/";
@@ -429,9 +429,14 @@ ninja.data = [{
           title: 'Simulating deformable impacts',
           description: "The kinematic match method",
           section: "Projects",handler: () => {
+              window.location.href = "/projects/0_bioreactor/";
+            },},{id: "projects-simulating-deformable-impacts",
+          title: 'Simulating deformable impacts',
+          description: "The kinematic match method",
+          section: "Projects",handler: () => {
               window.location.href = "/projects/1_KM/";
-            },},{id: "projects-spintronics",
-          title: 'Spintronics',
+            },},{id: "projects-the-new-electronics",
+          title: 'The new electronics',
           description: "Advancibg oyr understanding of spintronic materials",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_CBPF/";
@@ -445,13 +450,13 @@ ninja.data = [{
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/5_Reaccion/";
-            },},{id: "projects-mathura",
-          title: 'Mathura',
+            },},{id: "projects-democratizing-access-to-scolarships-in-paraguay",
+          title: 'Democratizing access to scolarships in Paraguay',
           description: "Promoting education access in paraguay",
           section: "Projects",handler: () => {
               window.location.href = "/projects/6_Mathura/";
-            },},{id: "projects-similaritysolver-jl",
-          title: 'SimilaritySolver.jl',
+            },},{id: "projects-a-dynamic-similarity-solver-for-fluid-dynamics",
+          title: 'A dynamic similarity solver for fluid dynamics.',
           description: "A symbolic PDE finder for similarity solutions.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/7_zsimilarity/";
@@ -460,8 +465,8 @@ ninja.data = [{
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_PE/";
-            },},{id: "projects-i-was-a-summer-intern-at-cern",
-          title: 'I was a summer intern at CERN!.',
+            },},{id: "projects-my-summer-internship-at-cern",
+          title: 'My summer internship at CERN!',
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/announcement_2/";
