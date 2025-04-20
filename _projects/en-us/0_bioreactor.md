@@ -1,8 +1,8 @@
 ---
 page_id: prj_bioreactor
 layout: page
-title: Simulating deformable impacts
-description: The kinematic match method
+title: Bioreactor optimization
+description: Simulating the Future of Meat: A Fluid Dance in Lab-Grown Steaks
 img: assets/img/km-sphere.gif
 importance: 1
 category: work
@@ -11,13 +11,13 @@ related_publications: true
 
 # 🌱 Simulating the Future of Meat: A Fluid Dance in Lab-Grown Steaks
 
-Imagine a world where your burger doesn’t come from a cow grazing a field but from a bioreactor humming quietly in a lab. This isn’t science fiction—it’s the promise of **cultivated meat**, a sustainable alternative to traditional livestock farming. But here’s the twist: growing meat from cells isn’t just about biology. It’s also about solving a _fluid dynamics puzzle_. Let me take you behind the scenes of how we’re using computational magic to design bioreactors that could one day feed the planet.
+Imagine a world where your burger doesn’t come from a cow grazing a field but from a bioreactor humming quietly in a lab. This isn’t science fiction—it’s the promise of **cultivated meat**, a sustainable alternative to traditional livestock farming. But here’s the twist: growing meat from cells isn’t just about biology. It’s also about solving a _fluid dynamics puzzle_.
 
 ---
 
 ## The Problem: Why Rocking Bioreactors Need a “Gentle Touch”
 
-Cultivated meat starts with animal cells multiplying in a nutrient-rich broth inside bioreactors. Among these, **rocking bioreactors**—think of a shallow tray tilting rhythmically like a seesaw—are rising stars. They’re cheaper, scalable, and gentler on fragile cells than traditional tanks with whirling blades. But there’s a catch: if the rocking motion is too aggressive, cells get battered by chaotic flows. Too timid, and oxygen and nutrients pool unevenly, starving the cells.
+Cultivated meat starts with animal cells multiplying in a nutrient-rich broth inside bioreactors. Among these, **rocking bioreactors**—think of a shallow tray tilting rhythmically like a seesaw—are rising stars. The have the potential to be scalable and gentler on fragile cells than traditional tanks with whirling blades. But there’s a catch: if the rocking motion is too aggressive, cells get battered by chaotic flows. Too timid, and oxygen and nutrients pool unevenly, starving the cells.
 
 So, how do we find the perfect rhythm?
 
@@ -25,7 +25,7 @@ So, how do we find the perfect rhythm?
 
 ## Cracking the Code with Computational Fluid Dynamics
 
-Enter **Basilisk**, an open-source fluid dynamics platform. My team and I built a virtual replica of a rocking bioreactor—a rectangular “cellbag” filled with water (mimicking cell culture) and air. We simulated how fluids slosh, swirl, and mix as the bioreactor tilts, tracking everything from oxygen bubbles to invisible forces that could stress cells.
+Enter **Basilisk**, an open-source fluid dynamics platform. My lab works on simulations of a rocking bioreactor—a rectangular “cellbag” filled with water (mimicking cell culture) and air ({% cite kim2025simulationmodelingframeworkfluid %}). We simulated how fluids slosh, swirl, and mix as the bioreactor tilts, tracking everything from oxygen bubbles to invisible forces that could stress cells.
 
 The goal? To answer three big questions:
 
