@@ -1,9 +1,9 @@
 ---
 page_id: about
 layout: about
-title: about
+title: sobre
 permalink: /
-subtitle: Engineer, Physicst, Applied Mathematician.
+subtitle: Ingeniero, Físico, Matemático Aplicado.
 
 profile:
   align: right
