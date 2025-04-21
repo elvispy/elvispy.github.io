@@ -25,7 +25,7 @@ Entonces, ¿cómo encontramos el ritmo perfecto?
 
 ## Descifrando el Código con Dinámica de Fluidos Computacional
 
-Entra **Basilisk**, una plataforma de dinámica de fluidos de código abierto. Mi laboratorio trabaja en simulaciones de un biorreactor oscilante: una "bolsa celular" rectangular llena de agua (imitando el cultivo celular) y aire {% cite kim2025simulationmodelingframeworkfluid %}. Simulamos cómo los fluidos chapotean, giran y se mezclan a medida que el biorreactor se inclina, rastreando todo, desde burbujas de oxígeno hasta fuerzas invisibles que podrían estresar a las células.
+Usamos **Basilisk**, una plataforma de dinámica de fluidos de código abierto. Mi laboratorio trabaja en simulaciones de un biorreactor oscilante: una "bolsa celular" rectangular llena de agua (imitando el cultivo celular) y aire cite kim2025simulationmodelingframeworkfluid . Simulamos cómo los fluidos chapotean, giran y se mezclan a medida que el biorreactor se inclina, rastreando todo, desde burbujas de oxígeno hasta fuerzas invisibles que podrían estresar a las células.
 
 ¿El objetivo? Responder tres grandes preguntas:
 
