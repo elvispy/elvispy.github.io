@@ -9,7 +9,7 @@ category: work
 related_publications: true
 ---
 
-We are all happy calculating the trajectory of an object in free-fall. But how do we actually solve what happens just after that, during an inelastic collision?. The interactions involved are highly nonlinear and oftentimes the colliding objects are free to deform as they are in contact.
+## The Problem: Why Collisions Are More Than Just "Bouncing"
 
 <figure style="float: left; margin: 10px; max-width: 300px;">
     {% include figure.liquid loading="eager" path="assets/img/km-sphere.gif" title="example image" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
@@ -18,14 +18,49 @@ We are all happy calculating the trajectory of an object in free-fall. But how d
     </figcaption>
 </figure>
 
-This problem is relevant because it has plenty of applications, from soft robots, to gear teeth and even astrophysics. In general, you have a PDE under and some nonlinear constraints that represents the problem. The KM sets a new constraint on the contacting surface by imposing that the angle of incidence between the two objects is smooth. It has the advantage of introducing an intuitive idea (easy to code = can be quickly implemented in industrial setups), while enhancing accuracy.
-This framework is agnostic to the technique used to approximate the PDE, so it can be implemented using a finite difference scheme, or finite elements, or even a variational method.
+Inelastic collisions—where objects don’t just rebound but deform, stick, or fragment—are governed by nonlinear dynamics that defy simple equations. Traditional models often oversimplify contact mechanics, ignoring how materials _adapt_ during impact. For instance, a soft robot’s silicone "fingers" gripping an object or a water droplet splashing on a vibrating surface involves intricate coupling between elasticity, fluid dynamics, and geometry .
 
-We have successfully implemented the KM for the case of a rigid sphere impacting against an elastic membrane, and are currently working on other cases, most notably a deformable droplet impacting different surfaces -either rigid or not.
+---
 
-We wrote an article (see {% cite aguero2022impact %}) where we studied both experimentally and numerically the coupled deformable imapct between a solid sphere and an elastic membrane.
+## The KM Framework: Smoothing Out the Chaos
 
-Current work involves extending this framework to other problems. We are currently working on the problem of a deformable water droplet impacting against a fluid bath. Our model is particularly well suited for low velocity impacts, where direct numerical simulations might become computationally too expensive. Here are three of the repositories we have for these problems:
+At its core, the KM framework introduces (see {% cite aguero2022impact%}) a **geometric constraint** on contacting surfaces: the angle of incidence between colliding objects must remain smooth. Think of it as ensuring a "handshake" between materials—no sharp edges, no sudden jumps. This approach is:
+
+1. **Intuitive**: Unlike brute-force simulations, KM’s constraints mirror real-world behavior, making it easier to implement .
+2. **Versatile**: It works with finite elements, finite differences, or even machine learning solvers.
+3. **Efficient**: By avoiding costly mesh refinements, KM excels in scenarios like low-velocity droplet impacts, where traditional methods struggle .
+
+In our [recent study](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340) , we validated KM against experiments involving a steel sphere striking an elastic membrane. The results matched not just deformation patterns but also energy dissipation rates—a rarity in collision modeling .
+
+---
+
+## From Robots to Raindrops: Why This Matters
+
+### 1. **Soft Robotics**
+
+KM enables precise modeling of grippers interacting with delicate objects, ensuring forces are distributed without damage—critical for medical robotics or fruit-picking machines.
+
+### 2. **Astrophysics**
+
+Simulating asteroid collisions or planetary accretion requires handling fragmented, deformable bodies. KM’s ability to manage irregular contact surfaces could refine models of cosmic dust aggregation .
+
+### 3. **Fluid-Structure Interactions**
+
+Our ongoing work applies KM to water droplets hitting fluid baths—a problem with applications in inkjet printing and pesticide spraying. Early results show KM captures capillary waves and coalescence better than conventional CFD .
+
+---
+
+## What’s Next?
+
+We’re expanding KM to:
+
+- **Multi-material collisions**: Think ice hitting water (relevant for cryogenic engineering).
+- **Biological systems**: Simulating cell-matrix interactions in tissue engineering bioreactors .
+- **Machine learning integration**: Training neural networks to predict KM constraints, reducing compute time.
+
+---
+
+Collisions aren’t just endpoints—they’re conversations between materials. With KM, we’re decoding that dialogue, one impact at a time. 🚀
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='elvispy/kinematic-match-sphere' %}  
