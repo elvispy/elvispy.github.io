@@ -9,7 +9,7 @@ category: work
 related_publications: true
 ---
 
-Todos nós ficamos felizes em calcular a trajetória de um objeto em queda livre. Mas como realmente resolvemos o que acontece logo após isso, durante uma colisão inelástica? As interações envolvidas são altamente não lineares e, frequentemente, os objetos em colisão são livres para se deformar enquanto estão em contato.
+## O Problema: Por Que Colisões São Mais do Que Apenas "Ricochetear"
 
 <figure style="float: left; margin: 10px; max-width: 300px;">
     {% include figure.liquid loading="eager" path="assets/img/km-sphere.gif" title="example image" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
@@ -18,14 +18,63 @@ Todos nós ficamos felizes em calcular a trajetória de um objeto em queda livre
     </figcaption>
 </figure>
 
-Este problema é relevante porque tem muitas aplicações, desde robôs macios, a dentes de engrenagem e até astrofísica. Em geral, você tem uma EDP sob e algumas restrições não lineares que representam o problema. O KM define uma nova restrição na superfície de contato, impondo que o ângulo de incidência entre os dois objetos seja suave. Tem a vantagem de introduzir uma ideia intuitiva (fácil de codificar = pode ser rapidamente implementada em configurações industriais), ao mesmo tempo que aumenta a precisão.
-Esta estrutura é agnóstica à técnica utilizada para aproximar a EDP, pelo que pode ser implementada utilizando um esquema de diferenças finitas, ou elementos finitos, ou mesmo um método variacional.
+Colisões inelásticas — onde os objetos não apenas ricocheteiam, mas deformam, grudam ou fragmentam — são governadas por dinâmicas não lineares que desafiam equações simples. Os modelos tradicionais frequentemente simplificam demais a mecânica do contato, ignorando como os materiais _se adaptam_ durante o impacto. Por exemplo, os "dedos" de silicone de um robô macio agarrando um objeto ou uma gota de água espirrando em uma superfície vibratória envolvem um acoplamento complexo entre elasticidade, dinâmica de fluidos e geometria.
 
-Implementamos com sucesso o KM para o caso de uma esfera rígida impactando contra uma membrana elástica, e estamos atualmente a trabalhar noutros casos, nomeadamente uma gota deformável impactando diferentes superfícies - rígidas ou não.
+---
 
-Escrevemos um artigo (ver {% cite aguero2022impact %}) onde estudámos experimentalmente e numericamente o impacto deformável acoplado entre uma esfera sólida e uma membrana elástica.
+## A Estrutura KM: Suavizando o Caos
 
-O trabalho atual envolve a extensão desta estrutura para outros problemas. Atualmente, estamos a trabalhar no problema de uma gota de água deformável a impactar contra um banho de fluido. O nosso modelo é particularmente adequado para impactos de baixa velocidade, onde as simulações numéricas diretas podem tornar-se computacionalmente demasiado dispendiosas. Aqui estão três dos repositórios que temos para estes problemas:
+Em sua essência, a estrutura KM introduz (ver {% cite aguero2022impact%}) uma **restrição geométrica** nas superfícies de contato: o ângulo de incidência entre os objetos colidindo deve permanecer suave. Pense nisso como garantir um "aperto de mão" entre os materiais — sem arestas afiadas, sem saltos repentinos. Esta abordagem é:
+
+1. **Intuitiva**: Ao contrário das simulações de força bruta, as restrições do KM espelham o comportamento do mundo real, tornando-o mais fácil de implementar.
+2. **Versátil**: Funciona com elementos finitos, diferenças finitas ou até mesmo solucionadores de aprendizado de máquina.
+3. **Eficiente**: Ao evitar refinamentos de malha dispendiosos, o KM se destaca em cenários como impactos de gotas de baixa velocidade, onde os métodos tradicionais lutam.
+
+Em nosso [estudo recente](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340), validamos o KM contra experimentos envolvendo uma esfera de aço atingindo uma membrana elástica. Os resultados corresponderam não apenas aos padrões de deformação, mas também às taxas de dissipação de energia — uma raridade na modelagem de colisões.
+
+---
+
+<figure style="float: left; margin: 10px; width: 35%;">
+  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <video autoplay muted loop controls 
+           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+           preload="auto">
+      <source src="/assets/img/drop.mp4" type="video/mp4">
+      Seu navegador não suporta a tag de vídeo.
+    </video>
+  </div>
+  <figcaption style="text-align: center; margin-top: 5px;">
+    Exemplo de simulação de uma esfera sólida impactando uma membrana elástica.
+  </figcaption>
+</figure>
+
+## De Robôs a Gotas de Chuva: Por Que Isso Importa
+
+### 1. **Robótica Macia**
+
+O KM permite a modelagem precisa de garras interagindo com objetos delicados, garantindo que as forças sejam distribuídas sem danos — crítico para robótica médica ou máquinas de colheita de frutas.
+
+### 2. **Astrofísica**
+
+Simular colisões de asteroides ou acreção planetária requer o manuseio de corpos fragmentados e deformáveis. A capacidade do KM de gerenciar superfícies de contato irregulares pode refinar modelos de agregação de poeira cósmica.
+
+### 3. **Interações Fluido-Estrutura**
+
+Nosso trabalho em andamento aplica o KM a gotas de água atingindo banhos de fluido — um problema com aplicações em impressão a jato de tinta e pulverização de pesticidas. Os primeiros resultados mostram que o KM captura ondas capilares e coalescência melhor do que o CFD convencional.
+
+---
+
+## O Que Vem a Seguir?
+
+Estamos expandindo o KM para:
+
+- **Colisões de múltiplos materiais**: Pense em gelo atingindo água (relevante para engenharia criogênica).
+- **Sistemas biológicos**: Simulação de interações célula-matriz em biorreatores de engenharia de tecidos.
+- **Integração de aprendizado de máquina**: Treinar redes neurais para prever restrições KM, reduzindo o tempo de computação.
+
+---
+
+Colisões não são apenas pontos finais — são conversas entre materiais. Com o KM, estamos decodificando esse diálogo, um impacto de cada vez. 🚀
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='elvispy/kinematic-match-sphere' %}  

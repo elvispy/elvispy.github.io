@@ -34,12 +34,20 @@ In our [recent study](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0
 
 ---
 
-<figure style="float: left; margin: 10px; max-width: 300px;">
-    {% include figure.liquid loading="eager" path="assets/img/drop.mp4" title="example image" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
-    <figcaption style="text-align: center; margin-top: 5px;">
-        Simulation example of a solid sphere impacting an elastic membrane.
-    </figcaption>
+<figure style="float: left; margin: 10px; width: 35%;">
+  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <video autoplay muted loop controls 
+           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+           preload="auto">
+      <source src="/assets/img/drop.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <figcaption style="text-align: center; margin-top: 5px;">
+    Simulation example of a solid sphere impacting an elastic membrane.
+  </figcaption>
 </figure>
+
 ## From Robots to Raindrops: Why This Matters
 
 ### 1. **Soft Robotics**
