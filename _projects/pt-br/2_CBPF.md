@@ -1,7 +1,7 @@
 ---
 page_id: prj_cbpf
 layout: page
-title: Spintrônica
+title: A nova eletrônica
 description: Avançando nossa compreensão dos materiais de spintrônica
 img: assets/img/spintronics.jpeg
 importance: 2
@@ -21,5 +21,5 @@ A geração, manipulação e detecção de correntes de spin têm despertado gra
 </figure>
 
 Sob a orientação de Flávio Garcia e Luiz Sampaio (e seus incríveis membros do laboratório) no Centro Brasileiro de Pesquisas Físicas, investigamos quais materiais são adequados para gerar correntes de spin.
-Crescemos filmes finos de bicamadas de permaligas junto com diferentes elementos puros e, usando ressonância ferromagnética, medimos sua dissipação de energia na forma de momento angular. Como a teoria da susceptibilidade magnética prevê, essa dissipação é proporcional ao mecanismo de amortecimento na equação de LLG.
-Finalmente, empregamos o efeito Hall de spin inverso como um meio experimental para medir a quantidade de momentos angulares na forma de corrente de spin coerente. Um relatório final está disponível <a href="/assets/pdf/Spintronics__The_New_Electronics.pdf">aqui</a>
+Crescemos filmes finos de bicamadas de permalloy junto com diferentes elementos puros e, usando ressonância ferromagnética, medimos sua dissipação de energia na forma de momento angular. Como a teoria da susceptibilidade magnética prevê, essa dissipação é proporcional ao mecanismo de amortecimento na equação de LLG.
+Finalmente, empregamos o efeito Hall de spin inverso como um meio experimental para medir a quantidade de momento angular na forma de corrente de spin coerente. Um relatório final está disponível <a href="/assets/pdf/Spintronics__The_New_Electronics.pdf">aqui</a>
