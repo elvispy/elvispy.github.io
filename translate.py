@@ -10,7 +10,6 @@ from google import genai
 LANGUAGES = {
     "en": "ENGLISH",
     "en-us": "ENGLISH",
-    "pt": "PORTUGUESE",
     "pt-br": "PORTUGUESE",
     "es": "SPANISH",
     "fr": "FRENCH"
@@ -120,7 +119,7 @@ def main():
 
     printc(f"✅ Successfully translated to {language}: {target_file}", "green")
 if __name__ == "__main__":
-    import sys
-    sys.argv = ["translate.py", "./_pages/en-us/about.md", "./_pages/pt-br/about.md"]
+    #import sys
+    #sys.argv = ["translate.py", "./_pages/en-us/about.md", "./_pages/pt-br/about.md"]
     main()
 
