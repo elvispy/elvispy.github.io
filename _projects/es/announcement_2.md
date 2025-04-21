@@ -1,6 +1,6 @@
 ---
 layout: page
-title: ¡Fui becario de verano en el CERN!.
+title: ¡Mi pasantía de verano en el CERN!
 description:
 importance: 2
 category: work
@@ -8,14 +8,14 @@ category: work
 
 ## Trabajé en el grupo de software para experimentos (EP-SFT) bajo la supervisión de Graeme Stewart en el CERN.
 
-Este año, tuve la suerte de ser seleccionado para el [Programa de Estudiantes de Verano del CERN](https://home.cern/summer-student-programme) para la promoción de 2024. Incluso ha habido cobertura mediática sobre mi experiencia:
+Este año, tuve la suerte de ser seleccionado para el [Programa de Estudiantes de Verano del CERN](https://home.cern/summer-student-programme) para la cohorte de 2024. Incluso ha habido cobertura mediática sobre mi experiencia:
 
 <div style="float: left; margin: 10px;">
     <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7233730225589673984?compact=1" 
         height="600" width="450" frameborder="0" allowfullscreen="" title="Embedded post">
     </iframe>
 </div>
-El programa de estudiantes de verano es una oportunidad para trabajar en un proyecto en el Gran Colisionador de Hadrones más grande del mundo. Me asignaron un proyecto en el grupo de software para experimentos en el CERN, bajo la supervisión de Graeme Stewart.
+El programa de estudiantes de verano es una oportunidad para trabajar en un proyecto en el Gran Colisionador de Hadrones (LHC) más grande del mundo. Me asignaron un proyecto en el grupo de software para experimentos en el CERN, bajo la supervisión de Graeme Stewart.
 
 ### Optimización de Julia para aplicaciones de física de altas energías
 
