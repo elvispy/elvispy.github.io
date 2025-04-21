@@ -460,9 +460,9 @@ ninja.data = [{
           description: "Promoción del acceso a la educación en Paraguay",
           section: "",handler: () => {
               window.location.href = "/es/projects/6_Mathura/";
-            },},{id: "projects-un-solucionador-de-similitud-dinámico-para-la-dinámica-de-fluidos",
-          title: 'Un solucionador de similitud dinámico para la dinámica de fluidos.',
-          description: "Un buscador simbólico de EDO para soluciones de similitud.",
+            },},{id: "projects-un-solucionador-de-similitud-dinámica-para-la-dinámica-de-fluidos",
+          title: 'Un solucionador de similitud dinámica para la dinámica de fluidos.',
+          description: "Un buscador simbólico de Ecuaciones Diferenciales Parciales (EDP) para soluciones de similitud.",
           section: "",handler: () => {
               window.location.href = "/es/projects/7_zsimilarity/";
             },},{id: "projects-por-favor-aprende-a-programar",
