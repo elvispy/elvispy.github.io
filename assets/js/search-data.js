@@ -425,9 +425,9 @@ ninja.data = [{
           section: "News",},{id: "news-i-presented-my-latest-work-at-the-annual-meeting-of-the-american-physical-society-division-of-fluid-dynamics",
           title: 'I presented my latest work at the Annual Meeting of the American Physical...',
           description: "",
-          section: "News",},{id: "projects-",
-          title: '',
-          description: "",
+          section: "News",},{id: "projects-bioreactor-design-optimization",
+          title: 'Bioreactor design optimization',
+          description: "Simulating the Future of Meat.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/0_bioreactor/";
             },},{id: "projects-simulating-deformable-impacts",
@@ -440,6 +440,11 @@ ninja.data = [{
           description: "Advancibg oyr understanding of spintronic materials",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_CBPF/";
+            },},{id: "projects-simulating-deformable-impacts",
+          title: 'Simulating deformable impacts',
+          description: "The kinematic match method",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_surferbot/";
             },},{id: "projects-promoting-science-olympiads",
           title: 'Promoting Science Olympiads',
           description: "another without an image",
