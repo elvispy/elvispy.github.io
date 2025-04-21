@@ -11,7 +11,7 @@ related_publications: true
 
 # Surfeando las Olas: Cómo un Pequeño Vibrobot Abre Nuevas Fronteras en la Mecánica de Fluidos
 
-Imagina un robot del tamaño de un clip, deslizándose sobre la superficie del agua—no remando o a propulsión, sino vibrando. Este es el SurferBot, una máquina minimalista que aprovecha el poder de las olas para moverse. El reciente trabajo de nuestro laboratorio {% cite Rhee_2022 %}, introdujo este elegante modo de locomoción y explora cómo sistemas tan simples pueden enseñarnos sobre propulsión, eficiencia y la dinámica oculta en las interfaces de fluidos.
+Imagina un robot del tamaño de un clip, deslizándose sobre la superficie del agua—no remando o a propulsión, sino vibrando. Este es el SurferBot, una máquina minimalista que aprovecha el poder de las olas para moverse. El reciente trabajo de nuestro laboratorio cite Rhee_2022, introdujo este elegante modo de locomoción y explora cómo sistemas tan simples pueden enseñarnos sobre propulsión, eficiencia y la dinámica oculta en las interfaces de fluidos.
 
 <div style="width: 100%; display: flex; justify-content: center;">
   <div style="position: relative; width: 80%; padding-bottom: 45%; height: 0; overflow: hidden;">
@@ -57,4 +57,4 @@ La comprensión de la propulsión impulsada por olas tiene aplicaciones más all
 
 ## Aprende Más
 
-Para una inmersión más profunda en la teoría y las matemáticas detrás de la propulsión impulsada por olas, consulta el artículo {% cite Benham_Devauchelle_Thomson_2024 %} [On wave-driven propulsion](https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/on-wavedriven-propulsion/4A97169309E4F72418EFFFB7C843E7FD).
+Para una inmersión más profunda en la teoría y las matemáticas detrás de la propulsión impulsada por olas, consulta el artículo cite Benham_Devauchelle_Thomson_2024 [On wave-driven propulsion](https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/on-wavedriven-propulsion/4A97169309E4F72418EFFFB7C843E7FD).
