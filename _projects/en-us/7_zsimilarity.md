@@ -30,6 +30,7 @@ But finding the right substitution isn’t always obvious. That’s where this t
 ## 🔧 What This Tool Does
 
 This Julia package:
+
 - Parses symbolic PDEs like `"du/dt + 6*u*du/dx + d3u/d3x = 0"`
 - Checks if there exists a **change of variables** (\( \eta = x y^m \), \( u = x^n f(\eta) \)) that simplifies the equation
 - Returns a reduced ODE if successful
@@ -58,6 +59,7 @@ You don’t need to manually compute derivatives or try a dozen substitutions. T
 ## 📘 Who’s This For?
 
 This tool is for:
+
 - Engineering students studying transport, waves, or fluid mechanics
 - Applied mathematicians exploring symmetry and scaling
 - Anyone trying to symbolically reduce PDEs to something tractable
@@ -84,6 +86,7 @@ Want to see it in action or use it in your own models?
 ## 🌍 Why This Matters
 
 Similarity isn’t just elegant—it’s practical. It appears in:
+
 - Drag coefficients that scale with Reynolds number
 - Heat penetration depth in conduction problems
 - Boundary layer theory in aerodynamics
@@ -93,7 +96,6 @@ This tool helps **democratize that power**—making it accessible to students, t
 ---
 
 The next time you’re staring at a tough PDE... maybe it just needs the right variable change. 🧠➞📉
-
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='elvispy/SimilaritySolver.jl' %}  
