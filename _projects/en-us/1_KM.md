@@ -34,6 +34,13 @@ In our [recent study](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0
 
 ---
 
+
+<figure style="float: left; margin: 10px; max-width: 300px;">
+    {% include figure.liquid loading="eager" path="assets/img/drop.mp4" title="example image" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
+    <figcaption style="text-align: center; margin-top: 5px;">
+        Simulation example of a solid sphere impacting an elastic membrane.
+    </figcaption>
+</figure>
 ## From Robots to Raindrops: Why This Matters
 
 ### 1. **Soft Robotics**
