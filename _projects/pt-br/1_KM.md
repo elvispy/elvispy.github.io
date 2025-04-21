@@ -24,7 +24,7 @@ Colisões inelásticas — onde os objetos não apenas ricocheteiam, mas deforma
 
 ## A Estrutura KM: Suavizando o Caos
 
-Em sua essência, a estrutura KM introduz (ver {% cite aguero2022impact%}) uma **restrição geométrica** nas superfícies de contato: o ângulo de incidência entre os objetos colidindo deve permanecer suave. Pense nisso como garantir um "aperto de mão" entre os materiais — sem arestas afiadas, sem saltos repentinos. Esta abordagem é:
+Em sua essência, a estrutura KM introduz (ver {% cite aguero2022impact %}) uma **restrição geométrica** nas superfícies de contato: o ângulo de incidência entre os objetos colidindo deve permanecer suave. Pense nisso como garantir um "aperto de mão" entre os materiais — sem arestas afiadas, sem saltos repentinos. Esta abordagem é:
 
 1. **Intuitiva**: Ao contrário das simulações de força bruta, as restrições do KM espelham o comportamento do mundo real, tornando-o mais fácil de implementar.
 2. **Versátil**: Funciona com elementos finitos, diferenças finitas ou até mesmo solucionadores de aprendizado de máquina.
