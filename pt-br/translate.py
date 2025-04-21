@@ -10,7 +10,6 @@ from google import genai
 LANGUAGES = {
     "en": "ENGLISH",
     "en-us": "ENGLISH",
-    "pt": "PORTUGUESE",
     "pt-br": "PORTUGUESE",
     "es": "SPANISH",
     "fr": "FRENCH"
@@ -29,7 +28,8 @@ def detect_format(filepath):
         return "text"
 
 def extract_language(path):
-    match = re.search(r'resume_([a-z]{2}(-[a-z]{2})?)\.json$', path)
+    # Look for the last folder in the path (e.g. 'pt-br', 'en-us')
+    match = re.search(r'/([a-z]{2}(?:-[a-z]{2})?)/[^/]+$', path)
     return match.group(1) if match else None
 
 def build_prompt(content, language, format, old_translated=""):
@@ -118,6 +118,8 @@ def main():
         f.write(translated)
 
     printc(f"✅ Successfully translated to {language}: {target_file}", "green")
-
 if __name__ == "__main__":
+    #import sys
+    #sys.argv = ["translate.py", "./_pages/en-us/about.md", "./_pages/pt-br/about.md"]
     main()
+
