@@ -1,9 +1,9 @@
 ---
 page_id: prj_sim
 layout: page
-title: SimilaritySolver.jl
+title: Un solucionador de similitud dinámico para la dinámica de fluidos.
 description: Un buscador simbólico de EDO para soluciones de similitud.
-img: #assets/img/boundary_layer.png
+img: assets/img/julialogo.webp
 importance: 3
 category: fun
 related_publications: true

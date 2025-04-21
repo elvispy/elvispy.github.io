@@ -27,8 +27,6 @@ Imagine a robot the size of a paperclip, gliding across a water surface—not by
   </div>
 </div>
 
-
-
 ---
 
 ## What Is Interfacial Locomotion?
