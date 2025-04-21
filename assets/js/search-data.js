@@ -440,9 +440,9 @@ ninja.data = [{
           description: "Advancibg oyr understanding of spintronic materials",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_CBPF/";
-            },},{id: "projects-simulating-deformable-impacts",
-          title: 'Simulating deformable impacts',
-          description: "The kinematic match method",
+            },},{id: "projects-interfacial-locomotion",
+          title: 'Interfacial locomotion',
+          description: "Interfacial locomotion",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_surferbot/";
             },},{id: "projects-promoting-science-olympiads",

@@ -440,9 +440,9 @@ ninja.data = [{
           description: "Avançando nossa compreensão dos materiais de spintrônica",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/2_CBPF/";
-            },},{id: "projects-simulating-deformable-impacts",
-          title: 'Simulating deformable impacts',
-          description: "The kinematic match method",
+            },},{id: "projects-interfacial-locomotion",
+          title: 'Interfacial locomotion',
+          description: "Interfacial locomotion",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/3_surferbot/";
             },},{id: "projects-promovendo-olimpíadas-de-ciência",
