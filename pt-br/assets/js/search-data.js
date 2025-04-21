@@ -425,9 +425,9 @@ ninja.data = [{
           section: "Novidades",},{id: "news-apresentei-meu-trabalho-mais-recente-na-reunião-anual-da-divisão-de-dinâmica-dos-fluidos-da-sociedade-americana-de-física",
           title: 'Apresentei meu trabalho mais recente na Reunião Anual da Divisão de Dinâmica dos...',
           description: "",
-          section: "Novidades",},{id: "projects-simulating-deformable-impacts",
-          title: 'Simulating deformable impacts',
-          description: "The kinematic match method",
+          section: "Novidades",},{id: "projects-",
+          title: '',
+          description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/0_bioreactor/";
             },},{id: "projects-simulação-de-impactos-deformáveis",

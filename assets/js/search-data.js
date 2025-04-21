@@ -425,9 +425,9 @@ ninja.data = [{
           section: "News",},{id: "news-i-presented-my-latest-work-at-the-annual-meeting-of-the-american-physical-society-division-of-fluid-dynamics",
           title: 'I presented my latest work at the Annual Meeting of the American Physical...',
           description: "",
-          section: "News",},{id: "projects-simulating-deformable-impacts",
-          title: 'Simulating deformable impacts',
-          description: "The kinematic match method",
+          section: "News",},{id: "projects-",
+          title: '',
+          description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/0_bioreactor/";
             },},{id: "projects-simulating-deformable-impacts",
