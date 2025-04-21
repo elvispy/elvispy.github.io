@@ -1,34 +1,46 @@
 ---
 page_id: prj_surferbot
 layout: page
-title: Simulating deformable impacts
-description: The kinematic match method
-img: #assets/img/surferbot.mp4
+title: Interfacial locomotion
+description: Interfacial locomotion
+img: assets/img/surferbot.gif
 importance: 1
 category: work
 related_publications: true
 ---
 
-We are all happy calculating the trajectory of an object in free-fall. But how do we actually solve what happens just after that, during an inelastic collision?. The interactions involved are highly nonlinear and oftentimes the colliding objects are free to deform as they are in contact.
+# Riding the Waves: How a Tiny Vibrobot Unlocks New Frontiers in Fluid Mechanics
 
-<figure style="float: left; margin: 10px; max-width: 300px;">
-    {% include figure.liquid loading="eager" path="assets/img/km-sphere.gif" title="example image" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
-    <figcaption style="text-align: center; margin-top: 5px;">
-        Simulation example of a solid sphere impacting an elastic membrane.
-    </figcaption>
-</figure>
+Imagine a robot the size of a paperclip, gliding across a water surface—not by paddling or jetting, but by vibrating. This is the SurferBot, a minimalist machine that harnesses the power of waves to move. Our lab's recent work {% cite Rhee_2022 %}, introduced this elegant mode of locomotion and explores how such simple systems can teach us about propulsion, efficiency, and the hidden dynamics at fluid interfaces.
 
-This problem is relevant because it has plenty of applications, from soft robots, to gear teeth and even astrophysics. In general, you have a PDE under and some nonlinear constraints that represents the problem. The KM sets a new constraint on the contacting surface by imposing that the angle of incidence between the two objects is smooth. It has the advantage of introducing an intuitive idea (easy to code = can be quickly implemented in industrial setups), while enhancing accuracy.
-This framework is agnostic to the technique used to approximate the PDE, so it can be implemented using a finite difference scheme, or finite elements, or even a variational method.
+---
 
-We have successfully implemented the KM for the case of a rigid sphere impacting against an elastic membrane, and are currently working on other cases, most notably a deformable droplet impacting different surfaces -either rigid or not.
+## What Is Interfacial Locomotion?
 
-We wrote an article (see {% cite aguero2022impact %}) where we studied both experimentally and numerically the coupled deformable imapct between a solid sphere and an elastic membrane.
+At the boundary between air and water, surface tension and wave dynamics dominate. Creatures like water striders and even honeybees trapped on water exploit these forces to move. Inspired by these natural phenomena, researchers developed the SurferBot—a small, vibrating robot that moves by generating asymmetric waves on the water surface. These waves push the robot forward, achieving speeds of about 1 cm/s, all without traditional propulsion methods.
 
-Current work involves extending this framework to other problems. We are currently working on the problem of a deformable water droplet impacting against a fluid bath. Our model is particularly well suited for low velocity impacts, where direct numerical simulations might become computationally too expensive. Here are three of the repositories we have for these problems:
+---
 
-<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-    {% include repository/repo.liquid repository='elvispy/kinematic-match-sphere' %}  
-    {% include repository/repo.liquid repository='elvispy/km-dropplet-solidsubstrate-v3' %}  
-    {% include repository/repo.liquid repository='elvispy/km-dropplet-onto-bath' %}  
-</div>
+## The Physics of Wave-Driven Motion
+
+The SurferBot's movement arises from an imbalance in wave momentum. When it vibrates, it creates waves that radiate outward. If these waves are asymmetric—stronger in one direction—they impart a net force, propelling the robot forward. This mechanism is akin to how a honeybee, flapping its wings while trapped on water, can generate movement through wave interactions.
+
+To understand this, we modeled the SurferBot as a floating body undergoing small oscillations. By coupling its motion to a quasi-potential flow model of the surrounding fluid, we derived expressions for its drift speed and thrust. Our model aligns with experimental observations, confirming that asymmetric wave radiation is key to propulsion.
+
+---
+
+## Optimizing Performance
+
+Efficiency in wave-driven propulsion depends on factors like vibration frequency and the location of the vibrating motor. Our analysis revealed that there's an optimal frequency and motor position that maximize propulsion efficiency. For the SurferBot, an optimal frequency of around 16 Hz and a motor placement slightly behind the center yielded the best performance. These findings await experimental validation but offer a roadmap for designing more efficient interfacial robots.
+
+---
+
+## Broader Implications
+
+Understanding wave-driven propulsion has applications beyond tiny robots. It can inform the design of energy-efficient watercraft, offer insights into biological locomotion at fluid interfaces, and inspire educational tools in physics and engineering. The simplicity of the SurferBot makes it an excellent model for exploring complex fluid dynamics in a tangible way.
+
+---
+
+## Learn More
+
+For a deeper dive into the theory and mathematics behind wave-driven propulsion, check out the paper {% cite Benham_Devauchelle_Thomson_2024 %} [On wave-driven propulsion](https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/on-wavedriven-propulsion/4A97169309E4F72418EFFFB7C843E7FD).
