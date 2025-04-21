@@ -3,7 +3,7 @@ page_id: projects
 layout: page
 title: projects
 permalink: /projects/
-description: Uma coleção crescente de seus projetos legais.
+description: Uma coleção crescente dos meus projetos legais.
 nav: true
 nav_order: 3
 display_categories: [work, fun, personal]

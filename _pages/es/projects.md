@@ -3,7 +3,7 @@ page_id: projects
 layout: page
 title: proyectos
 permalink: /projects/
-description: Una selección de proyectos en los cuales estuve envuelto.
+description: Una colección creciente de mis proyectos geniales.
 nav: true
 nav_order: 3
 display_categories: [work, fun, personal]
