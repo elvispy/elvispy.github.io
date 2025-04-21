@@ -32,7 +32,6 @@ related_publications: true
     Esta imagen también puede tener una leyenda. Es como magia.
 </div>
 
-También puede poner texto normal entre sus filas de imágenes, incluso citas {% cite einstein1950meaning %}.
 Digamos que quería escribir un poco sobre su proyecto antes de publicar el resto de las imágenes.
 Describe cómo trabajó, sudó, _sangró_ por su proyecto, y luego... revela su gloria en la siguiente fila de imágenes.
 

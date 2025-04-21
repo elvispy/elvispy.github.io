@@ -24,7 +24,7 @@ Las colisiones inelásticas, donde los objetos no solo rebotan sino que se defor
 
 ## El Marco KM: Suavizando el Caos
 
-En esencia, el marco KM introduce (ver {% cite aguero2022impact %}) una **restricción geométrica** en las superficies de contacto: el ángulo de incidencia entre los objetos que chocan debe permanecer suave. Piense en ello como asegurar un "apretón de manos" entre los materiales: sin bordes afilados, sin saltos repentinos. Este enfoque es:
+En esencia, el marco KM introduce (ver cite aguero2022impact) una **restricción geométrica** en las superficies de contacto: el ángulo de incidencia entre los objetos que chocan debe permanecer suave. Piense en ello como asegurar un "apretón de manos" entre los materiales: sin bordes afilados, sin saltos repentinos. Este enfoque es:
 
 1.  **Intuitivo**: A diferencia de las simulaciones de fuerza bruta, las restricciones de KM reflejan el comportamiento del mundo real, lo que facilita su implementación.
 2.  **Versátil**: Funciona con elementos finitos, diferencias finitas o incluso solucionadores de aprendizaje automático.
