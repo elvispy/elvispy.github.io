@@ -3,7 +3,7 @@ page_id: prj_bioreactor
 layout: page
 title: Bioreactor optimization
 description: Simulating the Future of Meat: A Fluid Dance in Lab-Grown Steaks
-img: assets/img/km-sphere.gif
+img: assets/img/bioreactor.gif
 importance: 1
 category: work
 related_publications: true
