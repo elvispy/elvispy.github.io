@@ -22,7 +22,7 @@ ninja.data = [{
     },
   },{id: "nav-projects",
           title: "projects",
-          description: "Uma coleção crescente de seus projetos legais.",
+          description: "Uma coleção crescente dos meus projetos legais.",
           section: "Menu de navegação",
           handler: () => {
             window.location.href = "/pt-br/projects/";
@@ -425,9 +425,9 @@ ninja.data = [{
           section: "Novidades",},{id: "news-apresentei-meu-trabalho-mais-recente-na-reunião-anual-da-divisão-de-dinâmica-dos-fluidos-da-sociedade-americana-de-física",
           title: 'Apresentei meu trabalho mais recente na Reunião Anual da Divisão de Dinâmica dos...',
           description: "",
-          section: "Novidades",},{id: "projects-bioreactor-design-optimization",
-          title: 'Bioreactor design optimization',
-          description: "Simulating the Future of Meat.",
+          section: "Novidades",},{id: "projects-otimização-do-projeto-de-biorreatores",
+          title: 'Otimização do projeto de biorreatores',
+          description: "Simulando o Futuro da Carne.",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/0_bioreactor/";
             },},{id: "projects-simulação-de-impactos-deformáveis",
@@ -435,14 +435,14 @@ ninja.data = [{
           description: "O método de correspondência cinemática",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/1_KM/";
-            },},{id: "projects-spintrônica",
-          title: 'Spintrônica',
+            },},{id: "projects-a-nova-eletrônica",
+          title: 'A nova eletrônica',
           description: "Avançando nossa compreensão dos materiais de spintrônica",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/2_CBPF/";
-            },},{id: "projects-interfacial-locomotion",
-          title: 'Interfacial locomotion',
-          description: "Interfacial locomotion",
+            },},{id: "projects-locomoção-interfacial",
+          title: 'Locomoção Interfacial',
+          description: "Locomoção interfacial",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/3_surferbot/";
             },},{id: "projects-promovendo-olimpíadas-de-ciência",
@@ -455,13 +455,13 @@ ninja.data = [{
           description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/5_Reaccion/";
-            },},{id: "projects-mathura",
-          title: 'Mathura',
+            },},{id: "projects-democratizando-o-acesso-a-bolsas-de-estudo-no-paraguai",
+          title: 'Democratizando o acesso a bolsas de estudo no Paraguai',
           description: "Promovendo o acesso à educação no Paraguai",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/6_Mathura/";
-            },},{id: "projects-similaritysolver-jl",
-          title: 'SimilaritySolver.jl',
+            },},{id: "projects-um-solucionador-de-similaridade-dinâmico-para-dinâmica-de-fluidos",
+          title: 'Um solucionador de similaridade dinâmico para dinâmica de fluidos.',
           description: "Um localizador simbólico de EDPs para soluções de similaridade.",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/7_zsimilarity/";
@@ -470,8 +470,8 @@ ninja.data = [{
           description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/9_PE/";
-            },},{id: "projects-fui-um-estagiário-de-verão-no-cern",
-          title: 'Fui um estagiário de verão no CERN!.',
+            },},{id: "projects-meu-estágio-de-verão-no-cern",
+          title: 'Meu estágio de verão no CERN!',
           description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/announcement_2/";

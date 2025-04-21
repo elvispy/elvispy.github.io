@@ -2,140 +2,122 @@
 import sys
 import os
 import re
+import json
 from time import sleep
 from google import genai
 
 # Supported Languages
-LANGUAGES = {"en": "ENGLISH",
-             "pt": "PORTUGUESE",
-             "fr": "FRENCH", 
-             "es": "SPANISH"}
-
-# Colors to print on the terminal to
-ansi_colors = {
-    "black": "\033[30m",
-    "red": "\033[31m",
-    "green": "\033[32m",
-    "yellow": "\033[33m",
-    "blue": "\033[34m",
-    "magenta": "\033[35m",
-    "cyan": "\033[36m",
-    "white": "\033[37m",
-    "reset": "\033[0m"
+LANGUAGES = {
+    "en": "ENGLISH",
+    "en-us": "ENGLISH",
+    "pt": "PORTUGUESE",
+    "pt-br": "PORTUGUESE",
+    "es": "SPANISH",
+    "fr": "FRENCH"
 }
 
-#Print with colors
-printc = lambda s, color: print(f"{ansi_colors[color]}{s}{ansi_colors["reset"]}")
+# Colors for printing
+COLORS = {"green": "\033[32m", "yellow": "\033[33m", "red": "\033[31m", "cyan": "\033[36m", "reset": "\033[0m"}
+printc = lambda msg, color: print(f"{COLORS[color]}{msg}{COLORS['reset']}")
 
-# Function to send prompt to 
-def send_prompt(prompt, client=None, i=1):
-    try:
-        response = client.models.generate_content(
-                model="gemini-2.0-flash",
-                contents=prompt,
+def detect_format(filepath):
+    if filepath.endswith(".json"):
+        return "json"
+    elif filepath.endswith(".md"):
+        return "markdown"
+    else:
+        return "text"
+
+def extract_language(path):
+    match = re.search(r'resume_([a-z]{2}(-[a-z]{2})?)\.json$', path)
+    return match.group(1) if match else None
+
+def build_prompt(content, language, format, old_translated=""):
+    if old_translated:
+        return (
+            f"I will provide two {format} files. The first is in English. "
+            f"The second is a previously translated version in {language}.\n"
+            "Update the translation to match the new English version, preserving structure and formatting.\n\n"
+            f"Original (EN):\n{content}\n\n"
+            f"Old Translation ({language}):\n{old_translated}\n"
+            "Respond with a single code block in the same format."
         )
-        pattern = r"```(?:\w+)?\s*([\s\S]*)\s*```"
-        
+    else:
+        return (
+            f"Translate this {format} file from English to {language}. "
+            "Preserve formatting and structure (JSON keys, indentation, etc.):\n\n"
+            f"{content}\n"
+            "Respond with a single code block in the same format."
+        )
 
-        match = re.search(pattern, response.text, re.DOTALL)
+def send_prompt(prompt, client, retries=1):
+    try:
+        response = client.models.generate_content(model="gemini-2.0-flash", contents=prompt)
+        match = re.search(r"```(?:\w+)?\s*([\s\S]*)\s*```", response.text, re.DOTALL)
         if match:
-            translated_text = match.group(1)
-        else:
-            raise Exception("No translation was provided by gemini. Response: \n" + response.text)
+            return match.group(1)
+        raise ValueError(f"No valid code block found in response:\n{response.text}")
     except Exception as e:
-        
-        if "exhausted" in e:
-            if i>= 5:
-                raise Exception(e)
+        if retries > 5:
+            raise
+        wait_time = 5 * retries
+        printc(f"Error from Gemini: {e}. Retrying in {wait_time}s...", "yellow")
+        sleep(wait_time)
+        return send_prompt(prompt, client, retries + 1)
 
-            printc(f"Error calling Gemini API: \n {e}. Will wait {5*i} seconds", "yellow")
-            sleep(5*i)
-            printc("Retrying...", "yellow")
-            translated_text = send_prompt(prompt, client=client, i=i+1)
-        else:
-            raise Exception(e)
-    return translated_text
 def main():
     if len(sys.argv) not in [2, 3]:
-        print("Usage: python translate.py <english_file> <old_translated_file> (second arg optional)")
+        print("Usage: python translate.py <english_file> <translated_output>")
         sys.exit(1)
 
-    # Read the content of the English Markdown file.
-    try:
-        eng_file = sys.argv[1]
-        with open(eng_file, 'r', encoding='utf-8') as f:
-            content = f.read()
-        
-    except Exception as e:
-        print(f"Error reading file {eng_file}: {e}")
+    source_file = sys.argv[1]
+    target_file = sys.argv[2] if len(sys.argv) == 3 else None
+    lang_code = extract_language(target_file) if target_file else None
+    if lang_code not in LANGUAGES:
+        printc(f"Unknown or unsupported language code: {lang_code}", "red")
         sys.exit(1)
-    
-
-    translated_old = ""
-    if len(sys.argv) == 3:
-        trans_file = sys.argv[2]
-        extract_language = lambda path: re.search(r'/([^/]+)/[^/]+$', path).group(1)[:2]
-        language = LANGUAGES[extract_language(trans_file)]
-        try:
-            with open(trans_file, 'r', encoding='utf-8') as f:
-                translated_old = f.read()
-        except Exception as e:
-            printc(f"Error reading translated file {trans_file}: {e}", "cyan")
-            #sys.exit(1)
+    language = LANGUAGES[lang_code]
 
 
-    if translated_old != "":
-         # Construct a prompt for Gemini that instructs it to translate
-        # while preserving Markdown formatting.
-        prompt = (
-            "I will provide you with two files. The first one is in english, and the second one is a translated version in " + language+ ". \n " + 
-            "Tweak the translated version so that it matches the contents from the original file. Of course, maintain the language of the second file. " + 
-            "Preserve any Markdown/HTML formatting so that syntax is maintained (headers, lists, code blocks, links, etc.):\n\n" + content + 
-            "\n\nNow, the translated version before your changes: \n\n" + translated_old + 
-            "Your response should contain only one code block in markdown style, delimited by triple backticks"
-        )
+    format = detect_format(source_file)
+    with open(source_file, "r", encoding="utf-8") as f:
+        content = f.read()
 
-    else: 
-        
-        # Construct a prompt for Gemini that instructs it to translate
-        # while preserving Markdown formatting.
-        prompt = (
-            "I will provide you with a file in english. " 
-            "Provide me with a translated version so that it matches the contents from the original file. The translation should be in " + language + 
-            "Preserve any Markdown/HTML/JSON formatting (headers, lists, code blocks, links, etc.):\n\n" + content + 
-            "\nYour response should contain only one code block matching the style of the original file (i.e. markdown/html/json), delimited by triple backticks"
-        )
+    old_translation = ""
+    if target_file and os.path.exists(target_file):
+        with open(target_file, "r", encoding="utf-8") as f:
+            old_translation = f.read()
 
-       
+    prompt = build_prompt(content, language, format, old_translation)
 
-    # Retrieve your API key from the environment variable.
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        print("Error: GEMINI_API_KEY environment variable is not set.")
+        printc("Error: GEMINI_API_KEY environment variable is not set.", "red")
         sys.exit(1)
 
-    # Create the Gemini client.
     client = genai.Client(api_key=api_key)
 
-    # Call Gemini to generate the translation.
     try:
-        translated_text = send_prompt(prompt, client=client)
+        translated = send_prompt(prompt, client)
+        # === Validate JSON if source is JSON ===
+        if format == "json":
+            try:
+                json.loads(translated)
+            except json.JSONDecodeError as e:
+                printc(f"❌ Gemini returned invalid JSON:\n{e}", "red")
+                printc("Translation output:\n" + translated, "yellow")
+                sys.exit(1)
+
     except Exception as e:
-        printc(f"Error calling Gemini API: \n {e}", "red")
+        printc(f"Translation failed: {e}", "red")
         sys.exit(1)
 
-    # Write the translated text to the target Portuguese file.
-    try:
-        os.makedirs(os.path.dirname(trans_file), exist_ok=True)
-        with open(trans_file, 'w', encoding='utf-8') as f:
-            f.write(translated_text)
-    except Exception as e:
-        print(f"Error writing to file {trans_file}: {e}")
-        sys.exit(1)
+    if target_file:
+        os.makedirs(os.path.dirname(target_file) or ".", exist_ok=True)
+    with open(target_file, "w", encoding="utf-8") as f:
+        f.write(translated)
 
-    printc(f"Translation to {language} successfully written to {trans_file}", "green")
-    sleep(0.1)
+    printc(f"✅ Successfully translated to {language}: {target_file}", "green")
 
 if __name__ == "__main__":
-    #sys.argv = ["translate.py", "./_pages/en-us/404.md", "./_pages/pt-br/404.md"]
     main()

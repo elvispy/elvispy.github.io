@@ -22,7 +22,7 @@ ninja.data = [{
     },
   },{id: "nav-proyectos",
           title: "proyectos",
-          description: "Una selección de proyectos en los cuales estuve envuelto.",
+          description: "Una colección creciente de mis proyectos geniales.",
           section: "",
           handler: () => {
             window.location.href = "/es/projects/";
@@ -425,9 +425,9 @@ ninja.data = [{
           section: "",},{id: "news-presenté-mi-trabajo-más-reciente-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-sociedad-estadounidense-de-física",
           title: 'Presenté mi trabajo más reciente en la Reunión Anual de la División de...',
           description: "",
-          section: "",},{id: "projects-bioreactor-design-optimization",
-          title: 'Bioreactor design optimization',
-          description: "Simulating the Future of Meat.",
+          section: "",},{id: "projects-optimización-del-diseño-de-biorreactores",
+          title: 'Optimización del diseño de biorreactores',
+          description: "Simulando el Futuro de la Carne.",
           section: "",handler: () => {
               window.location.href = "/es/projects/0_bioreactor/";
             },},{id: "projects-simulación-de-impactos-deformables",
@@ -435,8 +435,8 @@ ninja.data = [{
           description: "El método de correspondencia cinemática",
           section: "",handler: () => {
               window.location.href = "/es/projects/1_KM/";
-            },},{id: "projects-espintrónica",
-          title: 'Espintrónica',
+            },},{id: "projects-la-nueva-electrónica",
+          title: 'La nueva electrónica',
           description: "Avanzando en nuestra comprensión de los materiales espintrónicos",
           section: "",handler: () => {
               window.location.href = "/es/projects/2_CBPF/";
@@ -455,13 +455,13 @@ ninja.data = [{
           description: "",
           section: "",handler: () => {
               window.location.href = "/es/projects/5_Reaccion/";
-            },},{id: "projects-mathura",
-          title: 'Mathura',
+            },},{id: "projects-democratización-del-acceso-a-becas-en-paraguay",
+          title: 'Democratización del acceso a becas en Paraguay',
           description: "Promoción del acceso a la educación en Paraguay",
           section: "",handler: () => {
               window.location.href = "/es/projects/6_Mathura/";
-            },},{id: "projects-similaritysolver-jl",
-          title: 'SimilaritySolver.jl',
+            },},{id: "projects-un-solucionador-de-similitud-dinámico-para-la-dinámica-de-fluidos",
+          title: 'Un solucionador de similitud dinámico para la dinámica de fluidos.',
           description: "Un buscador simbólico de EDO para soluciones de similitud.",
           section: "",handler: () => {
               window.location.href = "/es/projects/7_zsimilarity/";
@@ -470,8 +470,8 @@ ninja.data = [{
           description: "",
           section: "",handler: () => {
               window.location.href = "/es/projects/9_PE/";
-            },},{id: "projects-fui-becario-de-verano-en-el-cern",
-          title: '¡Fui becario de verano en el CERN!.',
+            },},{id: "projects-mi-pasantía-de-verano-en-el-cern",
+          title: '¡Mi pasantía de verano en el CERN!',
           description: "",
           section: "",handler: () => {
               window.location.href = "/es/projects/announcement_2/";
