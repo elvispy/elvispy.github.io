@@ -3,7 +3,7 @@ page_id: prj_bioreactor
 layout: page
 title: Bioreactor design optimization
 description: Simulating the Future of Meat.
-img: #assets/img/bioreactor.gif
+img: assets/img/bioreactor.gif
 importance: 1
 category: work
 related_publications: true
@@ -25,7 +25,7 @@ So, how do we find the perfect rhythm?
 
 ## Cracking the Code with Computational Fluid Dynamics
 
-Enter **Basilisk**, an open-source fluid dynamics platform. My lab works on simulations of a rocking bioreactor—a rectangular “cellbag” filled with water (mimicking cell culture) and air ({% cite kim2025simulationmodelingframeworkfluid %}). We simulated how fluids slosh, swirl, and mix as the bioreactor tilts, tracking everything from oxygen bubbles to invisible forces that could stress cells.
+Enter **Basilisk**, an open-source fluid dynamics platform. My lab works on simulations of a rocking bioreactor—a rectangular “cellbag” filled with water (mimicking cell culture) and air {% cite kim2025simulationmodelingframeworkfluid %}. We simulated how fluids slosh, swirl, and mix as the bioreactor tilts, tracking everything from oxygen bubbles to invisible forces that could stress cells.
 
 The goal? To answer three big questions:
 
@@ -75,12 +75,6 @@ This isn’t just about equations and code—it’s about reshaping how humanity
 
 The future of food is a dance of fluids, cells, and innovation. Let’s make it sustainable—one simulated bioreactor at a time. 🌍🔬
 
----
-
-_Got questions about fluid dynamics, cell burgers, or the future of food tech? Let’s chat!_ 🍔✨
-
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-    {% include repository/repo.liquid repository='elvispy/kinematic-match-sphere' %}  
-    {% include repository/repo.liquid repository='elvispy/km-dropplet-solidsubstrate-v3' %}  
-    {% include repository/repo.liquid repository='elvispy/km-dropplet-onto-bath' %}  
+    {% include repository/repo.liquid repository='rcsc-group/BioReactor' %}  
 </div>
