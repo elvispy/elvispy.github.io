@@ -13,7 +13,21 @@ related_publications: true
 
 Imagine a robot the size of a paperclip, gliding across a water surface—not by paddling or jetting, but by vibrating. This is the SurferBot, a minimalist machine that harnesses the power of waves to move. Our lab's recent work {% cite Rhee_2022 %}, introduced this elegant mode of locomotion and explores how such simple systems can teach us about propulsion, efficiency, and the hidden dynamics at fluid interfaces.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PQF6yGAs-TA?si=0qH_j8Lccw4ljD_3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="width: 100%; display: flex; justify-content: center;">
+  <div style="position: relative; width: 80%; padding-bottom: 45%; height: 0; overflow: hidden;">
+    <iframe 
+      src="https://www.youtube.com/embed/PQF6yGAs-TA?si=0qH_j8Lccw4ljD_3" 
+      title="YouTube video player"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+
 
 ---
 
