@@ -1,8 +1,7 @@
 ---
 page_id: prj_mathura
 layout: page
-title: Democratizing access to scolarships in Paraguay
-description: Promoting education access in paraguay
+title: Democratizing access to higher education in Paraguay
 img: assets/img/mathura.jpg
 importance: 4
 category: personal
