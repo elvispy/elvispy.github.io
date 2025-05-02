@@ -2,7 +2,7 @@
 page_id: prj_surferbot
 layout: page
 title: Interfacial locomotion
-description: Interfacial locomotion
+description: Enabling low-cost robots to surf on water.
 img: assets/img/surferbot.gif
 importance: 1
 category: work
