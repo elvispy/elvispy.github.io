@@ -1,8 +1,9 @@
 ---
 layout: page
 title: My summer internship at CERN!
-description:
+description: Enabling Julia to precompile in heterogeneous sytems and clusters
 importance: 2
+img: assets/img/CERNlogo.webp
 category: work
 ---
 
