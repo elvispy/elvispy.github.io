@@ -2,7 +2,7 @@
 page_id: prj_jt
 layout: page
 title: Promoting Science Olympiads
-description: another without an image
+description: Providing access to quality opportunities to young and talented high-school students
 img: assets/img/jt2.jpg
 importance: 3
 category: personal
