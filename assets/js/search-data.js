@@ -427,7 +427,7 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "projects-bioreactor-design-optimization",
           title: 'Bioreactor design optimization',
-          description: "Simulating the Future of Meat.",
+          description: "Simulating the future of meat.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/0_bioreactor/";
             },},{id: "projects-simulating-deformable-impacts",
@@ -437,27 +437,27 @@ ninja.data = [{
               window.location.href = "/projects/1_KM/";
             },},{id: "projects-the-new-electronics",
           title: 'The new electronics',
-          description: "Advancibg oyr understanding of spintronic materials",
+          description: "Advancing our understanding of spintronic materials",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_CBPF/";
             },},{id: "projects-interfacial-locomotion",
           title: 'Interfacial locomotion',
-          description: "Interfacial locomotion",
+          description: "Enabling low-cost robots to surf on water.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_surferbot/";
             },},{id: "projects-promoting-science-olympiads",
           title: 'Promoting Science Olympiads',
-          description: "another without an image",
+          description: "Providing access to quality opportunities to young and talented high-school students",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_JT/";
             },},{id: "projects-battling-corruption-in-paraguay",
           title: 'Battling corruption in Paraguay',
-          description: "",
+          description: "Promoting open contracting data standards and transparency in the paraguayan government",
           section: "Projects",handler: () => {
               window.location.href = "/projects/5_Reaccion/";
-            },},{id: "projects-democratizing-access-to-scolarships-in-paraguay",
-          title: 'Democratizing access to scolarships in Paraguay',
-          description: "Promoting education access in paraguay",
+            },},{id: "projects-democratizing-access-to-higher-education-in-paraguay",
+          title: 'Democratizing access to higher education in Paraguay',
+          description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/6_Mathura/";
             },},{id: "projects-a-dynamic-similarity-solver-for-fluid-dynamics",
@@ -472,7 +472,7 @@ ninja.data = [{
               window.location.href = "/projects/9_PE/";
             },},{id: "projects-my-summer-internship-at-cern",
           title: 'My summer internship at CERN!',
-          description: "",
+          description: "Enabling Julia to precompile in heterogeneous sytems and clusters",
           section: "Projects",handler: () => {
               window.location.href = "/projects/announcement_2/";
             },},{

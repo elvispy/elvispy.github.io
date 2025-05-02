@@ -442,7 +442,7 @@ ninja.data = [{
               window.location.href = "/es/projects/2_CBPF/";
             },},{id: "projects-interfacial-locomotion",
           title: 'Interfacial locomotion',
-          description: "Interfacial locomotion",
+          description: "Enabling low-cost robots to surf on water.",
           section: "",handler: () => {
               window.location.href = "/es/projects/3_surferbot/";
             },},{id: "projects-promoviendo-las-olimpiadas-de-ciencias",
