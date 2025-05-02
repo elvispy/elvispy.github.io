@@ -2,7 +2,7 @@
 page_id: prj_reaccion
 layout: page
 title: Battling corruption in Paraguay
-#description: a project with a background image
+description: Promoting open contracting data standards and transparency in the paraguayan government
 img: assets/img/reaccion.jpeg
 importance: 3
 category: personal
