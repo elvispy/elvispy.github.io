@@ -60,7 +60,7 @@ Simulating asteroid collisions or planetary accretion requires handling fragment
 
 ### 3. **Fluid-Structure Interactions**
 
-Our most recent work ({% citegabbard2025dropreboundlowweber %}) applies KM to water droplets hitting fluid baths—a problem with applications in inkjet printing and pesticide spraying. Early results show KM captures capillary waves and coalescence better than conventional CFD .
+Our most recent work ({% cite gabbard2025dropreboundlowweber%}) applies KM to water droplets hitting fluid baths—a problem with applications in inkjet printing and pesticide spraying. Early results show KM captures capillary waves and coalescence better than conventional CFD .
 
 ---
 
