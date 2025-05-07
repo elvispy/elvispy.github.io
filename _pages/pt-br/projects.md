@@ -6,7 +6,7 @@ permalink: /projects/
 description: Uma coleção crescente dos meus projetos legais.
 nav: true
 nav_order: 3
-display_categories: [work, fun, personal]
+display_categories: [work, personal, fun]
 horizontal: false
 ---
 
