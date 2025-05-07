@@ -2,7 +2,7 @@
 page_id: prj_surferbot
 layout: page
 title: Locomoção Interfacial
-description: Locomoção interfacial
+description: Permitindo que robôs de baixo custo naveguem na água.
 img: assets/img/surferbot.gif
 importance: 1
 category: work
@@ -16,7 +16,7 @@ Imagine um robô do tamanho de um clipe de papel, deslizando pela superfície da
 <div style="width: 100%; display: flex; justify-content: center;">
   <div style="position: relative; width: 80%; padding-bottom: 45%; height: 0; overflow: hidden;">
     <iframe 
-      src="https://www.youtube.com/embed/PQF6yGAs-TA?autoplay=1&si=0qH_j8Lccw4ljD_3" 
+      src="https://www.youtube.com/embed/PQF6yGAs-TA?autoplay=1&mute=1&si=0qH_j8Lccw4ljD_3" 
       title="YouTube video player"
       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
       frameborder="0" 
