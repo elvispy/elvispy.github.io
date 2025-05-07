@@ -60,7 +60,7 @@ Simular colisões de asteroides ou acreção planetária requer o manuseio de co
 
 ### 3. **Interações Fluido-Estrutura**
 
-Nosso trabalho mais recente ({% citegabbard2025dropreboundlowweber %}) aplica o KM a gotas de água atingindo banhos de fluido — um problema com aplicações em impressão a jato de tinta e pulverização de pesticidas. Os primeiros resultados mostram que o KM captura ondas capilares e coalescência melhor do que o CFD convencional.
+Nosso trabalho mais recente ({% cite gabbard2025dropreboundlowweber %}) aplica o KM a gotas de água atingindo banhos de fluido — um problema com aplicações em impressão a jato de tinta e pulverização de pesticidas. Os primeiros resultados mostram que o KM captura ondas capilares e coalescência melhor do que o CFD convencional.
 
 ---
 
