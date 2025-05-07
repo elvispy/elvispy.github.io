@@ -2,7 +2,7 @@
 page_id: prj_reaccion
 layout: page
 title: Combatendo a corrupção no Paraguai
-#description: a project with a background image
+description: Promovendo padrões de dados de contratos abertos e transparência no governo paraguaio
 img: assets/img/reaccion.jpeg
 importance: 3
 category: personal

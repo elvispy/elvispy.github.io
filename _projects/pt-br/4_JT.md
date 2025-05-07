@@ -2,7 +2,7 @@
 page_id: prj_jt
 layout: page
 title: Promovendo Olimpíadas de Ciência
-description: outro sem imagem
+description: Fornecendo acesso a oportunidades de qualidade para jovens e talentosos estudantes do ensino médio
 img: assets/img/jt2.jpg
 importance: 3
 category: personal

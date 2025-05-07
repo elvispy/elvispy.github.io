@@ -2,7 +2,7 @@
 page_id: prj_reaccion
 layout: page
 title: Luchando contra la corrupción en Paraguay
-#description: un proyecto con una imagen de fondo
+description: Promoción de estándares de datos de contratación abierta y transparencia en el gobierno paraguayo
 img: assets/img/reaccion.jpeg
 importance: 3
 category: personal
