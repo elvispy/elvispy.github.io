@@ -1,8 +1,9 @@
 ---
 layout: page
 title: Meu estágio de verão no CERN!
-description:
+description: Permitindo que Julia pré-compile em sistemas e clusters heterogêneos
 importance: 2
+img: assets/img/CERNlogo.webp
 category: work
 ---
 

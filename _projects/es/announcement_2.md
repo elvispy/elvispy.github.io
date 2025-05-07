@@ -1,8 +1,9 @@
 ---
 layout: page
 title: ¡Mi pasantía de verano en el CERN!
-description:
+description: Permitiendo que Julia precompile en sistemas y clústeres heterogéneos
 importance: 2
+img: assets/img/CERNlogo.webp
 category: work
 ---
 
@@ -17,7 +18,7 @@ Este año, tuve la suerte de ser seleccionado para el [Programa de Estudiantes d
 </div>
 El programa de estudiantes de verano es una oportunidad para trabajar en un proyecto en el Gran Colisionador de Hadrones (LHC) más grande del mundo. Me asignaron un proyecto en el grupo de software para experimentos en el CERN, bajo la supervisión de Graeme Stewart.
 
-### Optimización de Julia para aplicaciones de física de altas energías
+### Optimizando Julia para aplicaciones de física de altas energías
 
 Julia ha surgido como una herramienta poderosa para la computación científica, combinando la funcionalidad de alto nivel con un rendimiento que rivaliza con C/C++. Sin embargo, su dependencia de archivos precompilados causa retrasos en el inicio, lo que plantea desafíos para los sistemas distribuidos. Para abordar esto, desarrollamos un flujo de trabajo que precompila y almacena en caché las dependencias de Julia en el sistema de archivos compartido CernVM-FS (CVMFS), lo que permite una distribución perfecta entre los nodos de cómputo.
 
