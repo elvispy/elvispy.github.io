@@ -1,8 +1,7 @@
 ---
 page_id: prj_mathura
 layout: page
-title: Democratización del acceso a becas en Paraguay
-description: Promoción del acceso a la educación en Paraguay
+title: Democratización del acceso a la educación superior en Paraguay
 img: assets/img/mathura.jpg
 importance: 4
 category: personal
