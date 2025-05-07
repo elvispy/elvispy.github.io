@@ -20,7 +20,7 @@ initialize:
 define TRANSLATE_RULE
 $(1): $(2)
 	@mkdir -p $(dir $(1))
-	@echo "Translating $(2) -> $(1)"
+	@echo "Translating          $(2) -> $(1)"
 	python3 translate.py $(2) $(1)
 endef
 

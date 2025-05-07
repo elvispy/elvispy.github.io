@@ -450,17 +450,17 @@ ninja.data = [{
               window.location.href = "/pt-br/projects/3_surferbot/";
             },},{id: "projects-promovendo-olimpíadas-de-ciência",
           title: 'Promovendo Olimpíadas de Ciência',
-          description: "outro sem imagem",
+          description: "Fornecendo acesso a oportunidades de qualidade para jovens e talentosos estudantes do ensino médio",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/4_JT/";
             },},{id: "projects-combatendo-a-corrupção-no-paraguai",
           title: 'Combatendo a corrupção no Paraguai',
-          description: "",
+          description: "Promovendo padrões de dados de contratos abertos e transparência no governo paraguaio",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/5_Reaccion/";
-            },},{id: "projects-democratizando-o-acesso-a-bolsas-de-estudo-no-paraguai",
-          title: 'Democratizando o acesso a bolsas de estudo no Paraguai',
-          description: "Promovendo o acesso à educação no Paraguai",
+            },},{id: "projects-democratizando-o-acesso-ao-ensino-superior-no-paraguai",
+          title: 'Democratizando o acesso ao ensino superior no Paraguai',
+          description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/6_Mathura/";
             },},{id: "projects-um-solucionador-de-similaridade-dinâmico-para-dinâmica-de-fluidos",
