@@ -13,6 +13,8 @@ profile:
     <p><a href="https://engineering.brown.edu/"> Brown University </a> </p>
     <p>School of Engineering</p>
     <p>84 Hope St, Providence, RI, USA</p>
+    <hr>
+    <img src="https://projecteuler.net/profile/amanifold.png" alt="PE_status">
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
