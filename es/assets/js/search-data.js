@@ -443,9 +443,9 @@ ninja.data = [{
           description: "Avanzando en nuestra comprensión de los materiales espintrónicos",
           section: "",handler: () => {
               window.location.href = "/es/projects/2_CBPF/";
-            },},{id: "projects-interfacial-locomotion",
-          title: 'Interfacial locomotion',
-          description: "Enabling low-cost robots to surf on water.",
+            },},{id: "projects-locomoción-interfacial",
+          title: 'Locomoción interfacial',
+          description: "Permitiendo a robots de bajo costo surfear en el agua.",
           section: "",handler: () => {
               window.location.href = "/es/projects/3_surferbot/";
             },},{id: "projects-promoviendo-las-olimpiadas-de-ciencias",
@@ -475,7 +475,7 @@ ninja.data = [{
               window.location.href = "/es/projects/9_PE/";
             },},{id: "projects-mi-pasantía-de-verano-en-el-cern",
           title: '¡Mi pasantía de verano en el CERN!',
-          description: "",
+          description: "Permitiendo que Julia precompile en sistemas y clústeres heterogéneos",
           section: "",handler: () => {
               window.location.href = "/es/projects/announcement_2/";
             },},{

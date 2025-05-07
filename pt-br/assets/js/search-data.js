@@ -445,7 +445,7 @@ ninja.data = [{
               window.location.href = "/pt-br/projects/2_CBPF/";
             },},{id: "projects-locomoção-interfacial",
           title: 'Locomoção Interfacial',
-          description: "Locomoção interfacial",
+          description: "Permitindo que robôs de baixo custo naveguem na água.",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/3_surferbot/";
             },},{id: "projects-promovendo-olimpíadas-de-ciência",
@@ -475,7 +475,7 @@ ninja.data = [{
               window.location.href = "/pt-br/projects/9_PE/";
             },},{id: "projects-meu-estágio-de-verão-no-cern",
           title: 'Meu estágio de verão no CERN!',
-          description: "",
+          description: "Permitindo que Julia pré-compile em sistemas e clusters heterogêneos",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/announcement_2/";
             },},{
