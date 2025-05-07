@@ -9,7 +9,7 @@ category: work
 related_publications: true
 ---
 
-## El Problema: Por qué las colisiones son más que solo "rebotes"
+## El Problema: Por qué las colisiones son más que solo "rebotar"
 
 <figure style="float: left; margin: 10px; max-width: 300px;">
     {% include figure.liquid loading="eager" path="assets/img/km-sphere.gif" title="example image" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
@@ -18,19 +18,19 @@ related_publications: true
     </figcaption>
 </figure>
 
-Las colisiones inelásticas, donde los objetos no solo rebotan sino que se deforman, se pegan o se fragmentan, están gobernadas por dinámicas no lineales que desafían las ecuaciones simples. Los modelos tradicionales a menudo simplifican demasiado la mecánica de contacto, ignorando cómo los materiales se _adaptan_ durante el impacto. Por ejemplo, los "dedos" de silicona de un robot blando que agarran un objeto o una gota de agua que salpica sobre una superficie vibrante involucran un acoplamiento intrincado entre la elasticidad, la dinámica de fluidos y la geometría.
+Las colisiones inelásticas, donde los objetos no solo rebotan, sino que se deforman, se pegan o se fragmentan, están gobernadas por dinámicas no lineales que desafían las ecuaciones simples. Los modelos tradicionales a menudo simplifican demasiado la mecánica de contacto, ignorando cómo los materiales se _adaptan_ durante el impacto. Por ejemplo, los "dedos" de silicona de un robot blando que agarran un objeto o una gota de agua que salpica sobre una superficie vibrante involucran un acoplamiento intrincado entre la elasticidad, la dinámica de fluidos y la geometría.
 
 ---
 
 ## El Marco KM: Suavizando el Caos
 
-En esencia, el marco KM introduce (ver cite aguero2022impact) una **restricción geométrica** en las superficies de contacto: el ángulo de incidencia entre los objetos que chocan debe permanecer suave. Piense en ello como asegurar un "apretón de manos" entre los materiales: sin bordes afilados, sin saltos repentinos. Este enfoque es:
+En esencia, el marco KM introduce (ver {% cite aguero2022impact%}) una **restricción geométrica** en las superficies de contacto: el ángulo de incidencia entre los objetos que chocan debe permanecer suave. Piense en ello como asegurar un "apretón de manos" entre los materiales: sin bordes afilados, sin saltos repentinos. Este enfoque es:
 
 1.  **Intuitivo**: A diferencia de las simulaciones de fuerza bruta, las restricciones de KM reflejan el comportamiento del mundo real, lo que facilita su implementación.
 2.  **Versátil**: Funciona con elementos finitos, diferencias finitas o incluso solucionadores de aprendizaje automático.
 3.  **Eficiente**: Al evitar refinamientos costosos de la malla, KM sobresale en escenarios como impactos de gotas de baja velocidad, donde los métodos tradicionales tienen dificultades.
 
-En nuestro [estudio reciente](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340), validamos KM con experimentos que involucran una esfera de acero que golpea una membrana elástica. Los resultados coincidieron no solo con los patrones de deformación, sino también con las tasas de disipación de energía, una rareza en el modelado de colisiones.
+En nuestro [trabajo reciente](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340), validamos KM con experimentos que involucran una esfera rígida que golpea una membrana elástica. Los resultados coincidieron no solo con los patrones de deformación, sino también con las tasas de disipación de energía, una rareza en el modelado de colisiones.
 
 ---
 
@@ -60,7 +60,7 @@ Simular colisiones de asteroides o la acreción planetaria requiere el manejo de
 
 ### 3. **Interacciones Fluido-Estructura**
 
-Nuestro trabajo en curso aplica KM a gotas de agua que golpean baños de fluido, un problema con aplicaciones en la impresión de inyección de tinta y la pulverización de pesticidas. Los primeros resultados muestran que KM captura las ondas capilares y la coalescencia mejor que la CFD convencional.
+Nuestro trabajo más reciente ({% citegabbard2025dropreboundlowweber %}) aplica KM a gotas de agua que golpean baños de fluido, un problema con aplicaciones en la impresión de inyección de tinta y la pulverización de pesticidas. Los primeros resultados muestran que KM captura las ondas capilares y la coalescencia mejor que la CFD convencional.
 
 ---
 

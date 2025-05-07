@@ -26,11 +26,11 @@ Colisões inelásticas — onde os objetos não apenas ricocheteiam, mas deforma
 
 Em sua essência, a estrutura KM introduz (ver {% cite aguero2022impact %}) uma **restrição geométrica** nas superfícies de contato: o ângulo de incidência entre os objetos colidindo deve permanecer suave. Pense nisso como garantir um "aperto de mão" entre os materiais — sem arestas afiadas, sem saltos repentinos. Esta abordagem é:
 
-1. **Intuitiva**: Ao contrário das simulações de força bruta, as restrições do KM espelham o comportamento do mundo real, tornando-o mais fácil de implementar.
-2. **Versátil**: Funciona com elementos finitos, diferenças finitas ou até mesmo solucionadores de aprendizado de máquina.
-3. **Eficiente**: Ao evitar refinamentos de malha dispendiosos, o KM se destaca em cenários como impactos de gotas de baixa velocidade, onde os métodos tradicionais lutam.
+1.  **Intuitiva**: Ao contrário das simulações de força bruta, as restrições do KM espelham o comportamento do mundo real, tornando-o mais fácil de implementar.
+2.  **Versátil**: Funciona com elementos finitos, diferenças finitas ou até mesmo solucionadores de aprendizado de máquina.
+3.  **Eficiente**: Ao evitar refinamentos de malha dispendiosos, o KM se destaca em cenários como impactos de gotas de baixa velocidade, onde os métodos tradicionais lutam.
 
-Em nosso [estudo recente](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340), validamos o KM contra experimentos envolvendo uma esfera de aço atingindo uma membrana elástica. Os resultados corresponderam não apenas aos padrões de deformação, mas também às taxas de dissipação de energia — uma raridade na modelagem de colisões.
+Em nosso [trabalho recente](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340), validamos o KM contra experimentos envolvendo uma esfera rígida atingindo uma membrana elástica. Os resultados corresponderam não apenas aos padrões de deformação, mas também às taxas de dissipação de energia — uma raridade na modelagem de colisões.
 
 ---
 
@@ -60,7 +60,7 @@ Simular colisões de asteroides ou acreção planetária requer o manuseio de co
 
 ### 3. **Interações Fluido-Estrutura**
 
-Nosso trabalho em andamento aplica o KM a gotas de água atingindo banhos de fluido — um problema com aplicações em impressão a jato de tinta e pulverização de pesticidas. Os primeiros resultados mostram que o KM captura ondas capilares e coalescência melhor do que o CFD convencional.
+Nosso trabalho mais recente ({% citegabbard2025dropreboundlowweber %}) aplica o KM a gotas de água atingindo banhos de fluido — um problema com aplicações em impressão a jato de tinta e pulverização de pesticidas. Os primeiros resultados mostram que o KM captura ondas capilares e coalescência melhor do que o CFD convencional.
 
 ---
 
@@ -68,9 +68,9 @@ Nosso trabalho em andamento aplica o KM a gotas de água atingindo banhos de flu
 
 Estamos expandindo o KM para:
 
-- **Colisões de múltiplos materiais**: Pense em gelo atingindo água (relevante para engenharia criogênica).
-- **Sistemas biológicos**: Simulação de interações célula-matriz em biorreatores de engenharia de tecidos.
-- **Integração de aprendizado de máquina**: Treinar redes neurais para prever restrições KM, reduzindo o tempo de computação.
+-   **Colisões de múltiplos materiais**: Pense em gelo atingindo água (relevante para engenharia criogênica).
+-   **Sistemas biológicos**: Simulação de interações célula-matriz em biorreatores de engenharia de tecidos.
+-   **Integração de aprendizado de máquina**: Treinar redes neurais para prever restrições KM, reduzindo o tempo de computação.
 
 ---
 
