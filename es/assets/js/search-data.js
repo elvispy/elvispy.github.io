@@ -22,7 +22,7 @@ ninja.data = [{
     },
   },{id: "nav-proyectos",
           title: "proyectos",
-          description: "Una colección creciente de mis proyectos geniales.",
+          description: "Una colección creciente de mis proyectos interesantes.",
           section: "",
           handler: () => {
             window.location.href = "/es/projects/";
@@ -424,6 +424,9 @@ ninja.data = [{
           description: "",
           section: "",},{id: "news-presenté-mi-trabajo-más-reciente-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-sociedad-estadounidense-de-física",
           title: 'Presenté mi trabajo más reciente en la Reunión Anual de la División de...',
+          description: "",
+          section: "",},{id: "news-nuestro-nuevo-preprint-rebote-de-gotas-a-bajo-número-de-weber-está-disponible-en-arxiv",
+          title: 'Nuestro nuevo preprint “Rebote de gotas a bajo número de Weber” está disponible...',
           description: "",
           section: "",},{id: "projects-optimización-del-diseño-de-biorreactores",
           title: 'Optimización del diseño de biorreactores',
