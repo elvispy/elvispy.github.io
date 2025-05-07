@@ -30,7 +30,7 @@ At its core, the KM framework introduces (see {% cite aguero2022impact%}) a **ge
 2. **Versatile**: It works with finite elements, finite differences, or even machine learning solvers.
 3. **Efficient**: By avoiding costly mesh refinements, KM excels in scenarios like low-velocity droplet impacts, where traditional methods struggle .
 
-In our [recent study](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340) , we validated KM against experiments involving a steel sphere striking an elastic membrane. The results matched not just deformation patterns but also energy dissipation rates—a rarity in collision modeling .
+In our [recent work](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340) , we validated KM against experiments involving a rigid sphere striking an elastic membrane. The results matched not just deformation patterns but also energy dissipation rates—a rarity in collision modeling .
 
 ---
 
@@ -60,7 +60,7 @@ Simulating asteroid collisions or planetary accretion requires handling fragment
 
 ### 3. **Fluid-Structure Interactions**
 
-Our ongoing work applies KM to water droplets hitting fluid baths—a problem with applications in inkjet printing and pesticide spraying. Early results show KM captures capillary waves and coalescence better than conventional CFD .
+Our most recent work ({% citegabbard2025dropreboundlowweber %}) applies KM to water droplets hitting fluid baths—a problem with applications in inkjet printing and pesticide spraying. Early results show KM captures capillary waves and coalescence better than conventional CFD .
 
 ---
 
