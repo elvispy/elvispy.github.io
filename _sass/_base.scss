@@ -1382,7 +1382,7 @@ ninja-keys::part(ninja-input-wrapper) {
 }
 
 html {
-  font-size: 16px; // or whatever size you want
+  font-size: 16px !important; // or whatever size you want
 }
 
 body {
