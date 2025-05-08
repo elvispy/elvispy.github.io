@@ -430,7 +430,7 @@ ninja.data = [{
           description: "",
           section: "Novidades",},{id: "projects-otimização-do-projeto-de-biorreatores",
           title: 'Otimização do projeto de biorreatores',
-          description: "Simulando o Futuro da Carne.",
+          description: "Simulando o futuro da carne.",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/0_bioreactor/";
             },},{id: "projects-simulação-de-impactos-deformáveis",
