@@ -1380,3 +1380,11 @@ ninja-keys::part(ninja-input-wrapper) {
   background-color: var(--global-theme-color);
   color: var(--global-text-color);
 }
+
+html {
+  font-size: 16px; // or whatever size you want
+}
+
+body {
+  font-size: 1rem; // this ensures scaling from the root size
+}
