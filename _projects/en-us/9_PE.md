@@ -15,3 +15,5 @@ Project Euler is not the best resource to learn coding from first principles, bu
 <p style="text-align: center;">
 How many numbers of the form $2n^2-1$ are primes, for $1 \leq n \leq 50000000$?. 
 </p>
+
+<img src="https://projecteuler.net/profile/amanifold.png" alt="Project Euler Profile" />

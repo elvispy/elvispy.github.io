@@ -20,7 +20,6 @@ Imagine a world where your burger doesn’t come from a cow grazing a field but 
   </p>
 </div>
 
-
 ---
 
 ## When rocking’s too rough, and resting too still
@@ -50,8 +49,6 @@ Picture a river flowing lazily in loops. In our simulations, we discovered somet
 
 Faster rocking amplifies these streams, improving mixing—but only up to a point. Push too hard, and the flow fractures into turbulence, like a serene river transforming into whitewater rapids. Cells, much like tiny kayakers, wouldn’t survive the ride.
 
-
-
 Oxygen is life for cells, but it’s tricky to deliver. We believe that at specific rocking frequencies, the bioreactor enters **resonance**. Think of it like pushing a swing at just the right moment—the fluid’s motion syncs perfectly with the rocking, creating waves that splash oxygen-rich fluid deeper into the broth. This “sweet spot” boosts oxygen transfer without shaking.
 
 But resonance is a double-edged sword. In some cases, it amplified stress near the walls—a reminder that every design choice requires balance.
@@ -66,14 +63,11 @@ Cultivated meat could slash agriculture’s environmental footprint, but scaling
 - **Predict cell-friendly conditions**—no more guessing which rocking speed avoids turbulence.
 - **Democratize tools**—our open-source code lets researchers worldwide tweak and test virtual bioreactors.
 
-
-
 ---
 
 ## What’s Next?
 
 We’re expanding our simulations to 3D bioreactors with real-world cellbag shapes and modeling the gooey, non-Newtonian fluids that actual cell cultures resemble. Down the line, we’ll integrate virtual cell growth to predict how tiny tweaks to fluid flow could multiply meat yields.
-
 
 This isn’t just about equations and code—it’s about reshaping how humanity eats. If you’re curious to play with our simulations or dive deeper, check out our [GitHub repository](https://github.com/rcsc-group/BioReactor) or read the full study [here](https://arxiv.org/abs/2504.05421).
 

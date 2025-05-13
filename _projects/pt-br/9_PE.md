@@ -15,3 +15,5 @@ Project Euler não é o melhor recurso para aprender a programar desde os princ�
 <p style="text-align: center;">
 Quantos números da forma $2n^2-1$ são primos, para $1 \leq n \leq 50000000$?
 </p>
+
+<img src="https://projecteuler.net/profile/amanifold.png" alt="Project Euler Profile" />

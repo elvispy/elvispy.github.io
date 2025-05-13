@@ -68,9 +68,9 @@ Nosso trabalho mais recente ({% cite gabbard2025dropreboundlowweber %}) aplica o
 
 Estamos expandindo o KM para:
 
--   **Colisões de múltiplos materiais**: Pense em gelo atingindo água (relevante para engenharia criogênica).
--   **Sistemas biológicos**: Simulação de interações célula-matriz em biorreatores de engenharia de tecidos.
--   **Integração de aprendizado de máquina**: Treinar redes neurais para prever restrições KM, reduzindo o tempo de computação.
+- **Colisões de múltiplos materiais**: Pense em gelo atingindo água (relevante para engenharia criogênica).
+- **Sistemas biológicos**: Simulação de interações célula-matriz em biorreatores de engenharia de tecidos.
+- **Integração de aprendizado de máquina**: Treinar redes neurais para prever restrições KM, reduzindo o tempo de computação.
 
 ---
 
