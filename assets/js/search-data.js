@@ -139,9 +139,9 @@ ninja.data = [{
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/6_Mathura/";
-            },},{id: "projects-a-dynamic-similarity-solver-for-fluid-dynamics",
-          title: 'A dynamic similarity solver for fluid dynamics.',
-          description: "A symbolic PDE finder for similarity solutions.",
+            },},{id: "projects-dynamic-similarity-solver-for-pdes",
+          title: 'Dynamic-similarity solver for PDEs',
+          description: "Symbolic search for scaling reductions from PDE → ODE",
           section: "Projects",handler: () => {
               window.location.href = "/projects/7_zsimilarity/";
             },},{id: "projects-plz-learn-to-code",

@@ -139,9 +139,9 @@ ninja.data = [{
           description: "",
           section: "",handler: () => {
               window.location.href = "/es/projects/6_Mathura/";
-            },},{id: "projects-un-solucionador-de-similitud-dinámica-para-la-dinámica-de-fluidos",
-          title: 'Un solucionador de similitud dinámica para la dinámica de fluidos.',
-          description: "Un buscador simbólico de Ecuaciones Diferenciales Parciales (EDP) para soluciones de similitud.",
+            },},{id: "projects-solucionador-de-similitud-dinámica-para-edps",
+          title: 'Solucionador de similitud dinámica para EDPs',
+          description: "Búsqueda simbólica de reducciones de escala de EDP → EDO",
           section: "",handler: () => {
               window.location.href = "/es/projects/7_zsimilarity/";
             },},{id: "projects-por-favor-aprende-a-programar",
