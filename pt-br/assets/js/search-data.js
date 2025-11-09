@@ -436,14 +436,14 @@ ninja.data = [{
           description: "Integrando crescimento biológico e dinâmica de fluidos em vastos espaços de design",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/0_bioreactor/";
-            },},{id: "projects-",
-          title: '',
-          description: "",
+            },},{id: "projects-kinematic-match-a-smooth-contact-framework-for-deformable-impacts",
+          title: 'Kinematic Match, a smooth-contact framework for deformable impacts',
+          description: "A geometric constraint that makes collisions stable, accurate, and optimization-ready",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/1_KM/";
-            },},{id: "projects-a-nova-eletrônica",
-          title: 'A nova eletrônica',
-          description: "Avançando nossa compreensão dos materiais de spintrônica",
+            },},{id: "projects-transporte-de-spin-por-medição-e-inferência",
+          title: 'Transporte de spin por medição e inferência',
+          description: "De ajustes de FMR baseados em LLG à deconvolução de iSHE e seleção de materiais",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/2_CBPF/";
             },},{id: "projects-locomoção-interfacial",
@@ -481,6 +481,11 @@ ninja.data = [{
           description: "Permitindo que Julia pré-compile em sistemas e clusters heterogêneos",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/announcement_2/";
+            },},{id: "projects-",
+          title: '',
+          description: "",
+          section: "Projetos",handler: () => {
+              window.location.href = "/pt-br/projects/1_KM/";
             },},{
         id: 'social-github',
         title: 'GitHub',

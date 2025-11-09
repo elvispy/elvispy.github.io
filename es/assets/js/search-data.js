@@ -436,14 +436,14 @@ ninja.data = [{
           description: "Integración del crecimiento biológico y la dinámica de fluidos a través de vastos espacios de diseño",
           section: "",handler: () => {
               window.location.href = "/es/projects/0_bioreactor/";
-            },},{id: "projects-",
-          title: '',
-          description: "",
+            },},{id: "projects-kinematic-match-a-smooth-contact-framework-for-deformable-impacts",
+          title: 'Kinematic Match, a smooth-contact framework for deformable impacts',
+          description: "A geometric constraint that makes collisions stable, accurate, and optimization-ready",
           section: "",handler: () => {
               window.location.href = "/es/projects/1_KM/";
-            },},{id: "projects-la-nueva-electrónica",
-          title: 'La nueva electrónica',
-          description: "Avanzando en nuestra comprensión de los materiales espintrónicos",
+            },},{id: "projects-transporte-de-espín-por-medición-e-inferencia",
+          title: 'Transporte de espín por medición e inferencia',
+          description: "Desde ajustes de FMR basados en LLG hasta deconvolución de iSHE y selección de materiales",
           section: "",handler: () => {
               window.location.href = "/es/projects/2_CBPF/";
             },},{id: "projects-locomoción-interfacial",
@@ -481,6 +481,11 @@ ninja.data = [{
           description: "Permitiendo que Julia precompile en sistemas y clústeres heterogéneos",
           section: "",handler: () => {
               window.location.href = "/es/projects/announcement_2/";
+            },},{id: "projects-",
+          title: '',
+          description: "",
+          section: "",handler: () => {
+              window.location.href = "/es/projects/1_KM/";
             },},{
         id: 'social-github',
         title: 'GitHub',

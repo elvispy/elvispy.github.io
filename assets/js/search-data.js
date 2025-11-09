@@ -436,14 +436,14 @@ ninja.data = [{
           description: "Integrating biological growth and fluid dynamics across vast design spaces",
           section: "Projects",handler: () => {
               window.location.href = "/projects/0_bioreactor/";
-            },},{id: "projects-",
-          title: '',
-          description: "",
+            },},{id: "projects-kinematic-match-a-smooth-contact-framework-for-deformable-impacts",
+          title: 'Kinematic Match, a smooth-contact framework for deformable impacts',
+          description: "A geometric constraint that makes collisions stable, accurate, and optimization-ready",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_KM/";
-            },},{id: "projects-the-new-electronics",
-          title: 'The new electronics',
-          description: "Advancing our understanding of spintronic materials",
+            },},{id: "projects-spin-transport-by-measurement-and-inference",
+          title: 'Spin transport by measurement and inference',
+          description: "From LLG-based FMR fits to iSHE deconvolution and materials selection",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_CBPF/";
             },},{id: "projects-interfacial-locomotion",
@@ -481,6 +481,11 @@ ninja.data = [{
           description: "Enabling Julia to precompile in heterogeneous sytems and clusters",
           section: "Projects",handler: () => {
               window.location.href = "/projects/announcement_2/";
+            },},{id: "projects-",
+          title: '',
+          description: "",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1_KM/";
             },},{
         id: 'social-github',
         title: 'GitHub',
