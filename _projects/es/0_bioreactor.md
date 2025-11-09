@@ -34,7 +34,7 @@ Entonces, ¿cómo encontramos el ritmo perfecto?
 
 Utilizamos **Basilisk**, una plataforma de dinámica de fluidos de código abierto. Mi laboratorio trabajó en simulaciones de un biorreactor oscilante: una "bolsa celular" rectangular llena de agua (imitando el cultivo celular) y aire {% cite kim2025simulationmodelingframeworkfluid %}. Simulamos cómo los fluidos chapotean, giran y se mezclan a medida que el biorreactor se inclina, rastreando todo, desde el oxígeno y el transporte de especies.
 
-¿El objetivo? Responder a tres grandes preguntas:
+¿El objetivo? Responder a cuatro grandes preguntas:
 
 1. **¿Cómo crea el movimiento de balanceo "corrientes ocultas" que mezclan los nutrientes?**
 2. **¿Dónde fluye (o se estanca) el oxígeno dentro del caldo?**
@@ -48,10 +48,6 @@ Utilizamos **Basilisk**, una plataforma de dinámica de fluidos de código abier
 Imagina un río que fluye perezosamente en bucles. En nuestras simulaciones, descubrimos algo similar: cuando el biorreactor se balancea, genera vórtices giratorios que se fusionan con el tiempo en **corrientes constantes**. Estas corrientes actúan como cintas transportadoras submarinas, empujando nutrientes y oxígeno hacia las células hambrientas.
 
 Un balanceo más rápido amplifica estas corrientes, mejorando la mezcla, pero solo hasta cierto punto. Si se empuja demasiado, el flujo se fractura en turbulencias, como un río sereno que se transforma en rápidos de aguas bravas. Las células, como pequeños kayakistas, no sobrevivirían al viaje.
-
----
-
-## La danza secreta del oxígeno: resonancia y refresco
 
 El oxígeno es vida para las células, pero es difícil de administrar. Creemos que, a frecuencias de balanceo específicas, el biorreactor entra en **resonancia**. Piénsalo como empujar un columpio en el momento justo: el movimiento del fluido se sincroniza perfectamente con el balanceo, creando ondas que salpican fluido rico en oxígeno más profundamente en el caldo. Este "punto óptimo" aumenta la transferencia de oxígeno sin agitación brusca.
 

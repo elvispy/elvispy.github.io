@@ -9,9 +9,9 @@ category: work
 related_publications: true
 ---
 
-# 🌱 Simulando o Futuro da Carne: Uma Dança Fluida em Bifes Cultivados em Laboratório
+# 🌱 Simulando o futuro da carne: Uma dança fluida em bifes cultivados em laboratório
 
-Imagine um mundo onde seu hambúrguer não venha de uma vaca pastando em um campo, mas de um biorreator zumbindo silenciosamente em um laboratório. Isso não é ficção científica – é a promessa da **carne cultivada**, uma alternativa sustentável à pecuária tradicional. Mas aqui está a reviravolta: cultivar carne a partir de células não se trata apenas de biologia. Trata-se também de resolver um _quebra-cabeça de dinâmica de fluidos_.
+Imagine um mundo onde seu hambúrguer não venha de uma vaca pastando em um campo, mas de um biorreator zumbindo silenciosamente em um laboratório. Isso não é ficção científica — é a promessa da **carne cultivada**, uma alternativa sustentável à pecuária tradicional. Mas aqui está a reviravolta: cultivar carne a partir de células não se trata apenas de biologia. Trata-se também de resolver um _quebra-cabeça de dinâmica de fluidos_.
 
 <div style="text-align: center; margin: 2em 0;">
   <img src="{{ '/assets/img/bioreactor.gif' | relative_url }}" alt="Simulação de biorreator" style="max-width: 80%; height: auto;" />
@@ -34,7 +34,7 @@ Então, como encontramos o ritmo perfeito?
 
 Usamos o **Basilisk**, uma plataforma de código aberto para a dinâmica dos fluidos. Meu laboratório trabalhou em simulações de um biorreator de balanço — um "saco de células" retangular cheio de água (imitando a cultura celular) e ar {% cite kim2025simulationmodelingframeworkfluid %}. Simulamos como os fluidos se agitam, giram e se misturam à medida que o biorreator se inclina, rastreando tudo, desde o transporte de oxigênio e espécies.
 
-O objetivo? Responder a três grandes questões:
+O objetivo? Responder a quatro grandes questões:
 
 1. **Como o movimento de balanço cria "correntes ocultas" que misturam os nutrientes?**
 2. **Onde o oxigênio flui — ou estagna — dentro do caldo?**

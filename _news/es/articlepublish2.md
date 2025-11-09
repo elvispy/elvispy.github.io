@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Nuestro nuevo preprint "Rebote de gotas a bajo número de Weber" está disponible en [arxiv](https://arxiv.org/abs/2505.00902)
+Nuestro nuevo preprint "Drop rebound at low weber number" está disponible en [arxiv](https://arxiv.org/abs/2505.00902)
