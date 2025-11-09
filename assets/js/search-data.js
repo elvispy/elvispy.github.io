@@ -436,9 +436,9 @@ ninja.data = [{
           description: "Integrating biological growth and fluid dynamics across vast design spaces",
           section: "Projects",handler: () => {
               window.location.href = "/projects/0_bioreactor/";
-            },},{id: "projects-simulating-deformable-impacts",
-          title: 'Simulating deformable impacts',
-          description: "The kinematic match method",
+            },},{id: "projects-",
+          title: '',
+          description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_KM/";
             },},{id: "projects-the-new-electronics",

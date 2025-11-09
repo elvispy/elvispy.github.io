@@ -433,12 +433,12 @@ ninja.data = [{
           description: "",
           section: "",},{id: "projects-acoplamiento-de-crecimiento-flujo-y-optimización-en-sistemas-complejos",
           title: 'Acoplamiento de Crecimiento, Flujo y Optimización en Sistemas Complejos',
-          description: "Integrando el crecimiento biológico y la dinámica de fluidos a través de vastos espacios de diseño",
+          description: "Integración del crecimiento biológico y la dinámica de fluidos a través de vastos espacios de diseño",
           section: "",handler: () => {
               window.location.href = "/es/projects/0_bioreactor/";
-            },},{id: "projects-simulación-de-impactos-deformables",
-          title: 'Simulación de impactos deformables',
-          description: "El método de correspondencia cinemática",
+            },},{id: "projects-",
+          title: '',
+          description: "",
           section: "",handler: () => {
               window.location.href = "/es/projects/1_KM/";
             },},{id: "projects-la-nueva-electrónica",

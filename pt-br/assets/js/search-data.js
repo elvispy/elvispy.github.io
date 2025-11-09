@@ -436,9 +436,9 @@ ninja.data = [{
           description: "Integrando crescimento biológico e dinâmica de fluidos em vastos espaços de design",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/0_bioreactor/";
-            },},{id: "projects-simulação-de-impactos-deformáveis",
-          title: 'Simulação de Impactos Deformáveis',
-          description: "O método de correspondência cinemática",
+            },},{id: "projects-",
+          title: '',
+          description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/1_KM/";
             },},{id: "projects-a-nova-eletrônica",
