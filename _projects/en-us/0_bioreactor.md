@@ -1,17 +1,6 @@
 ---
 page_id: prj_bioreactor
 layout: page
-title: Bioreactor design optimization
-description: Simulating the future of meat.
-img: assets/img/bioreactor.gif
-importance: 1
-category: work
-related_publications: true
----
-
----
-page_id: prj_bioreactor
-layout: page
 title: Coupling Growth, Flow, and Optimization in Complex Systems
 description: Integrating biological growth and fluid dynamics across vast design spaces
 img: assets/img/bioreactor.gif
