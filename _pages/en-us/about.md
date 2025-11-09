@@ -3,7 +3,7 @@ page_id: about
 layout: about
 title: about
 permalink: /
-subtitle: Engineer, Physicst, Applied Mathematician.
+subtitle: Engineer, Physicist, Applied Mathematician.
 
 profile:
   align: right
@@ -28,11 +28,11 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I'm a first-year PhD student at the [School of Engineering](https://engineering.brown.edu/people/graduate-students/phd-students/phd-students-fluids-and-thermal-sciences) at Brown University, after having completed a MSc. in Applied Maths, kindly supervised by [André Nachbin](https://www.wpi.edu/people/faculty/anachbin) at [IMPA](https://impa.br/), which I started when I was 17 years old, and also completed a B.S. in Engineering Physics at [UNILA](https://portal.unila.edu.br/)
+I'm a PhD student in the [School of Engineering](https://engineering.brown.edu/people/graduate-students/phd-students/phd-students-fluids-and-thermal-sciences) at Brown University.  
+Before coming to Brown, I completed an MSc in Applied Mathematics at [IMPA](https://impa.br/) under the supervision of [André Nachbin](https://www.wpi.edu/people/faculty/anachbin)—a program I began at 17—and a BSc in Engineering Physics at [UNILA](https://portal.unila.edu.br/).
 
-I am broadly interested in the modeling and simulation of complex physical systems, with a focus on understanding, predicting, and eventually shaping nonlinear dynamics across natural and engineered environments. My curiosity spans computational engineering (both classical and probabilistic), learning algorithms, quantum computing, and the philosophical foundations of modeling itself. I’m drawn to these areas not only for their intellectual richness but also for their potential to enable meaningful applications from fundamental science.
+My work explores how mathematics and computation can illuminate complex physical systems. I build models that connect theory, simulation, and experiment to understand nonlinear behavior in fluids and soft materials. Current projects include [interfacial locomotion]({{ '/projects/3_surferbot/' | relative_url }}), non-Hertzian impact, and multiphase mixing in bioreactors for [alternative protein manufacturing]({{ '/projects/0_bioreactor/' | relative_url }}). These efforts combine high-fidelity simulation with reduced-order reasoning to bridge first-principles physics and emerging data-driven methods.
 
-Currently, my research lies at the intersection of fluid mechanics and soft matter physics. I develop reduced-order and interface-resolving models to study problems like wave-driven propulsion, non-Hertzian impact dynamics, and multiphase mixing in bioreactors for cultivated meat production. These projects combine theoretical modeling, simulation, experiments and physical insight to tackle challenges in [biological manufacturing]({{ '/projects/0_bioreactor/' | relative_url }})
-, [interfacial transport]({{ '/projects/3_surferbot/' | relative_url }}), and [fluid–structure interactions]({{ '/projects/1_KM/' | relative_url }}).
+More broadly, I’m fascinated by how we learn and represent the physical world—across scales, from molecules to machines. This curiosity drives my interests in scientific computing, probabilistic modeling, and even the philosophical questions behind what makes a model “true enough” to be useful.
 
-Outside of academia, I’ve collaborated with civic tech organizations to promote transparency in public procurement in Paraguay, and I continue to contribute to the Paraguayan National Math Olympiads.
+Outside the lab, I’ve worked with civic-tech organizations in Paraguay to advance transparency in public spending, and I continue to contribute to the Paraguayan National Math Olympiads as a problem author and trainer.
