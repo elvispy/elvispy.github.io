@@ -1,38 +1,51 @@
 ---
 page_id: prj_km
 layout: page
-title: Simulating deformable impacts
-description: The kinematic match method
+title: Kinematic Match: a smooth-contact framework for deformable impacts
+description: A geometric constraint that makes collisions stable, accurate, and optimization-ready
 img: assets/img/km-sphere.gif
 importance: 1
 category: work
 related_publications: true
 ---
 
-## The Problem: Why Collisions Are More Than Just "Bouncing"
+## Turning impacts into equations that behave
 
 <figure style="float: left; margin: 10px; max-width: 300px;">
-    {% include figure.liquid loading="eager" path="assets/img/km-sphere.gif" title="example image" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
+    {% include figure.liquid loading="eager" path="assets/img/km-sphere.gif" title="Simulation of a sphere impacting an elastic membrane" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
     <figcaption style="text-align: center; margin-top: 5px;">
-        Simulation example of a solid sphere impacting an elastic membrane.
+        Simulation example: a rigid sphere impacting an elastic membrane.
     </figcaption>
 </figure>
 
-Inelastic collisions—where objects don’t just rebound but deform, stick, or fragment—are governed by nonlinear dynamics that defy simple equations. Traditional models often oversimplify contact mechanics, ignoring how materials _adapt_ during impact. For instance, a soft robot’s silicone "fingers" gripping an object or a water droplet splashing on a vibrating surface involves intricate coupling between elasticity, fluid dynamics, and geometry .
+Collisions between soft or deformable bodies are deceptively difficult to compute.  
+As two surfaces meet, their geometry changes faster than the solver can track, and most contact models handle this by inserting **stiff penalty forces** or discontinuous switches between “touch” and “separate.” These shortcuts make simulations unstable, overly sensitive to mesh resolution, and blind to real energy transfer.
+
+The **Kinematic Match (KM)** framework replaces these ad-hoc rules with a **single geometric condition:** the **angle of incidence between contacting surfaces must evolve smoothly**. This transforms impact from a discontinuous event into a **well-posed, differentiable constraint**, one that classical solvers can enforce directly.
 
 ---
 
-## The KM Framework: Smoothing Out the Chaos
+## Why it matters
 
-At its core, the KM framework introduces (see {% cite aguero2022impact%}) a **geometric constraint** on contacting surfaces: the angle of incidence between colliding objects must remain smooth. Think of it as ensuring a "handshake" between materials—no sharp edges, no sudden jumps. This approach is:
+KM provides a stable way to simulate **deformable collisions and rebounds**—problems that span everything from soft robotics to droplet impact and planetary accretion.  
+Instead of forcing contact through empirical parameters, KM treats it as a **compatibility condition** between surfaces, ensuring a continuous “handshake” as they approach, compress, and separate. This approach yields:
 
-1. **Intuitive**: Unlike brute-force simulations, KM’s constraints mirror real-world behavior, making it easier to implement .
-2. **Versatile**: It works with finite elements, finite differences, or even machine learning solvers.
-3. **Efficient**: By avoiding costly mesh refinements, KM excels in scenarios like low-velocity droplet impacts, where traditional methods struggle .
-
-In our [recent work](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340) , we validated KM against experiments involving a rigid sphere striking an elastic membrane. The results matched not just deformation patterns but also energy dissipation rates—a rarity in collision modeling .
+- Predictable energy dissipation without tuning constants.  
+- Stable convergence under coarse meshes.  
+- Direct compatibility with optimization and adjoint-based inference.
 
 ---
+
+## The method in one paragraph
+
+KM augments the governing equations with a **smooth contact-angle constraint** defined along the interface. In discrete form, it couples curvature and normal vectors between the two contacting surfaces, forcing them to align smoothly through time. The result is a **continuously differentiable contact manifold**—no kinks, no discontinuities—allowing stable integration across impact, rebound, and detachment. The method can be implemented in **finite-difference, finite-element, or interface-capturing schemes** with minimal changes to existing codebases.
+
+---
+
+## Evidence from experiments and simulations
+
+- **Solid–solid:** In *Proceedings of the Royal Society A* ({% cite aguero2022impact %}), we validated KM by simulating a rigid sphere striking an elastic membrane. The method captured not only deformation profiles but also energy-transfer rates observed experimentally.  
+- **Fluid–structure:** In *Journal of Fluid Mechanics* ({% cite gabbard2025dropreboundlowweber %}), KM was extended to droplets rebounding on fluid baths, accurately reproducing capillary waves and coalescence thresholds—regimes where conventional CFD fails.
 
 <figure style="float: left; margin: 10px; width: 35%;">
   <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -44,37 +57,31 @@ In our [recent work](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.03
     </video>
   </div>
   <figcaption style="text-align: center; margin-top: 5px;">
-    Simulation example of a solid sphere impacting an elastic membrane.
+    KM applied to a droplet impacting a fluid bath—capturing rebound and coalescence dynamics.
   </figcaption>
 </figure>
 
-## From Robots to Raindrops: Why This Matters
+---
 
-### 1. **Soft Robotics**
+## Why it’s efficient and general
 
-KM enables precise modeling of grippers interacting with delicate objects, ensuring forces are distributed without damage—critical for medical robotics or fruit-picking machines.
+Because KM expresses contact through geometry rather than penalty forces, it:
 
-### 2. **Astrophysics**
-
-Simulating asteroid collisions or planetary accretion requires handling fragmented, deformable bodies. KM’s ability to manage irregular contact surfaces could refine models of cosmic dust aggregation .
-
-### 3. **Fluid-Structure Interactions**
-
-Our most recent work ({% cite gabbard2025dropreboundlowweber%}) applies KM to water droplets hitting fluid baths—a problem with applications in inkjet printing and pesticide spraying. Early results show KM captures capillary waves and coalescence better than conventional CFD .
+- **Improves conditioning** of linear systems at impact.  
+- **Eliminates the need for localized remeshing** near the interface.  
+- **Works across materials and scales**, from soft robotics to granular impacts.  
+- **Remains differentiable**, so it’s compatible with gradient-based design, parameter inference, and Bayesian optimization pipelines.
 
 ---
 
-## What’s Next?
+## What’s next
 
-We’re expanding KM to:
-
-- **Multi-material collisions**: Think ice hitting water (relevant for cryogenic engineering).
-- **Biological systems**: Simulating cell-matrix interactions in tissue engineering bioreactors .
-- **Machine learning integration**: Training neural networks to predict KM constraints, reducing compute time.
+We are extending KM to multi-material and bio-inspired systems, where interfaces can grow, merge, or tear. The differentiable constraint structure also opens the door to **machine-learning surrogates** that learn impact dynamics from simulation data, accelerating design tasks in robotics and material science.
 
 ---
 
-Collisions aren’t just endpoints—they’re conversations between materials. With KM, we’re decoding that dialogue, one impact at a time. 🚀
+Collisions aren’t discrete events—they are **conversations between geometries**.  
+Kinematic Match gives that dialogue a precise mathematical form: smooth, stable, and computable.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='elvispy/kinematic-match-sphere' %}  

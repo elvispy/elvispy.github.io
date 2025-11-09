@@ -1,38 +1,51 @@
 ---
 page_id: prj_km
 layout: page
-title: Simulación de impactos deformables
-description: El método de correspondencia cinemática
+title: Correspondencia Cinemática: un marco de contacto suave para impactos deformables
+description: Una restricción geométrica que hace que las colisiones sean estables, precisas y listas para la optimización
 img: assets/img/km-sphere.gif
 importance: 1
 category: work
 related_publications: true
 ---
 
-## El Problema: Por qué las colisiones son más que solo "rebotar"
+## Convirtiendo los impactos en ecuaciones que se comportan
 
 <figure style="float: left; margin: 10px; max-width: 300px;">
-    {% include figure.liquid loading="eager" path="assets/img/km-sphere.gif" title="example image" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
+    {% include figure.liquid loading="eager" path="assets/img/km-sphere.gif" title="Simulación de una esfera impactando una membrana elástica" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
     <figcaption style="text-align: center; margin-top: 5px;">
-        Ejemplo de simulación de una esfera sólida impactando una membrana elástica.
+        Ejemplo de simulación: una esfera rígida impactando una membrana elástica.
     </figcaption>
 </figure>
 
-Las colisiones inelásticas, donde los objetos no solo rebotan, sino que se deforman, se pegan o se fragmentan, están gobernadas por dinámicas no lineales que desafían las ecuaciones simples. Los modelos tradicionales a menudo simplifican demasiado la mecánica de contacto, ignorando cómo los materiales se _adaptan_ durante el impacto. Por ejemplo, los "dedos" de silicona de un robot blando que agarran un objeto o una gota de agua que salpica sobre una superficie vibrante involucran un acoplamiento intrincado entre la elasticidad, la dinámica de fluidos y la geometría.
+Las colisiones entre cuerpos blandos o deformables son engañosamente difíciles de computar.
+A medida que dos superficies se encuentran, su geometría cambia más rápido de lo que el solucionador puede rastrear, y la mayoría de los modelos de contacto manejan esto insertando **fuerzas de penalización rígidas** o cambios discontinuos entre "tocar" y "separar". Estos atajos hacen que las simulaciones sean inestables, demasiado sensibles a la resolución de la malla y ciegas a la transferencia de energía real.
+
+El marco de **Correspondencia Cinemática (KM)** reemplaza estas reglas *ad-hoc* con una **única condición geométrica:** el **ángulo de incidencia entre las superficies en contacto debe evolucionar suavemente**. Esto transforma el impacto de un evento discontinuo en una **restricción bien planteada y diferenciable**, una que los solucionadores clásicos pueden aplicar directamente.
 
 ---
 
-## El Marco KM: Suavizando el Caos
+## Por qué es importante
 
-En esencia, el marco KM introduce (ver {% cite aguero2022impact%}) una **restricción geométrica** en las superficies de contacto: el ángulo de incidencia entre los objetos que chocan debe permanecer suave. Piense en ello como asegurar un "apretón de manos" entre los materiales: sin bordes afilados, sin saltos repentinos. Este enfoque es:
+KM proporciona una forma estable de simular **colisiones deformables y rebotes**: problemas que abarcan desde la robótica blanda hasta el impacto de gotas y la acreción planetaria.
+En lugar de forzar el contacto a través de parámetros empíricos, KM lo trata como una **condición de compatibilidad** entre superficies, asegurando un "apretón de manos" continuo a medida que se acercan, comprimen y separan. Este enfoque produce:
 
-1.  **Intuitivo**: A diferencia de las simulaciones de fuerza bruta, las restricciones de KM reflejan el comportamiento del mundo real, lo que facilita su implementación.
-2.  **Versátil**: Funciona con elementos finitos, diferencias finitas o incluso solucionadores de aprendizaje automático.
-3.  **Eficiente**: Al evitar refinamientos costosos de la malla, KM sobresale en escenarios como impactos de gotas de baja velocidad, donde los métodos tradicionales tienen dificultades.
-
-En nuestro [trabajo reciente](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340), validamos KM con experimentos que involucran una esfera rígida que golpea una membrana elástica. Los resultados coincidieron no solo con los patrones de deformación, sino también con las tasas de disipación de energía, una rareza en el modelado de colisiones.
+- Disipación de energía predecible sin constantes de ajuste.
+- Convergencia estable bajo mallas gruesas.
+- Compatibilidad directa con la optimización y la inferencia basada en adjuntos.
 
 ---
+
+## El método en un párrafo
+
+KM aumenta las ecuaciones gobernantes con una **restricción suave del ángulo de contacto** definida a lo largo de la interfaz. En forma discreta, acopla la curvatura y los vectores normales entre las dos superficies en contacto, obligándolas a alinearse suavemente a través del tiempo. El resultado es una **variedad de contacto continuamente diferenciable** (sin torceduras, sin discontinuidades), lo que permite una integración estable a través del impacto, el rebote y la separación. El método se puede implementar en **esquemas de diferencias finitas, elementos finitos o captura de interfaz** con cambios mínimos en las bases de código existentes.
+
+---
+
+## Evidencia de experimentos y simulaciones
+
+- **Sólido-sólido:** En *Proceedings of the Royal Society A* ({% cite aguero2022impact %}), validamos KM simulando una esfera rígida golpeando una membrana elástica. El método capturó no solo los perfiles de deformación, sino también las tasas de transferencia de energía observadas experimentalmente.
+- **Fluido-estructura:** En *Journal of Fluid Mechanics* ({% cite gabbard2025dropreboundlowweber %}), KM se extendió a gotas que rebotan en baños de fluido, reproduciendo con precisión las ondas capilares y los umbrales de coalescencia, regímenes donde la CFD convencional falla.
 
 <figure style="float: left; margin: 10px; width: 35%;">
   <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -44,37 +57,31 @@ En nuestro [trabajo reciente](https://royalsocietypublishing.org/doi/10.1098/rsp
     </video>
   </div>
   <figcaption style="text-align: center; margin-top: 5px;">
-    Ejemplo de simulación de una esfera sólida impactando una membrana elástica.
+    KM aplicado a una gota que impacta un baño de fluido, capturando la dinámica de rebote y coalescencia.
   </figcaption>
 </figure>
 
-## De Robots a Gotas de Lluvia: Por Qué Esto Importa
+---
 
-### 1. **Robótica Blanda**
+## Por qué es eficiente y general
 
-KM permite un modelado preciso de pinzas que interactúan con objetos delicados, asegurando que las fuerzas se distribuyan sin daños, lo cual es fundamental para la robótica médica o las máquinas recolectoras de fruta.
+Debido a que KM expresa el contacto a través de la geometría en lugar de las fuerzas de penalización, lo hace:
 
-### 2. **Astrofísica**
-
-Simular colisiones de asteroides o la acreción planetaria requiere el manejo de cuerpos fragmentados y deformables. La capacidad de KM para gestionar superficies de contacto irregulares podría refinar los modelos de agregación de polvo cósmico.
-
-### 3. **Interacciones Fluido-Estructura**
-
-Nuestro trabajo más reciente ({% cite gabbard2025dropreboundlowweber %}) aplica KM a gotas de agua que golpean baños de fluido, un problema con aplicaciones en la impresión de inyección de tinta y la pulverización de pesticidas. Los primeros resultados muestran que KM captura las ondas capilares y la coalescencia mejor que la CFD convencional.
+- **Mejora el acondicionamiento** de los sistemas lineales en el impacto.
+- **Elimina la necesidad de un remallado localizado** cerca de la interfaz.
+- **Funciona en todos los materiales y escalas**, desde la robótica blanda hasta los impactos granulares.
+- **Permanece diferenciable**, por lo que es compatible con el diseño basado en gradientes, la inferencia de parámetros y los flujos de trabajo de optimización bayesiana.
 
 ---
 
-## ¿Qué sigue?
+## Qué sigue
 
-Estamos expandiendo KM a:
-
-- **Colisiones de múltiples materiales**: Piense en hielo golpeando agua (relevante para la ingeniería criogénica).
-- **Sistemas biológicos**: Simulación de interacciones célula-matriz en biorreactores de ingeniería de tejidos.
-- **Integración del aprendizaje automático**: Entrenamiento de redes neuronales para predecir las restricciones de KM, reduciendo el tiempo de cálculo.
+Estamos extendiendo KM a sistemas multimateriales e inspirados en la biología, donde las interfaces pueden crecer, fusionarse o desgarrarse. La estructura de restricción diferenciable también abre la puerta a **sustitutos de aprendizaje automático** que aprenden la dinámica de impacto a partir de datos de simulación, acelerando las tareas de diseño en robótica y ciencia de los materiales.
 
 ---
 
-Las colisiones no son solo puntos finales, son conversaciones entre materiales. Con KM, estamos decodificando ese diálogo, un impacto a la vez. 🚀
+Las colisiones no son eventos discretos, son **conversaciones entre geometrías**.
+Kinematic Match le da a ese diálogo una forma matemática precisa: suave, estable y computable.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='elvispy/kinematic-match-sphere' %}  
