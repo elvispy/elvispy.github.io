@@ -447,8 +447,8 @@ ninja.data = [{
           section: "",handler: () => {
               window.location.href = "/es/projects/2_CBPF/";
             },},{id: "projects-locomoción-interfacial",
-          title: 'Locomoción interfacial',
-          description: "Permitiendo a robots de bajo costo surfear en el agua.",
+          title: 'Locomoción Interfacial',
+          description: "Física diferenciable para robots impulsados por olas",
           section: "",handler: () => {
               window.location.href = "/es/projects/3_surferbot/";
             },},{id: "projects-promoviendo-las-olimpiadas-de-ciencias",
