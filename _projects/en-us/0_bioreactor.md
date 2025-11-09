@@ -9,69 +9,46 @@ category: work
 related_publications: true
 ---
 
-# 🌱 Simulating the future of meat: A fluid dance in lab-grown steaks
-
-Imagine a world where your burger doesn’t come from a cow grazing a field but from a bioreactor humming quietly in a lab. This isn’t science fiction—it’s the promise of **cultivated meat**, a sustainable alternative to traditional livestock farming. But here’s the twist: growing meat from cells isn’t just about biology. It’s also about solving a _fluid dynamics puzzle_.
-
-<div style="text-align: center; margin: 2em 0;">
-  <img src="{{ '/assets/img/bioreactor.gif' | relative_url }}" alt="Bioreactor simulation" style="max-width: 80%; height: auto;" />
-  <p style="font-style: italic; font-size: 0.9em; margin-top: 0.5em;">
-    One of the simulations made in {% cite kim2025simulationmodelingframeworkfluid %}.
-  </p>
-</div>
-
+---
+page_id: prj_bioreactor
+layout: page
+title: Coupling Growth, Flow, and Optimization in Complex Systems
+description: Integrating biological growth and fluid dynamics across vast design spaces
+img: assets/img/bioreactor.gif
+importance: 1
+category: work
+related_publications: true
 ---
 
-## When rocking’s too rough, and resting too still
+# Integrating life and flow: toward predictive bioreactors for cultivated meat
 
-Cultivated meat starts with animal cells proliferating in a nutrient-rich broth inside bioreactors. Among these, **rocking bioreactors**—think of a shallow tray tilting rhythmically like a seesaw—are promising options. The have the potential to be scalable and gentler on fragile cells than traditional tanks with whirling blades. But there’s a catch: if the rocking motion is too aggressive, cells get battered by chaotic flows. Too timid, and oxygen and nutrients pool unevenly, starving the cells.
+### A new modeling frontier
+No existing framework has fully coupled **biological growth** with **multiphase fluid dynamics** across the enormous design space of modern bioreactors.  
+Traditional models treat the culture medium as static or the cells as passive tracers. In reality, cell proliferation, oxygen transport, and flow structure co-evolve: each determines the other. Capturing that interplay while spanning hundreds of possible geometries, fill volumes, and rocking schedules—is the key to building bioreactors that can scale cultivated meat from lab curiosity to global food technology.
 
-So, how do we find the perfect rhythm?
+### Why it matters
+Cultivated meat promises to reduce agriculture’s environmental footprint, but its success depends on **bioreactor performance**.  
+Inside these devices, billions of animal cells grow suspended in a nutrient-rich medium that must stay well mixed and well oxygenated. The **rocking bioreactor**, a flexible bag that tilts rhythmically like a cradle, offers a gentle, scalable alternative to impeller-driven tanks. However, the same rocking that mixes nutrients can also shear cells apart.  
+Experimentally tuning those parameters is prohibitively costly and slow. Each test run consumes sterile facilities, weeks of culture time, and expensive growth media. Predictive simulation is therefore essential.
 
----
+### The scientific challenge
+This problem lies at the intersection of **multiphase, non-Newtonian fluid mechanics**, **transport phenomena**, and **computational biology**.  
+The fluid’s free surface moves in a **non-inertial frame**, the media’s viscosity evolves as cells proliferate, and the cells themselves modify the flow field through local oxygen consumption and drag.  
+Conventional CFD cannot resolve such coupled dynamics, and existing biological models ignore flow altogether. Our goal is to unify them.
 
-## Cracking the code with Computational Fluid Dynamics
+### Our approach
+At Brown, we are developing the first **open-source computational framework** that integrates **agent-based cell dynamics** within a **volume-of-fluid (VOF)** multiphase solver for rocking bioreactors.  
+This model predicts oxygen transfer, nutrient gradients, and shear stresses directly from first principles, while tracking how these fields affect local biomass growth. Because direct numerical simulation of every configuration is computationally expensive, we embed the solver into a **data-driven surrogate model** that learns from high-fidelity runs. Combined with **Bayesian optimization**, this allows systematic exploration of thousands of design combinations—geometry, rocking frequency, amplitude, media rheology—at a fraction of the computational cost.
 
-We use **Basilisk**, an open-source fluid dynamics platform. My lab worked on simulations of a rocking bioreactor—a rectangular “cellbag” filled with water (mimicking cell culture) and air {% cite kim2025simulationmodelingframeworkfluid %}. We simulated how fluids slosh, swirl, and mix as the bioreactor tilts, tracking everything from oxygen and species transport.
+This work establishes a bridge between **continuum mechanics and living systems**. It extends classical multiphase flow modeling into a regime where the “fluid” grows, consumes, and adapts.  
+By resolving how oxygen delivery and mechanical stress influence cellular outcomes, the framework provides quantitative criteria for “cell-safe” hydrodynamic environments—something previously defined only empirically.
 
-The goal? To answer three big questions:
+### Broader impact
+The result is a predictive, reproducible tool for sustainable biotechnology.  
+By replacing costly physical prototyping with open, simulation-based design, we can accelerate the scale-up of cultivated meat and related bioproduction systems such as vaccines, cell therapies, and protein manufacturing.  
+All code and datasets are released openly to foster community validation and reuse.
 
-1. **How does the rocking motion create “hidden currents” that mix nutrients?**
-2. **Where does oxygen flow—or stall—inside the broth?**
-3. **When does gentle shaking turn into cell-damaging chaos?**
-4. **Can we optimize the design of the bioreactor to maximize cell growth?**
-
----
-
-## Slow streams stir, steady and sure
-
-Picture a river flowing lazily in loops. In our simulations, we discovered something similar: when the bioreactor rocks, it generates swirling vortices that merge over time into **steady streams**. These streams act like underwater conveyor belts, nudging nutrients and oxygen toward hungry cells.
-
-Faster rocking amplifies these streams, improving mixing—but only up to a point. Push too hard, and the flow fractures into turbulence, like a serene river transforming into whitewater rapids. Cells, much like tiny kayakers, wouldn’t survive the ride.
-
-Oxygen is life for cells, but it’s tricky to deliver. We believe that at specific rocking frequencies, the bioreactor enters **resonance**. Think of it like pushing a swing at just the right moment—the fluid’s motion syncs perfectly with the rocking, creating waves that splash oxygen-rich fluid deeper into the broth. This “sweet spot” boosts oxygen transfer without shaking.
-
-But resonance is a double-edged sword. In some cases, it amplified stress near the walls—a reminder that every design choice requires balance.
-
----
-
-## From shaking trays to sizzling steaks
-
-Cultivated meat could slash agriculture’s environmental footprint, but scaling production is a monumental challenge. Our work bridges biology and engineering, offering a roadmap to:
-
-- **Optimize bioreactor designs computationally**—saving years of trial-and-error.
-- **Predict cell-friendly conditions**—no more guessing which rocking speed avoids turbulence.
-- **Democratize tools**—our open-source code lets researchers worldwide tweak and test virtual bioreactors.
-
----
-
-## What’s Next?
-
-We’re expanding our simulations to 3D bioreactors with real-world cellbag shapes and modeling the gooey, non-Newtonian fluids that actual cell cultures resemble. Down the line, we’ll integrate virtual cell growth to predict how tiny tweaks to fluid flow could multiply meat yields.
-
-This isn’t just about equations and code—it’s about reshaping how humanity eats. If you’re curious to play with our simulations or dive deeper, check out our [GitHub repository](https://github.com/rcsc-group/BioReactor) or read the full study [here](https://arxiv.org/abs/2504.05421).
-
-The future of food is a dance of fluids, cells, and innovation. Let’s make it sustainable—one simulated bioreactor at a time. 🌍🔬
+For technical details, see [Kim, Harris & Cimpeanu (2025)](https://arxiv.org/abs/2504.05421) or explore the [BioReactor repository](https://github.com/rcsc-group/BioReactor).
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='rcsc-group/BioReactor' %}  
