@@ -439,9 +439,9 @@ ninja.data = [{
           description: "Integración del crecimiento biológico y la dinámica de fluidos a través de vastos espacios de diseño",
           section: "",handler: () => {
               window.location.href = "/es/projects/0_bioreactor/";
-            },},{id: "projects-kinematic-match-a-smooth-contact-framework-for-deformable-impacts",
-          title: 'Kinematic Match, a smooth-contact framework for deformable impacts',
-          description: "A geometric constraint that makes collisions stable, accurate, and optimization-ready",
+            },},{id: "projects-correspondencia-cinemática-un-marco-de-contacto-suave-para-impactos-deformables",
+          title: 'Correspondencia Cinemática un marco de contacto suave para impactos deformables',
+          description: "Una restricción geométrica que hace que las colisiones sean estables, precisas y listas para la optimización",
           section: "",handler: () => {
               window.location.href = "/es/projects/1_KM/";
             },},{id: "projects-transporte-de-espín-por-medición-e-inferencia",
@@ -484,11 +484,6 @@ ninja.data = [{
           description: "Precompilación + entrega de artefactos CVMFS para inicios rápidos y reproducibles",
           section: "",handler: () => {
               window.location.href = "/es/projects/announcement_2/";
-            },},{id: "projects-",
-          title: '',
-          description: "",
-          section: "",handler: () => {
-              window.location.href = "/es/projects/1_KM/";
             },},{
         id: 'social-github',
         title: 'GitHub',

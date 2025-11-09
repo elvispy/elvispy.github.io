@@ -440,7 +440,7 @@ ninja.data = [{
           section: "Projects",handler: () => {
               window.location.href = "/projects/0_bioreactor/";
             },},{id: "projects-kinematic-match-a-smooth-contact-framework-for-deformable-impacts",
-          title: 'Kinematic Match, a smooth-contact framework for deformable impacts',
+          title: 'Kinematic Match: a smooth-contact framework for deformable impacts',
           description: "A geometric constraint that makes collisions stable, accurate, and optimization-ready",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_KM/";
@@ -484,11 +484,6 @@ ninja.data = [{
           description: "Precompilation + CVMFS artifact delivery for fast, reproducible starts",
           section: "Projects",handler: () => {
               window.location.href = "/projects/announcement_2/";
-            },},{id: "projects-",
-          title: '',
-          description: "",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/1_KM/";
             },},{
         id: 'social-github',
         title: 'GitHub',
