@@ -431,9 +431,9 @@ ninja.data = [{
           section: "News",},{id: "news-i-am-attending-the-umass-amherst-summer-school-on-soft-matter-and-complex-fluids",
           title: 'I am attending the UMass Amherst Summer School on Soft Matter and Complex...',
           description: "",
-          section: "News",},{id: "projects-bioreactor-design-optimization",
-          title: 'Bioreactor design optimization',
-          description: "Simulating the future of meat.",
+          section: "News",},{id: "projects-coupling-growth-flow-and-optimization-in-complex-systems",
+          title: 'Coupling Growth, Flow, and Optimization in Complex Systems',
+          description: "Integrating biological growth and fluid dynamics across vast design spaces",
           section: "Projects",handler: () => {
               window.location.href = "/projects/0_bioreactor/";
             },},{id: "projects-simulating-deformable-impacts",
