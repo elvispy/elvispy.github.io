@@ -431,9 +431,9 @@ ninja.data = [{
           section: "",},{id: "news-estoy-asistiendo-a-la-escuela-de-verano-de-umass-amherst-sobre-materia-blanda-y-fluidos-complejos",
           title: '¡Estoy asistiendo a la Escuela de Verano de UMass Amherst sobre Materia Blanda...',
           description: "",
-          section: "",},{id: "projects-optimización-del-diseño-de-biorreactores",
-          title: 'Optimización del diseño de biorreactores',
-          description: "Simulando el futuro de la carne.",
+          section: "",},{id: "projects-acoplamiento-de-crecimiento-flujo-y-optimización-en-sistemas-complejos",
+          title: 'Acoplamiento de Crecimiento, Flujo y Optimización en Sistemas Complejos',
+          description: "Integrando el crecimiento biológico y la dinámica de fluidos a través de vastos espacios de diseño",
           section: "",handler: () => {
               window.location.href = "/es/projects/0_bioreactor/";
             },},{id: "projects-simulación-de-impactos-deformables",
