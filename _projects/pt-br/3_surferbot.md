@@ -51,7 +51,7 @@ As principais saídas incluem velocidade média no tempo, impulso, potência hid
 
 O pipeline é **diferenciável de ponta a ponta** em relação aos parâmetros \(\theta\) (geometria, posicionamento do atuador, frequência, coeficientes de forma de onda):
 
-- A atualização do estado usa soluções lineares e não lineares \(A(\theta)\,y=b(\theta)\) com regras de modo reverso personalizadas para que \(\nabla_\theta \mathcal{L}\) seja obtido por **duas soluções lineares** (forward e adjoint) por etapa de tempo, mantendo a memória limitada e os gradientes estáveis.
+- A atualização do estado usa soluções lineares e não lineares \(A(\theta)\,y=b(\theta)\) com regras de modo reverso personalizadas para que \(\nabla\_\theta \mathcal{L}\) seja obtido por **duas soluções lineares** (forward e adjoint) por etapa de tempo, mantendo a memória limitada e os gradientes estáveis.
 - A cinemática das ondas e a dinâmica do corpo são codificadas para evitar interruptores não diferenciáveis; o contato com a interface é tratado por meio de restrições suaves consistentes com a teoria de pequena inclinação.
 - Expomos produtos Jacobiano-vetor e vetor-Jacobiano para AD, permitindo **métodos de primeira ordem** e atualizações **quase-Newton** em grandes espaços de parâmetros.
 

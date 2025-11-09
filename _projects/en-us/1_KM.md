@@ -30,8 +30,8 @@ The **Kinematic Match (KM)** framework replaces these ad-hoc rules with a **sing
 KM provides a stable way to simulate **deformable collisions and rebounds**—problems that span everything from soft robotics to droplet impact and planetary accretion.  
 Instead of forcing contact through empirical parameters, KM treats it as a **compatibility condition** between surfaces, ensuring a continuous “handshake” as they approach, compress, and separate. This approach yields:
 
-- Predictable energy dissipation without tuning constants.  
-- Stable convergence under coarse meshes.  
+- Predictable energy dissipation without tuning constants.
+- Stable convergence under coarse meshes.
 - Direct compatibility with optimization and adjoint-based inference.
 
 ---
@@ -44,8 +44,8 @@ KM augments the governing equations with a **smooth contact-angle constraint** d
 
 ## Evidence from experiments and simulations
 
-- **Solid–solid:** In *Proceedings of the Royal Society A* ({% cite aguero2022impact %}), we validated KM by simulating a rigid sphere striking an elastic membrane. The method captured not only deformation profiles but also energy-transfer rates observed experimentally.  
-- **Fluid–structure:** In *Journal of Fluid Mechanics* ({% cite gabbard2025dropreboundlowweber %}), KM was extended to droplets rebounding on fluid baths, accurately reproducing capillary waves and coalescence thresholds—regimes where conventional CFD fails.
+- **Solid–solid:** In _Proceedings of the Royal Society A_ ({% cite aguero2022impact %}), we validated KM by simulating a rigid sphere striking an elastic membrane. The method captured not only deformation profiles but also energy-transfer rates observed experimentally.
+- **Fluid–structure:** In _Journal of Fluid Mechanics_ ({% cite gabbard2025dropreboundlowweber %}), KM was extended to droplets rebounding on fluid baths, accurately reproducing capillary waves and coalescence thresholds—regimes where conventional CFD fails.
 
 <figure style="float: left; margin: 10px; width: 35%;">
   <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -67,9 +67,9 @@ KM augments the governing equations with a **smooth contact-angle constraint** d
 
 Because KM expresses contact through geometry rather than penalty forces, it:
 
-- **Improves conditioning** of linear systems at impact.  
-- **Eliminates the need for localized remeshing** near the interface.  
-- **Works across materials and scales**, from soft robotics to granular impacts.  
+- **Improves conditioning** of linear systems at impact.
+- **Eliminates the need for localized remeshing** near the interface.
+- **Works across materials and scales**, from soft robotics to granular impacts.
 - **Remains differentiable**, so it’s compatible with gradient-based design, parameter inference, and Bayesian optimization pipelines.
 
 ---

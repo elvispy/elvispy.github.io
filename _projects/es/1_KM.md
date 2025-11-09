@@ -21,7 +21,7 @@ related_publications: true
 Las colisiones entre cuerpos blandos o deformables son engañosamente difíciles de computar.
 A medida que dos superficies se encuentran, su geometría cambia más rápido de lo que el solucionador puede rastrear, y la mayoría de los modelos de contacto manejan esto insertando **fuerzas de penalización rígidas** o cambios discontinuos entre "tocar" y "separar". Estos atajos hacen que las simulaciones sean inestables, demasiado sensibles a la resolución de la malla y ciegas a la transferencia de energía real.
 
-El marco de **Correspondencia Cinemática (KM)** reemplaza estas reglas *ad-hoc* con una **única condición geométrica:** el **ángulo de incidencia entre las superficies en contacto debe evolucionar suavemente**. Esto transforma el impacto de un evento discontinuo en una **restricción bien planteada y diferenciable**, una que los solucionadores clásicos pueden aplicar directamente.
+El marco de **Correspondencia Cinemática (KM)** reemplaza estas reglas _ad-hoc_ con una **única condición geométrica:** el **ángulo de incidencia entre las superficies en contacto debe evolucionar suavemente**. Esto transforma el impacto de un evento discontinuo en una **restricción bien planteada y diferenciable**, una que los solucionadores clásicos pueden aplicar directamente.
 
 ---
 
@@ -44,8 +44,8 @@ KM aumenta las ecuaciones gobernantes con una **restricción suave del ángulo d
 
 ## Evidencia de experimentos y simulaciones
 
-- **Sólido-sólido:** En *Proceedings of the Royal Society A* ({% cite aguero2022impact %}), validamos KM simulando una esfera rígida golpeando una membrana elástica. El método capturó no solo los perfiles de deformación, sino también las tasas de transferencia de energía observadas experimentalmente.
-- **Fluido-estructura:** En *Journal of Fluid Mechanics* ({% cite gabbard2025dropreboundlowweber %}), KM se extendió a gotas que rebotan en baños de fluido, reproduciendo con precisión las ondas capilares y los umbrales de coalescencia, regímenes donde la CFD convencional falla.
+- **Sólido-sólido:** En _Proceedings of the Royal Society A_ ({% cite aguero2022impact %}), validamos KM simulando una esfera rígida golpeando una membrana elástica. El método capturó no solo los perfiles de deformación, sino también las tasas de transferencia de energía observadas experimentalmente.
+- **Fluido-estructura:** En _Journal of Fluid Mechanics_ ({% cite gabbard2025dropreboundlowweber %}), KM se extendió a gotas que rebotan en baños de fluido, reproduciendo con precisión las ondas capilares y los umbrales de coalescencia, regímenes donde la CFD convencional falla.
 
 <figure style="float: left; margin: 10px; width: 35%;">
   <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">

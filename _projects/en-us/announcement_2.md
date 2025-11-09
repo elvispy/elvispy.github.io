@@ -12,9 +12,11 @@ category: work
 I joined the 2024 [CERN Summer Student Programme](https://home.cern/summer-student-programme) to work on **startup latency and reproducibility** for Julia workloads used by HEP experiments.
 
 ### The problem
+
 Large HEP pipelines launch thousands of short Julia jobs across heterogeneous nodes. Cold starts trigger **JIT + precompile** work on every node, wasting CPU time and causing tail latency. Sites also prefer **read-only, content-addressed** distribution (CernVM-FS), which complicates writable package depots.
 
 ### The approach
+
 We built a workflow that **builds, signs, and publishes precompiled Julia system images and package artifacts** to CVMFS, then **hydrates per-node depots** on demand:
 
 - **DepotDelivery.jl** orchestrates artifact bundling, version pinning, and cache layout.
@@ -23,16 +25,19 @@ We built a workflow that **builds, signs, and publishes precompiled Julia system
 - A/B runs validated that the **same image** yields the **same method cache** and module graph locally and on the cluster.
 
 ### What it enables
+
 - **Order-of-magnitude cuts** in cold-start latency on representative HEP stacks (e.g., jet reconstruction, Geant4 wrappers).
 - **Deterministic starts**: identical artifacts across sites via CVMFS.
 - **Zero per-node builds**: nodes mount and use precompiled images; no write access required.
 - **Policy-friendly**: read-only distribution, content integrity, and rollbacks via hashes.
 
 ### Scope and portability
+
 The method is **not HEP-specific**. Any site with heterogeneous hardware and read-mostly storage can adopt the pattern:
-1) build images in a controlled CI environment,
-2) publish to an immutable, content-addressed store,
-3) select the closest micro-arch image at launch.
+
+1. build images in a controlled CI environment,
+2. publish to an immutable, content-addressed store,
+3. select the closest micro-arch image at launch.
 
 I presented this work at the **Julia for High-Energy Physics 2024 Workshop** (JuliaHEP 2024).
 

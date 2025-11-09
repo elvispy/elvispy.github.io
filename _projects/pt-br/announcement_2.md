@@ -12,9 +12,11 @@ category: work
 Participei do [Programa de Estudantes de Verão do CERN](https://home.cern/summer-student-programme) de 2024 para trabalhar na **latência de inicialização e reprodutibilidade** para cargas de trabalho Julia usadas por experimentos HEP.
 
 ### O problema
+
 Grandes pipelines HEP lançam milhares de trabalhos Julia curtos em nós heterogêneos. Inicializações frias disparam o trabalho de **JIT + pré-compilação** em cada nó, desperdiçando tempo de CPU e causando latência na cauda. Os sites também preferem distribuição **somente leitura, endereçada por conteúdo** (CernVM-FS), o que complica os depósitos de pacotes graváveis.
 
 ### A abordagem
+
 Construímos um fluxo de trabalho que **constrói, assina e publica imagens de sistema Julia pré-compiladas e artefatos de pacotes** para CVMFS, então **hidrata os depósitos por nó** sob demanda:
 
 - **DepotDelivery.jl** orquestra o empacotamento de artefatos, o pinagem de versão e o layout do cache.
@@ -23,16 +25,19 @@ Construímos um fluxo de trabalho que **constrói, assina e publica imagens de s
 - Execuções A/B validaram que a **mesma imagem** produz o **mesmo cache de método** e gráfico de módulo localmente e no cluster.
 
 ### O que ele possibilita
+
 - **Cortes de ordem de magnitude** na latência de inicialização fria em pilhas HEP representativas (por exemplo, reconstrução de jato, wrappers Geant4).
 - **Inicializações determinísticas**: artefatos idênticos em todos os sites via CVMFS.
 - **Zero construções por nó**: os nós montam e usam imagens pré-compiladas; nenhum acesso de gravação é necessário.
 - **Compatível com políticas**: distribuição somente leitura, integridade de conteúdo e rollbacks via hashes.
 
 ### Escopo e portabilidade
+
 O método **não é específico para HEP**. Qualquer site com hardware heterogêneo e armazenamento quase sempre de leitura pode adotar o padrão:
-1) construir imagens em um ambiente CI controlado,
-2) publicar em um armazenamento imutável e endereçado por conteúdo,
-3) selecionar a imagem de micro-arquitetura mais próxima no lançamento.
+
+1. construir imagens em um ambiente CI controlado,
+2. publicar em um armazenamento imutável e endereçado por conteúdo,
+3. selecionar a imagem de micro-arquitetura mais próxima no lançamento.
 
 Apresentei este trabalho no **Julia for High-Energy Physics 2024 Workshop** (JuliaHEP 2024).
 

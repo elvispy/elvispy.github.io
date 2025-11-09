@@ -51,7 +51,7 @@ Las salidas clave incluyen la velocidad promediada en el tiempo, el empuje, la p
 
 La tubería es **diferenciable de extremo a extremo** con respecto a los parámetros \(\theta\) (geometría, ubicación del actuador, frecuencia, coeficientes de forma de onda):
 
-- La actualización de estado utiliza soluciones lineales y no lineales \(A(\theta)\,y=b(\theta)\) con reglas de modo inverso personalizadas para que \(\nabla_\theta \mathcal{L}\) se obtenga mediante **dos soluciones lineales** (directa y adjunta) por paso de tiempo, manteniendo la memoria limitada y los gradientes estables.
+- La actualización de estado utiliza soluciones lineales y no lineales \(A(\theta)\,y=b(\theta)\) con reglas de modo inverso personalizadas para que \(\nabla\_\theta \mathcal{L}\) se obtenga mediante **dos soluciones lineales** (directa y adjunta) por paso de tiempo, manteniendo la memoria limitada y los gradientes estables.
 - La cinemática de las ondas y la dinámica del cuerpo están codificadas para evitar interruptores no diferenciables; el contacto con la interfaz se maneja a través de restricciones suaves consistentes con la teoría de pendiente pequeña.
 - Exponemos los productos Jacobiano-vector y vector-Jacobiano a la AD, lo que permite **métodos de primer orden** y actualizaciones **cuasi-Newton** sobre grandes espacios de parámetros.
 

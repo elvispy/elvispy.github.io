@@ -44,8 +44,8 @@ A KM aumenta as equações governantes com uma **restrição de ângulo de conta
 
 ## Evidências de experimentos e simulações
 
-- **Sólido–sólido:** Em *Proceedings of the Royal Society A* ({% cite aguero2022impact %}), validamos a KM simulando uma esfera rígida atingindo uma membrana elástica. O método capturou não apenas os perfis de deformação, mas também as taxas de transferência de energia observadas experimentalmente.
-- **Fluido–estrutura:** Em *Journal of Fluid Mechanics* ({% cite gabbard2025dropreboundlowweber %}), a KM foi estendida para gotículas que se recuperam em banhos de fluido, reproduzindo com precisão as ondas capilares e os limiares de coalescência—regimes onde o CFD convencional falha.
+- **Sólido–sólido:** Em _Proceedings of the Royal Society A_ ({% cite aguero2022impact %}), validamos a KM simulando uma esfera rígida atingindo uma membrana elástica. O método capturou não apenas os perfis de deformação, mas também as taxas de transferência de energia observadas experimentalmente.
+- **Fluido–estrutura:** Em _Journal of Fluid Mechanics_ ({% cite gabbard2025dropreboundlowweber %}), a KM foi estendida para gotículas que se recuperam em banhos de fluido, reproduzindo com precisão as ondas capilares e os limiares de coalescência—regimes onde o CFD convencional falha.
 
 <figure style="float: left; margin: 10px; width: 35%;">
   <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">

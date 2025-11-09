@@ -51,7 +51,7 @@ Key outputs include time-averaged speed, thrust, hydrodynamic power, and wave mo
 
 The pipeline is **end-to-end differentiable** with respect to parameters \(\theta\) (geometry, actuator placement, frequency, waveform coefficients):
 
-- State update uses linear and nonlinear solves \(A(\theta)\,y=b(\theta)\) with custom reverse-mode rules so that \(\nabla_\theta \mathcal{L}\) is obtained by **two linear solves** (forward and adjoint) per time step, keeping memory bounded and gradients stable.
+- State update uses linear and nonlinear solves \(A(\theta)\,y=b(\theta)\) with custom reverse-mode rules so that \(\nabla\_\theta \mathcal{L}\) is obtained by **two linear solves** (forward and adjoint) per time step, keeping memory bounded and gradients stable.
 - Wave kinematics and body dynamics are coded to avoid non-differentiable switches; contact with the interface is handled via smooth constraints consistent with small-slope theory.
 - We expose Jacobian-vector and vector-Jacobian products to AD, enabling **first-order methods** and **quasi-Newton** updates over large parameter spaces.
 
@@ -63,8 +63,8 @@ This yields **physics-based gradients** for objectives like speed, thrust-per-wa
 
 With gradients available, we explore:
 
-- **Design parameters:** hull length/width, mass distribution, **motor position**, mounting stiffness.  
-- **Control parameters:** drive **frequency**, multi-harmonic waveform coefficients, duty cycles.  
+- **Design parameters:** hull length/width, mass distribution, **motor position**, mounting stiffness.
+- **Control parameters:** drive **frequency**, multi-harmonic waveform coefficients, duty cycles.
 - **Environment:** surface tension, viscosity, depth, background currents.
 
 We run **multi-start gradient optimization** to locate high-performance regions, then fit **surrogates** for rapid sweeps and **Bayesian optimization** for global search under constraints (e.g., power budget, manufacturable geometries).
@@ -73,9 +73,9 @@ We run **multi-start gradient optimization** to locate high-performance regions,
 
 ## Scientific questions we address
 
-1. **Thrust generation:** how do specific wave modes and phase relationships create directional momentum flux at the interface?  
-2. **Efficiency:** what combinations of placement and drive reduce wasted radiation while maximizing net drift?  
-3. **Robustness:** which designs maintain performance across changes in fluid properties or small manufacturing errors?  
+1. **Thrust generation:** how do specific wave modes and phase relationships create directional momentum flux at the interface?
+2. **Efficiency:** what combinations of placement and drive reduce wasted radiation while maximizing net drift?
+3. **Robustness:** which designs maintain performance across changes in fluid properties or small manufacturing errors?
 4. **Control:** can we shape wave packets in time to navigate or station-keep against disturbances?
 
 ---
@@ -88,7 +88,7 @@ The simulator predicts the **operating windows** where wave radiation produces p
 
 ## References and related work
 
-- SurferBot concept and experiments: {% cite Rhee_2022 %}  
+- SurferBot concept and experiments: {% cite Rhee_2022 %}
 - Theory of wave-driven propulsion at interfaces: {% cite Benham_Devauchelle_Thomson_2024 %}
 
 ---
