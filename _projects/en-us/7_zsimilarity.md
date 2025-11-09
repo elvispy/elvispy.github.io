@@ -1,102 +1,54 @@
 ---
 page_id: prj_sim
 layout: page
-title: A dynamic similarity solver for fluid dynamics.
-description: A symbolic PDE finder for similarity solutions.
-img: assets/img/julialogo.webp
+title: "Dynamic-similarity solver for PDEs"
+description: "Symbolic search for scaling reductions from PDE → ODE"
+img: "assets/img/julialogo.webp"
 importance: 3
-category: fun
+category: "fun"
 related_publications: true
 ---
 
-# 🌀 Cracking PDEs with Similarity: Automating a Classic Physics Trick
+# Similarity by construction: automate PDE → ODE reductions
 
-In fluid mechanics, heat transfer, or even population dynamics, many problems start with a messy-looking **partial differential equation (PDE)**. But sometimes, there’s a hidden trick—an ancient physics move—that transforms a complex PDE into a much simpler **ordinary differential equation (ODE)**. That trick is called **dynamical similarity**.
-
-This Julia package helps you **automate the search for those transformations**—using symbolic computation and a touch of math elegance.
-
----
-
-## What is Similarity, Really?
-
-Similarity solutions arise when you can rewrite a PDE in terms of a new variable (like \( \eta = y / \sqrt{x} \)) that combines space and time into a single coordinate. This collapses a 2D or 3D problem into 1D, making it **much easier to analyze or solve**.
-
-You’ve probably seen it in boundary layers (Blasius), diffusion (error function), or wave propagation. The idea is: **if the physics “scales” in the right way**, then so should the solution.
-
-But finding the right substitution isn’t always obvious. That’s where this tool comes in.
+Many transport and fluid problems hide a **scaling symmetry**. When it exists, a change of variables collapses the PDE to an ODE (diffusion, Blasius boundary layer, thin films).  
+This Julia tool **automates that search**: it tests a family of similarity ansätze, solves for exponents, reduces the PDE, and transforms boundary conditions.
 
 ---
 
-## 🔧 What This Tool Does
+## What it does
 
-This Julia package:
+- **Parse** a restricted PDE syntax (fields, derivatives).
+- **Search** similarity variables  
+  \( \eta = x^{a_1} y^{a_2} t^{a_3} \), \( u = x^{b_1} y^{b_2} t^{b_3} f(\eta) \) (1–2D variants).
+- **Solve** exponent-balance equations so all PDE terms scale identically.
+- **Reduce**: substitute the ansatz, cancel factors, and return an **ODE in \(\eta\)**.
+- **Transform BCs/ICs** into conditions on \( f(\eta) \).
+- **Emit artifacts**: exponents, similarity map, reduced ODE, transformed BCs as Julia expressions.
 
-- Parses symbolic PDEs like `"du/dt + 6*u*du/dx + d3u/d3x = 0"`
-- Checks if there exists a **change of variables** (\( \eta = x y^m \), \( u = x^n f(\eta) \)) that simplifies the equation
-- Returns a reduced ODE if successful
-- Parses and transforms **boundary conditions** too
-- Outputs all the substitutions and symbolic forms used
-
-It's built using [Symbolics.jl](https://github.com/JuliaSymbolics/Symbolics.jl), the symbolic engine for the Julia language.
+Built on **Symbolics.jl**; outputs feed directly into your ODE integrator.
 
 ---
 
-## ✨ Example: Reduce a PDE to an ODE
+## Method sketch
+
+1. Tokenize and symbolically differentiate the PDE.  
+2. Attach scaling weights to variables and derivatives.  
+3. Equate exponents across terms → small linear system in \(a_i,b_i\).  
+4. If solvable, substitute and simplify to an ODE in \(\eta\).  
+5. Verify dependency only on \(\eta\); otherwise report “no scaling reduction.”
+
+---
+
+## Example
+
+Heat equation with linear decay:
+\[
+u_t = \kappa\,u_{xx} - \lambda u,\qquad x\in\mathbb{R},~ t>0.
+\]
 
 ```julia
-result = find_similarity("du/dt + 6 * u * du/dx + d3u/d3x = 0", "u(x=Inf, t) = 0")
-
-# Output:
-# → similarity variable η = x * t^m
-# → solution guess u = x^n * f(η)
-# → simplified ODE returned!
-```
-
-You don’t need to manually compute derivatives or try a dozen substitutions. This function automates all of that for you.
-
----
-
-## 📘 Who’s This For?
-
-This tool is for:
-
-- Engineering students studying transport, waves, or fluid mechanics
-- Applied mathematicians exploring symmetry and scaling
-- Anyone trying to symbolically reduce PDEs to something tractable
-
----
-
-## 🧠 Behind the Scenes
-
-- It uses symbolic differentiation to test if a substitution “kills off” the PDE’s dependence on \( x \), \( y \), or \( t \)
-- If so, it simplifies the result and checks if it looks like an ODE
-- It tries a grid of possible powers \( n, m \) using rational guesses
-- It even parses differential operators like `d2x/dy` from strings
-
----
-
-## 📌 Try It Out
-
-Want to see it in action or use it in your own models?
-
-🧪 [GitHub Repository →](https://github.com/elvispy/similarity-pde-solver)
-
----
-
-## 🌍 Why This Matters
-
-Similarity isn’t just elegant—it’s practical. It appears in:
-
-- Drag coefficients that scale with Reynolds number
-- Heat penetration depth in conduction problems
-- Boundary layer theory in aerodynamics
-
-This tool helps **democratize that power**—making it accessible to students, teachers, and researchers alike.
-
----
-
-The next time you’re staring at a tough PDE... maybe it just needs the right variable change. 🧠➞📉
-
-<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-    {% include repository/repo.liquid repository='elvispy/SimilaritySolver.jl' %}  
-</div>
+using SimilaritySolver  # package namespace
+pde = @pde du/dt ~ κ*d2u/dx2 - λ*u
+bcs = ["u(±Inf,t)=0"]
+result = find_similarity(pde, bcs; vars=[:x,:t], field=:u)
