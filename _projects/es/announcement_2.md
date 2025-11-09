@@ -1,32 +1,49 @@
 ---
 layout: page
-title: ¡Mi pasantía de verano en el CERN!
-description: Permitiendo que Julia precompile en sistemas y clústeres heterogéneos
+title: Julia a escala en clústeres heterogéneos
+description: Precompilación + entrega de artefactos CVMFS para inicios rápidos y reproducibles
 importance: 2
 img: assets/img/CERNlogo.webp
 category: work
 ---
 
-## Trabajé en el grupo de software para experimentos (EP-SFT) bajo la supervisión de Graeme Stewart en el CERN.
+## Software para Experimentos (EP-SFT), CERN — supervisado por Graeme Stewart
 
-Este año, tuve la suerte de ser seleccionado para el [Programa de Estudiantes de Verano del CERN](https://home.cern/summer-student-programme) para la cohorte de 2024. Incluso ha habido cobertura mediática sobre mi experiencia:
+Me uní al [Programa de Estudiantes de Verano del CERN](https://home.cern/summer-student-programme) de 2024 para trabajar en la **latencia de inicio y la reproducibilidad** para las cargas de trabajo de Julia utilizadas por los experimentos de física de altas energías (HEP).
+
+### El problema
+Los grandes pipelines de HEP lanzan miles de trabajos cortos de Julia en nodos heterogéneos. Los inicios en frío activan el trabajo de **JIT + precompilación** en cada nodo, desperdiciando tiempo de CPU y causando latencia en la cola. Los sitios también prefieren la distribución **de solo lectura y direccionada por contenido** (CernVM-FS), lo que complica los depósitos de paquetes grabables.
+
+### El enfoque
+Construimos un flujo de trabajo que **construye, firma y publica imágenes del sistema Julia precompiladas y artefactos de paquetes** en CVMFS, luego **hidrata los depósitos por nodo** bajo demanda:
+
+- **DepotDelivery.jl** orquesta la agrupación de artefactos, la fijación de versiones y el diseño de la caché.
+- Los artefactos están **direccionados por contenido** (hash-estable), por lo que los nodos obtienen flujos de bytes idénticos.
+- Admitimos **múltiples microarquitecturas** produciendo un pequeño conjunto de imágenes (por ejemplo, `x86-64` de línea base, `x86-64-v3`), seleccionadas en tiempo de ejecución.
+- Las ejecuciones A/B validaron que la **misma imagen** produce la **misma caché de métodos** y el mismo gráfico de módulos localmente y en el clúster.
+
+### Lo que permite
+- **Reducciones de orden de magnitud** en la latencia de inicio en frío en pilas HEP representativas (por ejemplo, reconstrucción de jets, wrappers de Geant4).
+- **Inicios deterministas**: artefactos idénticos en todos los sitios a través de CVMFS.
+- **Cero compilaciones por nodo**: los nodos montan y utilizan imágenes precompiladas; no se requiere acceso de escritura.
+- **Apto para políticas**: distribución de solo lectura, integridad del contenido y reversiones a través de hashes.
+
+### Alcance y portabilidad
+El método **no es específico de HEP**. Cualquier sitio con hardware heterogéneo y almacenamiento de solo lectura puede adoptar el patrón:
+1) construir imágenes en un entorno de CI controlado,
+2) publicar en un almacenamiento inmutable y direccionado por contenido,
+3) seleccionar la imagen de microarquitectura más cercana en el lanzamiento.
+
+Presenté este trabajo en el **Julia for High-Energy Physics 2024 Workshop** (JuliaHEP 2024).
+
+**Proyecto:** [DepotDelivery.jl](https://github.com/JuliaComputing/DepotDelivery.jl)
 
 <div style="float: left; margin: 10px;">
-    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7233730225589673984?compact=1" 
-        height="600" width="450" frameborder="0" allowfullscreen="" title="Embedded post">
-    </iframe>
+  <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7233730225589673984?compact=1" 
+      height="600" width="450" frameborder="0" allowfullscreen="" title="Embedded post">
+  </iframe>
 </div>
-El programa de estudiantes de verano es una oportunidad para trabajar en un proyecto en el Gran Colisionador de Hadrones (LHC) más grande del mundo. Me asignaron un proyecto en el grupo de software para experimentos en el CERN, bajo la supervisión de Graeme Stewart.
-
-### Optimizando Julia para aplicaciones de física de altas energías
-
-Julia ha surgido como una herramienta poderosa para la computación científica, combinando la funcionalidad de alto nivel con un rendimiento que rivaliza con C/C++. Sin embargo, su dependencia de archivos precompilados causa retrasos en el inicio, lo que plantea desafíos para los sistemas distribuidos. Para abordar esto, desarrollamos un flujo de trabajo que precompila y almacena en caché las dependencias de Julia en el sistema de archivos compartido CernVM-FS (CVMFS), lo que permite una distribución perfecta entre los nodos de cómputo.
-
-Probando con los paquetes Julia Jet Reconstruction y Geant4 wrapper, logramos reducciones en el tiempo de inicio de hasta el 97%. Nuestro framework también admite la compilación cruzada para diversas microarquitecturas, lo que garantiza un rendimiento eficiente sin degradación. Este enfoque hace que Julia sea más accesible para la física de altas energías y los entornos de computación distribuida.
-
-Presenté mi trabajo en el [Julia for High Energy Physics 2024 Workshop](https://indico.cern.ch/event/1410341/contributions/6135602/).
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-    {% include repository/repo.liquid repository='JuliaComputing/DepotDelivery.jl' %}
-
+  {% include repository/repo.liquid repository='JuliaComputing/DepotDelivery.jl' %}
 </div>
