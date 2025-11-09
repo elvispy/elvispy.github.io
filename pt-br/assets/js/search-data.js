@@ -476,9 +476,9 @@ ninja.data = [{
           description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/9_PE/";
-            },},{id: "projects-meu-estágio-de-verão-no-cern",
-          title: 'Meu estágio de verão no CERN!',
-          description: "Permitindo que Julia pré-compile em sistemas e clusters heterogêneos",
+            },},{id: "projects-julia-em-escala-em-clusters-heterogêneos",
+          title: 'Julia em escala em clusters heterogêneos',
+          description: "Pré-compilação + entrega de artefatos CVMFS para inicializações rápidas e reproduzíveis",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/announcement_2/";
             },},{id: "projects-",

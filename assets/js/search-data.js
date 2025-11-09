@@ -476,9 +476,9 @@ ninja.data = [{
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_PE/";
-            },},{id: "projects-my-summer-internship-at-cern",
-          title: 'My summer internship at CERN!',
-          description: "Enabling Julia to precompile in heterogeneous sytems and clusters",
+            },},{id: "projects-julia-at-scale-on-heterogeneous-clusters",
+          title: 'Julia at scale on heterogeneous clusters',
+          description: "Precompilation + CVMFS artifact delivery for fast, reproducible starts",
           section: "Projects",handler: () => {
               window.location.href = "/projects/announcement_2/";
             },},{id: "projects-",

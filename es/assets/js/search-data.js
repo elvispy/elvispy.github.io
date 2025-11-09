@@ -476,9 +476,9 @@ ninja.data = [{
           description: "",
           section: "",handler: () => {
               window.location.href = "/es/projects/9_PE/";
-            },},{id: "projects-mi-pasantía-de-verano-en-el-cern",
-          title: '¡Mi pasantía de verano en el CERN!',
-          description: "Permitiendo que Julia precompile en sistemas y clústeres heterogéneos",
+            },},{id: "projects-julia-a-escala-en-clústeres-heterogéneos",
+          title: 'Julia a escala en clústeres heterogéneos',
+          description: "Precompilación + entrega de artefactos CVMFS para inicios rápidos y reproducibles",
           section: "",handler: () => {
               window.location.href = "/es/projects/announcement_2/";
             },},{id: "projects-",
