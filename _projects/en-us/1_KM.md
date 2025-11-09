@@ -1,13 +1,14 @@
 ---
 page_id: prj_km
 layout: page
-title: Kinematic Match, a smooth-contact framework for deformable impacts
-description: A geometric constraint that makes collisions stable, accurate, and optimization-ready
-img: assets/img/km-sphere.gif
+title: "Kinematic Match: a smooth-contact framework for deformable impacts"
+description: "A geometric constraint that makes collisions stable, accurate, and optimization-ready"
+img: "assets/img/km-sphere.gif"
 importance: 1
-category: work
+category: "work"
 related_publications: true
 ---
+
 
 ## Turning impacts into equations that behave
 

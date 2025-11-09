@@ -1,9 +1,9 @@
 ---
 page_id: prj_km
 layout: page
-title: Correspondência Cinemática: uma estrutura de contato suave para impactos deformáveis
-description: Uma restrição geométrica que torna as colisões estáveis, precisas e prontas para otimização
-img: assets/img/km-sphere.gif
+title: "Correspondência Cinemática, uma estrutura de contato suave para impactos deformáveis"
+description: "Uma restrição geométrica que torna as colisões estáveis, precisas e prontas para otimização"
+img: "assets/img/km-sphere.gif"
 importance: 1
 category: work
 related_publications: true
