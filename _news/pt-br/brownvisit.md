@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Tive o prazer de visitar e colaborar com o <a href="https://sites.brown.edu/harrislab/">Laboratório Harris</a> @ Brown University!
+Tive o prazer de visitar e colaborar com o <a href="https://sites.brown.edu/harrislab/">Harris Lab</a> na Brown University!

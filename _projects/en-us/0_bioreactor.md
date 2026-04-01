@@ -9,41 +9,22 @@ category: work
 related_publications: true
 ---
 
-# Integrating life and flow: toward predictive bioreactors for cultivated meat
+## Toward predictive bioreactors for cultivated meat
 
-### A new modeling frontier
+Scaling cultivated meat from a laboratory proof-of-concept to a food system is, at its core, an engineering problem. Billions of animal cells must grow suspended in a nutrient-rich medium inside a reactor that keeps them oxygenated, well-mixed, and mechanically safe — all at once. The dominant candidate for gentle, scalable culture is the **rocking bioreactor**: a flexible bag that tilts rhythmically, creating waves that circulate the medium without impellers. The same rocking that mixes nutrients can, however, shear cells apart if the frequency or amplitude is wrong. Choosing those parameters experimentally is prohibitively slow and expensive: each trial consumes sterile facilities, weeks of culture time, and growth media that cost more than most research budgets can absorb at scale.
 
-No existing framework has fully coupled **biological growth** with **multiphase fluid dynamics** across the enormous design space of modern bioreactors.  
-Traditional models treat the culture medium as static or the cells as passive tracers. In reality, cell proliferation, oxygen transport, and flow structure co-evolve: each determines the other. Capturing that interplay while spanning hundreds of possible geometries, fill volumes, and rocking schedules—is the key to building bioreactors that can scale cultivated meat from lab curiosity to global food technology.
-
-### Why it matters
-
-Cultivated meat promises to reduce agriculture’s environmental footprint, but its success depends on **bioreactor performance**.  
-Inside these devices, billions of animal cells grow suspended in a nutrient-rich medium that must stay well mixed and well oxygenated. The **rocking bioreactor**, a flexible bag that tilts rhythmically like a cradle, offers a gentle, scalable alternative to impeller-driven tanks. However, the same rocking that mixes nutrients can also shear cells apart.  
-Experimentally tuning those parameters is prohibitively costly and slow. Each test run consumes sterile facilities, weeks of culture time, and expensive growth media. Predictive simulation is therefore essential.
-
-### The scientific challenge
-
-This problem lies at the intersection of **multiphase, non-Newtonian fluid mechanics**, **transport phenomena**, and **computational biology**.  
-The fluid’s free surface moves in a **non-inertial frame**, the media’s viscosity evolves as cells proliferate, and the cells themselves modify the flow field through local oxygen consumption and drag.  
-Conventional CFD cannot resolve such coupled dynamics, and existing biological models ignore flow altogether. Our goal is to unify them.
+Simulation is the natural alternative, but no existing framework has fully coupled **biological growth** with **multiphase fluid dynamics** across the design space that matters. Traditional models treat the culture medium as a fixed fluid and the cells as passive tracers. In reality, cell proliferation changes the medium's viscosity; oxygen consumption creates spatial gradients that feed back into growth rates; and the free surface moves in a non-inertial rocking frame, making conventional CFD approaches impractical. Solving this problem means working at the intersection of multiphase fluid mechanics, transport phenomena, and computational biology simultaneously.
 
 ### Our approach
 
-At Brown, we are developing the first **open-source computational framework** that integrates **agent-based cell dynamics** within a **volume-of-fluid (VOF)** multiphase solver for rocking bioreactors.  
-This model predicts oxygen transfer, nutrient gradients, and shear stresses directly from first principles, while tracking how these fields affect local biomass growth. Because direct numerical simulation of every configuration is computationally expensive, we embed the solver into a **data-driven surrogate model** that learns from high-fidelity runs. Combined with **Bayesian optimization**, this allows systematic exploration of thousands of design combinations—geometry, rocking frequency, amplitude, media rheology—at a fraction of the computational cost.
+At Brown, we are building the first open-source computational framework that integrates **agent-based cell dynamics** within a **volume-of-fluid (VOF)** multiphase solver for rocking bioreactors. The VOF method tracks the deforming free surface directly from first principles, while the agent layer resolves how individual cells respond to local oxygen concentrations and shear stresses, and how their growth modifies the bulk flow through drag and viscosity changes. Think of it as a two-way conversation between the physics of the flow and the biology of the cells — each half of the model updates the other at every time step.
 
-This work establishes a bridge between **continuum mechanics and living systems**. It extends classical multiphase flow modeling into a regime where the “fluid” grows, consumes, and adapts.  
-By resolving how oxygen delivery and mechanical stress influence cellular outcomes, the framework provides quantitative criteria for “cell-safe” hydrodynamic environments—something previously defined only empirically.
+Because high-fidelity simulation of every possible reactor configuration is computationally expensive, we embed the solver within a **data-driven surrogate model** that learns response surfaces from a targeted set of full runs. Combined with **Bayesian optimization**, this allows systematic exploration of thousands of design combinations — geometry, rocking frequency, amplitude, media rheology — at a fraction of the cost of brute-force search. The result is a practical tool for identifying "cell-safe" hydrodynamic regimes: conditions where shear stresses remain below damage thresholds while oxygen delivery stays sufficient for growth. These criteria have previously been defined only empirically, one expensive experiment at a time.
 
-### Broader impact
+The same framework applies beyond cultivated meat: vaccine production, cell therapies, and protein manufacturing share the same fundamental challenge of maintaining viable cells in a dynamically driven fluid environment. All code and datasets are released openly to support community validation and reuse.
 
-The result is a predictive, reproducible tool for sustainable biotechnology.  
-By replacing costly physical prototyping with open, simulation-based design, we can accelerate the scale-up of cultivated meat and related bioproduction systems such as vaccines, cell therapies, and protein manufacturing.  
-All code and datasets are released openly to foster community validation and reuse.
-
-For technical details, see [Kim, Harris & Cimpeanu (2025)](https://arxiv.org/abs/2504.05421) or explore the [BioReactor repository](https://github.com/rcsc-group/BioReactor).
+For technical details, see [Kim, Harris & Cimpeanu (2025)](https://arxiv.org/abs/2504.05421) or explore the repository below.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-    {% include repository/repo.liquid repository='rcsc-group/BioReactor' %}  
+    {% include repository/repo.liquid repository='rcsc-group/BioReactor' %}
 </div>

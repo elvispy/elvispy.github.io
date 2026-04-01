@@ -7,8 +7,8 @@ importance: 4
 category: personal
 ---
 
-O Paraguai tem uma <a href="https://ourworldindata.org/grapher/mean-years-of-schooling-long-run">média de anos de escolaridade</a> medíocre quando comparado a outros países. Para mitigar isso, o governo do Paraguai oferece bolsas de estudo integrais para cursar graduação no país para estudantes do ensino médio.
-Para se qualificar, os alunos devem atingir uma pontuação mínima em testes de matemática e literatura aplicados em todo o país.
-No entanto, os alunos do ensino médio sistematicamente não conseguem atingir o mínimo necessário para se qualificar para esta bolsa e, às vezes, centenas de bolsas não são concedidas por causa disso. Obviamente, existe uma falha sistemática causando este problema. No entanto, é uma pena que todas essas bolsas nunca sejam concedidas porque a maioria desses alunos vem de contextos desfavorecidos.
+O governo do Paraguai oferece bolsas de estudo integrais para graduação — e todos os anos, centenas delas ficam sem uso. Não porque os estudantes não precisem, mas porque o exame de qualificação em matemática e literatura estabelece uma pontuação mínima que a maioria dos candidatos, particularmente aqueles de comunidades carentes com escolas subfinanciadas, não alcança.
 
-<a href="https://www.facebook.com/photo.php?fbid=659786765941152&set=pb.100057295035664.-2207520000"> Mathura</a> é uma iniciativa regional fundada por um grande amigo meu. Dávamos aulas gratuitas de Matemática e Literatura para esses alunos para mitigar o problema mencionado.
+As bolsas existem. Os alunos existem. O que falta é preparação.
+
+<a href="https://www.facebook.com/photo.php?fbid=659786765941152&set=pb.100057295035664.-2207520000">Mathura</a> é uma iniciativa regional fundada por um amigo próximo que oferece aulas gratuitas de Matemática e Literatura para estudantes do ensino médio que se preparam para esses exames. Juntei-me como instrutor para ajudar a fechar essa lacuna — não baixando o nível, mas dando aos alunos uma chance real de superá-lo.

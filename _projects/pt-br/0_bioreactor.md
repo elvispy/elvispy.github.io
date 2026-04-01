@@ -1,7 +1,7 @@
 ---
 page_id: prj_bioreactor
 layout: page
-title: Acoplamento de Crescimento, Fluxo e Otimização em Sistemas Complexos
+title: Acoplando Crescimento, Fluxo e Otimização em Sistemas Complexos
 description: Integrando crescimento biológico e dinâmica de fluidos em vastos espaços de design
 img: assets/img/bioreactor.gif
 importance: 1
@@ -9,41 +9,22 @@ category: work
 related_publications: true
 ---
 
-# Integrando vida e fluxo: rumo a biorreatores preditivos para carne cultivada
+## Rumo a biorreatores preditivos para carne cultivada
 
-### Uma nova fronteira de modelagem
+Escalar a carne cultivada de uma prova de conceito em laboratório para um sistema alimentar é, em sua essência, um problema de engenharia. Bilhões de células animais devem crescer suspensas em um meio rico em nutrientes dentro de um reator que as mantém oxigenadas, bem misturadas e mecanicamente seguras — tudo ao mesmo tempo. O principal candidato para uma cultura suave e escalável é o **biorreator de balanço** (rocking bioreactor): uma bolsa flexível que se inclina ritmicamente, criando ondas que circulam o meio sem impulsores. O mesmo balanço que mistura os nutrientes pode, no entanto, romper as células se a frequência ou a amplitude estiverem erradas. Escolher esses parâmetros experimentalmente é proibitivamente lento e caro: cada teste consome instalações estéreis, semanas de tempo de cultura e meios de crescimento que custam mais do que a maioria dos orçamentos de pesquisa pode absorver em escala.
 
-Nenhum framework existente acoplou totalmente o **crescimento biológico** com a **dinâmica de fluidos multifásica** em todo o enorme espaço de design dos biorreatores modernos.
-Os modelos tradicionais tratam o meio de cultura como estático ou as células como traçadores passivos. Na realidade, a proliferação celular, o transporte de oxigênio e a estrutura do fluxo coevoluem: cada um determina o outro. Capturar essa interação enquanto abrangemos centenas de possíveis geometrias, volumes de enchimento e programações de agitação – é a chave para construir biorreatores que podem escalar a carne cultivada da curiosidade de laboratório para a tecnologia alimentar global.
-
-### Por que isso importa
-
-A carne cultivada promete reduzir a pegada ambiental da agricultura, mas seu sucesso depende do **desempenho do biorreator**.
-Dentro desses dispositivos, bilhões de células animais crescem suspensas em um meio rico em nutrientes que deve permanecer bem misturado e bem oxigenado. O **biorreator de agitação**, uma bolsa flexível que se inclina ritmicamente como um berço, oferece uma alternativa suave e escalável aos tanques acionados por impulsor. No entanto, a mesma agitação que mistura os nutrientes também pode separar as células.
-Ajustar esses parâmetros experimentalmente é proibitivamente caro e lento. Cada execução de teste consome instalações estéreis, semanas de tempo de cultura e meios de crescimento caros. A simulação preditiva é, portanto, essencial.
-
-### O desafio científico
-
-Este problema está na interseção da **mecânica de fluidos multifásica não Newtoniana**, **fenômenos de transporte** e **biologia computacional**.
-A superfície livre do fluido se move em um **quadro não inercial**, a viscosidade do meio evolui à medida que as células proliferam e as próprias células modificam o campo de fluxo por meio do consumo local de oxigênio e do arrasto.
-O CFD convencional não consegue resolver tais dinâmicas acopladas e os modelos biológicos existentes ignoram o fluxo completamente. Nosso objetivo é unificá-los.
+A simulação é a alternativa natural, mas nenhum framework existente acoplou totalmente o **crescimento biológico** com a **dinâmica de fluidos multifásica** no espaço de design que importa. Os modelos tradicionais tratam o meio de cultura como um fluido fixo e as células como rastreadores passivos. Na realidade, a proliferação celular altera a viscosidade do meio; o consumo de oxigênio cria gradientes espaciais que retroalimentam as taxas de crescimento; e a superfície livre se move em um referencial de balanço não inercial, tornando as abordagens convencionais de CFD impraticáveis. Resolver este problema significa trabalhar na interseção da mecânica de fluidos multifásica, fenômenos de transporte e biologia computacional simultaneamente.
 
 ### Nossa abordagem
 
-Na Brown, estamos desenvolvendo o primeiro **framework computacional de código aberto** que integra a **dinâmica celular baseada em agentes** dentro de um solucionador multifásico de **volume de fluido (VOF)** para biorreatores de agitação.
-Este modelo prevê a transferência de oxigênio, gradientes de nutrientes e tensões de cisalhamento diretamente a partir de princípios básicos, enquanto rastreia como esses campos afetam o crescimento local da biomassa. Como a simulação numérica direta de cada configuração é computacionalmente cara, incorporamos o solucionador em um **modelo substituto baseado em dados** que aprende com execuções de alta fidelidade. Combinado com a **otimização Bayesiana**, isso permite a exploração sistemática de milhares de combinações de design – geometria, frequência de agitação, amplitude, reologia do meio – a uma fração do custo computacional.
+Na Brown, estamos construindo o primeiro framework computacional de código aberto que integra **dinâmica celular baseada em agentes** dentro de um resolvedor multifásico de **volume de fluido (VOF)** para biorreatores de balanço. O método VOF rastreia a superfície livre deformada diretamente a partir de primeiros princípios, enquanto a camada de agentes resolve como as células individuais respondem às concentrações locais de oxigênio e às tensões de cisalhamento, e como seu crescimento modifica o fluxo global através de mudanças no arrasto e na viscosidade. Pense nisso como uma conversa de mão dupla entre a física do fluxo e a biologia das células — cada metade do modelo atualiza a outra a cada passo de tempo.
 
-Este trabalho estabelece uma ponte entre a **mecânica do contínuo e os sistemas vivos**. Ele estende a modelagem clássica de fluxo multifásico para um regime onde o "fluido" cresce, consome e se adapta.
-Ao resolver como o fornecimento de oxigênio e o estresse mecânico influenciam os resultados celulares, o framework fornece critérios quantitativos para ambientes hidrodinâmicos "seguros para células" – algo anteriormente definido apenas empiricamente.
+Como a simulação de alta fidelidade de cada configuração possível de reator é computacionalmente cara, incorporamos o resolvedor dentro de um **modelo substituto (surrogate model) baseado em dados** que aprende superfícies de resposta a partir de um conjunto direcionado de execuções completas. Combinado com a **otimização Bayesiana**, isso permite a exploração sistemática de milhares de combinações de design — geometria, frequência de balanço, amplitude, reologia do meio — a uma fração do custo de uma busca por força bruta. O resultado é uma ferramenta prática para identificar regimes hidrodinâmicos "seguros para células": condições onde as tensões de cisalhamento permanecem abaixo dos limiares de danos, enquanto a entrega de oxigênio permanece suficiente para o crescimento. Esses critérios foram definidos anteriormente apenas de forma empírica, um experimento caro por vez.
 
-### Impacto mais amplo
+O mesmo framework se aplica além da carne cultivada: produção de vacinas, terapias celulares e fabricação de proteínas compartilham o mesmo desafio fundamental de manter células viáveis em um ambiente de fluido dinamicamente conduzido. Todo o código e conjuntos de dados são lançados abertamente para apoiar a validação e o reuso pela comunidade.
 
-O resultado é uma ferramenta preditiva e reproduzível para a biotecnologia sustentável.
-Ao substituir a prototipagem física dispendiosa por um design aberto baseado em simulação, podemos acelerar o aumento da produção de carne cultivada e sistemas de bioprodução relacionados, como vacinas, terapias celulares e fabricação de proteínas.
-Todo o código e conjuntos de dados são liberados abertamente para promover a validação e reutilização da comunidade.
-
-Para detalhes técnicos, consulte [Kim, Harris & Cimpeanu (2025)](https://arxiv.org/abs/2504.05421) ou explore o [repositório BioReactor](https://github.com/rcsc-group/BioReactor).
+Para detalhes técnicos, veja [Kim, Harris & Cimpeanu (2025)](https://arxiv.org/abs/2504.05421) ou explore o repositório abaixo.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-    {% include repository/repo.liquid repository='rcsc-group/BioReactor' %}  
+    {% include repository/repo.liquid repository='rcsc-group/BioReactor' %}
 </div>

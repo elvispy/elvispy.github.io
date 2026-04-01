@@ -9,9 +9,11 @@ category: work
 giscus_comments: true
 ---
 
-## Quantifying spin transport with model-based experiments
+## Quantifying spin transport in thin films
 
-Modern devices run into thermal and quantum limits. Spintronics routes information through **spin currents** rather than charge alone, promising lower dissipation. This project measured and **inferred** spin-transport properties in thin FM/NM bilayers using a pipeline that links the **Landau–Lifshitz–Gilbert (LLG)** model, **ferromagnetic resonance (FMR)** spectroscopy, and the **inverse spin Hall effect (iSHE)**. The work spans sample fabrication to signal processing and ties each decision to a computable quantity: the **Gilbert damping** \( \alpha \) and an iSHE voltage proxy for spin current. :contentReference[oaicite:1]{index=1}
+Every transistor that switches generates heat. At the nanoscale, that heat is already a fundamental limit — and the question of whether information can be routed through spin rather than charge is one of the central bets in modern electronics. Spintronics works by injecting and detecting **spin currents**, which carry angular momentum without net charge flow and promise lower dissipation.
+
+This project measured and inferred spin-transport properties in ferromagnetic/normal-metal (FM/NM) thin-film bilayers, constructing an end-to-end pipeline from sample fabrication to signal deconvolution. The two key quantities are the **Gilbert damping parameter** \( \alpha \), which governs how quickly spin precession decays, and the **inverse spin Hall effect (iSHE)** voltage, which converts spin current into a measurable electrical signal.
 
 <figure style="float: left; margin: 10px; max-width: 300px;">
     {% include figure.liquid loading="eager" path="assets/img/spintronics.jpeg" title="Thin-film bilayers for FMR/iSHE" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
@@ -20,31 +22,18 @@ Modern devices run into thermal and quantum limits. Spintronics routes informati
     </figcaption>
 </figure>
 
-### What we measured and why it’s hard
+### What makes this hard
 
-- **LLG → FMR linewidth:** Using LLG, the FMR linewidth–frequency slope gives the **damping** \( \alpha \). Clean estimates require lock-in detection, line-shape modeling, and careful anisotropy handling. We built a frequency-swept FMR pipeline and fit **symmetric/antisymmetric Lorentzians** to extract \( \Delta H \), \( H\_{\mathrm{res}} \), and \( \alpha \). :contentReference[oaicite:2]{index=2}
-- **iSHE voltage under confounders:** iSHE signals are small and often **contaminated by AMR**. We measured iSHE with intensity modulation and used a **reference stack** (Py/Ti) to isolate the antisymmetric AMR component, then subtracted it from Py/Pt (and Py/W) to recover the symmetric iSHE contribution. :contentReference[oaicite:3]{index=3}
+The challenge is not measuring a single quantity — it is disentangling several effects that overlap at the same experimental frequency and field. The **anisotropic magnetoresistance (AMR)** of the ferromagnet produces a signal at the same resonance condition as the iSHE, and they cannot be separated geometrically. Meanwhile, damping estimates from FMR linewidths are sensitive to sample oxidation: a thin native oxide on the permalloy (Py) surface adds extrinsic linewidth that mimics a larger \( \alpha \).
 
-### Experimental design to inference chain
+We addressed both problems experimentally. Lock-in detection with field modulation resolved the derivative-Lorentzian line shapes needed to extract \( \Delta H \) and \( H_{\mathrm{res}} \) across a frequency sweep. The slope of linewidth versus frequency gives \( \alpha \) directly via the LLG model. For iSHE, we used a **reference-stack subtraction**: Py/Ti (where Ti has negligible spin–orbit coupling) provides the pure AMR baseline, which we subtracted from Py/Pt and Py/W to isolate the symmetric iSHE component. For the cleanest signals, we switched to **YIG/Pt** — an insulating ferromagnet — which eliminates AMR leakage entirely and yields iSHE line shapes that are directly Lorentzian.
 
-1. **Fabrication and calibration:** Sputtered **Py(30 nm)/NM(6 nm)** stacks (NM ∈ {Pt, W, Cu, Ti}); verified thickness and roughness with **XRR**; used **XPS** to diagnose oxidation in Py. :contentReference[oaicite:4]{index=4}
-2. **FMR spectroscopy:** Lock-in detection with field modulation; fit derivative-Lorentzian line shapes to obtain linewidth vs. frequency → **linear slope → \( \alpha \)** per stack. :contentReference[oaicite:5]{index=5}
-3. **Materials signal:** Observed larger damping enhancement with higher atomic number NM (Pt, W), consistent with stronger spin–orbit coupling; controlled for Py oxidation by using Ti as a weakly perturbing cap and by switching to **YIG** (insulating FM) to eliminate AMR leakage. **YIG/Pt** produced the cleanest iSHE. :contentReference[oaicite:6]{index=6}
-4. **iSHE deconvolution:** Computed iSHE by subtracting the AMR-dominated Py/Ti trace from Py/Pt and Py/W; for **YIG/NM**, the iSHE line is directly Lorentzian with opposite signs for Pt vs W, matching spin–orbit sign expectations. :contentReference[oaicite:7]{index=7}
+### Materials results
 
-### Results (decision-relevant)
+Across the stacks studied — Py/Pt, Py/W, Py/Cu, Py/Ti — platinum showed the strongest spin-orbit coupling by both metrics: largest damping enhancement and largest iSHE amplitude. Tungsten ranked second. Copper and titanium were weak, consistent with their low atomic number. **YIG/Pt** confirmed the platinum result under cleaner conditions, and the sign reversal between YIG/Pt and YIG/W matched theoretical expectations for the spin Hall angle. Oxidation in the Py-based stacks, diagnosed via XPS and controlled through capping-layer choice, was identified as the leading confounder for damping estimates: a practical correction strategy — cap-layer control combined with XPS verification — keeps \( \alpha \) estimates reliable.
 
-- **Ranking for spin current injection:** Pt > W ≫ Cu, Ti in both damping enhancement and iSHE amplitude; **YIG/Pt** is the most robust pair due to the insulating FM and strong spin–orbit NM. :contentReference[oaicite:8]{index=8}
-- **Confounder control:** Py oxidation biases \( \alpha \); established a practical correction strategy (cap-layer control + XPS confirmation) and a cleaner baseline with YIG. :contentReference[oaicite:9]{index=9}
-- **Signal separation:** AMR/iSHE disentanglement via **reference-stack subtraction** yields stable iSHE estimates even at low SNR. :contentReference[oaicite:10]{index=10}
+### A general template for noisy inference
 
-### Why this matters beyond spintronics
+What made this project more than a materials survey was the discipline of separating what the model can identify from what the experiment can measure. Starting from LLG, we chose an experimental observable (linewidth slope) that encodes \( \alpha \) cleanly and built a fitting procedure with explicit nuisance separation. The lab setup itself was treated as a data system: we built a low-cost IoT monitor (ESP8266 + Hall flow sensor) to protect FMR uptime with automated email alerts. That same logic — governing model, identifiable parameters, orthogonal controls — is what distinguishes actionable inference from data collection.
 
-This is a general **measure-and-infer** template under noise and confounding:
-
-- Start from a governing model (LLG), design an experiment that yields **identifiable parameters**, and build a fitting procedure with **explicit nuisance separation** (AMR vs iSHE).
-- Validate materials hypotheses using **orthogonal probes** (XRR, XPS) and a **reference/control stack**.
-- Treat the lab as a data system: _we also built a low-cost IoT monitor_ (ESP8266 + Hall flow sensor) to protect FMR uptime with automated email alerts. :contentReference[oaicite:11]{index=11}
-
-**Methods & data:** [Full report (PDF)](/assets/pdf/Spintronics__The_New_Electronics.pdf)  
-**Core skills:** model-based experimental design, line-shape fitting, lock-in detection, uncertainty handling, thin-film fabrication and validation, reference-based deconvolution, and practical instrumentation. :contentReference[oaicite:12]{index=12}
+**Methods and data:** [Full report (PDF)](/assets/pdf/Spintronics__The_New_Electronics.pdf)

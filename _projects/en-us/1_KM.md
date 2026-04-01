@@ -19,39 +19,28 @@ related_publications: true
     </figcaption>
 </figure>
 
-Collisions between soft or deformable bodies are deceptively difficult to compute.  
-As two surfaces meet, their geometry changes faster than the solver can track, and most contact models handle this by inserting **stiff penalty forces** or discontinuous switches between “touch” and “separate.” These shortcuts make simulations unstable, overly sensitive to mesh resolution, and blind to real energy transfer.
+Collisions between soft or deformable bodies are deceptively difficult to compute. As two surfaces meet, their geometry changes faster than the solver can track, and most contact models handle this by inserting **stiff penalty forces** or discontinuous switches between "touch" and "separate." These shortcuts make simulations unstable, overly sensitive to mesh resolution, and blind to real energy transfer.
 
-The **Kinematic Match (KM)** framework replaces these ad-hoc rules with a **single geometric condition:** the **angle of incidence between contacting surfaces must evolve smoothly**. This transforms impact from a discontinuous event into a **well-posed, differentiable constraint**, one that classical solvers can enforce directly.
+The **Kinematic Match (KM)** framework replaces these ad-hoc rules with a **single geometric condition:** the **angle of incidence between contacting surfaces must evolve smoothly**. This transforms impact from a discontinuous event into a **well-posed, differentiable constraint** — one that classical solvers can enforce directly.
 
 ---
 
 ## Why it matters
 
-KM provides a stable way to simulate **deformable collisions and rebounds**—problems that span everything from soft robotics to droplet impact and planetary accretion.  
-Instead of forcing contact through empirical parameters, KM treats it as a **compatibility condition** between surfaces, ensuring a continuous “handshake” as they approach, compress, and separate. This approach yields:
-
-- Predictable energy dissipation without tuning constants.
-- Stable convergence under coarse meshes.
-- Direct compatibility with optimization and adjoint-based inference.
-
----
+KM provides a stable way to simulate **deformable collisions and rebounds** — problems that span everything from soft robotics to droplet impact and planetary accretion. Instead of forcing contact through empirical parameters, KM treats it as a **compatibility condition** between surfaces, ensuring a continuous "handshake" as they approach, compress, and separate. The approach yields predictable energy dissipation without tuning constants, stable convergence under coarse meshes, and direct compatibility with gradient-based optimization and adjoint-based inference.
 
 ## The method in one paragraph
 
-KM augments the governing equations with a **smooth contact-angle constraint** defined along the interface. In discrete form, it couples curvature and normal vectors between the two contacting surfaces, forcing them to align smoothly through time. The result is a **continuously differentiable contact manifold**—no kinks, no discontinuities—allowing stable integration across impact, rebound, and detachment. The method can be implemented in **finite-difference, finite-element, or interface-capturing schemes** with minimal changes to existing codebases.
-
----
+KM augments the governing equations with a **smooth contact-angle constraint** defined along the interface. In discrete form, it couples curvature and normal vectors between the two contacting surfaces, forcing them to align smoothly through time. The result is a **continuously differentiable contact manifold** — no kinks, no discontinuities — allowing stable integration across impact, rebound, and detachment. The method can be implemented in finite-difference, finite-element, or interface-capturing schemes with minimal changes to existing codebases.
 
 ## Evidence from experiments and simulations
 
-- **Solid–solid:** In _Proceedings of the Royal Society A_ ({% cite aguero2022impact %}), we validated KM by simulating a rigid sphere striking an elastic membrane. The method captured not only deformation profiles but also energy-transfer rates observed experimentally.
-- **Fluid–structure:** In _Journal of Fluid Mechanics_ ({% cite gabbard2025dropreboundlowweber %}), KM was extended to droplets rebounding on fluid baths, accurately reproducing capillary waves and coalescence thresholds—regimes where conventional CFD fails.
+In _Proceedings of the Royal Society A_ ({% cite aguero2022impact %}), we validated KM by simulating a rigid sphere striking an elastic membrane. The method captured not only deformation profiles but also energy-transfer rates observed experimentally. In _Journal of Fluid Mechanics_ ({% cite gabbard2025dropreboundlowweber %}), KM was extended to droplets rebounding on fluid baths, accurately reproducing capillary waves and coalescence thresholds — regimes where conventional CFD fails.
 
 <figure style="float: left; margin: 10px; width: 35%;">
   <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-    <video autoplay muted loop controls 
-           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+    <video autoplay muted loop controls
+           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
            preload="auto">
       <source src="/assets/img/drop.mp4" type="video/mp4">
       Your browser does not support the video tag.
@@ -62,30 +51,14 @@ KM augments the governing equations with a **smooth contact-angle constraint** d
   </figcaption>
 </figure>
 
----
-
-## Why it’s efficient and general
-
-Because KM expresses contact through geometry rather than penalty forces, it:
-
-- **Improves conditioning** of linear systems at impact.
-- **Eliminates the need for localized remeshing** near the interface.
-- **Works across materials and scales**, from soft robotics to granular impacts.
-- **Remains differentiable**, so it’s compatible with gradient-based design, parameter inference, and Bayesian optimization pipelines.
+Because KM expresses contact through geometry rather than penalty forces, it improves the conditioning of linear systems at impact, eliminates the need for localized remeshing near the interface, and works across materials and scales — from soft robotics to granular impacts. Crucially, it **remains differentiable**, so it is compatible with gradient-based design, parameter inference, and Bayesian optimization pipelines. We are extending KM to multi-material and bio-inspired systems, where interfaces can grow, merge, or tear.
 
 ---
 
-## What’s next
-
-We are extending KM to multi-material and bio-inspired systems, where interfaces can grow, merge, or tear. The differentiable constraint structure also opens the door to **machine-learning surrogates** that learn impact dynamics from simulation data, accelerating design tasks in robotics and material science.
-
----
-
-Collisions aren’t discrete events—they are **conversations between geometries**.  
-Kinematic Match gives that dialogue a precise mathematical form: smooth, stable, and computable.
+Collisions aren't discrete events — they are **conversations between geometries**. Kinematic Match gives that dialogue a precise mathematical form: smooth, stable, and computable.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-    {% include repository/repo.liquid repository='elvispy/kinematic-match-sphere' %}  
-    {% include repository/repo.liquid repository='elvispy/km-dropplet-solidsubstrate-v3' %}  
-    {% include repository/repo.liquid repository='elvispy/km-dropplet-onto-bath' %}  
+    {% include repository/repo.liquid repository='elvispy/kinematic-match-sphere' %}
+    {% include repository/repo.liquid repository='elvispy/km-dropplet-solidsubstrate-v3' %}
+    {% include repository/repo.liquid repository='elvispy/km-dropplet-onto-bath' %}
 </div>

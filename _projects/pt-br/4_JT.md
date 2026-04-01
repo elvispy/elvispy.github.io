@@ -1,16 +1,15 @@
 ---
 page_id: prj_jt
 layout: page
-title: Promovendo Olimpíadas de Ciência
-description: Fornecendo acesso a oportunidades de qualidade para jovens e talentosos estudantes do ensino médio
+title: Promovendo Olimpíadas Científicas
+description: Oferecendo acesso a oportunidades de qualidade para estudantes jovens e talentosos do ensino médio
 img: assets/img/jt2.jpg
 importance: 3
 category: personal
 ---
 
-As Olimpíadas de Ciência transformaram a maneira como vejo o mundo.
-Através da OMAPA, uma ONG que investiu em Olimpíadas de Ciência quando eu estava no ensino médio, tive a sorte de receber treinamento adequado e ter outra chance na vida.
-Vários anos se passaram, agora estou pronto para começar um PhD e extremamente entusiasmado para compartilhar com outros o que recebi. Desde 2019, sou mentor de alunos brilhantes no "Jovenes Talentos", um programa que introduz
-os alunos ao pensamento crítico e tópicos de matemática de nível universitário. Se você é entusiasta e tem iniciativas em mente para promover este tipo de projetos, entre em contato comigo!
+As Olimpíadas Científicas remodelaram a maneira como vejo o mundo.
 
-Se você já se perguntou como abordar um problema novo e desafiador, <a href="https://math.berkeley.edu/~gmelvin/polya.pdf"> os quatro passos de Polya </a> são sempre uma escolha segura para aprimorar suas habilidades de resolução de problemas.
+Através da OMAPA, uma ONG que investia em Olimpíadas Científicas quando eu estava no ensino médio, tive a sorte de receber treinamento adequado e um tipo diferente de chance. Vários anos depois, agora no doutorado, mentoro estudantes brilhantes no **Jovenes Talentos** — um programa que apresenta estudantes do ensino médio ao pensamento crítico e à matemática de nível universitário. O objetivo é simples: dar a eles o que recebi. Se você tiver ideias para promover esse tipo de iniciativa, entre em contato.
+
+Se você se encontrar travado em um problema difícil, os <a href="https://math.berkeley.edu/~gmelvin/polya.pdf">quatro passos de Polya</a> são sempre um bom lugar para começar.

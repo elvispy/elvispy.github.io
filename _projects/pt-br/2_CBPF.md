@@ -2,49 +2,38 @@
 page_id: prj_cbpf
 layout: page
 title: Transporte de spin por medição e inferência
-description: De ajustes de FMR baseados em LLG à deconvolução de iSHE e seleção de materiais
+description: De ajustes FMR baseados em LLG até desconvolução iSHE e seleção de materiais
 img: assets/img/spintronics.jpeg
 importance: 2
 category: work
 giscus_comments: true
 ---
 
-## Quantificação do transporte de spin com experimentos baseados em modelo
+## Quantificando o transporte de spin em filmes finos
 
-Dispositivos modernos esbarram em limites térmicos e quânticos. A spintrônica roteia informações através de **correntes de spin**, em vez de apenas carga, prometendo menor dissipação. Este projeto mediu e **inferiu** propriedades de transporte de spin em bicamadas finas FM/NM usando um pipeline que vincula o modelo de **Landau–Lifshitz–Gilbert (LLG)**, a espectroscopia de **ressonância ferromagnética (FMR)** e o **efeito Hall de spin inverso (iSHE)**. O trabalho abrange desde a fabricação de amostras até o processamento de sinais e vincula cada decisão a uma quantidade computável: o **amortecimento de Gilbert** \( \alpha \) e um proxy de voltagem iSHE para corrente de spin. :contentReference[oaicite:1]{index=1}
+Cada transistor que comuta gera calor. Na escala nanométrica, esse calor já é um limite fundamental — e a questão de se a informação pode ser roteada através do spin em vez da carga é uma das apostas centrais na eletrônica moderna. A espintrônica funciona injetando e detectando **correntes de spin**, que carregam momento angular sem fluxo de carga líquida e prometem menor dissipação.
+
+Este projeto mediu e inferiu propriedades de transporte de spin em bicamadas de filmes finos ferromagnéticos/metal normal (FM/NM), construindo um pipeline de ponta a ponta desde a fabricação da amostra até a desconvolução do sinal. As duas grandezas fundamentais são o **parâmetro de amortecimento de Gilbert** \( \alpha \), que governa a rapidez com que a precessão do spin decai, e a voltagem do **efeito Hall de spin inverso (iSHE)**, que converte a corrente de spin em um sinal elétrico mensurável.
 
 <figure style="float: left; margin: 10px; max-width: 300px;">
-    {% include figure.liquid loading="eager" path="assets/img/spintronics.jpeg" title="Bicamadas de filme fino para FMR/iSHE" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
+    {% include figure.liquid loading="eager" path="assets/img/spintronics.jpeg" title="Thin-film bilayers for FMR/iSHE" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
     <figcaption style="text-align: center; margin-top: 5px;">
         Filmes finos FM/NM usados para medições de FMR e iSHE.
     </figcaption>
 </figure>
 
-### O que medimos e por que é difícil
+### O que torna isso difícil
 
-- **LLG → Largura de linha FMR:** Usando LLG, a inclinação da largura de linha-frequência FMR fornece o **amortecimento** \( \alpha \). Estimativas limpas exigem detecção lock-in, modelagem de forma de linha e manuseio cuidadoso da anisotropia. Construímos um pipeline FMR de varredura de frequência e ajustamos **Lorentzianas simétricas/antissimétricas** para extrair \( \Delta H \), \( H\_{\mathrm{res}} \) e \( \alpha \). :contentReference[oaicite:2]{index=2}
-- **Voltagem iSHE sob fatores de confusão:** Os sinais iSHE são pequenos e frequentemente **contaminados por AMR**. Medimos iSHE com modulação de intensidade e usamos uma **pilha de referência** (Py/Ti) para isolar o componente AMR antissimétrico, depois o subtraímos de Py/Pt (e Py/W) para recuperar a contribuição iSHE simétrica. :contentReference[oaicite:3]{index=3}
+O desafio não é medir uma única grandeza — é desembaraçar vários efeitos que se sobrepõem na mesma frequência e campo experimental. A **magnetorresistência anisotrópica (AMR)** do ferromagneto produz um sinal na mesma condição de ressonância que o iSHE, e eles não podem ser separados geometricamente. Enquanto isso, estimativas de amortecimento a partir de larguras de linha FMR são sensíveis à oxidação da amostra: uma fina camada de óxido nativo na superfície do permalloy (Py) adiciona uma largura de linha extrínseca que mimetiza um \( \alpha \) maior.
 
-### Design experimental para cadeia de inferência
+Abordamos ambos os problemas experimentalmente. A detecção lock-in com modulação de campo resolveu as formas de linha derivada de Lorentz necessárias para extrair \( \Delta H \) e \( H_{\mathrm{res}} \) em uma varredura de frequência. A inclinação da largura de linha em relação à frequência fornece \( \alpha \) diretamente via modelo LLG. Para o iSHE, usamos uma **subtração de pilha de referência**: Py/Ti (onde o Ti tem acoplamento spin-órbita insignificante) fornece a linha de base AMR pura, que subtraímos de Py/Pt e Py/W para isolar a componente simétrica do iSHE. Para sinais mais limpos, mudamos para **YIG/Pt** — um ferromagneto isolante — que elimina inteiramente o vazamento de AMR e produz formas de linha iSHE que são diretamente Lorentzianas.
 
-1. **Fabricação e calibração:** Pilhas pulverizadas de **Py(30 nm)/NM(6 nm)** (NM ∈ {Pt, W, Cu, Ti}); espessura e rugosidade verificadas com **XRR**; usado **XPS** para diagnosticar a oxidação em Py. :contentReference[oaicite:4]{index=4}
-2. **Espectroscopia FMR:** Detecção Lock-in com modulação de campo; ajuste formas de linha derivada-Lorentziana para obter largura de linha vs. frequência → **inclinação linear → \( \alpha \)** por pilha. :contentReference[oaicite:5]{index=5}
-3. **Sinal de materiais:** Observado maior aprimoramento de amortecimento com NM de maior número atômico (Pt, W), consistente com o acoplamento spin-órbita mais forte; controlado para a oxidação de Py usando Ti como uma tampa fracamente perturbadora e mudando para **YIG** (FM isolante) para eliminar o vazamento de AMR. **YIG/Pt** produziu o iSHE mais limpo. :contentReference[oaicite:6]{index=6}
-4. **Deconvolução iSHE:** iSHE computado subtraindo o traço Py/Ti dominado por AMR de Py/Pt e Py/W; para **YIG/NM**, a linha iSHE é diretamente Lorentziana com sinais opostos para Pt vs W, correspondendo às expectativas de sinal de spin-órbita. :contentReference[oaicite:7]{index=7}
+### Resultados de materiais
 
-### Resultados (relevantes para a decisão)
+Em todas as pilhas estudadas — Py/Pt, Py/W, Py/Cu, Py/Ti — o platina mostrou o acoplamento spin-órbita mais forte por ambas as métricas: maior aumento de amortecimento e maior amplitude iSHE. O tungstênio ficou em segundo lugar. O cobre e o titânio foram fracos, consistente com seu baixo número atômico. **YIG/Pt** confirmou o resultado da platina sob condições mais limpas, e a reversão de sinal entre YIG/Pt e YIG/W correspondeu às expectativas teóricas para o ângulo Hall de spin. A oxidação nas pilhas baseadas em Py, diagnosticada via XPS e controlada através da escolha da camada de cobertura, foi identificada como o principal fator de confusão para estimativas de amortecimento: uma estratégia prática de correção — controle da camada de cobertura combinado com verificação por XPS — mantém as estimativas de \( \alpha \) confiáveis.
 
-- **Ranking para injeção de corrente de spin:** Pt > W ≫ Cu, Ti tanto no aprimoramento de amortecimento quanto na amplitude iSHE; **YIG/Pt** é o par mais robusto devido ao FM isolante e ao forte NM spin-órbita. :contentReference[oaicite:8]{index=8}
-- **Controle de fator de confusão:** A oxidação de Py influencia \( \alpha \); estabeleceu uma estratégia de correção prática (controle da camada de cobertura + confirmação XPS) e uma linha de base mais limpa com YIG. :contentReference[oaicite:9]{index=9}
-- **Separação de sinal:** O desentrelaçamento AMR/iSHE via **subtração de pilha de referência** produz estimativas iSHE estáveis mesmo com baixo SNR. :contentReference[oaicite:10]{index=10}
+### Um modelo geral para inferência ruidosa
 
-### Por que isso importa além da spintrônica
+O que tornou este projeto mais do que um levantamento de materiais foi a disciplina de separar o que o modelo pode identificar do que o experimento pode medir. Partindo do LLG, escolhemos um observável experimental (inclinação da largura de linha) que codifica \( \alpha \) de forma limpa e construímos um procedimento de ajuste com separação explícita de variáveis de incômodo. O próprio setup do laboratório foi tratado como um sistema de dados: construímos um monitor IoT de baixo custo (ESP8266 + sensor de fluxo Hall) para proteger o tempo de atividade do FMR com alertas automáticos por e-mail. Essa mesma lógica — modelo governante, parâmetros identificáveis, controles ortogonais — é o que distingue a inferência acionável da coleta de dados.
 
-Este é um modelo geral de **medir e inferir** sob ruído e confusão:
-
-- Comece com um modelo governante (LLG), projete um experimento que produza **parâmetros identificáveis** e construa um procedimento de ajuste com **separação explícita de incômodos** (AMR vs iSHE).
-- Valide hipóteses de materiais usando **sondas ortogonais** (XRR, XPS) e uma **pilha de referência/controle**.
-- Trate o laboratório como um sistema de dados: _também construímos um monitor IoT de baixo custo_ (ESP8266 + sensor de fluxo Hall) para proteger o tempo de atividade do FMR com alertas de e-mail automatizados. :contentReference[oaicite:11]{index=11}
-
-**Métodos & dados:** [Relatório completo (PDF)](/assets/pdf/Spintronics__The_New_Electronics.pdf)
-**Habilidades essenciais:** projeto experimental baseado em modelo, ajuste de forma de linha, detecção lock-in, tratamento de incertezas, fabricação e validação de filmes finos, deconvolução baseada em referência e instrumentação prática. :contentReference[oaicite:12]{index=12}
+**Métodos e dados:** [Relatório completo (PDF)](/assets/pdf/Spintronics__The_New_Electronics.pdf)

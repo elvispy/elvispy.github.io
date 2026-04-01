@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Nosso preprint mais recente "Rebote de gotículas em um banho de fluido: simulações e experimentos de correspondência cinemática" está disponível em [arxiv](https://arxiv.org/abs/2509.22826)
+Nosso mais recente preprint "Droplet rebounds off a fluid bath: kinematic match simulations and experiments" está disponível no [arxiv](https://arxiv.org/abs/2509.22826)

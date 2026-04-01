@@ -7,8 +7,8 @@ importance: 4
 category: personal
 ---
 
-Paraguay has a mediocre <a href="https://ourworldindata.org/grapher/mean-years-of-schooling-long-run">mean years of schooling</a> when compared to other countries. To mitigate this, Paraguay's government offers full-tuition scholarships to pursue undergraduate degrees in our country for high-school students.
-In order to qualify, students must met a minimum score in math and literature tests taken nationwide.
-However, high-schoolers systematically fail to get the bare minimum to qualify for this scholarship, and sometimes hundreds of scholarships don't get awarded because of this. There's obviously a systematic flaw causing this issue. However, it's such a pity that all these scholarships never get awarded because most of these students come from underserved contexts.
+Paraguay's government offers full-tuition scholarships for undergraduate study — and every year, hundreds of them go unclaimed. Not because students don't need them, but because the qualifying exam in math and literature sets a minimum score that most applicants, particularly those from underserved communities with underfunded schools, don't reach.
 
-<a href="https://www.facebook.com/photo.php?fbid=659786765941152&set=pb.100057295035664.-2207520000"> Mathura</a> is a regional initiative founded by a long friend of mine. We gave free Math and Literature classes to these students to mitigate the aforementioned issue.
+The scholarships exist. The students exist. What's missing is preparation.
+
+<a href="https://www.facebook.com/photo.php?fbid=659786765941152&set=pb.100057295035664.-2207520000">Mathura</a> is a regional initiative founded by a close friend that runs free Math and Literature classes for high-schoolers preparing for these exams. I joined as an instructor to help close that gap — not by lowering the bar, but by giving students a real shot at clearing it.

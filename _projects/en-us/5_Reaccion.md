@@ -8,12 +8,8 @@ importance: 3
 category: personal
 ---
 
-ReAcción aims to catalize community innovation against corruption using civic education, collective construction, strategic communication, and social technology to promote transparency and good governance, especially in the education sector.
+Public money spent in secret is public money wasted. That is the premise behind **ReAcción**, a Paraguayan civic organization that combines education, strategic communication, and social technology to push for government transparency — particularly in public contracting.
 
-You probably agree with me that transactions made by the government must be tractable and transparent. There are guidelines to achieve this goal, given by the
-<a href="https://standard.open-contracting.org/latest/en/"> Open Contracting Data Standards.</a>
+Until recently, Paraguay's public contracts were scanned documents with no machine-readable metadata. The information existed on paper; it was simply inaccessible. We analyzed hundreds of contracts manually to demonstrate that civil society had real demand for transparency, and that demand helped catalyze the first steps toward digitalization. Once the data became available in structured form, I built a Google Scripts project that extracted the metadata of all public contracts from 2012 to 2019. That dataset became the foundation for several <a href="https://reaccion.org.py/publicaciones/#investigaciones">investigative articles</a> on contracting patterns and anomalies.
 
-Up until a couple of years, Paraguay had little to no infrasctructure on this matter. Public contracts were mainly scanned and their metadata were unavailable to the public.
-
-We analyzed hundreds of contracts before the digitalization to show our government that there was demand for transparency among civil society.
-After the first steps towards digitalization were taken, I authored a simple Google Scripts project that extracted the metadata of all public contracts in the period 2012-2019. From that data, a couple of <a href="https://reaccion.org.py/publicaciones/#investigaciones"> articles</a> were written.
+The technical scaffolding follows the <a href="https://standard.open-contracting.org/latest/en/">Open Contracting Data Standards</a> — an international framework that makes government spending comparable, auditable, and searchable across countries. Paraguay still has a long way to go, but the data is now public.
