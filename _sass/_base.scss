@@ -1388,3 +1388,33 @@ html {
 body {
   font-size: 1.5rem; // this ensures scaling from the root size
 }
+
+// GitHub pin card fallback (shown when github-readme-stats image fails)
+
+.github-pin-card {
+  font-family: 'Segoe UI', Ubuntu, Sans-Serif;
+  background: #fffefe;
+  border: 1px solid #e4e2e2;
+  border-radius: 4.5px;
+  padding: 35px 25px 25px;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+html[data-theme="dark"] .github-pin-card { background: #151515; border-color: #444; }
+.gpc-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; overflow: hidden; }
+.gpc-icon { fill: #586069; flex-shrink: 0; }
+html[data-theme="dark"] .gpc-icon { fill: #79ff97; }
+.gpc-title { font-size: 18px; font-weight: 600; color: #2f80ed; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html[data-theme="dark"] .gpc-title { color: #ffffff; }
+.gpc-owner { color: #2f80ed; }
+html[data-theme="dark"] .gpc-owner { color: #ffffff; }
+.gpc-description { font-size: 13px; color: #434d58; line-height: 1.5; margin: 0 0 20px; min-height: 2.6em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+html[data-theme="dark"] .gpc-description { color: #9f9f9f; }
+.gpc-footer { display: flex; align-items: center; gap: 25px; font-size: 12px; color: #586069; }
+html[data-theme="dark"] .gpc-footer { color: #9f9f9f; }
+.gpc-lang { display: flex; align-items: center; gap: 6px; }
+.gpc-lang-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.gpc-stars, .gpc-forks { display: flex; align-items: center; gap: 4px; }
+.gpc-stars svg, .gpc-forks svg { fill: #586069; }
+html[data-theme="dark"] .gpc-stars svg, html[data-theme="dark"] .gpc-forks svg { fill: #9f9f9f; }
