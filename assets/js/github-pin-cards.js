@@ -28,47 +28,52 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.repo a[data-repo]').forEach(function (anchor) {
-      var repo      = anchor.getAttribute('data-repo');
-      var showOwner = anchor.getAttribute('data-show-owner') === 'true';
-      var imgs      = anchor.querySelectorAll('img');
+    document.querySelectorAll('.repo[data-repo]').forEach(function (div) {
+      var repo      = div.getAttribute('data-repo');
+      var showOwner = div.getAttribute('data-show-owner') === 'true';
+      var anchor    = div.querySelector('a');
+      if (!anchor) return;
 
-      // Show HTML card immediately so there is never blank space
+      // Show HTML card immediately — never blank
       anchor.innerHTML = htmlCard(repo, showOwner, null);
 
-      // Fetch real data and fill in description/stats
+      // Fetch real data then try SVG upgrade
       fetch('https://api.github.com/repos/' + repo)
         .then(function(r) { return r.ok ? r.json() : null; })
         .then(function(data) {
-          if (!data) return;
+          if (!data) { return; }
 
-          // Try to load the SVG image; if it succeeds, replace the HTML card
-          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-          var statsBase = anchor.getAttribute('data-stats-url');
-          if (statsBase) {
-            var theme  = isDark ? anchor.getAttribute('data-theme-dark') : anchor.getAttribute('data-theme-light');
-            var locale = anchor.getAttribute('data-locale');
-            var owner  = anchor.getAttribute('data-show-owner') === 'true' ? 'true' : 'false';
-            var lines  = anchor.getAttribute('data-lines');
-            var parts  = repo.split('/');
-            var svgUrl = statsBase + '/api/pin/?username=' + parts[0] + '&repo=' + parts[1]
-                       + '&theme=' + theme + '&locale=' + locale
-                       + '&show_owner=' + owner + '&description_lines_count=' + lines;
-            var img = new Image();
-            img.onload = function() {
-              // SVG loaded — replace with original img tags
-              anchor.innerHTML =
-                '<img class="only-light w-100" alt="' + repo + '" src="' + svgUrl.replace('theme=' + theme, 'theme=' + anchor.getAttribute('data-theme-light')) + '">'
-                + '<img class="only-dark w-100" alt="' + repo + '" src="' + svgUrl.replace('theme=' + theme, 'theme=' + anchor.getAttribute('data-theme-dark')) + '">';
-            };
-            img.onerror = function() {
-              // SVG unavailable — update the HTML card with real data
-              anchor.innerHTML = htmlCard(repo, showOwner, data);
-            };
-            img.src = svgUrl;
-          } else {
+          var statsBase   = div.getAttribute('data-stats-url');
+          var themeLight  = div.getAttribute('data-theme-light');
+          var themeDark   = div.getAttribute('data-theme-dark');
+          var locale      = div.getAttribute('data-locale');
+          var lines       = div.getAttribute('data-lines');
+          var parts       = repo.split('/');
+          var isDark      = document.documentElement.getAttribute('data-theme') === 'dark';
+          var activeTheme = isDark ? themeDark : themeLight;
+
+          var svgUrl = statsBase + '/api/pin/?username=' + parts[0] + '&repo=' + parts[1]
+                     + '&theme=' + activeTheme + '&locale=' + locale
+                     + '&show_owner=' + showOwner + '&description_lines_count=' + lines;
+
+          var probe = new Image();
+          probe.onload = function () {
+            // Stats service reachable — use the original SVG images
+            anchor.innerHTML =
+              '<img class="only-light w-100" alt="' + repo + '" src="'
+              + statsBase + '/api/pin/?username=' + parts[0] + '&repo=' + parts[1]
+              + '&theme=' + themeLight + '&locale=' + locale
+              + '&show_owner=' + showOwner + '&description_lines_count=' + lines + '">'
+              + '<img class="only-dark w-100" alt="' + repo + '" src="'
+              + statsBase + '/api/pin/?username=' + parts[0] + '&repo=' + parts[1]
+              + '&theme=' + themeDark + '&locale=' + locale
+              + '&show_owner=' + showOwner + '&description_lines_count=' + lines + '">';
+          };
+          probe.onerror = function () {
+            // Stats service down — show HTML card with real data
             anchor.innerHTML = htmlCard(repo, showOwner, data);
-          }
+          };
+          probe.src = svgUrl;
         })
         .catch(function() {});
     });

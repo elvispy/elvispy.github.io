@@ -30,8 +30,7 @@
   {% assign max_lines = 2 %}
 {% endif %}
 
-<div class="repo p-2 text-center">
-  <a href="https://github.com/{{ include.repository }}"
+<div class="repo p-2 text-center"
      data-repo="{{ include.repository }}"
      data-show-owner="{{ show_owner }}"
      data-stats-url="{{ site.external_services.github_readme_stats_url }}"
@@ -39,6 +38,7 @@
      data-theme-dark="{{ site.repo_theme_dark }}"
      data-locale="{{ lang }}"
      data-lines="{{ max_lines }}">
+  <a href="https://github.com/{{ include.repository }}">
     <img
       class="only-light w-100"
       alt="{{ include.repository }}"
