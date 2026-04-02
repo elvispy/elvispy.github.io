@@ -29,7 +29,7 @@ ninja.data = [{
           },
         },{id: "nav-repositories",
           title: "repositories",
-          description: "Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.",
+          description: "A collection of my favorite repositories!",
           section: "Navigation menu",
           handler: () => {
             window.location.href = "/repositories/";
@@ -103,6 +103,12 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "news-i-am-attending-the-umass-amherst-summer-school-on-soft-matter-and-complex-fluids",
           title: 'I am attending the UMass Amherst Summer School on Soft Matter and Complex...',
+          description: "",
+          section: "News",},{id: "news-i-presented-my-latest-work-at-the-annual-meeting-of-the-american-physical-society-division-of-fluid-dynamics",
+          title: 'I presented my latest work at the Annual Meeting of the American Physical...',
+          description: "",
+          section: "News",},{id: "news-i-was-selected-to-apply-at-the-inter-ivy-chess-championship-to-be-held-at-the-university-of-pennsylvania",
+          title: 'I was selected to apply at the Inter-Ivy chess championship to be held...',
           description: "",
           section: "News",},{id: "projects-coupling-growth-flow-and-optimization-in-complex-systems",
           title: 'Coupling Growth, Flow, and Optimization in Complex Systems',
