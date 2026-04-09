@@ -1,5 +1,5 @@
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Escribe tu biografía aquí. Cuéntale al mundo sobre ti. Enlace a tu [subreddit](http://reddit.com) favorito. También puedes poner una foto. El código ya está incluido, solo nombra tu foto `prof_pic.jpg` y colócala en la carpeta `img/`.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/multi-language-al-folio/publications/) automatically.
+Pon tu dirección / apartado postal / otra información justo debajo de tu foto. También puedes desactivar cualquiera de estos elementos editando la propiedad `profile` del encabezado YAML de tu archivo `_pages/about.md`. Edita `_bibliography/papers.bib` y Jekyll renderizará automáticamente tu [página de publicaciones](/multi-language-al-folio/publications/) automáticamente.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Enlaza también tus redes sociales. Este tema está configurado para usar [iconos de Font Awesome](https://fontawesome.com/) y [Academicons](https://jpswalsh.github.io/academicons/), como los de abajo. Agrega tu Facebook, Twitter, LinkedIn, Google Scholar, o simplemente desactiva todos.

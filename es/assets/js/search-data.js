@@ -14,22 +14,22 @@ const ninja = document.querySelector('ninja-keys');
 
 // add the home and posts menu items
 ninja.data = [{
-    id: "nav-sobre",
-    title: "sobre",
+    id: "nav-sobre-mí",
+    title: "sobre mí",
     section: "",
     handler: () => {
       window.location.href = "/es/";
     },
   },{id: "nav-proyectos",
           title: "proyectos",
-          description: "Una colección creciente de mis proyectos interesantes.",
+          description: "Una colección creciente de mis proyectos geniales.",
           section: "",
           handler: () => {
             window.location.href = "/es/projects/";
           },
         },{id: "nav-repositorios",
           title: "repositorios",
-          description: "Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.",
+          description: "¡Una colección de mis repositorios favoritos!",
           section: "",
           handler: () => {
             window.location.href = "/es/repositories/";
@@ -74,17 +74,17 @@ ninja.data = [{
             },},{id: "news-um-anúncio-simples-em-uma-linha-com-markdown-emoji-sparkles-smile",
           title: 'Um anúncio simples em uma linha com Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "",},{id: "news-nuestro-artículo-impacto-de-una-esfera-rígida-sobre-una-membrana-elástica-fue-aceptado-en-las-proceedings-of-the-royal-society-a",
-          title: 'Nuestro artículo “Impacto de una esfera rígida sobre una membrana elástica” fue aceptado...',
+          section: "",},{id: "news-nuestro-artículo-impact-of-a-rigid-sphere-onto-an-ellastic-membrane-fue-aceptado-en-proceedings-of-the-royal-society-a",
+          title: 'Nuestro artículo “Impact of a rigid sphere onto an ellastic membrane” fue aceptado...',
           description: "",
-          section: "",},{id: "news-tuve-el-placer-de-visitar-y-colaborar-con-el-laboratorio-harris-en-la-universidad-de-brown",
-          title: 'Tuve el placer de visitar y colaborar con el Laboratorio Harris en la...',
+          section: "",},{id: "news-tuve-el-placer-de-visitar-y-colaborar-con-el-harris-lab-brown-university",
+          title: '¡Tuve el placer de visitar y colaborar con el Harris Lab @ Brown...',
           description: "",
-          section: "",},{id: "news-asistí-a-la-maravillosa-escuela-avanzada-de-física-experimental-en-cbpf-donde-investigamos-fenómenos-fundamentales-para-dispositivos-espintrónicos",
-          title: 'Asistí a la maravillosa Escuela Avanzada de Física Experimental en CBPF, donde investigamos...',
+          section: "",},{id: "news-asistí-a-la-maravillosa-escuela-avanzada-de-física-experimental-en-el-cbpf-donde-realizamos-investigaciones-sobre-fenómenos-fundamentales-para-dispositivos-de-espintrónica",
+          title: 'Asistí a la maravillosa Escuela Avanzada de Física Experimental en el CBPF, donde...',
           description: "",
           section: "",},{id: "news-comenzaré-mi-doctorado-en-la-escuela-de-ingeniería-de-la-universidad-de-brown-será-una-excelente-oportunidad-para-aprender-nuevas-habilidades",
-          title: '¡Comenzaré mi doctorado en la Escuela de Ingeniería de la Universidad de Brown!....',
+          title: '¡Comenzaré mi doctorado en la Escuela de Ingeniería de la Universidad de Brown!...',
           description: "",
           section: "",},{id: "news-tuve-el-placer-de-ser-seleccionado-para-el-programa-de-estudiantes-de-verano-del-cern",
           title: '¡Tuve el placer de ser seleccionado para el programa de estudiantes de verano...',
@@ -92,56 +92,56 @@ ninja.data = [{
           section: "",},{id: "news-presenté-mi-último-trabajo-en-el-encuentro-matemático-conjunto-brasil-china",
           title: 'Presenté mi último trabajo en el Encuentro Matemático Conjunto Brasil-China',
           description: "",
-          section: "",},{id: "news-presenté-mi-trabajo-más-reciente-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-sociedad-estadounidense-de-física",
-          title: 'Presenté mi trabajo más reciente en la Reunión Anual de la División de...',
+          section: "",},{id: "news-presenté-mi-último-trabajo-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-sociedad-americana-de-física",
+          title: 'Presenté mi último trabajo en la Reunión Anual de la División de Dinámica...',
           description: "",
-          section: "",},{id: "news-nuestro-último-preprint-rebotes-de-gotas-en-un-baño-de-fluido-simulaciones-de-coincidencia-cinemática-y-experimentos-está-disponible-en-arxiv",
-          title: 'Nuestro último preprint “Rebotes de gotas en un baño de fluido: simulaciones de...',
+          section: "",},{id: "news-nuestro-último-preprint-droplet-rebounds-off-a-fluid-bath-kinematic-match-simulations-and-experiments-está-disponible-en-arxiv",
+          title: 'Nuestro último preprint “Droplet rebounds off a fluid bath: kinematic match simulations and...',
           description: "",
           section: "",},{id: "news-nuestro-nuevo-preprint-drop-rebound-at-low-weber-number-está-disponible-en-arxiv",
           title: 'Nuestro nuevo preprint “Drop rebound at low weber number” está disponible en arxiv...',
           description: "",
-          section: "",},{id: "news-estoy-asistiendo-a-la-escuela-de-verano-de-umass-amherst-sobre-materia-blanda-y-fluidos-complejos",
-          title: '¡Estoy asistiendo a la Escuela de Verano de UMass Amherst sobre Materia Blanda...',
+          section: "",},{id: "news-asistiré-a-la-escuela-de-verano-umass-amherst-sobre-materia-blanda-y-fluidos-complejos",
+          title: '¡Asistiré a la Escuela de Verano UMass Amherst sobre Materia Blanda y Fluidos...',
           description: "",
-          section: "",},{id: "news-i-presented-my-latest-work-at-the-annual-meeting-of-the-american-physical-society-division-of-fluid-dynamics",
-          title: 'I presented my latest work at the Annual Meeting of the American Physical...',
+          section: "",},{id: "news-presenté-mi-último-trabajo-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-sociedad-americana-de-física",
+          title: 'Presenté mi último trabajo en la Reunión Anual de la División de Dinámica...',
           description: "",
-          section: "",},{id: "news-i-was-selected-to-apply-at-the-inter-ivy-chess-championship-to-be-held-at-the-university-of-pennsylvania",
-          title: 'I was selected to apply at the Inter-Ivy chess championship to be held...',
+          section: "",},{id: "news-fui-seleccionado-para-postularme-al-campeonato-de-ajedrez-inter-ivy-que-se-llevará-a-cabo-en-la-universidad-de-pensilvania",
+          title: '¡Fui seleccionado para postularme al campeonato de ajedrez Inter-Ivy que se llevará a...',
           description: "",
           section: "",},{id: "projects-acoplamiento-de-crecimiento-flujo-y-optimización-en-sistemas-complejos",
           title: 'Acoplamiento de Crecimiento, Flujo y Optimización en Sistemas Complejos',
-          description: "Integración del crecimiento biológico y la dinámica de fluidos a través de vastos espacios de diseño",
+          description: "Integración del crecimiento biológico y la dinámica de fluidos en amplios espacios de diseño",
           section: "",handler: () => {
               window.location.href = "/es/projects/0_bioreactor/";
-            },},{id: "projects-correspondencia-cinemática-un-marco-de-contacto-suave-para-impactos-deformables",
-          title: 'Correspondencia Cinemática un marco de contacto suave para impactos deformables',
+            },},{id: "projects-kinematic-match-un-marco-de-contacto-suave-para-impactos-deformables",
+          title: 'Kinematic Match: un marco de contacto suave para impactos deformables',
           description: "Una restricción geométrica que hace que las colisiones sean estables, precisas y listas para la optimización",
           section: "",handler: () => {
               window.location.href = "/es/projects/1_KM/";
             },},{id: "projects-transporte-de-espín-por-medición-e-inferencia",
           title: 'Transporte de espín por medición e inferencia',
-          description: "Desde ajustes de FMR basados en LLG hasta deconvolución de iSHE y selección de materiales",
+          description: "De ajustes FMR basados en LLG a la deconvolución iSHE y selección de materiales",
           section: "",handler: () => {
               window.location.href = "/es/projects/2_CBPF/";
             },},{id: "projects-locomoción-interfacial",
-          title: 'Locomoción Interfacial',
-          description: "Física diferenciable para robots impulsados por olas",
+          title: 'Locomoción interfacial',
+          description: "Física diferenciable para robots impulsados por ondas",
           section: "",handler: () => {
               window.location.href = "/es/projects/3_surferbot/";
             },},{id: "projects-promoviendo-las-olimpiadas-de-ciencias",
           title: 'Promoviendo las Olimpiadas de Ciencias',
-          description: "Proporcionando acceso a oportunidades de calidad a jóvenes y talentosos estudiantes de secundaria",
+          description: "Brindando acceso a oportunidades de calidad a estudiantes de secundaria jóvenes y talentosos",
           section: "",handler: () => {
               window.location.href = "/es/projects/4_JT/";
             },},{id: "projects-luchando-contra-la-corrupción-en-paraguay",
           title: 'Luchando contra la corrupción en Paraguay',
-          description: "Promoción de estándares de datos de contratación abierta y transparencia en el gobierno paraguayo",
+          description: "Promoviendo estándares de datos de contratación abierta y transparencia en el gobierno paraguayo",
           section: "",handler: () => {
               window.location.href = "/es/projects/5_Reaccion/";
-            },},{id: "projects-democratización-del-acceso-a-la-educación-superior-en-paraguay",
-          title: 'Democratización del acceso a la educación superior en Paraguay',
+            },},{id: "projects-democratizando-el-acceso-a-la-educación-superior-en-paraguay",
+          title: 'Democratizando el acceso a la educación superior en Paraguay',
           description: "",
           section: "",handler: () => {
               window.location.href = "/es/projects/6_Mathura/";
