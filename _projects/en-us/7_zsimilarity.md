@@ -4,8 +4,8 @@ layout: page
 title: "Dynamic-similarity solver for PDEs"
 description: "Symbolic search for scaling reductions from PDE → ODE"
 img: "assets/img/julialogo.webp"
-importance: 1
-category: "fun"
+importance: 2
+category: "work"
 related_publications: true
 math: true
 ---
