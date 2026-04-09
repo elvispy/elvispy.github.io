@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Nuestro último preprint "Rebotes de gotas en un baño de fluido: simulaciones de coincidencia cinemática y experimentos" está disponible en [arxiv](https://arxiv.org/abs/2509.22826)
+Nuestro último preprint "Droplet rebounds off a fluid bath: kinematic match simulations and experiments" está disponible en [arxiv](https://arxiv.org/abs/2509.22826)

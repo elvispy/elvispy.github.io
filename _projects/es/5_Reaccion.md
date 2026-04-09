@@ -2,18 +2,14 @@
 page_id: prj_reaccion
 layout: page
 title: Luchando contra la corrupción en Paraguay
-description: Promoción de estándares de datos de contratación abierta y transparencia en el gobierno paraguayo
+description: Promoviendo estándares de datos de contratación abierta y transparencia en el gobierno paraguayo
 img: assets/img/reaccion.jpeg
 importance: 3
 category: personal
 ---
 
-ReAcción busca catalizar la innovación comunitaria contra la corrupción utilizando educación cívica, construcción colectiva, comunicación estratégica y tecnología social para promover la transparencia y la buena gobernanza, especialmente en el sector educativo.
+El dinero público gastado en secreto es dinero público desperdiciado. Esa es la premisa detrás de **ReAcción**, una organización cívica paraguaya que combina educación, comunicación estratégica y tecnología social para impulsar la transparencia gubernamental — particularmente en la contratación pública.
 
-Probablemente estés de acuerdo conmigo en que las transacciones realizadas por el gobierno deben ser rastreables y transparentes. Existen directrices para lograr este objetivo, dadas por los
-<a href="https://standard.open-contracting.org/latest/en/"> Estándares de Datos de Contratación Abierta.</a>
+Hasta hace poco, los contratos públicos de Paraguay eran documentos escaneados sin metadatos legibles por máquina. La información existía en papel; simplemente era inaccesible. Analizamos cientos de contratos manualmente para demostrar que la sociedad civil tenía una demanda real de transparencia, y esa demanda ayudó a catalizar los primeros pasos hacia la digitalización. Una vez que los datos estuvieron disponibles en forma estructurada, construí un proyecto de Google Scripts que extrajo los metadatos de todos los contratos públicos de 2012 a 2019. Ese conjunto de datos se convirtió en la base de varios <a href="https://reaccion.org.py/publicaciones/#investigaciones">artículos de investigación</a> sobre patrones y anomalías de contratación.
 
-Hasta hace un par de años, Paraguay tenía poca o ninguna infraestructura en este asunto. Los contratos públicos se escaneaban principalmente y sus metadatos no estaban disponibles para el público.
-
-Analizamos cientos de contratos antes de la digitalización para mostrarle a nuestro gobierno que existía una demanda de transparencia entre la sociedad civil.
-Después de que se tomaron los primeros pasos hacia la digitalización, creé un proyecto simple de Google Scripts que extraía los metadatos de todos los contratos públicos en el período 2012-2019. A partir de esos datos, se escribieron un par de <a href="https://reaccion.org.py/publicaciones/#investigaciones"> artículos</a>.
+El andamiaje técnico sigue los <a href="https://standard.open-contracting.org/latest/en/">Estándares de Datos de Contratación Abierta</a> — un marco internacional que hace que el gasto gubernamental sea comparable, auditable y buscable entre países. Paraguay todavía tiene un largo camino por recorrer, pero los datos son ahora públicos.

@@ -2,8 +2,8 @@
 page_id: profiles
 layout: profiles
 permalink: /people/
-title: people
-description: members of the lab or group
+title: personas
+description: miembros del laboratorio o grupo
 nav: false
 nav_order: 7
 

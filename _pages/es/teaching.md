@@ -2,12 +2,12 @@
 page_id: teaching
 layout: page
 permalink: /teaching/
-title: teaching
-description: Materials for courses you taught. Replace this text with your description.
+title: docencia
+description: Materiales para los cursos que impartiste. Reemplaza este texto con tu descripción.
 nav: false
 nav_order: 6
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+Por ahora, se asume que esta página es una descripción estática de tus cursos. Puedes convertirla en una colección similar a `_projects/` para que puedas tener una página dedicada para cada curso.
 
-Organize your courses by years, topics, or universities, however you like!
+¡Organiza tus cursos por años, temas o universidades, como prefieras!

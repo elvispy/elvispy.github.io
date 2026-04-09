@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Nuestro artículo "Impacto de una esfera rígida sobre una membrana elástica" fue aceptado en las [Proceedings of the Royal Society A](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340).
+Nuestro artículo "Impact of a rigid sphere onto an ellastic membrane" fue aceptado en [Proceedings of the Royal Society A](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340).

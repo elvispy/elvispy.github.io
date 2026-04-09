@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Asistí a la maravillosa [Escuela Avanzada de Física Experimental](https://eafexp.cbpf.br/) en [CBPF](https://www.gov.br/cbpf/pt-br), donde investigamos fenómenos fundamentales para dispositivos espintrónicos.
+Asistí a la maravillosa [Escuela Avanzada de Física Experimental](https://eafexp.cbpf.br/) en el [CBPF](https://www.gov.br/cbpf/pt-br), donde realizamos investigaciones sobre fenómenos fundamentales para dispositivos de espintrónica.
