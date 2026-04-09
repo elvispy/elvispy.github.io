@@ -44,5 +44,5 @@ Because the contact manifold remains differentiable, the same formulation integr
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='elvispy/kinematic-match-sphere' %}
     {% include repository/repo.liquid repository='elvispy/km-dropplet-solidsubstrate-v3' %}
-    {% include repository/repo.liquid repository='elvispy/km-dropplet-onto-bath' %}
+    {% include repository/repo.liquid repository='elvispy/km-droplet-onto-bath' %}
 </div>

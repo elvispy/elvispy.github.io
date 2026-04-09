@@ -34,6 +34,5 @@ At an air–water interface, surface tension, gravity waves, and added-mass effe
 With these gradients, multi-start optimization explores hull geometries, actuator placements, and drive waveforms; Bayesian optimization handles global search under power-budget and manufacturability constraints.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-    {% include repository/repo.liquid repository='elvispy/flexible_surferbot_v2' %}
-    {% include repository/repo.liquid repository='elvispy/surferbot-differentiable' %}
+    {% include repository/repo.liquid repository='elvispy/flexible_surferbot' %}
 </div>

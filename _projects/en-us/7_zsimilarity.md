@@ -4,9 +4,10 @@ layout: page
 title: "Dynamic-similarity solver for PDEs"
 description: "Symbolic search for scaling reductions from PDE → ODE"
 img: "assets/img/julialogo.webp"
-importance: 3
+importance: 1
 category: "fun"
 related_publications: true
+math: true
 ---
 
 ## Automate PDE → ODE reductions via similarity
@@ -37,3 +38,7 @@ result = find_similarity(pde, bcs; vars=[:x,:t], field=:u)
 ```
 
 The package recovers the standard Gaussian similarity solution and hands back an ODE that any Julia integrator can solve in milliseconds.
+
+<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
+    {% include repository/repo.liquid repository='elvispy/SimilaritySolver.jl' %}
+</div>
