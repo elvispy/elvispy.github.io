@@ -10,7 +10,7 @@ related_publications: true
 math: true
 ---
 
-The KdV equation \(u_t + 6u\,u_x + u_{xxx} = 0\) admits a self-similar solution where the relevant combination of variables is \(\eta = x\,t^{-1/3}\) and the amplitude decays as \(t^{-2/3}\). Those exponents follow from requiring each term in the PDE to scale identically — a constraint that reduces to a linear system — but working it out by hand means matching term by term, and the algebra is error-prone enough that valid reductions frequently go unnoticed.
+The KdV equation $u_t + 6u\,u_x + u_{xxx} = 0$ admits a self-similar solution where the relevant combination of variables is $\eta = x\,t^{-1/3}$ and the amplitude decays as $t^{-2/3}$. Those exponents follow from requiring each term in the PDE to scale identically — a constraint that reduces to a linear system — but working it out by hand means matching term by term, and the algebra is error-prone enough that valid reductions frequently go unnoticed.
 
 The package automates this via the **dilation method**: it assigns a formal scaling exponent to each variable and term, writes the invariance constraint as a linear system in those exponents, and reads the reduced ODE directly from the null space of that linear system. No candidate powers need to be guessed or scanned; if a power-law similarity exists, the method finds it exactly. A string-based wrapper (`find_similarity_v2`) is also available for users who prefer not to work with `Symbolics.jl` expressions directly.
 
