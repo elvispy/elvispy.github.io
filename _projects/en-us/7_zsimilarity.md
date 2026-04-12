@@ -10,31 +10,23 @@ related_publications: true
 math: true
 ---
 
-A PDE with two independent variables sometimes admits a substitution that collapses it into an ODE — a **similarity reduction** — but the right scaling exponents must be matched term by term. The algebra is routine enough to automate yet tedious enough that valid reductions frequently go unnoticed.
+The KdV equation \(u_t + 6u\,u_x + u_{xxx} = 0\) admits a self-similar solution where the relevant combination of variables is \(\eta = x\,t^{-1/3}\) and the amplitude decays as \(t^{-2/3}\). Those exponents follow from requiring each term in the PDE to scale identically — a constraint that reduces to a linear system — but working it out by hand means matching term by term, and the algebra is error-prone enough that valid reductions frequently go unnoticed.
 
-This Julia package takes a PDE as a string, classifies its variables, searches for a scaling transformation, and returns the reduced ODE together with the transformed boundary conditions — ready to pass to any ODE solver.
-
-The Blasius flat-plate boundary layer satisfies
-
-\[
-\psi_y \psi_{xy} - \psi_x \psi_{yy} - \nu\,\psi_{yyy} = 0
-\]
-
-with \(\psi(x,0)=0\), \(\psi_y(x,0)=0\), \(\psi_y(x,\infty)=U_\infty\):
+The package automates this via the **dilation method**: it assigns a formal scaling exponent to each variable and term, writes the invariance constraint as a linear system in those exponents, and reads the reduced ODE directly from the null space of that linear system. No candidate powers need to be guessed or scanned; if a power-law similarity exists, the method finds it exactly. A string-based wrapper (`find_similarity_v2`) is also available for users who prefer not to work with `Symbolics.jl` expressions directly.
 
 ```julia
-using SimilaritySolver
+using SimilaritySolver, Symbolics
 
-pde = "dψ/dy * d2ψ/dxdy - dψ/dx * d2ψ/d2y - ν * d3ψ/d3y = 0"
-bcs = "ψ(x, y=0) = 0; dψ/dy(x, y=0) = 0; dψ/dy(x, y=Inf) = U∞"
+@variables x t u(..)
+Dt = Differential(t); Dx = Differential(x)
+kdv = Dt(u(x,t)) + 6*u(x,t)*Dx(u(x,t)) + Dx(Dx(Dx(u(x,t))))
 
-result = find_similarity(pde, bcs; parameters=["ν", "U∞"])
-# result["similarity_variable"] => η = y * x^m
-# result["output_similarity"]   => ψ = x^n f(η)
-# result["PDE_similarity"]      => f''' + 0.5 f f'' = 0  (Blasius ODE)
+results = find_ode_dilation(kdv; indep_vars=[x,t], dep_vars=[u(x,t)])
+# results[1]["similarity_variable"]  =>  x * t^(-1//3)
+# results[1]["gamma"]                =>  -2//1   (u scales as t^(-2/3))
 ```
 
-The package recovers the classical Blasius reduction without the user specifying the form of the **ansatz** (the trial substitution). Built on `Symbolics.jl` and `SymbolicUtils.jl`, it handles 1D and 2D PDEs. Extending the search to three or more independent variables, and to non-power-law scalings such as logarithmic symmetries, remains open.
+The method returns all valid similarity reductions, not just one. It currently handles two independent variables with power-law scalings; extending to three or more variables and to non-power-law symmetries (logarithmic, spiral) is ongoing.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='elvispy/SimilaritySolver.jl' %}
