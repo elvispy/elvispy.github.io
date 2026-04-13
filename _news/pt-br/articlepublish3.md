@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Nosso mais recente preprint "Droplet rebounds off a fluid bath: kinematic match simulations and experiments" está disponível no [arxiv](https://arxiv.org/abs/2509.22826)
+Nosso preprint mais recente "Droplet rebounds off a fluid bath: kinematic match simulations and experiments" está disponível no [arxiv](https://arxiv.org/abs/2509.22826)

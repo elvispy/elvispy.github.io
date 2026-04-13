@@ -2,7 +2,7 @@
 page_id: prj_cbpf
 layout: page
 title: Transporte de spin por medição e inferência
-description: De ajustes FMR baseados em LLG até desconvolução iSHE e seleção de materiais
+description: De ajustes de FMR baseados em LLG a deconvolução de iSHE e seleção de materiais
 img: assets/img/spintronics.jpeg
 importance: 2
 category: work
@@ -11,9 +11,7 @@ giscus_comments: true
 
 ## Quantificando o transporte de spin em filmes finos
 
-Cada transistor que comuta gera calor. Na escala nanométrica, esse calor já é um limite fundamental — e a questão de se a informação pode ser roteada através do spin em vez da carga é uma das apostas centrais na eletrônica moderna. A espintrônica funciona injetando e detectando **correntes de spin**, que carregam momento angular sem fluxo de carga líquida e prometem menor dissipação.
-
-Este projeto mediu e inferiu propriedades de transporte de spin em bicamadas de filmes finos ferromagnéticos/metal normal (FM/NM), construindo um pipeline de ponta a ponta desde a fabricação da amostra até a desconvolução do sinal. As duas grandezas fundamentais são o **parâmetro de amortecimento de Gilbert** \( \alpha \), que governa a rapidez com que a precessão do spin decai, e a voltagem do **efeito Hall de spin inverso (iSHE)**, que converte a corrente de spin em um sinal elétrico mensurável.
+Um óxido nativo fino em permalloy (Py) infla as larguras de linha de FMR e enviesa o **parâmetro de amortecimento de Gilbert** α para cima — invisível a menos que você rastreie a inclinação em muitas frequências e verifique a química da superfície por XPS. Extrair o ângulo Hall de spin da camada de metal pesado adjacente via o **efeito Hall de spin inverso (iSHE)** é ainda mais complicado pela magnetorresistência anisotrópica (AMR) do ferromagneto, que gera uma voltagem na mesma condição de ressonância que não pode ser separada do sinal iSHE apenas pela geometria.
 
 <figure style="float: left; margin: 10px; max-width: 300px;">
     {% include figure.liquid loading="eager" path="assets/img/spintronics.jpeg" title="Thin-film bilayers for FMR/iSHE" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
@@ -22,18 +20,8 @@ Este projeto mediu e inferiu propriedades de transporte de spin em bicamadas de 
     </figcaption>
 </figure>
 
-### O que torna isso difícil
+Medimos quatro sistemas de bicamada — Py/Pt, Py/W, Py/Cu, Py/Ti — e posteriormente YIG/Pt e YIG/W. Para α, a detecção lock-in com modulação de campo extraiu formas de linha Lorentziana derivada, e a seleção da camada de cobertura guiada por XPS manteve a contribuição do óxido identificável. Para iSHE, o Py/Ti serviu como referência de AMR: o titânio tem acoplamento spin-órbita insignificante, então a voltagem nessa pilha é pura linha de base. Subtraí-la do Py/Pt e Py/W isola a componente simétrica do iSHE. Mudar para YIG — um ferromagneto isolante sem corrente de carga na camada magnética — removeu a fuga inteiramente, deixando formas de linha iSHE puramente Lorentzianas.
 
-O desafio não é medir uma única grandeza — é desembaraçar vários efeitos que se sobrepõem na mesma frequência e campo experimental. A **magnetorresistência anisotrópica (AMR)** do ferromagneto produz um sinal na mesma condição de ressonância que o iSHE, e eles não podem ser separados geometricamente. Enquanto isso, estimativas de amortecimento a partir de larguras de linha FMR são sensíveis à oxidação da amostra: uma fina camada de óxido nativo na superfície do permalloy (Py) adiciona uma largura de linha extrínseca que mimetiza um \( \alpha \) maior.
-
-Abordamos ambos os problemas experimentalmente. A detecção lock-in com modulação de campo resolveu as formas de linha derivada de Lorentz necessárias para extrair \( \Delta H \) e \( H_{\mathrm{res}} \) em uma varredura de frequência. A inclinação da largura de linha em relação à frequência fornece \( \alpha \) diretamente via modelo LLG. Para o iSHE, usamos uma **subtração de pilha de referência**: Py/Ti (onde o Ti tem acoplamento spin-órbita insignificante) fornece a linha de base AMR pura, que subtraímos de Py/Pt e Py/W para isolar a componente simétrica do iSHE. Para sinais mais limpos, mudamos para **YIG/Pt** — um ferromagneto isolante — que elimina inteiramente o vazamento de AMR e produz formas de linha iSHE que são diretamente Lorentzianas.
-
-### Resultados de materiais
-
-Em todas as pilhas estudadas — Py/Pt, Py/W, Py/Cu, Py/Ti — o platina mostrou o acoplamento spin-órbita mais forte por ambas as métricas: maior aumento de amortecimento e maior amplitude iSHE. O tungstênio ficou em segundo lugar. O cobre e o titânio foram fracos, consistente com seu baixo número atômico. **YIG/Pt** confirmou o resultado da platina sob condições mais limpas, e a reversão de sinal entre YIG/Pt e YIG/W correspondeu às expectativas teóricas para o ângulo Hall de spin. A oxidação nas pilhas baseadas em Py, diagnosticada via XPS e controlada através da escolha da camada de cobertura, foi identificada como o principal fator de confusão para estimativas de amortecimento: uma estratégia prática de correção — controle da camada de cobertura combinado com verificação por XPS — mantém as estimativas de \( \alpha \) confiáveis.
-
-### Um modelo geral para inferência ruidosa
-
-O que tornou este projeto mais do que um levantamento de materiais foi a disciplina de separar o que o modelo pode identificar do que o experimento pode medir. Partindo do LLG, escolhemos um observável experimental (inclinação da largura de linha) que codifica \( \alpha \) de forma limpa e construímos um procedimento de ajuste com separação explícita de variáveis de incômodo. O próprio setup do laboratório foi tratado como um sistema de dados: construímos um monitor IoT de baixo custo (ESP8266 + sensor de fluxo Hall) para proteger o tempo de atividade do FMR com alertas automáticos por e-mail. Essa mesma lógica — modelo governante, parâmetros identificáveis, controles ortogonais — é o que distingue a inferência acionável da coleta de dados.
+O acoplamento spin-órbita da platina foi o mais forte por ambas as medidas simultaneamente — maior aumento de amortecimento e maior amplitude iSHE — uma consistência que aponta para um efeito material real em vez de artefato. O tungstênio foi claramente o segundo; cobre e titânio foram efetivamente zero, consistente com seu fraco acoplamento spin-órbita. A reversão de sinal entre YIG/Pt e YIG/W confirmou a previsão teórica para o ângulo Hall de spin. Para manter o equipamento de FMR funcionando durante as varreduras noturnas, adicionamos um monitor IoT de baixo custo (ESP8266 + sensor de fluxo Hall) com alertas automáticos por e-mail — ele detectou pelo menos duas interrupções no líquido de arrefecimento antes que pudessem estragar as medições.
 
 **Métodos e dados:** [Relatório completo (PDF)](/assets/pdf/Spintronics__The_New_Electronics.pdf)

@@ -11,7 +11,7 @@ related_publications: true
 
 ## Cabalgando la interfaz: física diferenciable para la locomoción impulsada por ondas
 
-Un pequeño robot posado sobre el agua puede propulsarse hacia adelante sin remos, aletas o chorros — vibrando. La vibración irradia ondas superficiales y, si esas ondas son asimétricas direccionalmente, su desequilibrio de momento genera un empuje neto. El SurferBot {% cite Rhee_2022 %} demostró esto experimentalmente; nuestro trabajo construye un simulador donde cada elección de diseño puede optimizarse directamente.
+Un pequeño robot sentado sobre el agua puede propulsarse hacia adelante sin remos, aletas o chorros — mediante vibración. La vibración irradia ondas superficiales, y si esas ondas son direccionalmente asimétricas, su desequilibrio de momento genera un empuje neto. El SurferBot {% cite Rhee_2022 %} demostró esto experimentalmente; nuestro trabajo construye un simulador donde cada elección de diseño puede optimizarse directamente.
 
 <div style="width: 100%; display: flex; justify-content: center;">
   <div style="position: relative; width: 80%; padding-bottom: 45%; height: 0; overflow: hidden;">
@@ -29,11 +29,10 @@ Un pequeño robot posado sobre el agua puede propulsarse hacia adelante sin remo
 
 ---
 
-En una interfaz aire-agua, la tensión superficial, las ondas de gravedad y los efectos de masa añadida gobiernan la dinámica de la interfaz. El rendimiento depende de elecciones acopladas — forma del cuerpo, distribución de masa, ubicación del motor, frecuencia de accionamiento, forma de onda, propiedades del fluido — que son costosas de explorar por experimento. Modelamos el robot como un cuerpo flotante, posiblemente flexible, restringido a la interfaz e impulsado por un actuador que varía en el tiempo, con el fluido circundante descrito por una teoría de superficie libre de pequeña amplitud que resuelve la interfaz {% cite Benham_Devauchelle_Thomson_2024 %}. El simulador es diferenciable con respecto a todos los parámetros de diseño \(\theta\): las actualizaciones de estado utilizan resoluciones lineales y no lineales \(A(\theta)\,y=b(\theta)\) con reglas personalizadas de modo inverso, por lo que \(\nabla_\theta \mathcal{L}\) se deduce de dos resoluciones lineales (directa y adjunta) por paso de tiempo — memoria limitada, gradientes estables a lo largo de toda la trayectoria.
+En una interfaz aire-agua, la tensión superficial, las ondas de gravedad y los efectos de masa añadida gobiernan la dinámica de la interfaz. El rendimiento depende de elecciones acopladas — forma del cuerpo, distribución de masa, ubicación del motor, frecuencia de accionamiento, forma de onda, propiedades del fluido — que son costosas de explorar mediante experimentos. Modelamos al robot como un cuerpo flotante, posiblemente flexible, restringido a la interfaz e impulsado por un actuador que varía en el tiempo, con el fluido circundante descrito por una teoría de superficie libre de pequeña amplitud que resuelve la interfaz {% cite Benham_Devauchelle_Thomson_2024 %}. El simulador es diferenciable con respecto a todos los parámetros de diseño \(\theta\): las actualizaciones de estado utilizan soluciones lineales y no lineales \(A(\theta)\,y=b(\theta)\) con reglas de modo inverso personalizadas, por lo que \(\nabla_\theta \mathcal{L}\) se deduce de dos soluciones lineales (directa y adjunta) por paso de tiempo — con memoria limitada y gradientes estables a lo largo de toda la trayectoria.
 
-Con estos gradientes, la optimización de múltiples inicios explora geometrías de casco, colocaciones de actuadores y formas de onda de accionamiento; la optimización bayesiana maneja la búsqueda global bajo restricciones de presupuesto de potencia y fabricabilidad.
+Con estos gradientes, la optimización de múltiples inicios explora geometrías de casco, colocaciones de actuadores y formas de onda de accionamiento; la optimización bayesiana maneja la búsqueda global bajo restricciones de presupuesto de energía y fabricabilidad.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-    {% include repository/repo.liquid repository='elvispy/flexible_surferbot_v2' %}
-    {% include repository/repo.liquid repository='elvispy/surferbot-differentiable' %}
+    {% include repository/repo.liquid repository='elvispy/flexible_surferbot' %}
 </div>

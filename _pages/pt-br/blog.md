@@ -3,7 +3,7 @@ page_id: blog
 layout: default
 permalink: /blog/
 title: blog
-blog_name: al-folio em inglês
+blog_name: al-folio em português
 description: um tema simples e limpo para acadêmicos
 nav: false
 nav_order: 1
@@ -15,8 +15,8 @@ pagination:
   sort_field: date
   sort_reverse: true
   trail:
-    before: 1 # The number of links before the current page
-    after: 3 # The number of links after the current page
+    before: 1 # O número de links antes da página atual
+    after: 3 # O número de links após a página atual
 ---
 
 <div class="post">

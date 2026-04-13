@@ -3,7 +3,7 @@ page_id: publications
 layout: page
 permalink: /publications/
 title: publicaciones
-description: publicaciones por categorías en orden cronológico inverso. generadas por jekyll-scholar.
+description: publicaciones por categorías en orden cronológico inverso. generado por jekyll-scholar.
 nav: false
 nav_order: 2
 ---

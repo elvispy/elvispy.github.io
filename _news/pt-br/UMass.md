@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Estou participando da Escola de Verão da UMass Amherst sobre Matéria Macia e Fluidos Complexos!
+Estou participando da Escola de Verão da UMass Amherst sobre Matéria Mole e Fluidos Complexos!

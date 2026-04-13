@@ -2,7 +2,7 @@
 page_id: prj_km
 layout: page
 title: "Kinematic Match: um framework de contato suave para impactos deformáveis"
-description: "Uma restrição geométrica que torna as colisões estáveis, precisas e prontas para otimização"
+description: "Uma restrição geométrica que torna colisões estáveis, precisas e prontas para otimização"
 img: "assets/img/km-sphere.gif"
 importance: 1
 category: "work"
@@ -10,7 +10,7 @@ related_publications: true
 ---
 
 
-## Transformando impactos em equações bem-comportadas
+## Transformando impactos em equações que se comportam
 
 <figure style="float: left; margin: 10px; max-width: 300px;">
     {% include figure.liquid loading="eager" path="assets/img/km-sphere.gif" title="Simulation of a sphere impacting an elastic membrane" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
@@ -19,23 +19,11 @@ related_publications: true
     </figcaption>
 </figure>
 
-Colisões entre corpos macios ou deformáveis são enganosamente difíceis de computar. À medida que duas superfícies se encontram, sua geometria muda mais rápido do que o resolvedor pode acompanhar, e a maioria dos modelos de contato lida com isso inserindo **forças de penalidade rígidas** ou alternâncias descontínuas entre "toque" e "separação". Esses atalhos tornam as simulações instáveis, excessivamente sensíveis à resolução da malha e cegas à transferência real de energia.
+A mecânica de contato é um problema de descontinuidade: duas superfícies que estavam separadas tornam-se instantaneamente restritas na colisão. A maioria dos modelos numéricos de contato lida com isso inserindo forças de penalidade rígidas ou alternando restrições rígidas entre "tocando" e "não tocando". Ambas as abordagens tornam a rigidez do solver dependente da malha, suprimem a transferência de energia correta na interface e bloqueiam a otimização baseada em gradiente.
 
-O framework **Kinematic Match (KM)** substitui essas regras ad-hoc por uma **única condição geométrica:** o **ângulo de incidência entre as superfícies em contato deve evoluir suavemente**. Isso transforma o impacto de um evento descontínuo em uma **restrição bem posta e diferenciável** — uma que os resolvedores clássicos podem impor diretamente.
+O framework **Kinematic Match (KM)** substitui inteiramente a condição de contato. Em vez de penalizar a interpenetração, o KM impõe um único requisito geométrico: o ângulo de incidência entre as duas superfícies deve evoluir continuamente através do impacto. Em forma discreta, isso acopla a curvatura e os vetores normais através da interface em cada passo de tempo, produzindo um manifold de contato que é continuamente diferenciável, não requer lógica de comutação e não introduz constantes de ajuste. O método é compatível com esquemas de diferença finita, elementos finitos e captura de interface.
 
----
-
-## Por que isso importa
-
-O KM fornece uma maneira estável de simular **colisões e rebotes deformáveis** — problemas que abrangem desde robótica macia até o impacto de gotas e acreção planetária. Em vez de forçar o contato através de parâmetros empíricos, o KM o trata como uma **condição de compatibilidade** entre as superfícies, garantindo um "aperto de mão" contínuo à medida que elas se aproximam, comprimem e se separam. A abordagem produz dissipação de energia previsível sem constantes de ajuste, convergência estável sob malhas grossas e compatibilidade direta com otimização baseada em gradiente e inferência baseada em adjuntos.
-
-## O método em um parágrafo
-
-O KM aumenta as equações governantes com uma **restrição de ângulo de contato suave** definida ao longo da interface. Em forma discreta, ele acopla a curvatura e os vetores normais entre as duas superfícies em contato, forçando-as a se alinharem suavemente ao longo do tempo. O resultado é um **manifold de contato continuamente diferenciável** — sem dobras, sem descontinuidades — permitindo uma integração estável através do impacto, rebote e destacamento. O método pode ser implementado em esquemas de diferenças finitas, elementos finitos ou captura de interface com mudanças mínimas nos códigos existentes.
-
-## Evidências de experimentos e simulações
-
-Em _Proceedings of the Royal Society A_ ({% cite aguero2022impact %}), validamos o KM simulando uma esfera rígida atingindo uma membrana elástica. O método capturou não apenas os perfis de deformação, mas também as taxas de transferência de energia observadas experimentalmente. No _Journal of Fluid Mechanics_ ({% cite gabbard2025dropreboundlowweber %}), o KM foi estendido para gotas rebatendo em banhos de fluido, reproduzindo com precisão ondas capilares e limiares de coalescência — regimes onde o CFD convencional falha.
+Em _Proceedings of the Royal Society A_ ({% cite aguero2022impact %}), aplicamos o KM a uma esfera rígida atingindo uma membrana elástica, correspondendo aos perfis de deformação experimentais e taxas de transferência de energia. Em _Journal of Fluid Mechanics_ ({% cite gabbard2025dropreboundlowweber %}), estendemos o framework para gotas ricocheteando em banhos de fluido — um regime sensível ao tratamento do modelo de contato das forças capilares e coalescência — reproduzindo observações que o CFD convencional não alcança.
 
 <figure style="float: left; margin: 10px; width: 35%;">
   <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -47,18 +35,14 @@ Em _Proceedings of the Royal Society A_ ({% cite aguero2022impact %}), validamos
     </video>
   </div>
   <figcaption style="text-align: center; margin-top: 5px;">
-    KM aplicado a uma gota impactando um banho de fluido — capturando a dinâmica de rebote e coalescência.
+    KM aplicado a uma gota impactando um banho de fluido — capturando a dinâmica de ricochete e coalescência.
   </figcaption>
 </figure>
 
-Como o KM expressa o contato através da geometria em vez de forças de penalidade, ele melhora o condicionamento de sistemas lineares no impacto, elimina a necessidade de remalhamento localizado perto da interface e funciona em diferentes materiais e escalas — da robótica macia a impactos granulares. Crucialmente, ele **permanece diferenciável**, sendo compatível com design baseado em gradiente, inferência de parâmetros e fluxos de otimização Bayesiana. Estamos estendendo o KM para sistemas multimateriais e bioinspirados, onde as interfaces podem crescer, fundir-se ou rasgar-se.
-
----
-
-Colisões não são eventos discretos — são **conversas entre geometrias**. O Kinematic Match dá a esse diálogo uma forma matemática precisa: suave, estável e computável.
+Como o manifold de contato permanece diferenciável, a mesma formulação integra-se diretamente com inferência baseada em adjuntos e design baseado em gradiente. Estamos estendendo-o para interfaces multimateriais e biológicas onde as superfícies podem se fundir ou rasgar.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='elvispy/kinematic-match-sphere' %}
     {% include repository/repo.liquid repository='elvispy/km-dropplet-solidsubstrate-v3' %}
-    {% include repository/repo.liquid repository='elvispy/km-dropplet-onto-bath' %}
+    {% include repository/repo.liquid repository='elvispy/km-droplet-onto-bath' %}
 </div>

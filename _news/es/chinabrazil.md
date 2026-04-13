@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Presenté mi último trabajo en el [Encuentro Matemático Conjunto Brasil-China](https://sbm.org.br/jointmeeting-china/)
+Presenté mi trabajo más reciente en la [Reunión Matemática Conjunta Brasil-China](https://sbm.org.br/jointmeeting-china/)

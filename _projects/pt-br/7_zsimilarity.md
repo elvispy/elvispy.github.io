@@ -4,40 +4,32 @@ layout: page
 title: "Resolvedor de similaridade dinâmica para EDPs"
 description: "Busca simbólica por reduções de escala de EDP → EDO"
 img: "assets/img/julialogo.webp"
-importance: 3
-category: "fun"
+importance: 2
+category: "work"
 related_publications: true
+math: true
 ---
 
-## Automatize reduções de EDP → EDO via similaridade
+Uma EDP com duas variáveis independentes às vezes admite uma substituição que a colapsa em uma EDO — uma **redução de similaridade** — mas a substituição correta não é óbvia: equivale a encontrar quais escalamentos deixam a equação invariante.
 
-Antes de existirem os resolvedores numéricos, os físicos rotineiramente domavam equações diferenciais parciais encontrando uma **mudança de variáveis que as colapsava em EDOs**. A equação de difusão, a camada limite de Blasius, o espalhamento de filmes finos — todos cedem a esse truque, chamado de redução por similaridade. O problema: descobrir a mudança certa de variáveis exige reconhecimento de padrões manualmente, e é fácil perder uma ou errar os expoentes.
+O pacote automatiza isso por meio do **método de dilatação**: atribui um expoente de escala formal a cada variável e termo, escreve a restrição de invariância como um sistema linear nesses expoentes, e lê a EDO reduzida diretamente do espaço nulo desse sistema linear. Não é necessário adivinhar nem varrer potências candidatas; se existe uma similaridade de lei de potência, o método a encontra exatamente. Um wrapper baseado em strings (`find_similarity_v2`) também está disponível para usuários que preferem não trabalhar diretamente com expressões de `Symbolics.jl`.
 
-Este pacote Julia automatiza a busca. Você escreve a EDP; ele encontra os expoentes.
-
-### Como funciona
-
-A ferramenta testa uma família de ansätze de lei de potência da forma
-\[
-\eta = x^{a_1} y^{a_2} t^{a_3}, \qquad u = x^{b_1} y^{b_2} t^{b_3} f(\eta),
-\]
-diferencia simbolicamente a EDP, atribui pesos de escala a cada termo e iguala os expoentes para formar um pequeno sistema linear nas incógnitas \(a_i, b_i\). Se o sistema for consistente, ele substitui o ansatz, cancela fatores comuns e retorna uma **EDO em \(\eta\)** junto com as condições de contorno e iniciais transformadas — pronto para passar diretamente para o seu integrador de EDOs. Se não existir redução de escala, ele informa.
-
-Construído sobre o **Symbolics.jl**, ele lida com variantes 1D e 2D e emite os expoentes, o mapa de similaridade, a EDO reduzida e as condições de contorno transformadas como expressões Julia.
-
-### Exemplo
-
-Equação do calor com decaimento linear:
-\[
-u_t = \kappa\,u_{xx} - \lambda u,\qquad x\in\mathbb{R},~ t>0.
-\]
+A equação de KdV $u_t + 6u\,u_x + u_{xxx} = 0$ tem uma estrutura auto-similar conhecida:
 
 ```julia
-using SimilaritySolver
-pde = @pde du/dt ~ κ*d2u/dx2 - λ*u
-bcs = ["u(±Inf,t)=0"]
-result = find_similarity(pde, bcs; vars=[:x,:t], field=:u)
-# => η = x / sqrt(t),  u = exp(-λt) * f(η),  f'' + η/2 * f' = 0
+using SimilaritySolver, Symbolics
+
+@variables x t u(..)
+Dt = Differential(t); Dx = Differential(x)
+kdv = Dt(u(x,t)) + 6*u(x,t)*Dx(u(x,t)) + Dx(Dx(Dx(u(x,t))))
+
+results = find_ode_dilation(kdv; indep_vars=[x,t], dep_vars=[u(x,t)])
+# results[1]["similarity_variable"]  =>  x * t^(-1//3)
+# results[1]["gamma"]                =>  -2//1   (u escala como t^(-2/3))
 ```
 
-O pacote recupera a solução de similaridade Gaussiana padrão e devolve uma EDO que qualquer integrador Julia pode resolver em milissegundos.
+O método retorna todas as reduções de similaridade válidas, não apenas uma. Atualmente lida com duas variáveis independentes com escalamentos de lei de potência; a extensão para três ou mais variáveis e para simetrias não de lei de potência (logarítmicas, espirais) está em andamento.
+
+<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
+    {% include repository/repo.liquid repository='elvispy/SimilaritySolver.jl' %}
+</div>
