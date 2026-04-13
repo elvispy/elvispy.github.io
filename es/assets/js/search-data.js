@@ -14,8 +14,8 @@ const ninja = document.querySelector('ninja-keys');
 
 // add the home and posts menu items
 ninja.data = [{
-    id: "nav-sobre-mí",
-    title: "sobre mí",
+    id: "nav-acerca-de",
+    title: "acerca de",
     section: "",
     handler: () => {
       window.location.href = "/es/";
@@ -80,20 +80,20 @@ ninja.data = [{
           section: "",},{id: "news-tuve-el-placer-de-visitar-y-colaborar-con-el-harris-lab-brown-university",
           title: '¡Tuve el placer de visitar y colaborar con el Harris Lab @ Brown...',
           description: "",
-          section: "",},{id: "news-asistí-a-la-maravillosa-escuela-avanzada-de-física-experimental-en-el-cbpf-donde-realizamos-investigaciones-sobre-fenómenos-fundamentales-para-dispositivos-de-espintrónica",
+          section: "",},{id: "news-asistí-a-la-maravillosa-escuela-avanzada-de-física-experimental-en-el-cbpf-donde-realizamos-investigaciones-sobre-fenómenos-fundamentales-para-dispositivos-espintrónicos",
           title: 'Asistí a la maravillosa Escuela Avanzada de Física Experimental en el CBPF, donde...',
           description: "",
           section: "",},{id: "news-comenzaré-mi-doctorado-en-la-escuela-de-ingeniería-de-la-universidad-de-brown-será-una-excelente-oportunidad-para-aprender-nuevas-habilidades",
-          title: '¡Comenzaré mi doctorado en la Escuela de Ingeniería de la Universidad de Brown!...',
+          title: '¡Comenzaré mi doctorado en la Escuela de Ingeniería de la Universidad de Brown!....',
           description: "",
           section: "",},{id: "news-tuve-el-placer-de-ser-seleccionado-para-el-programa-de-estudiantes-de-verano-del-cern",
           title: '¡Tuve el placer de ser seleccionado para el programa de estudiantes de verano...',
           description: "",
-          section: "",},{id: "news-presenté-mi-último-trabajo-en-el-encuentro-matemático-conjunto-brasil-china",
-          title: 'Presenté mi último trabajo en el Encuentro Matemático Conjunto Brasil-China',
+          section: "",},{id: "news-presenté-mi-trabajo-más-reciente-en-la-reunión-matemática-conjunta-brasil-china",
+          title: 'Presenté mi trabajo más reciente en la Reunión Matemática Conjunta Brasil-China',
           description: "",
-          section: "",},{id: "news-presenté-mi-último-trabajo-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-sociedad-americana-de-física",
-          title: 'Presenté mi último trabajo en la Reunión Anual de la División de Dinámica...',
+          section: "",},{id: "news-presenté-mi-trabajo-más-reciente-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-sociedad-americana-de-física",
+          title: 'Presenté mi trabajo más reciente en la Reunión Anual de la División de...',
           description: "",
           section: "",},{id: "news-nuestro-último-preprint-droplet-rebounds-off-a-fluid-bath-kinematic-match-simulations-and-experiments-está-disponible-en-arxiv",
           title: 'Nuestro último preprint “Droplet rebounds off a fluid bath: kinematic match simulations and...',
@@ -101,17 +101,17 @@ ninja.data = [{
           section: "",},{id: "news-nuestro-nuevo-preprint-drop-rebound-at-low-weber-number-está-disponible-en-arxiv",
           title: 'Nuestro nuevo preprint “Drop rebound at low weber number” está disponible en arxiv...',
           description: "",
-          section: "",},{id: "news-asistiré-a-la-escuela-de-verano-umass-amherst-sobre-materia-blanda-y-fluidos-complejos",
-          title: '¡Asistiré a la Escuela de Verano UMass Amherst sobre Materia Blanda y Fluidos...',
+          section: "",},{id: "news-estoy-asistiendo-a-la-escuela-de-verano-de-umass-amherst-sobre-materia-blanda-y-fluidos-complejos",
+          title: '¡Estoy asistiendo a la Escuela de Verano de UMass Amherst sobre Materia Blanda...',
           description: "",
-          section: "",},{id: "news-presenté-mi-último-trabajo-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-sociedad-americana-de-física",
-          title: 'Presenté mi último trabajo en la Reunión Anual de la División de Dinámica...',
+          section: "",},{id: "news-presenté-mi-trabajo-más-reciente-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-sociedad-americana-de-física",
+          title: 'Presenté mi trabajo más reciente en la Reunión Anual de la División de...',
           description: "",
-          section: "",},{id: "news-fui-seleccionado-para-postularme-al-campeonato-de-ajedrez-inter-ivy-que-se-llevará-a-cabo-en-la-universidad-de-pensilvania",
-          title: '¡Fui seleccionado para postularme al campeonato de ajedrez Inter-Ivy que se llevará a...',
+          section: "",},{id: "news-fui-seleccionado-para-postular-al-campeonato-de-ajedrez-inter-ivy-que-se-llevará-a-cabo-en-la-universidad-de-pensilvania",
+          title: '¡Fui seleccionado para postular al campeonato de ajedrez Inter-Ivy que se llevará a...',
           description: "",
           section: "",},{id: "projects-acoplamiento-de-crecimiento-flujo-y-optimización-en-sistemas-complejos",
-          title: 'Acoplamiento de Crecimiento, Flujo y Optimización en Sistemas Complejos',
+          title: 'Acoplamiento de crecimiento, flujo y optimización en sistemas complejos',
           description: "Integración del crecimiento biológico y la dinámica de fluidos en amplios espacios de diseño",
           section: "",handler: () => {
               window.location.href = "/es/projects/0_bioreactor/";
@@ -120,9 +120,9 @@ ninja.data = [{
           description: "Una restricción geométrica que hace que las colisiones sean estables, precisas y listas para la optimización",
           section: "",handler: () => {
               window.location.href = "/es/projects/1_KM/";
-            },},{id: "projects-transporte-de-espín-por-medición-e-inferencia",
-          title: 'Transporte de espín por medición e inferencia',
-          description: "De ajustes FMR basados en LLG a la deconvolución iSHE y selección de materiales",
+            },},{id: "projects-transporte-de-espín-mediante-medición-e-inferencia",
+          title: 'Transporte de espín mediante medición e inferencia',
+          description: "Desde ajustes de FMR basados en LLG hasta la deconvolución de iSHE y selección de materiales",
           section: "",handler: () => {
               window.location.href = "/es/projects/2_CBPF/";
             },},{id: "projects-locomoción-interfacial",
@@ -137,7 +137,7 @@ ninja.data = [{
               window.location.href = "/es/projects/4_JT/";
             },},{id: "projects-luchando-contra-la-corrupción-en-paraguay",
           title: 'Luchando contra la corrupción en Paraguay',
-          description: "Promoviendo estándares de datos de contratación abierta y transparencia en el gobierno paraguayo",
+          description: "Promoviendo estándares de datos de contrataciones abiertas y transparencia en el gobierno paraguayo",
           section: "",handler: () => {
               window.location.href = "/es/projects/5_Reaccion/";
             },},{id: "projects-democratizando-el-acceso-a-la-educación-superior-en-paraguay",

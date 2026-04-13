@@ -351,6 +351,15 @@ def translate_markdown(lang: str):
         if still_bad:
             printc(f"  {still_bad} file(s) still failing.", "yellow")
 
+    # --- Write all files that passed validation (regardless of remaining failures) ---
+    for path_str, content in good.items():
+        out = Path(path_str)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(content, encoding="utf-8")
+        printc(f"  ✅ {path_str}", "green")
+
+    printc(f"\nDone: {len(good)}/{len(files)} files written for {lang}.", "green")
+
     # --- Final outcome ---
     if bad_sources:
         printc(
@@ -364,15 +373,6 @@ def translate_markdown(lang: str):
             for err in errors_by_path.get(path_str, []):
                 printc(f"    • {err}", "red")
         sys.exit(1)
-
-    # Write only files that passed validation
-    for path_str, content in good.items():
-        out = Path(path_str)
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(content, encoding="utf-8")
-        printc(f"  ✅ {path_str}", "green")
-
-    printc(f"\nDone: {len(good)}/{len(files)} files written for {lang}.", "green")
 
 
 # ---------------------------------------------------------------------------
