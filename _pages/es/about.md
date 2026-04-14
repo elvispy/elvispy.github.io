@@ -28,11 +28,11 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Soy estudiante de doctorado en la [Escuela de Ingeniería](https://engineering.brown.edu/people/graduate-students/phd-students/phd-students-fluids-and-thermal-sciences) de la Universidad de Brown.
-Antes de venir a Brown, completé una Maestría en Matemáticas Aplicadas en el [IMPA](https://impa.br/) bajo la supervisión de [André Nachbin](https://www.wpi.edu/people/faculty/anachbin)—un programa que comencé a los 17 años—y una Licenciatura en Ingeniería Física en la [UNILA](https://portal.unila.edu.br/).
+Soy estudiante de doctorado en la [School of Engineering](https://engineering.brown.edu/people/graduate-students/phd-students/phd-students-fluids-and-thermal-sciences) de la Universidad de Brown.
+Antes de venir a Brown, completé una maestría en Matemáticas Aplicadas en el [IMPA](https://impa.br/) bajo la supervisión de [André Nachbin](https://www.wpi.edu/people/faculty/anachbin) (un programa que comencé a los 17 años), y una licenciatura en Ingeniería Física en la [UNILA](https://portal.unila.edu.br/).
 
 Mi trabajo explora cómo las matemáticas y la computación pueden iluminar sistemas físicos complejos. Construyo modelos que conectan la teoría, la simulación y el experimento para comprender el comportamiento no lineal en fluidos y materiales blandos. Los proyectos actuales incluyen la [locomoción interfacial]({{ '/projects/3_surferbot/' | relative_url }}), el impacto no hertziano y la mezcla multifásica en biorreactores para la [fabricación de proteínas alternativas]({{ '/projects/0_bioreactor/' | relative_url }}). Estos esfuerzos combinan la simulación de alta fidelidad con el razonamiento de orden reducido para cerrar la brecha entre la física de primeros principios y los métodos emergentes basados en datos.
 
-En términos más generales, me fascina cómo aprendemos y representamos el mundo físico—a través de escalas, desde moléculas hasta máquinas. Esta curiosidad impulsa mis intereses en la computación científica, el modelado probabilístico e incluso las preguntas filosóficas detrás de lo que hace que un modelo sea "suficientemente verdadero" para ser útil.
+En términos más amplios, me fascina cómo aprendemos y representamos el mundo físico, a través de escalas que van desde moléculas hasta máquinas. Esta curiosidad impulsa mi interés por la computación científica, el modelado probabilístico e incluso las cuestiones filosóficas detrás de lo que hace que un modelo sea "suficientemente verdadero" para ser útil.
 
-Fuera del laboratorio, he trabajado con organizaciones de tecnología cívica en Paraguay para promover la transparencia en el gasto público, y continúo contribuyendo a las Olimpiadas Nacionales de Matemáticas del Paraguay como autor de problemas y entrenador.
+Fuera del laboratorio, he trabajado con organizaciones de tecnología cívica en Paraguay para avanzar en la transparencia en el gasto público, y sigo contribuyendo a las Olimpiadas Nacionales de Matemáticas de Paraguay como autor de problemas y entrenador.

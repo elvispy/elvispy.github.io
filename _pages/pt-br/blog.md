@@ -4,7 +4,7 @@ layout: default
 permalink: /blog/
 title: blog
 blog_name: al-folio em português
-description: um tema simples e limpo para acadêmicos
+description: um tema simples de espaço em branco para acadêmicos
 nav: false
 nav_order: 1
 pagination:
@@ -15,8 +15,8 @@ pagination:
   sort_field: date
   sort_reverse: true
   trail:
-    before: 1 # O número de links antes da página atual
-    after: 3 # O número de links após a página atual
+    before: 1 # The number of links before the current page
+    after: 3 # The number of links after the current page
 ---
 
 <div class="post">
@@ -182,7 +182,7 @@ pagination:
 </div>
 
   <div class="col-sm-3">
-    <img class="card-img" src="{{ post.thumbnail | relative_url }}" style="object-fit: cover; height: 90%" alt="imagem">
+    <img class="card-img" src="{{ post.thumbnail | relative_url }}" style="object-fit: cover; height: 90%" alt="image">
   </div>
 </div>
 {% endif %}

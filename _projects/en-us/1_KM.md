@@ -23,7 +23,7 @@ Contact mechanics is a discontinuity problem: two surfaces that were separate be
 
 The **Kinematic Match (KM)** framework replaces the contact condition entirely. Instead of penalizing interpenetration, KM imposes a single geometric requirement: the angle of incidence between the two surfaces must evolve continuously through impact. In discrete form, this couples curvature and normal vectors across the interface at each time step, producing a contact manifold that is continuously differentiable, requires no switching logic, and introduces no tuning constants. The method is compatible with finite-difference, finite-element, and interface-capturing schemes.
 
-In _Proceedings of the Royal Society A_ ({% cite aguero2022impact %}), we applied KM to a rigid sphere striking an elastic membrane, matching experimental deformation profiles and energy-transfer rates. In _Journal of Fluid Mechanics_ ({% cite gabbard2025dropreboundlowweber %}), we extended the framework to droplets rebounding on fluid baths — a regime sensitive to the contact model's treatment of capillary forces and coalescence — reproducing observations that conventional CFD misses.
+In _Proceedings of the Royal Society A_ ({% cite aguero2022impact %}), we applied KM to a rigid sphere striking an elastic membrane, matching experimental deformation profiles and energy-transfer rates. In _Journal of Fluid Mechanics_ ({% cite gabbard2025dropreboundlowweber %}), we extended the framework to droplets rebounding on fluid baths, a regime sensitive to the contact model's treatment of capillary forces and coalescence, reproducing observations that conventional CFD misses.
 
 <figure style="float: left; margin: 10px; width: 35%;">
   <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -35,7 +35,7 @@ In _Proceedings of the Royal Society A_ ({% cite aguero2022impact %}), we applie
     </video>
   </div>
   <figcaption style="text-align: center; margin-top: 5px;">
-    KM applied to a droplet impacting a fluid bath—capturing rebound and coalescence dynamics.
+    KM applied to a droplet impacting a fluid bath, capturing rebound and coalescence dynamics.
   </figcaption>
 </figure>
 

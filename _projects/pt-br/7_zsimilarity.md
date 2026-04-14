@@ -10,11 +10,9 @@ related_publications: true
 math: true
 ---
 
-Uma EDP com duas variáveis independentes às vezes admite uma substituição que a colapsa em uma EDO — uma **redução de similaridade** — mas a substituição correta não é óbvia: equivale a encontrar quais escalamentos deixam a equação invariante.
+A equação de KdV $u_t + 6u\,u_x + u_{xxx} = 0$ admite uma solução auto-similar onde a combinação relevante de variáveis é $\eta = x\,t^{-1/3}$ e a amplitude decai como $t^{-2/3}$. Esses expoentes decorrem da exigência de que cada termo da EDP escale de forma idêntica, uma restrição que se reduz a um sistema linear; calculá-la à mão implica confrontar termo a termo, e a álgebra é suficientemente sujeita a erros para que reduções válidas frequentemente passem despercebidas.
 
-O pacote automatiza isso por meio do **método de dilatação**: atribui um expoente de escala formal a cada variável e termo, escreve a restrição de invariância como um sistema linear nesses expoentes, e lê a EDO reduzida diretamente do espaço nulo desse sistema linear. Não é necessário adivinhar nem varrer potências candidatas; se existe uma similaridade de lei de potência, o método a encontra exatamente. Um wrapper baseado em strings (`find_similarity_v2`) também está disponível para usuários que preferem não trabalhar diretamente com expressões de `Symbolics.jl`.
-
-A equação de KdV $u_t + 6u\,u_x + u_{xxx} = 0$ tem uma estrutura auto-similar conhecida:
+O pacote automatiza isso por meio do **método de dilatação**: atribui um expoente de escala formal a cada variável e termo, escreve a restrição de invariância como um sistema linear nesses expoentes, e lê a EDO reduzida diretamente do espaço nulo desse sistema linear. Não é necessário adivinhar nem varrer potências candidatas; se existe uma similaridade de lei de potência, o método a encontra exatamente. Um invólucro baseado em strings (`find_similarity_v2`) também está disponível para usuários que preferem não trabalhar diretamente com expressões de `Symbolics.jl`.
 
 ```julia
 using SimilaritySolver, Symbolics

@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Nosso artigo "Impact of a rigid sphere onto an ellastic membrane" foi aceito no [Proceedings of the Royal Society A](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340).
+Nosso artigo "Impact of a rigid sphere onto an ellastic membrane" foi aceito na [Proceedings of the Royal Society A](https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0340).

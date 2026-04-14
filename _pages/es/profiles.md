@@ -8,12 +8,12 @@ nav: false
 nav_order: 7
 
 profiles:
-  # si deseas incluir más de un perfil, simplemente replica el siguiente bloque
-  # y crea un archivo de contenido para cada perfil dentro de _pages/
+  # if you want to include more than one profile, just replicate the following block
+  # and create one content file for each profile inside _pages/
   - align: right
     image: prof_pic.jpg
     content: about_einstein.md
-    image_circular: false # recorta la imagen para hacerla circular
+    image_circular: false # crops the image to make it circular
     more_info: >
       <p>555 número de tu oficina</p>
       <p>123 calle de tu dirección</p>
@@ -21,7 +21,7 @@ profiles:
   - align: left
     image: prof_pic.jpg
     content: about_einstein.md
-    image_circular: false # recorta la imagen para hacerla circular
+    image_circular: false # crops the image to make it circular
     more_info: >
       <p>555 número de tu oficina</p>
       <p>123 calle de tu dirección</p>

@@ -2,16 +2,17 @@
 page_id: prj_surferbot
 layout: page
 title: Locomoção interfacial
-description: Física diferenciável para robôs movidos por ondas
+description: Física diferenciável para robôs movidos a ondas
 img: assets/img/surferbot.gif
 importance: 1
 category: work
 related_publications: true
+math: true
 ---
 
-## Surfando na interface: física diferenciável para locomoção movida por ondas
+## Navegando na interface: física diferenciável para locomoção movida a ondas
 
-Um pequeno robô sentado sobre a água pode se propelir para frente sem pás, barbatanas ou jatos — apenas vibrando. A vibração irradia ondas superficiais e, se essas ondas forem direcionalmente assimétricas, seu desequilíbrio de momento gera um empuxo líquido. O SurferBot {% cite Rhee_2022 %} demonstrou isso experimentalmente; nosso trabalho constrói um simulador onde cada escolha de design pode ser otimizada diretamente.
+Um pequeno robô sobre a água pode se propulsionar para frente sem pás, nadadeiras ou jatos: vibrando. A vibração irradia ondas superficiais e, se essas ondas forem direcionalmente assimétricas, seu desequilíbrio de momentum gera um empuxo líquido. O SurferBot {% cite Rhee_2022 %} demonstrou isso experimentalmente; nosso trabalho constrói um simulador onde cada escolha de design pode ser otimizada diretamente.
 
 <div style="width: 100%; display: flex; justify-content: center;">
   <div style="position: relative; width: 80%; padding-bottom: 45%; height: 0; overflow: hidden;">
@@ -29,9 +30,9 @@ Um pequeno robô sentado sobre a água pode se propelir para frente sem pás, ba
 
 ---
 
-Em uma interface ar-água, a tensão superficial, ondas de gravidade e efeitos de massa adicional governam a dinâmica da interface. O desempenho depende de escolhas acopladas — formato do corpo, distribuição de massa, localização do motor, frequência de acionamento, forma de onda, propriedades do fluido — que são caras de explorar por experimento. Modelamos o robô como um corpo flutuante, possivelmente flexível, restrito à interface e acionado por um atuador variável no tempo, com o fluido circundante descrito por uma teoria de superfície livre de pequena amplitude que resolve a interface {% cite Benham_Devauchelle_Thomson_2024 %}. O simulador é diferenciável em relação a todos os parâmetros de design \(\theta\): as atualizações de estado usam solvers lineares e não lineares \(A(\theta)\,y=b(\theta)\) com regras personalizadas de modo reverso, de modo que \(\nabla_\theta \mathcal{L}\) segue de dois solvers lineares (direto e adjunto) por passo de tempo — memória limitada, gradientes estáveis em toda a trajetória.
+Em uma interface ar-água, a tensão superficial, as ondas de gravidade e os efeitos de massa adicional governam a dinâmica da interface. O desempenho depende de escolhas acopladas: formato do corpo, distribuição de massa, localização do motor, frequência de acionamento, forma de onda e propriedades do fluido, todos os quais são caros de explorar por experimento. Modelamos o robô como um corpo flutuante, possivelmente flexível, restrito à interface e acionado por um atuador variável no tempo, com o fluido circundante descrito por uma teoria de superfície livre de pequena amplitude que resolve a interface {% cite Benham_Devauchelle_Thomson_2024 %}. O simulador é diferenciável em relação a todos os parâmetros de design $\theta$: as atualizações de estado usam resoluções lineares e não lineares $A(\theta)\,y=b(\theta)$ com regras personalizadas de modo reverso, de modo que $\nabla_\theta \mathcal{L}$ segue de duas resoluções lineares (direta e adjunta) por etapa de tempo, mantendo a memória limitada e os gradientes estáveis em toda a trajetória.
 
-Com esses gradientes, a otimização de multi-início explora geometrias de casco, posicionamentos de atuadores e formas de onda de acionamento; a otimização Bayesiana lida com a busca global sob restrições de orçamento de energia e manufaturabilidade.
+Com esses gradientes, a otimização de múltiplos inícios explora geometrias de casco, posicionamentos de atuadores e formas de onda de acionamento; a otimização Bayesiana lida com a busca global sob restrições de orçamento de energia e capacidade de fabricação.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='elvispy/flexible_surferbot' %}

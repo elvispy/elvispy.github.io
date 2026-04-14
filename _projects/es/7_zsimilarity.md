@@ -10,11 +10,9 @@ related_publications: true
 math: true
 ---
 
-Una EDP con dos variables independientes admite a veces una sustitución que la colapsa en una EDO — una **reducción de similitud** — pero la sustitución correcta no es obvia: equivale a encontrar qué escalas dejan la ecuación invariante.
+La ecuación de KdV $u_t + 6u\,u_x + u_{xxx} = 0$ admite una solución auto-similar donde la combinación relevante de variables es $\eta = x\,t^{-1/3}$ y la amplitud decae como $t^{-2/3}$. Esos exponentes se derivan de exigir que cada término de la EDP escale de forma idéntica, una restricción que se reduce a un sistema lineal; calcularlo a mano implica comparar término a término, y el álgebra es lo suficientemente propensa a errores como para que reducciones válidas pasen frecuentemente desapercibidas.
 
-El paquete automatiza esto mediante el **método de dilatación**: asigna un exponente de escala formal a cada variable y término, escribe la restricción de invariancia como un sistema lineal en esos exponentes, y lee la EDO reducida directamente del espacio nulo de ese sistema lineal. No es necesario adivinar ni escanear potencias candidatas; si existe una similitud de ley de potencia, el método la encuentra exactamente. También hay disponible un envoltorio basado en cadenas de texto (`find_similarity_v2`) para usuarios que prefieren no trabajar directamente con expresiones de `Symbolics.jl`.
-
-La ecuación de KdV $u_t + 6u\,u_x + u_{xxx} = 0$ tiene una estructura auto-similar conocida:
+El paquete automatiza esto mediante el **método de dilatación**: asigna un exponente de escala formal a cada variable y término, escribe la restricción de invariancia como un sistema lineal en esos exponentes, y lee la EDO reducida directamente del espacio nulo de ese sistema lineal. No es necesario adivinar ni explorar potencias candidatas; si existe una similitud de ley de potencia, el método la encuentra exactamente. También hay disponible un envoltorio basado en cadenas de texto (`find_similarity_v2`) para usuarios que prefieren no trabajar directamente con expresiones de `Symbolics.jl`.
 
 ```julia
 using SimilaritySolver, Symbolics

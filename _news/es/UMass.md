@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-¡Estoy asistiendo a la Escuela de Verano de UMass Amherst sobre Materia Blanda y Fluidos Complejos!
+¡Asistiré a la Escuela de Verano de UMass Amherst sobre Materia Blanda y Fluidos Complejos!

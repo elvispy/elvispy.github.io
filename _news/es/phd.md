@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-¡Comenzaré mi doctorado en la Escuela de Ingeniería de la Universidad de Brown!. Será una excelente oportunidad para aprender nuevas habilidades.
+¡Comenzaré mi doctorado en la Escuela de Ingeniería de la Universidad de Brown! Será una excelente oportunidad para aprender nuevas habilidades.

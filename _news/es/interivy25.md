@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-¡Fui seleccionado para postular al campeonato de ajedrez Inter-Ivy que se llevará a cabo en la Universidad de Pensilvania!
+¡Fui seleccionado para postularme al campeonato de ajedrez Inter-Ivy que se llevará a cabo en la Universidad de Pensilvania!
