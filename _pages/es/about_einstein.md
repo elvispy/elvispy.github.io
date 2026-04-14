@@ -1,5 +1,5 @@
-Escribe tu biografía aquí. Cuéntale al mundo sobre ti. Enlace a tu [subreddit](http://reddit.com) favorito. También puedes poner una foto. El código ya está incluido, solo nombra tu foto `prof_pic.jpg` y ponla en la carpeta `img/`.
+Escribe tu biografía aquí. Cuéntale al mundo sobre ti. Enlaza a tu [subreddit](http://reddit.com) favorito. También puedes poner una foto. El código ya está incluido, solo nombra tu foto `prof_pic.jpg` y colócala en la carpeta `img/`.
 
 Pon tu dirección / apartado de correos / otra información justo debajo de tu foto. También puedes desactivar cualquiera de estos elementos editando la propiedad `profile` del encabezado YAML de tu `_pages/about.md`. Edita `_bibliography/papers.bib` y Jekyll renderizará tu [página de publicaciones](/multi-language-al-folio/publications/) automáticamente.
 
-Enlaza también tus redes sociales. Este tema está configurado para usar [iconos de Font Awesome](https://fontawesome.com/) y [Academicons](https://jpswalsh.github.io/academicons/), como los de abajo. Añade tu Facebook, Twitter, LinkedIn, Google Scholar, o simplemente desactiva todos ellos.
+Enlaza también a tus redes sociales. Este tema está configurado para usar [iconos de Font Awesome](https://fontawesome.com/) y [Academicons](https://jpswalsh.github.io/academicons/), como los de abajo. Añade tu Facebook, Twitter, LinkedIn, Google Scholar, o simplemente desactívalos todos.

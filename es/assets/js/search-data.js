@@ -74,7 +74,7 @@ ninja.data = [{
             },},{id: "news-um-anúncio-simples-em-uma-linha-com-markdown-emoji-sparkles-smile",
           title: 'Um anúncio simples em uma linha com Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "",},{id: "news-nuestro-artículo-impact-of-a-rigid-sphere-onto-an-ellastic-membrane-fue-aceptado-en-proceedings-of-the-royal-society-a",
+          section: "",},{id: "news-nuestro-artículo-impact-of-a-rigid-sphere-onto-an-ellastic-membrane-fue-aceptado-en-el-proceedings-of-the-royal-society-a",
           title: 'Nuestro artículo “Impact of a rigid sphere onto an ellastic membrane” fue aceptado...',
           description: "",
           section: "",},{id: "news-tuve-el-placer-de-visitar-y-colaborar-con-el-harris-lab-brown-university",
@@ -84,7 +84,7 @@ ninja.data = [{
           title: 'Asistí a la maravillosa Escuela Avanzada de Física Experimental en el CBPF, donde...',
           description: "",
           section: "",},{id: "news-comenzaré-mi-doctorado-en-la-escuela-de-ingeniería-de-la-universidad-de-brown-será-una-excelente-oportunidad-para-aprender-nuevas-habilidades",
-          title: '¡Comenzaré mi doctorado en la Escuela de Ingeniería de la Universidad de Brown!....',
+          title: '¡Comenzaré mi doctorado en la Escuela de Ingeniería de la Universidad de Brown!...',
           description: "",
           section: "",},{id: "news-tuve-el-placer-de-ser-seleccionado-para-el-programa-de-estudiantes-de-verano-del-cern",
           title: '¡Tuve el placer de ser seleccionado para el programa de estudiantes de verano...',
@@ -92,7 +92,7 @@ ninja.data = [{
           section: "",},{id: "news-presenté-mi-trabajo-más-reciente-en-la-reunión-matemática-conjunta-brasil-china",
           title: 'Presenté mi trabajo más reciente en la Reunión Matemática Conjunta Brasil-China',
           description: "",
-          section: "",},{id: "news-presenté-mi-trabajo-más-reciente-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-sociedad-americana-de-física",
+          section: "",},{id: "news-presenté-mi-trabajo-más-reciente-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-american-physical-society",
           title: 'Presenté mi trabajo más reciente en la Reunión Anual de la División de...',
           description: "",
           section: "",},{id: "news-nuestro-último-preprint-droplet-rebounds-off-a-fluid-bath-kinematic-match-simulations-and-experiments-está-disponible-en-arxiv",
@@ -101,18 +101,18 @@ ninja.data = [{
           section: "",},{id: "news-nuestro-nuevo-preprint-drop-rebound-at-low-weber-number-está-disponible-en-arxiv",
           title: 'Nuestro nuevo preprint “Drop rebound at low weber number” está disponible en arxiv...',
           description: "",
-          section: "",},{id: "news-estoy-asistiendo-a-la-escuela-de-verano-de-umass-amherst-sobre-materia-blanda-y-fluidos-complejos",
-          title: '¡Estoy asistiendo a la Escuela de Verano de UMass Amherst sobre Materia Blanda...',
+          section: "",},{id: "news-asistiré-a-la-escuela-de-verano-de-umass-amherst-sobre-materia-blanda-y-fluidos-complejos",
+          title: '¡Asistiré a la Escuela de Verano de UMass Amherst sobre Materia Blanda y...',
           description: "",
-          section: "",},{id: "news-presenté-mi-trabajo-más-reciente-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-sociedad-americana-de-física",
+          section: "",},{id: "news-presenté-mi-trabajo-más-reciente-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-american-physical-society",
           title: 'Presenté mi trabajo más reciente en la Reunión Anual de la División de...',
           description: "",
-          section: "",},{id: "news-fui-seleccionado-para-postular-al-campeonato-de-ajedrez-inter-ivy-que-se-llevará-a-cabo-en-la-universidad-de-pensilvania",
-          title: '¡Fui seleccionado para postular al campeonato de ajedrez Inter-Ivy que se llevará a...',
+          section: "",},{id: "news-fui-seleccionado-para-postularme-al-campeonato-de-ajedrez-inter-ivy-que-se-llevará-a-cabo-en-la-universidad-de-pensilvania",
+          title: '¡Fui seleccionado para postularme al campeonato de ajedrez Inter-Ivy que se llevará a...',
           description: "",
           section: "",},{id: "projects-acoplamiento-de-crecimiento-flujo-y-optimización-en-sistemas-complejos",
-          title: 'Acoplamiento de crecimiento, flujo y optimización en sistemas complejos',
-          description: "Integración del crecimiento biológico y la dinámica de fluidos en amplios espacios de diseño",
+          title: 'Acoplamiento de Crecimiento, Flujo y Optimización en Sistemas Complejos',
+          description: "Integrando crecimiento biológico y dinámica de fluidos en vastos espacios de diseño",
           section: "",handler: () => {
               window.location.href = "/es/projects/0_bioreactor/";
             },},{id: "projects-kinematic-match-un-marco-de-contacto-suave-para-impactos-deformables",
@@ -120,9 +120,9 @@ ninja.data = [{
           description: "Una restricción geométrica que hace que las colisiones sean estables, precisas y listas para la optimización",
           section: "",handler: () => {
               window.location.href = "/es/projects/1_KM/";
-            },},{id: "projects-transporte-de-espín-mediante-medición-e-inferencia",
-          title: 'Transporte de espín mediante medición e inferencia',
-          description: "Desde ajustes de FMR basados en LLG hasta la deconvolución de iSHE y selección de materiales",
+            },},{id: "projects-transporte-de-espín-por-medición-e-inferencia",
+          title: 'Transporte de espín por medición e inferencia',
+          description: "De ajustes de FMR basados en LLG a la deconvolución de iSHE y selección de materiales",
           section: "",handler: () => {
               window.location.href = "/es/projects/2_CBPF/";
             },},{id: "projects-locomoción-interfacial",
@@ -132,7 +132,7 @@ ninja.data = [{
               window.location.href = "/es/projects/3_surferbot/";
             },},{id: "projects-promoviendo-las-olimpiadas-de-ciencias",
           title: 'Promoviendo las Olimpiadas de Ciencias',
-          description: "Brindando acceso a oportunidades de calidad a estudiantes de secundaria jóvenes y talentosos",
+          description: "Brindando acceso a oportunidades de calidad a jóvenes estudiantes talentosos de secundaria",
           section: "",handler: () => {
               window.location.href = "/es/projects/4_JT/";
             },},{id: "projects-luchando-contra-la-corrupción-en-paraguay",

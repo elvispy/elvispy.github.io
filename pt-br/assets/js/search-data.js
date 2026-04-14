@@ -34,8 +34,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/pt-br/repositories/";
           },
-        },{id: "nav-cv",
-          title: "cv",
+        },{id: "nav-currículo",
+          title: "currículo",
           description: "",
           section: "Menu de navegação",
           handler: () => {
@@ -74,11 +74,11 @@ ninja.data = [{
             },},{id: "news-um-anúncio-simples-em-uma-linha-com-markdown-emoji-sparkles-smile",
           title: 'Um anúncio simples em uma linha com Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "Novidades",},{id: "news-nosso-artigo-impact-of-a-rigid-sphere-onto-an-ellastic-membrane-foi-aceito-no-proceedings-of-the-royal-society-a",
+          section: "Novidades",},{id: "news-nosso-artigo-impact-of-a-rigid-sphere-onto-an-ellastic-membrane-foi-aceito-na-proceedings-of-the-royal-society-a",
           title: 'Nosso artigo “Impact of a rigid sphere onto an ellastic membrane” foi aceito...',
           description: "",
-          section: "Novidades",},{id: "news-tive-o-prazer-de-visitar-e-colaborar-com-o-harris-lab-brown-university",
-          title: 'Tive o prazer de visitar e colaborar com o Harris Lab @ Brown...',
+          section: "Novidades",},{id: "news-tive-o-prazer-de-visitar-e-colaborar-com-o-harris-lab-na-brown-university",
+          title: 'Tive o prazer de visitar e colaborar com o Harris Lab na Brown...',
           description: "",
           section: "Novidades",},{id: "news-participei-da-maravilhosa-escola-avançada-de-física-experimental-no-cbpf-onde-realizamos-pesquisas-sobre-fenômenos-fundamentais-para-dispositivos-spintrônicos",
           title: 'Participei da maravilhosa Escola Avançada de Física Experimental no CBPF, onde realizamos pesquisas...',
@@ -107,11 +107,11 @@ ninja.data = [{
           section: "Novidades",},{id: "news-apresentei-meu-trabalho-mais-recente-na-reunião-anual-da-divisão-de-dinâmica-de-fluidos-da-sociedade-americana-de-física",
           title: 'Apresentei meu trabalho mais recente na Reunião Anual da Divisão de Dinâmica de...',
           description: "",
-          section: "Novidades",},{id: "news-fui-selecionado-para-me-inscrever-no-campeonato-de-xadrez-inter-ivy-que-será-realizado-na-university-of-pennsylvania",
-          title: 'Fui selecionado para me inscrever no campeonato de xadrez Inter-Ivy, que será realizado...',
+          section: "Novidades",},{id: "news-fui-selecionado-para-me-candidatar-ao-campeonato-de-xadrez-inter-ivy-a-ser-realizado-na-university-of-pennsylvania",
+          title: 'Fui selecionado para me candidatar ao campeonato de xadrez Inter-Ivy a ser realizado...',
           description: "",
-          section: "Novidades",},{id: "projects-acoplando-crescimento-fluxo-e-otimização-em-sistemas-complexos",
-          title: 'Acoplando Crescimento, Fluxo e Otimização em Sistemas Complexos',
+          section: "Novidades",},{id: "projects-acoplamento-de-crescimento-fluxo-e-otimização-em-sistemas-complexos",
+          title: 'Acoplamento de Crescimento, Fluxo e Otimização em Sistemas Complexos',
           description: "Integrando crescimento biológico e dinâmica de fluidos em vastos espaços de design",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/0_bioreactor/";
@@ -122,17 +122,17 @@ ninja.data = [{
               window.location.href = "/pt-br/projects/1_KM/";
             },},{id: "projects-transporte-de-spin-por-medição-e-inferência",
           title: 'Transporte de spin por medição e inferência',
-          description: "De ajustes de FMR baseados em LLG a deconvolução de iSHE e seleção de materiais",
+          description: "De ajustes de FMR baseados em LLG à desconvolução de iSHE e seleção de materiais",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/2_CBPF/";
             },},{id: "projects-locomoção-interfacial",
           title: 'Locomoção interfacial',
-          description: "Física diferenciável para robôs movidos por ondas",
+          description: "Física diferenciável para robôs movidos a ondas",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/3_surferbot/";
             },},{id: "projects-promovendo-olimpíadas-científicas",
           title: 'Promovendo Olimpíadas Científicas',
-          description: "Oferecendo acesso a oportunidades de qualidade para jovens talentosos do ensino médio",
+          description: "Oferecendo acesso a oportunidades de qualidade para jovens e talentosos estudantes do ensino médio",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/4_JT/";
             },},{id: "projects-combatendo-a-corrupção-no-paraguai",
