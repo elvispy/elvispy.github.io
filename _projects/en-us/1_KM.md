@@ -25,10 +25,9 @@ Impact looks simple. Its numerical core is not. A drop deforms, a contact region
 
 The first model was a rigid sphere striking an elastic membrane, published in 2022 ({% cite aguero2022impact %}). The simulation below depicts that rigid-sphere / elastic-membrane model. I then moved the problem to a drop against a solid substrate, then to a drop against a bath, where both liquid interfaces deform. The low-Weber drop-rebound study from that bath branch is available as an arXiv preprint ({% cite gabbard2025dropreboundlowweber %}).
 
-<figure style="max-width: 300px; margin: 1rem auto;">
-  {% include figure.liquid loading="lazy" path="assets/img/km-sphere.gif" alt="Simulation of a rigid sphere impacting an elastic membrane" title="Rigid sphere and elastic membrane" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
-  <figcaption style="text-align: center; margin-top: 5px;">Simulation of the 2022 rigid-sphere / elastic-membrane model.</figcaption>
-</figure>
+<div style="max-width: 300px; margin: 1rem auto;">
+  {% include figure.liquid loading="lazy" path="assets/img/km-sphere.gif" alt="Simulation of a rigid sphere impacting an elastic membrane" title="Rigid sphere and elastic membrane" class="img-fluid rounded z-depth-1" caption="Simulation of the 2022 rigid-sphere / elastic-membrane model." %}
+</div>
 
 The solid-substrate branch then took on non-Newtonian constitutive relations. Later contact-dynamics work made pressure and contact extent explicit unknowns. These earlier models were useful reductions. They also made their own contact assumptions visible.
 
