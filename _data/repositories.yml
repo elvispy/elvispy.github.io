@@ -5,9 +5,8 @@ github_users:
 repo_description_lines_max: 2
 
 github_repos:
-  - elvispy/kinematic-match-sphere
-  - elvispy/km-dropplet-solidsubstrate-v3
-  - elvispy/km-dropplet-onto-bath
+  - elvis-aguero/SpectralKM.jl
+  - elvis-aguero/DropRebound.jl
   - elvispy/SimilaritySolver.jl
   - elvispy/Introduccion-Programacion-Competitiva
   - elvispy/JupyterPiensa

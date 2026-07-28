@@ -1,48 +1,52 @@
 ---
 page_id: prj_km
 layout: page
-title: "Kinematic Match: a smooth-contact framework for deformable impacts"
-description: "A geometric constraint that makes collisions stable, accurate, and optimization-ready"
-img: "assets/img/km-sphere.gif"
+title: "Building the next generation of deformable-impact software"
+description: "Spectral contact dynamics for drops impacting a bath"
+img: "assets/img/spectralkm-impact.gif"
 importance: 1
 category: "work"
 related_publications: true
 ---
 
+## Impact is a contact problem
 
-## Turning impacts into equations that behave
+Impact looks simple. Its numerical core is not. A drop deforms, a contact region appears, pressure redistributes, and the bodies separate or remain together. The contact law decides much of the answer. I build models that put progressively less of that law in by hand.
 
-<figure style="float: left; margin: 10px; max-width: 300px;">
-    {% include figure.liquid loading="eager" path="assets/img/km-sphere.gif" title="Simulation of a sphere impacting an elastic membrane" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
-    <figcaption style="text-align: center; margin-top: 5px;">
-        Simulation example: a rigid sphere impacting an elastic membrane.
-    </figcaption>
+{% include figure.liquid loading="eager" path="assets/img/spectralkm-impact.gif" alt="SpectralKM bath-impact simulation with a red contact patch and pressure inset" title="SpectralKM bath-impact simulation" class="img-fluid rounded z-depth-1" caption="Bath-impact simulation. The dark-blue region is the bath, the pale-blue region the drop, and the red arc the solved contact patch. The inset plots pointwise pressure as a diagnostic, not as a converged field." %}
+
+## A lineage of reductions
+
+The first model was a rigid sphere striking an elastic membrane, published in 2022 ({% cite aguero2022impact %}). The simulation below depicts that rigid-sphere / elastic-membrane model. I then moved the problem to a drop against a solid substrate, then to a drop against a bath, where both liquid interfaces deform. The low-Weber drop-rebound study from that bath branch is available as an arXiv preprint ({% cite gabbard2025dropreboundlowweber %}).
+
+<figure style="max-width: 300px; margin: 1rem auto;">
+  {% include figure.liquid loading="lazy" path="assets/img/km-sphere.gif" alt="Simulation of a rigid sphere impacting an elastic membrane" title="Rigid sphere and elastic membrane" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
+  <figcaption style="text-align: center; margin-top: 5px;">Simulation of the 2022 rigid-sphere / elastic-membrane model.</figcaption>
 </figure>
 
-Contact mechanics is a discontinuity problem: two surfaces that were separate become instantaneously constrained at collision. Most numerical contact models handle this by inserting stiff penalty forces or toggling hard constraints between "touching" and "not touching." Both approaches make solver stiffness mesh-dependent, suppress correct energy transfer at the interface, and block gradient-based optimization.
+The solid-substrate branch then took on non-Newtonian constitutive relations. Later contact-dynamics work made pressure and contact extent explicit unknowns. These earlier models were useful reductions. They also made their own contact assumptions visible.
 
-The **Kinematic Match (KM)** framework replaces the contact condition entirely. Instead of penalizing interpenetration, KM imposes a single geometric requirement: the angle of incidence between the two surfaces must evolve continuously through impact. In discrete form, this couples curvature and normal vectors across the interface at each time step, producing a contact manifold that is continuously differentiable, requires no switching logic, and introduces no tuning constants. The method is compatible with finite-difference, finite-element, and interface-capturing schemes.
+## The fully spectral formulation
 
-In _Proceedings of the Royal Society A_ ({% cite aguero2022impact %}), we applied KM to a rigid sphere striking an elastic membrane, matching experimental deformation profiles and energy-transfer rates. In _Journal of Fluid Mechanics_ ({% cite gabbard2025dropreboundlowweber %}), we extended the framework to droplets rebounding on fluid baths, a regime sensitive to the contact model's treatment of capillary forces and coalescence, reproducing observations that conventional CFD misses.
+`SpectralKM.jl` models a Newtonian, non-coalescing drop impacting a bath. It represents the bath with Fourier–Bessel modes, the drop with Legendre modes, and contact pressure with shifted-Legendre modes. An outer feasibility-filtered selection chooses the contact patch. Contact extent and pressure are therefore solved, not supplied as inputs.
 
-<figure style="float: left; margin: 10px; width: 35%;">
-  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-    <video autoplay muted loop controls
-           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-           preload="auto">
-      <source src="/assets/img/drop.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-  <figcaption style="text-align: center; margin-top: 5px;">
-    KM applied to a droplet impacting a fluid bath, capturing rebound and coalescence dynamics.
-  </figcaption>
-</figure>
+The documented water reference case uses $We = 1.0958$, $Bo = 0.017$, and $Oh = 0.006$ for $R = 0.35\,\mathrm{mm}$. There is no mesh-resolved pressure field. The integrated dynamics can converge while the pointwise pressure profile remains unresolved, because the model is driven only by low-order pressure moments. That distinction is why the pressure inset is evidence about the solve, not a claim of pointwise convergence.
 
-Because the contact manifold remains differentiable, the same formulation integrates directly with adjoint-based inference and gradient-based design. We are extending it to multi-material and biological interfaces where surfaces can merge or tear.
+Here the deforming bath, drop, contact pressure, and contact extent are part of one solve. The assumptions remain explicit enough to test.
+
+## A solid-substrate branch
+
+`DropRebound.jl` is a related lower-order spectral solver for rebound on a flat solid substrate and for rheology. It is a separate branch of the work, not a competing flagship. These are two locally rendered numerical cases from that branch.
+
+{% include figure.liquid loading="lazy" path="assets/img/droprebound-oldroyd-b.gif" alt="DropRebound Oldroyd-B numerical rebound case" title="DropRebound Oldroyd-B case" class="img-fluid rounded z-depth-1" caption="Numerical rebound case with an Oldroyd-B constitutive model." %}
+
+{% include figure.liquid loading="lazy" path="assets/img/droprebound-carreau.gif" alt="DropRebound Carreau numerical rebound case" title="DropRebound Carreau case" class="img-fluid rounded z-depth-1" caption="Numerical rebound case with a Carreau constitutive model." %}
+
+## Research in the open
+
+I keep package code, tests, executable derivations, diagnostics, validation records, parameter sweeps, and rendering scripts together. That gives readers the material to inspect, reproduce, or question the work rather than a result detached from its implementation.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-    {% include repository/repo.liquid repository='elvispy/kinematic-match-sphere' %}
-    {% include repository/repo.liquid repository='elvispy/km-dropplet-solidsubstrate-v3' %}
-    {% include repository/repo.liquid repository='elvispy/km-droplet-onto-bath' %}
+    {% include repository/repo.liquid repository='elvis-aguero/SpectralKM.jl' %}
+    {% include repository/repo.liquid repository='elvis-aguero/DropRebound.jl' %}
 </div>
