@@ -110,9 +110,9 @@ ninja.data = [{
           section: "News",},{id: "news-i-was-selected-to-apply-at-the-inter-ivy-chess-championship-to-be-held-at-the-university-of-pennsylvania",
           title: 'I was selected to apply at the Inter-Ivy chess championship to be held...',
           description: "",
-          section: "News",},{id: "projects-bayesian-fusion-for-bioreactor-scale-up",
-          title: 'Bayesian Fusion for Bioreactor Scale-Up',
-          description: "Field-attributed uncertainty for multi-physics growth prediction",
+          section: "News",},{id: "projects-multi-fidelity-design-for-rocking-bioreactors",
+          title: 'Multi-fidelity design for rocking bioreactors',
+          description: "Coupled oxygen-transfer and shear design with multi-fidelity CFD",
           section: "Projects",handler: () => {
               window.location.href = "/projects/0_bioreactor/";
             },},{id: "projects-kinematic-match-a-smooth-contact-framework-for-deformable-impacts",
