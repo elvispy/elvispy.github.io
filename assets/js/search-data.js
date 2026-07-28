@@ -115,9 +115,9 @@ ninja.data = [{
           description: "Coupled oxygen-transfer and shear design with multi-fidelity CFD",
           section: "Projects",handler: () => {
               window.location.href = "/projects/0_bioreactor/";
-            },},{id: "projects-kinematic-match-a-smooth-contact-framework-for-deformable-impacts",
-          title: 'Kinematic Match: a smooth-contact framework for deformable impacts',
-          description: "A geometric constraint that makes collisions stable, accurate, and optimization-ready",
+            },},{id: "projects-building-the-next-generation-of-deformable-impact-software",
+          title: 'Building the next generation of deformable-impact software',
+          description: "Spectral contact dynamics for drops impacting a bath",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_KM/";
             },},{id: "projects-spin-transport-by-measurement-and-inference",
