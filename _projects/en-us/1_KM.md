@@ -3,7 +3,7 @@ page_id: prj_km
 layout: page
 title: "Building the next generation of deformable-impact software"
 description: "Spectral contact dynamics for drops impacting a bath"
-img: "assets/img/spectralkm-impact.gif"
+img: "assets/img/spectralkm-impact-poster.png"
 importance: 1
 category: "work"
 related_publications: true
@@ -13,7 +13,13 @@ related_publications: true
 
 Impact looks simple. Its numerical core is not. A drop deforms, a contact region appears, pressure redistributes, and the bodies separate or remain together. The contact law decides much of the answer. I build models that put progressively less of that law in by hand.
 
-{% include figure.liquid loading="eager" path="assets/img/spectralkm-impact.gif" alt="SpectralKM bath-impact simulation with a red contact patch and pressure inset" title="SpectralKM bath-impact simulation" class="img-fluid rounded z-depth-1" caption="Bath-impact simulation. The dark-blue region is the bath, the pale-blue region the drop, and the red arc the solved contact patch. The inset plots pointwise pressure as a diagnostic, not as a converged field." %}
+<figure>
+  <video autoplay muted loop controls preload="metadata" poster="/assets/img/spectralkm-impact-poster.png" class="img-fluid rounded z-depth-1" aria-label="SpectralKM bath-impact animation with a red contact patch and pressure inset">
+    <source src="/assets/img/spectralkm-impact.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>Bath-impact simulation. The dark-blue region is the bath, the pale-blue region the drop, and the red arc the solved contact patch. The inset plots pointwise pressure as a diagnostic, not as a converged field.</figcaption>
+</figure>
 
 ## A lineage of reductions
 
@@ -36,11 +42,23 @@ Here the deforming bath, drop, contact pressure, and contact extent are part of 
 
 ## A solid-substrate branch
 
-`DropRebound.jl` is a related lower-order spectral solver for rebound on a flat solid substrate and for rheology. It is a separate branch of the work, not a competing flagship. These are two locally rendered numerical cases from that branch.
+`DropRebound.jl` is the solid-substrate and rheology branch of this work, a related lower-order spectral solver for rebound on a flat substrate. `SpectralKM.jl` is the current contact-dynamics formulation for drop--bath impact. The videos below are separate numerical cases from `DropRebound.jl`.
 
-{% include figure.liquid loading="lazy" path="assets/img/droprebound-oldroyd-b.gif" alt="DropRebound Oldroyd-B numerical rebound case" title="DropRebound Oldroyd-B case" class="img-fluid rounded z-depth-1" caption="Numerical rebound case with an Oldroyd-B constitutive model." %}
+<figure>
+  <video autoplay muted loop controls preload="metadata" poster="/assets/img/droprebound-oldroyd-b-poster.png" class="img-fluid rounded z-depth-1" aria-label="DropRebound numerical Oldroyd-B rebound case">
+    <source src="/assets/img/droprebound-oldroyd-b.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>Numerical Oldroyd-B case.</figcaption>
+</figure>
 
-{% include figure.liquid loading="lazy" path="assets/img/droprebound-carreau.gif" alt="DropRebound Carreau numerical rebound case" title="DropRebound Carreau case" class="img-fluid rounded z-depth-1" caption="Numerical rebound case with a Carreau constitutive model." %}
+<figure>
+  <video autoplay muted loop controls preload="metadata" poster="/assets/img/droprebound-carreau-poster.png" class="img-fluid rounded z-depth-1" aria-label="DropRebound numerical Carreau rebound case">
+    <source src="/assets/img/droprebound-carreau.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>Numerical Carreau case.</figcaption>
+</figure>
 
 ## Research in the open
 
