@@ -1,24 +1,24 @@
 ---
 page_id: prj_surferbot
 layout: page
-title: Interfacial locomotion
-description: Differentiable physics for wave-driven robots
-img: assets/img/surferbot.gif
+title: Flexible Surferbot
+description: Wave-driven propulsion by a flexible raft
+img: assets/img/flexible-surferbot-simulation.gif
 importance: 1
 category: work
 related_publications: true
 math: true
 ---
 
-## Riding the interface: differentiable physics for wave-driven locomotion
+## Wave-driven propulsion, resolved at the free surface
 
-A small robot sitting on water can propel itself forward without paddles, fins, or jets: by vibrating. The vibration radiates surface waves, and if those waves are directionally asymmetric, their momentum imbalance generates a net thrust. The SurferBot {% cite Rhee_2022 %} demonstrated this experimentally; our work builds a simulator where every design choice can be optimized directly.
+A vibrating flexible raft can move without fins or jets: its deformation radiates an asymmetric surface-wave field, whose momentum imbalance creates thrust. This project turns the wave-driven flexible raft mechanism into a numerical system that can be inspected, swept, and reproduced.
 
 <div style="width: 100%; display: flex; justify-content: center;">
   <div style="position: relative; width: 80%; padding-bottom: 45%; height: 0; overflow: hidden;">
     <iframe
       src="https://www.youtube.com/embed/PQF6yGAs-TA?autoplay=1&mute=1&si=0qH_j8Lccw4ljD_3"
-      title="YouTube video player"
+      title="Published SurferBot demonstration"
       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -27,12 +27,13 @@ A small robot sitting on water can propel itself forward without paddles, fins, 
     </iframe>
   </div>
 </div>
+<p class="caption"><strong>Published SurferBot demonstration.</strong> Physical context for the mechanism; this is not the project's simulation output.</p>
 
----
+{% include figure.liquid path="assets/img/flexible-surferbot-simulation.gif" alt="Numerical simulation of a flexible raft and its asymmetric wake" title="Flexible Surferbot numerical simulation" caption="Numerical simulation of a flexible raft and its asymmetric wake." %}
 
-At an air–water interface, surface tension, gravity waves, and added-mass effects govern the interface dynamics. Performance depends on coupled choices: body shape, mass distribution, motor location, drive frequency, waveform, and fluid properties, all of which are expensive to explore by experiment. We model the robot as a buoyant, possibly flexible body constrained to the interface and driven by a time-varying actuator, with the surrounding fluid described by an interface-resolving small-amplitude free-surface theory {% cite Benham_Devauchelle_Thomson_2024 %}. The simulator is differentiable with respect to all design parameters $\theta$: state updates use linear and nonlinear solves $A(\theta)\,y=b(\theta)$ with custom reverse-mode rules, so $\nabla_\theta \mathcal{L}$ follows from two linear solves (forward and adjoint) per time step, keeping memory bounded and gradients stable across the full trajectory.
+The Julia solver couples a flexible beam to a free-surface flow model, resolving raft deformation, the radiated wave field, and mean thrust in one calculation. Parameter sweeps and figure scripts make the numerical evidence reproducible; MATLAB-parity checks and the zero-net-thrust symmetry invariant keep the implementation anchored to known behavior.
 
-With these gradients, multi-start optimization explores hull geometries, actuator placements, and drive waveforms; Bayesian optimization handles global search under power-budget and manufacturability constraints.
+{% include figure.liquid path="assets/img/flexible-surferbot-modal-map.png" alt="Wake-asymmetry map across motor placement and flexural rigidity" title="Wake-asymmetry map across motor placement and flexural rigidity" caption="Across motor position x_M/L and normalized flexural rigidity κ, colour shows the wake-asymmetry diagnostic α. Columns compare Full Sweep, 8-mode, and 4-mode models." %}
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='elvispy/flexible_surferbot' %}
