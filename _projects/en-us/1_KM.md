@@ -14,8 +14,8 @@ related_publications: true
 Impact looks simple. Its numerical core is not. A drop deforms, a contact region appears, pressure redistributes, and the bodies separate or remain together. The contact law decides much of the answer. I build models that put progressively less of that law in by hand.
 
 <figure>
-  <video autoplay muted loop controls preload="metadata" poster="/assets/img/spectralkm-impact-poster.png" class="img-fluid rounded z-depth-1" aria-label="SpectralKM bath-impact animation with a red contact patch and pressure inset">
-    <source src="/assets/img/spectralkm-impact.mp4" type="video/mp4">
+  <video autoplay muted loop controls preload="metadata" poster="{{ '/assets/img/spectralkm-impact-poster.png' | relative_url }}" class="img-fluid rounded z-depth-1" style="width: 100%; display: block;" aria-label="SpectralKM bath-impact animation with a red contact patch and pressure inset">
+    <source src="{{ '/assets/img/spectralkm-impact.mp4' | relative_url }}" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption class="caption">Bath-impact simulation. The dark-blue region is the bath, the pale-blue region the drop, and the red arc the solved contact patch. The inset plots pointwise pressure as a diagnostic, not as a converged field.</figcaption>
@@ -45,16 +45,16 @@ Here the deforming bath, drop, contact pressure, and contact extent are part of 
 `DropRebound.jl` is the solid-substrate and rheology branch of this work, a related lower-order spectral solver for rebound on a flat substrate. `SpectralKM.jl` is the current contact-dynamics formulation for drop--bath impact. The videos below are separate numerical cases from `DropRebound.jl`.
 
 <figure>
-  <video autoplay muted loop controls preload="metadata" poster="/assets/img/droprebound-oldroyd-b-poster.png" class="img-fluid rounded z-depth-1" aria-label="DropRebound numerical Oldroyd-B rebound case">
-    <source src="/assets/img/droprebound-oldroyd-b.mp4" type="video/mp4">
+  <video autoplay muted loop controls preload="metadata" poster="{{ '/assets/img/droprebound-oldroyd-b-poster.png' | relative_url }}" class="img-fluid rounded z-depth-1" style="width: 100%; max-width: 540px; display: block; margin: 0 auto;" aria-label="DropRebound numerical Oldroyd-B rebound case">
+    <source src="{{ '/assets/img/droprebound-oldroyd-b.mp4' | relative_url }}" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption class="caption">Numerical Oldroyd-B case.</figcaption>
 </figure>
 
 <figure>
-  <video autoplay muted loop controls preload="metadata" poster="/assets/img/droprebound-carreau-poster.png" class="img-fluid rounded z-depth-1" aria-label="DropRebound numerical Carreau rebound case">
-    <source src="/assets/img/droprebound-carreau.mp4" type="video/mp4">
+  <video autoplay muted loop controls preload="metadata" poster="{{ '/assets/img/droprebound-carreau-poster.png' | relative_url }}" class="img-fluid rounded z-depth-1" style="width: 100%; max-width: 540px; display: block; margin: 0 auto;" aria-label="DropRebound numerical Carreau rebound case">
+    <source src="{{ '/assets/img/droprebound-carreau.mp4' | relative_url }}" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption class="caption">Numerical Carreau case.</figcaption>
