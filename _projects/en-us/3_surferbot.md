@@ -3,16 +3,18 @@ page_id: prj_surferbot
 layout: page
 title: Flexible Surferbot
 description: Wave-driven propulsion by a flexible raft
-img: assets/img/flexible-surferbot-simulation.gif
+img: assets/img/surferbot.gif
 importance: 1
 category: work
 related_publications: true
 math: true
 ---
 
-## Wave-driven propulsion, resolved at the free surface
+## A vibration can choose a direction
 
-A vibrating flexible raft can move without fins or jets: its deformation radiates an asymmetric surface-wave field, whose momentum imbalance creates thrust. This project turns the wave-driven flexible raft mechanism into a numerical system that can be inspected, swept, and reproduced.
+A compact raft has no propeller, no fin, and no steady push. Yet move its vibrating motor away from the centre and the waves it radiates no longer leave equally in both directions. The wake becomes asymmetric; that asymmetric momentum flux gives the raft a direction of travel. The surprising part is that a zero-mean vibration can produce a nonzero mean thrust—not by hiding a stroke cycle, but by changing how a deformable body launches waves into the surface.
+
+That is a useful problem whenever actuation and structure are inseparable: a mechanism can look symmetric in a CAD model while its dynamics select a direction. The question is not simply whether the raft bends, or where the motor sits. It is how those choices reshape the waves that carry momentum away.
 
 <div style="width: 100%; display: flex; justify-content: center;">
   <div style="position: relative; width: 80%; padding-bottom: 45%; height: 0; overflow: hidden;">
@@ -27,13 +29,17 @@ A vibrating flexible raft can move without fins or jets: its deformation radiate
     </iframe>
   </div>
 </div>
-<p class="caption"><strong>Published SurferBot demonstration.</strong> Physical context for the mechanism; this is not the project's simulation output.</p>
+<p class="caption"><strong>Published SurferBot demonstration.</strong> A physical demonstration of the mechanism; it is not numerical output from this repository.</p>
 
-{% include figure.liquid path="assets/img/flexible-surferbot-simulation.gif" alt="Numerical simulation of a flexible raft and its asymmetric wake" title="Flexible Surferbot numerical simulation" caption="Numerical simulation of a flexible raft and its asymmetric wake." %}
+{% include figure.liquid path="assets/img/flexible-surferbot-simulation.gif" alt="Numerical simulation of a flexible raft and its asymmetric wake" title="Flexible Surferbot numerical simulation" caption="Numerical simulation: the flexible raft, the radiated wave field, and its asymmetric wake evolve together." %}
 
-The Julia solver couples a flexible beam to a free-surface flow model, resolving raft deformation, the radiated wave field, and mean thrust in one calculation. Parameter sweeps and figure scripts make the numerical evidence reproducible; MATLAB-parity checks and the zero-net-thrust symmetry invariant keep the implementation anchored to known behavior.
+The calculation has to keep the whole conversation intact. The coupled beam–free-surface model resolves deformation, the outgoing wave field, and mean thrust in one system. Motor placement changes which bending modes are excited; flexural rigidity changes how those modes feed the waves. The resulting thrust is not monotonic in either variable. A static deformation or motor placement alone cannot tell us which way the raft will go.
 
-{% include figure.liquid path="assets/img/flexible-surferbot-modal-map.png" alt="Wake-asymmetry map across motor placement and flexural rigidity" title="Wake-asymmetry map across motor placement and flexural rigidity" caption="Across motor position x_M/L and normalized flexural rigidity κ, colour shows the wake-asymmetry diagnostic α. Columns compare Full Sweep, 8-mode, and 4-mode models." %}
+I created the reproducible Julia analysis workflow behind that calculation: parameter sweeps, modal reduction, MATLAB parity tests, and figure generation from the same data. I also made the symmetry check explicit. In the reflection-symmetric pure-gravity benchmark—the symmetric benchmark—centred forcing must yield zero net thrust; if it does not, the discretization has manufactured propulsion. That invariant is not carried over to cases with capillary edge terms, where the exact reflection symmetry is physically broken.
+
+{% include figure.liquid path="assets/img/flexible-surferbot-thrust-map.png" alt="Normalized thrust across motor placement and flexural rigidity" title="Flexible Surferbot thrust map" caption="This design map shows normalized thrust across motor position x_M/L and normalized flexural rigidity κ. Red and blue regions are opposite directions of thrust, revealing where the direction changes; the symbols mark the published paper cases." %}
+
+The map makes the design consequence visible: small shifts in motor placement can reverse the direction of travel, and the same actuator can behave differently as the raft stiffens or softens. It is a compact testbed for a broader R&amp;D habit—treating the body, the forcing, and the surrounding medium as one dynamical design problem rather than three independent knobs.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='elvispy/flexible_surferbot' %}
