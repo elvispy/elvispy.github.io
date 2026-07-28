@@ -29,7 +29,7 @@ Run before edits:
 
 ```bash
 ! test -s assets/img/flexible-surferbot-thrust-map.png
-rg -q 'flexible-surferbot-modal-map.png' _projects/en-us/3_surferbot.md
+rg -q 'flexible-surferbot-thrust-map.png' _projects/en-us/3_surferbot.md
 ```
 
 ## Task 2: Replace the page figure asset
@@ -41,8 +41,8 @@ shasum -a 256 ../waves_code/assets/surferbot_demo.gif | rg -q 'b7c134619ea39ff39
 shasum -a 256 ../waves_code/Julia/output/figures/plot_thrust_beam_and_LH_LH_cbrt.pdf | rg -q '7748b4ddb0da9dbb936c9437ca4db9246b8240d4eb3d29ae16b2ba4bc5ecf1c0'
 ```
 
-Render the source PDF to the planned PNG, inspect it visually, and remove
-`assets/img/flexible-surferbot-modal-map.png` from the website.
+Render the source PDF to the planned PNG, inspect it visually, and retire the
+previous multi-panel figure from the website.
 
 ## Task 3: Rebuild the English narrative
 
@@ -76,7 +76,6 @@ Keep language concrete. Do not use the words `differentiable` or
 shasum -a 256 ../waves_code/Julia/output/figures/plot_thrust_beam_and_LH_LH_cbrt.pdf | rg -q '7748b4ddb0da9dbb936c9437ca4db9246b8240d4eb3d29ae16b2ba4bc5ecf1c0'
 test -s assets/img/flexible-surferbot-simulation.gif
 test -s assets/img/flexible-surferbot-thrust-map.png
-! test -e assets/img/flexible-surferbot-modal-map.png
 sips -g pixelWidth -g pixelHeight assets/img/flexible-surferbot-thrust-map.png | rg -q 'pixelWidth: 615' && sips -g pixelWidth -g pixelHeight assets/img/flexible-surferbot-thrust-map.png | rg -q 'pixelHeight: 480'
 video_line=$(rg -n 'Published SurferBot demonstration' _projects/en-us/3_surferbot.md | head -1 | cut -d: -f1); gif_line=$(rg -n 'flexible-surferbot-simulation.gif' _projects/en-us/3_surferbot.md | head -1 | cut -d: -f1); map_line=$(rg -n 'flexible-surferbot-thrust-map.png' _projects/en-us/3_surferbot.md | head -1 | cut -d: -f1); test "$video_line" -lt "$gif_line" && test "$gif_line" -lt "$map_line"
 rg -qi 'asymmetric.*momentum|momentum.*asymmetric' _projects/en-us/3_surferbot.md
@@ -99,7 +98,7 @@ rg -qi 'red.*blue.*direction|blue.*red.*direction' _projects/en-us/3_surferbot.m
 rg -qi 'paper.*cases|marked.*cases' _projects/en-us/3_surferbot.md
 test "$(awk 'BEGIN {delims = 0} /^---$/ {delims++; next} delims >= 2 {words += NF} END {print words + 0}' _projects/en-us/3_surferbot.md)" -ge 225
 ! git diff --name-only HEAD | rg '^_projects/(es|pt-br)/'
-! rg -qi 'differentiable|optimization|flexible-surferbot-modal-map' _projects/en-us/3_surferbot.md
+! rg -qi 'differentiable|optimization' _projects/en-us/3_surferbot.md
 ! rg -qi 'innovation|transformative|future.of.robotics' _projects/en-us/3_surferbot.md
 git diff --check
 ```
