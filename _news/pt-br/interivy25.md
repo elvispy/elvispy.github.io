@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Fui selecionado para me candidatar ao campeonato de xadrez Inter-Ivy a ser realizado na University of Pennsylvania!
+Fui selecionado para me candidatar ao campeonato de xadrez Inter-Ivy a ser realizado na Universidade da Pensilvânia!

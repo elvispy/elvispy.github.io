@@ -4,7 +4,7 @@ layout: default
 permalink: /blog/
 title: blog
 blog_name: al-folio en español
-description: un tema sencillo de espacios en blanco para académicos
+description: un tema simple de espacio en blanco para académicos
 nav: false
 nav_order: 1
 pagination:

@@ -8,10 +8,10 @@ dropdown: false
 children:
   - title: publicaciones
     permalink: /publications/
-  - title: divisor
+  - title: divider
   - title: proyectos
     permalink: /projects/
-  - title: divisor
+  - title: divider
   - title: blog
     permalink: /blog/
 ---

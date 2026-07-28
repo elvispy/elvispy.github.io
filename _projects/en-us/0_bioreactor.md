@@ -1,8 +1,8 @@
 ---
 page_id: prj_bioreactor
 layout: page
-title: Coupling Growth, Flow, and Optimization in Complex Systems
-description: Integrating biological growth and fluid dynamics across vast design spaces
+title: Bayesian Fusion for Bioreactor Scale-Up
+description: Field-attributed uncertainty for multi-physics growth prediction
 img: assets/img/bioreactor.gif
 importance: 1
 category: work
@@ -10,7 +10,9 @@ related_publications: true
 math: true
 ---
 
-Cells in a large bioreactor don't sit still: they circulate, and where they go determines what they experience. A cell passing through a high-shear zone and then drifting into an oxygen-depleted region has accumulated an exposure history that shapes whether it grows, stresses, or dies. Well-mixed models average over that history and erase the variance in exposure history that predicts whether a cell grows or fails.
+The first proof-of-concept cultivated meat product cost $325,000 in 2013. A decade of investment later, prices remain well above commercial viability. Every experiment coupling a new cell line to a new reactor configuration requires a multi-million-dollar commitment, and at that cost, the bioreactor design space has barely been entered.
+
+The obstacle is not a lack of models: it is a lack of models that know what they do not know. A cell passing through a high-shear zone and then drifting into an oxygen-depleted region accumulates an exposure history that shapes whether it grows, stresses, or dies. Well-mixed models average over that history. Surrogate models trained on sparse experiments extrapolate confidently into regimes they have never seen. The result is a model that is wrong in ways that are invisible until something fails.
 
 <figure style="float: right; margin: 10px; max-width: 340px;">
     {% include figure.liquid loading="eager" path="assets/img/bioreactor.gif" title="Bioreactor simulation" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
@@ -19,15 +21,15 @@ Cells in a large bioreactor don't sit still: they circulate, and where they go d
     </figcaption>
 </figure>
 
-Predicting population-level growth from those histories requires fusing two qualitatively different inputs: hydrodynamic exposure histories and process-state variables such as inoculum density, dissolved oxygen, and culture pH. Experiments are expensive, most operating regimes are sparsely observed, and the joint input space over both fields is large. A model that produces a confident prediction in a well-sampled regime and an equally confident one in a regime it has never seen is not useful. It is wrong in ways that are invisible until something fails.
+Growth depends simultaneously on fluid mechanics, media chemistry, and biological context. When a prediction fails, knowing the total uncertainty is not enough: the engineer needs to know which field is the source. If the mechanics field is under-sampled, the right next step is a CFD simulation costing thousands of core-hours. If the biological model is the weak link, the right next step is a cell culture assay costing months of labor. Without field-level attribution, a failed prediction sends engineers back to the bench to answer the wrong question.
 
-We extend the cooperative training framework of Yi & Bessa, which disentangles aleatoric and epistemic uncertainty in single-field regression, to the multi-field setting, and build a **cooperative Bayesian fusion architecture** with field-specific encoders for mechanics and biology and a learned fusion map trained so that epistemic uncertainty rises only where joint coverage is sparse and registers disagreement between fields as a distinguishable signal, rather than folding it into an undifferentiated variance term. Concretely, the conflict is the posterior variance of the fused predictive mean:
+We extend the cooperative training framework of Yi & Bessa, which disentangles aleatoric and epistemic uncertainty in single-field regression, to this multi-field setting. Mechanics and biology are encoded separately; a learned fusion map is then trained so that disagreement between the two encoders registers as a distinguishable signal rather than dissolving into an undifferentiated variance term. Concretely, the conflict is the posterior variance of the fused predictive mean:
 
 $$u_\text{epi}(x_\text{mech}, x_\text{bio}) \approx \operatorname{Var}_{p(\eta \mid \mathcal{D})}\!\bigl[\mu_\eta(x_\text{mech}, x_\text{bio})\bigr]$$
 
-That conflict signal is the key deliverable the single-field baseline does not provide: when the hydrodynamic and biological encoders give locally divergent signals, the model flags it rather than masking it.
+A single-field baseline cannot compute this quantity: it has no way to distinguish whether a prediction is uncertain because one field is under-sampled or because two fields genuinely conflict.
 
-The first test is a regression problem: given fixed-window summaries of a cell population's hydrodynamic exposure history and process-state variables, predict biomass growth-rate deviation relative to a well-supported operating regime. The task is small enough to validate the uncertainty diagnostics carefully: does the epistemic term rise where joint coverage is sparse? Does it register source conflict rather than hide it? Those are the diagnostics the architecture must pass, while retaining the two-field structure that deterministic fusion approaches cannot preserve without collapsing into overconfident point predictions in sparse regions. The architecture targets the two-field case; whether cooperative Bayesian fusion remains well-calibrated as source fields multiply, and whether Gaussian predictive heads hold or mixture and flow-based alternatives become necessary.
+As a first validation, we apply the architecture to a controlled regression task: given fixed-window summaries of a cell population's hydrodynamic exposure history and process-state variables, predict biomass growth-rate deviation relative to a well-characterized operating regime. This controlled setting makes it possible to isolate whether the epistemic term rises where joint coverage is sparse and whether it correctly attributes source conflict before the architecture faces pilot-scale deployment. The goal: a model that compresses fifty experimental trials into ten by telling engineers which trials are necessary.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='rcsc-group/BioReactor' %}

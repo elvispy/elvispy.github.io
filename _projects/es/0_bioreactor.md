@@ -1,8 +1,8 @@
 ---
 page_id: prj_bioreactor
 layout: page
-title: Acoplamiento de Crecimiento, Flujo y Optimización en Sistemas Complejos
-description: Integrando crecimiento biológico y dinámica de fluidos en vastos espacios de diseño
+title: Fusión Bayesiana para el escalado de biorreactores
+description: Incertidumbre atribuida a campos para la predicción de crecimiento multifísico
 img: assets/img/bioreactor.gif
 importance: 1
 category: work
@@ -10,7 +10,9 @@ related_publications: true
 math: true
 ---
 
-Las células en un biorreactor grande no se quedan quietas: circulan, y el lugar a donde van determina lo que experimentan. Una célula que pasa por una zona de alto cizallamiento y luego se desplaza hacia una región con agotamiento de oxígeno ha acumulado una historia de exposición que determina si crece, se estresa o muere. Los modelos bien mezclados promedian esa historia y borran la varianza en la historia de exposición que predice si una célula crece o falla.
+El primer producto de carne cultivada de prueba de concepto costó $325.000 en 2013. Una década de inversión después, los precios siguen estando muy por encima de la viabilidad comercial. Cada experimento que acopla una nueva línea celular a una nueva configuración de reactor requiere un compromiso de millones de dólares, y a ese coste, el espacio de diseño del biorreactor apenas se ha explorado.
+
+El obstáculo no es la falta de modelos: es la falta de modelos que sepan lo que no saben. Una célula que pasa por una zona de alto cizallamiento y luego se desplaza hacia una región con poco oxígeno acumula un historial de exposición que determina si crece, se estresa o muere. Los modelos bien mezclados promedian ese historial. Los modelos sustitutos entrenados en experimentos escasos extrapolan con confianza a regímenes que nunca han visto. El resultado es un modelo que se equivoca de formas que son invisibles hasta que algo falla.
 
 <figure style="float: right; margin: 10px; max-width: 340px;">
     {% include figure.liquid loading="eager" path="assets/img/bioreactor.gif" title="Bioreactor simulation" class="img-fluid rounded z-depth-1" style="width: 100%;" %}
@@ -19,15 +21,15 @@ Las células en un biorreactor grande no se quedan quietas: circulan, y el lugar
     </figcaption>
 </figure>
 
-Predecir el crecimiento a nivel de población a partir de esas historias requiere fusionar dos entradas cualitativamente diferentes: historias de exposición hidrodinámica y variables de estado del proceso como densidad de inóculo, oxígeno disuelto y pH del cultivo. Los experimentos son costosos, la mayoría de los regímenes operativos se observan escasamente y el espacio de entrada conjunto sobre ambos campos es grande. Un modelo que produce una predicción segura en un régimen bien muestreado y una igualmente segura en un régimen que nunca ha visto no es útil. Es erróneo de maneras que son invisibles hasta que algo falla.
+El crecimiento depende simultáneamente de la mecánica de fluidos, la química del medio y el contexto biológico. Cuando una predicción falla, conocer la incertidumbre total no es suficiente: el ingeniero necesita saber qué campo es la fuente. Si el campo de la mecánica está submureado, el siguiente paso correcto es una simulación CFD que cuesta miles de horas de núcleo. Si el modelo biológico es el eslabón débil, el siguiente paso correcto es un ensayo de cultivo celular que cuesta meses de trabajo. Sin la atribución a nivel de campo, una predicción fallida envía a los ingenieros de vuelta al laboratorio para responder a la pregunta equivocada.
 
-Extendemos el marco de entrenamiento cooperativo de Yi & Bessa, que desenreda la incertidumbre aleatoria y epistémica en la regresión de un solo campo, al entorno de múltiples campos, y construimos una **arquitectura de fusión bayesiana cooperativa** con codificadores específicos del campo para mecánica y biología y un mapa de fusión aprendido entrenado de modo que la incertidumbre epistémica aumente solo donde la cobertura conjunta es escasa y registre el desacuerdo entre campos como una señal distinguible, en lugar de plegarlo en un término de varianza indiferenciado. Concretamente, el conflicto es la varianza posterior de la media predictiva fusionada:
+Extendemos el marco de entrenamiento cooperativo de Yi & Bessa, que desenreda la incertidumbre aleatoria y epistémica en la regresión de un solo campo, a este entorno multicampo. La mecánica y la biología se codifican por separado; luego se entrena un mapa de fusión aprendido para que el desacuerdo entre los dos codificadores se registre como una señal distinguible en lugar de disolverse en un término de varianza indiferenciado. Concretamente, el conflicto es la varianza posterior de la media predictiva fusionada:
 
 $$u_\text{epi}(x_\text{mech}, x_\text{bio}) \approx \operatorname{Var}_{p(\eta \mid \mathcal{D})}\!\bigl[\mu_\eta(x_\text{mech}, x_\text{bio})\bigr]$$
 
-Esa señal de conflicto es el entregable clave que la línea base de un solo campo no proporciona: cuando los codificadores hidrodinámicos y biológicos dan señales localmente divergentes, el modelo lo marca en lugar de enmascararlo.
+Una línea de base de un solo campo no puede computar esta cantidad: no tiene forma de distinguir si una predicción es incierta porque un campo está submureado o porque dos campos realmente entran en conflicto.
 
-La primera prueba es un problema de regresión: dadas descripciones de ventana fija de la historia de exposición hidrodinámica de una población celular y variables de estado del proceso, predecir la desviación de la tasa de crecimiento de la biomasa en relación con un régimen operativo bien respaldado. La tarea es lo suficientemente pequeña como para validar cuidadosamente los diagnósticos de incertidumbre: ¿aumenta el término epistémico donde la cobertura conjunta es escasa? ¿Registra el conflicto de origen en lugar de ocultarlo? Esos son los diagnósticos que la arquitectura debe superar, manteniendo la estructura de dos campos que los enfoques de fusión deterministas no pueden preservar sin colapsar en predicciones puntuales excesivamente seguras en regiones escasas. La arquitectura se dirige al caso de dos campos; si la fusión bayesiana cooperativa sigue estando bien calibrada a medida que se multiplican los campos de origen, y si los cabezales predictivos gaussianos se mantienen o si se vuelven necesarias alternativas basadas en mezclas y flujos.
+Como primera validación, aplicamos la arquitectura a una tarea de regresión controlada: dados resúmenes de ventana fija del historial de exposición hidrodinámica de una población celular y variables de estado del proceso, predecir la desviación de la tasa de crecimiento de la biomasa en relación con un régimen operativo bien caracterizado. Este entorno controlado permite aislar si el término epistémico aumenta donde la cobertura conjunta es escasa y si atribuye correctamente el conflicto de la fuente antes de que la arquitectura se enfrente a un despliegue a escala piloto. El objetivo: un modelo que comprima cincuenta ensayos experimentales en diez al decir a los ingenieros qué ensayos son necesarios.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='rcsc-group/BioReactor' %}

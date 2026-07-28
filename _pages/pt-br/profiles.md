@@ -15,15 +15,15 @@ profiles:
     content: about_einstein.md
     image_circular: false # crops the image to make it circular
     more_info: >
-      <p>555 número do seu escritório</p>
-      <p>123 nome da sua rua</p>
+      <p>555 seu número de escritório</p>
+      <p>123 sua rua</p>
       <p>Sua Cidade, Estado 12345</p>
   - align: left
     image: prof_pic.jpg
     content: about_einstein.md
     image_circular: false # crops the image to make it circular
     more_info: >
-      <p>555 número do seu escritório</p>
-      <p>123 nome da sua rua</p>
+      <p>555 seu número de escritório</p>
+      <p>123 sua rua</p>
       <p>Sua Cidade, Estado 12345</p>
 ---

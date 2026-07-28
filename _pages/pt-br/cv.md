@@ -2,7 +2,7 @@
 page_id: cv
 layout: cv
 permalink: /cv/
-title: currículo
+title: cv
 nav: true
 nav_order: 5
 cv_pdf: CV_en-us.pdf # you can also use external links here

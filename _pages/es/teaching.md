@@ -2,8 +2,8 @@
 page_id: teaching
 layout: page
 permalink: /teaching/
-title: enseñanza
-description: Materiales para los cursos que impartiste. Reemplaza este texto con tu descripción.
+title: docencia
+description: Materiales para los cursos que has impartido. Reemplaza este texto con tu descripción.
 nav: false
 nav_order: 6
 ---
