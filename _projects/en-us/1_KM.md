@@ -18,7 +18,7 @@ Impact looks simple. Its numerical core is not. A drop deforms, a contact region
     <source src="/assets/img/spectralkm-impact.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  <figcaption>Bath-impact simulation. The dark-blue region is the bath, the pale-blue region the drop, and the red arc the solved contact patch. The inset plots pointwise pressure as a diagnostic, not as a converged field.</figcaption>
+  <figcaption class="caption">Bath-impact simulation. The dark-blue region is the bath, the pale-blue region the drop, and the red arc the solved contact patch. The inset plots pointwise pressure as a diagnostic, not as a converged field.</figcaption>
 </figure>
 
 ## A lineage of reductions
@@ -49,7 +49,7 @@ Here the deforming bath, drop, contact pressure, and contact extent are part of 
     <source src="/assets/img/droprebound-oldroyd-b.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  <figcaption>Numerical Oldroyd-B case.</figcaption>
+  <figcaption class="caption">Numerical Oldroyd-B case.</figcaption>
 </figure>
 
 <figure>
@@ -57,7 +57,7 @@ Here the deforming bath, drop, contact pressure, and contact extent are part of 
     <source src="/assets/img/droprebound-carreau.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  <figcaption>Numerical Carreau case.</figcaption>
+  <figcaption class="caption">Numerical Carreau case.</figcaption>
 </figure>
 
 ## Research in the open
