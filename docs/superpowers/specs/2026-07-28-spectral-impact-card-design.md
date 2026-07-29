@@ -21,12 +21,14 @@ Title: **Building the next generation of deformable-impact software**
 
 Opening:
 
-> Impact looks simple. Its numerical core is not. A drop deforms, a contact
-> region appears, pressure redistributes, and the bodies separate or remain
-> together. The contact law decides much of the answer. I build models that put
-> progressively less of that law in by hand.
+> In deformable impact, the contact law can decide the result. I build solvers
+> that move pressure, contact extent, and interface motion from prescribed
+> inputs into the dynamics.
 
-The card then follows the lineage in compact prose:
+The card follows a high-signal lineage. A fast reader should be able to identify
+the hard modelling decision, what each formulation changed, the evidence that
+supports the current formulation, and the contribution of the open workflow.
+Context belongs when it makes one of those points legible.
 
 1. The 2022 rigid-sphere / elastic-membrane model established the initial
    kinematic-match formulation.
@@ -50,10 +52,9 @@ parameter tuple. Do not claim that spectral methods universally invalidate
 mesh-based methods. Keep the numerical caveat only insofar as it explains why a
 pointwise pressure trace is a diagnostic, not a polished field to over-interpret.
 
-Close with a short open-source statement: the work is released as Julia
-packages with tests, executable derivations, diagnostics, validation material,
-parameter sweeps, and rendering scripts. Avoid reducing open source to a link
-list.
+Close with a short open-source statement: package code, tests, executable
+derivations, diagnostics, validation material, parameter sweeps, and rendering
+scripts are research infrastructure. Avoid reducing open source to a link list.
 
 ## Visuals
 
