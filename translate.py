@@ -26,8 +26,13 @@ LANGUAGES = {
 SOURCE_DIRS = ["_projects/en-us", "_pages/en-us", "_news/en-us"]
 
 MAX_RETRIES = 5
+MAX_SOURCE_CHARS_PER_BATCH = 12_000
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-OPENROUTER_MODEL = "openrouter/free"
+OPENROUTER_MODELS = (
+    "google/gemma-4-31b-it:free",
+    "cohere/north-mini-code:free",
+)
+OPENROUTER_MODEL = OPENROUTER_MODELS[0]
 
 COLORS = {
     "green":  "\033[32m",
@@ -187,6 +192,30 @@ def find_source_files() -> list[Path]:
     return files
 
 
+def partition_markdown_files(
+    files: list[Path], max_source_chars: int = MAX_SOURCE_CHARS_PER_BATCH
+) -> list[list[Path]]:
+    """Group source files into deterministic, bounded translation batches."""
+    batches: list[list[Path]] = []
+    batch: list[Path] = []
+    batch_chars = 0
+
+    for src in files:
+        source_chars = len(src.read_text(encoding="utf-8"))
+        if batch and batch_chars + source_chars > max_source_chars:
+            batches.append(batch)
+            batch = []
+            batch_chars = 0
+
+        batch.append(src)
+        batch_chars += source_chars
+
+    if batch:
+        batches.append(batch)
+
+    return batches
+
+
 def target_path(src: Path, lang: str) -> Path:
     return Path(str(src).replace("/en-us/", f"/{lang}/"))
 
@@ -197,41 +226,51 @@ def call_openrouter(prompt: str) -> str:
     if not api_key:
         raise RuntimeError("OPENROUTER_API_KEY is required for automatic translation.")
 
-    payload = {
-        "model": OPENROUTER_MODEL,
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0.2,
-    }
-    http_request = request.Request(
-        OPENROUTER_URL,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-        },
-        method="POST",
-    )
+    for index, model in enumerate(OPENROUTER_MODELS):
+        payload = {
+            "model": model,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.2,
+            "reasoning": {"effort": "none"},
+        }
+        http_request = request.Request(
+            OPENROUTER_URL,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            },
+            method="POST",
+        )
 
-    try:
-        with request.urlopen(http_request, timeout=120) as response:
-            body = response.read().decode("utf-8")
-    except error.HTTPError as exc:
-        detail = exc.read().decode("utf-8", errors="replace")[:500]
-        raise RuntimeError(
-            f"OpenRouter request failed (HTTP {exc.code}): {detail}"
-        ) from exc
-    except error.URLError as exc:
-        raise RuntimeError(f"OpenRouter request failed: {exc.reason}") from exc
+        try:
+            with request.urlopen(http_request, timeout=120) as response:
+                body = response.read().decode("utf-8")
+        except error.HTTPError as exc:
+            detail = exc.read().decode("utf-8", errors="replace")[:500]
+            if exc.code in (429, 503) and index < len(OPENROUTER_MODELS) - 1:
+                printc(
+                    f"OpenRouter model {model} returned HTTP {exc.code}; trying the next free model.",
+                    "yellow",
+                )
+                continue
+            raise RuntimeError(
+                f"OpenRouter request failed (HTTP {exc.code}): {detail}"
+            ) from exc
+        except error.URLError as exc:
+            raise RuntimeError(f"OpenRouter request failed: {exc.reason}") from exc
 
-    try:
-        response_json = json.loads(body)
-        content = response_json["choices"][0]["message"]["content"]
-    except (IndexError, KeyError, TypeError, json.JSONDecodeError) as exc:
-        raise RuntimeError("OpenRouter response contained no assistant content.") from exc
+        try:
+            response_json = json.loads(body)
+            content = response_json["choices"][0]["message"]["content"]
+        except (IndexError, KeyError, TypeError, json.JSONDecodeError) as exc:
+            raise RuntimeError("OpenRouter response contained no assistant content.") from exc
 
-    if not isinstance(content, str) or not content.strip():
-        raise RuntimeError("OpenRouter response contained no assistant content.")
-    return content
+        if not isinstance(content, str) or not content.strip():
+            raise RuntimeError("OpenRouter response contained no assistant content.")
+        return content
+
+    raise RuntimeError("OpenRouter exhausted all configured free models.")
 
 
 def parse_translated_files(response: str) -> dict[str, str]:
@@ -329,15 +368,8 @@ def run_validation_pass(
     return good, errors_by_path, bad_sources
 
 
-def translate_markdown(lang: str):
-    files = find_source_files()
-    if not files:
-        printc("No source files found.", "red")
-        sys.exit(1)
-
-    printc(f"Translating {len(files)} files → {LANGUAGES[lang]} ({lang})...", "cyan")
-
-    # --- Initial call ---
+def translate_markdown_batch(files: list[Path], lang: str) -> dict[str, str] | None:
+    """Translate and validate one bounded group of Markdown source files."""
     prompt = build_markdown_prompt(files, lang)
     printc(f"Sending batch to OpenRouter ({OPENROUTER_MODEL})...", "cyan")
     response = call_openrouter(prompt)
@@ -381,16 +413,6 @@ def translate_markdown(lang: str):
         if still_bad:
             printc(f"  {still_bad} file(s) still failing.", "yellow")
 
-    # --- Write all files that passed validation (regardless of remaining failures) ---
-    for path_str, content in good.items():
-        out = Path(path_str)
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(content, encoding="utf-8")
-        printc(f"  ✅ {path_str}", "green")
-
-    printc(f"\nDone: {len(good)}/{len(files)} files written for {lang}.", "green")
-
-    # --- Final outcome ---
     if bad_sources:
         printc(
             f"\nFailed after {MAX_RETRIES} correction attempt(s). "
@@ -402,7 +424,39 @@ def translate_markdown(lang: str):
             printc(f"  {path_str}", "red")
             for err in errors_by_path.get(path_str, []):
                 printc(f"    • {err}", "red")
+        return None
+
+    return good
+
+
+def translate_markdown(lang: str):
+    files = find_source_files()
+    if not files:
+        printc("No source files found.", "red")
         sys.exit(1)
+
+    batches = partition_markdown_files(files)
+    printc(
+        f"Translating {len(files)} files → {LANGUAGES[lang]} ({lang}) "
+        f"in {len(batches)} bounded batch(es)...",
+        "cyan",
+    )
+
+    translations: dict[str, str] = {}
+    for index, batch in enumerate(batches, start=1):
+        printc(f"\nBatch {index}/{len(batches)} ({len(batch)} file(s))", "cyan")
+        good = translate_markdown_batch(batch, lang)
+        if good is None:
+            sys.exit(1)
+        translations.update(good)
+
+    for path_str, content in translations.items():
+        out = Path(path_str)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(content, encoding="utf-8")
+        printc(f"  ✅ {path_str}", "green")
+
+    printc(f"\nDone: {len(translations)}/{len(files)} files written for {lang}.", "green")
 
 
 # ---------------------------------------------------------------------------
