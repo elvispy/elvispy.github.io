@@ -16,10 +16,8 @@ Estoy construyendo benchmarks abiertos que sitúan a los agentes dentro de ese c
 
 <div class="row align-items-center">
   <div class="col-md-5">
-    <figure>
-      <img src="{{ '/assets/img/agentic-metamaterial.gif' | relative_url }}" alt="Animated finite-element simulation of a rocking-mast metamaterial coiling under compression" class="img-fluid rounded z-depth-1" style="width: 100%; height: auto;">
-      <figcaption class="caption">Un candidato de mástil oscilante se enrolla a medida que su anillo superior desciende y gira. Esta es una simulación real del registro del benchmark.</figcaption>
-    </figure>
+    {% include figure.liquid path="assets/img/agentic-metamaterial.gif" alt="Animated finite-element simulation of a rocking-mast metamaterial coiling under compression" title="Rocking-mast benchmark simulation" class="img-fluid rounded z-depth-1" %}
+    <p class="caption">Un candidato de mástil oscilante se enrolla a medida que su anillo superior desciende y gira. Esta es una simulación real del registro del benchmark.</p>
   </div>
   <div class="col-md-7">
     <h2>5.9× no es la respuesta</h2>

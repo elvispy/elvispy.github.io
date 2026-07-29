@@ -16,10 +16,8 @@ Estou construindo benchmarks abertos que colocam os agentes dentro desse ciclo m
 
 <div class="row align-items-center">
   <div class="col-md-5">
-    <figure>
-      <img src="{{ '/assets/img/agentic-metamaterial.gif' | relative_url }}" alt="Animated finite-element simulation of a rocking-mast metamaterial coiling under compression" class="img-fluid rounded z-depth-1" style="width: 100%; height: auto;">
-      <figcaption class="caption">Um mastro oscilante candidato se enrola à medida que seu anel superior desce e gira. Esta é uma simulação real do registro do benchmark.</figcaption>
-    </figure>
+    {% include figure.liquid path="assets/img/agentic-metamaterial.gif" alt="Animated finite-element simulation of a rocking-mast metamaterial coiling under compression" title="Rocking-mast benchmark simulation" class="img-fluid rounded z-depth-1" %}
+    <p class="caption">Um mastro oscilante candidato se enrola à medida que seu anel superior desce e gira. Esta é uma simulação real do registro do benchmark.</p>
   </div>
   <div class="col-md-7">
     <h2>5.9× não é a resposta</h2>

@@ -22,10 +22,8 @@ script. A critic can still refuse the claim.
 
 <div class="row align-items-center">
   <div class="col-md-5">
-    <figure>
-      <img src="{{ '/assets/img/agentic-metamaterial.gif' | relative_url }}" alt="Animated finite-element simulation of a rocking-mast metamaterial coiling under compression" class="img-fluid rounded z-depth-1" style="width: 100%; height: auto;">
-      <figcaption class="caption">A rocking-mast candidate coils as its top ring descends and rotates. This is an actual simulation from the benchmark record.</figcaption>
-    </figure>
+    {% include figure.liquid path="assets/img/agentic-metamaterial.gif" alt="Animated finite-element simulation of a rocking-mast metamaterial coiling under compression" title="Rocking-mast benchmark simulation" class="img-fluid rounded z-depth-1" %}
+    <p class="caption">A rocking-mast candidate coils as its top ring descends and rotates. This is an actual simulation from the benchmark record.</p>
   </div>
   <div class="col-md-7">
     <h2>5.9× is not the answer</h2>
