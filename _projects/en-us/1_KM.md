@@ -3,7 +3,7 @@ page_id: prj_km
 layout: page
 title: "Building the next generation of deformable-impact software"
 description: "Spectral contact dynamics for drops impacting a bath"
-img: "assets/img/spectralkm-impact-poster.png"
+img: "assets/img/spectralkm-impact.gif"
 importance: 1
 category: "work"
 related_publications: true

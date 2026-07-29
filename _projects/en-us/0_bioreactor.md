@@ -3,6 +3,7 @@ page_id: prj_bioreactor
 layout: page
 title: Multi-fidelity design for rocking bioreactors
 description: Coupled oxygen-transfer and shear design with multi-fidelity CFD
+img: assets/img/bioreactor.gif
 importance: 1
 category: work
 related_publications: true
