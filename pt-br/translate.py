@@ -56,6 +56,7 @@ FRONTMATTER_STRUCTURAL_KEYS = frozenset(
         "category",
         "children",
         "date",
+        "display_categories",
         "dropdown",
         "giscus_comments",
         "horizontal",

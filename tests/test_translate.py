@@ -108,6 +108,21 @@ Visible text.
             translate.validate_translation(source, altered, "example"),
         )
 
+    def test_validation_rejects_translated_project_category_filters(self):
+        source = """---
+title: projects
+display_categories: [work, personal, fun]
+---
+"""
+        altered = source.replace(
+            "[work, personal, fun]", "[trabalho, pessoal, diversão]"
+        )
+
+        self.assertIn(
+            "Protected non-translatable segments were modified or reordered.",
+            translate.validate_translation(source, altered, "example"),
+        )
+
     @patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}, clear=True)
     @patch("translate.request.urlopen")
     def test_returns_gemini_content_with_low_thinking(self, urlopen):

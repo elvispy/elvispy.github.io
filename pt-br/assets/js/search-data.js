@@ -125,8 +125,8 @@ ninja.data = [{
           description: "De ajustes de FMR baseados em LLG à deconvolução de iSHE e seleção de materiais",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/2_CBPF/";
-            },},{id: "projects-surferbot-flexível",
-          title: 'Surferbot Flexível',
+            },},{id: "projects-viabilizando-a-locomoção-interfacial",
+          title: 'Viabilizando a locomoção interfacial',
           description: "Propulsão impulsionada por ondas através de uma balsa flexível",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/3_surferbot/";

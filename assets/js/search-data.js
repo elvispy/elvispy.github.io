@@ -125,8 +125,8 @@ ninja.data = [{
           description: "From LLG-based FMR fits to iSHE deconvolution and materials selection",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_CBPF/";
-            },},{id: "projects-flexible-surferbot",
-          title: 'Flexible Surferbot',
+            },},{id: "projects-enabling-interfacial-locomotion",
+          title: 'Enabling interfacial locomotion',
           description: "Wave-driven propulsion by a flexible raft",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_surferbot/";
