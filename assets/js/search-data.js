@@ -150,9 +150,9 @@ ninja.data = [{
           description: "Symbolic search for scaling reductions from PDE → ODE",
           section: "Projects",handler: () => {
               window.location.href = "/projects/7_zsimilarity/";
-            },},{id: "projects-",
-          title: '',
-          description: "",
+            },},{id: "projects-a3dasm-scientific-loops-for-agentic-engineering",
+          title: 'a3dasm: scientific loops for agentic engineering',
+          description: "An open, evidence-guided workflow for agents solving data-driven engineering problems",
           section: "Projects",handler: () => {
               window.location.href = "/projects/8_agentic/";
             },},{id: "projects-plz-learn-to-code",

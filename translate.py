@@ -40,6 +40,9 @@ GEMINI_URL = (
 )
 
 LIQUID_TAG_RE = re.compile(r"\{[{%]-?[\s\S]*?-?[%}]\}")
+LIQUID_VISIBLE_ATTRIBUTE_RE = re.compile(
+    r"\b(?:alt|title|caption)\s*=\s*(?P<quote>[\"'])(?P<value>[\s\S]*?)(?P=quote)"
+)
 FENCED_CODE_BLOCK_RE = re.compile(r"```[^\n]*\n[\s\S]*?```")
 INLINE_CODE_RE = re.compile(r"`[^`\n]+`")
 HTML_TAG_RE = re.compile(r"</?[A-Za-z][^>]*>")
@@ -97,14 +100,14 @@ You are a professional technical translator. Translate the website content below
 from English to {language}.
 
 RULES — breaking any of these will corrupt the website:
-  1. Do NOT translate Liquid template tags: {{{{ }}}}, {{% %}}, {{% -%}}, etc.
+  1. Preserve Liquid template syntax, tag names, include names, paths, filters,
+     and non-natural parameters exactly: {{{{ }}}}, {{% %}}, {{% -%}}, etc.
   2. Do NOT translate YAML frontmatter keys (left side of `:` between `---` markers).
      Translate only the *values* when they are natural-language text.
   3. Do NOT translate content inside code fences (``` ... ```) or inline code (` ... `).
   4. Do NOT translate HTML tag names, attribute names, or attribute values.
-  5. Do NOT translate any parameter or attribute inside a Liquid tag — including quoted
-     string values such as title="..." or caption="...". Every character inside
-     {{% ... %}} and {{{{ ... }}}} must be copied exactly as-is.
+  5. Translate reader-facing `alt`, `title`, and `caption` values inside Liquid
+     include tags. Preserve every other character inside Liquid tags exactly.
   6. Do NOT translate JavaScript, CSS, or LaTeX source — preserve it character-for-character.
   7. Do NOT translate URLs, file paths, page_id values, layout names, or category names.
   8. Preserve ALL blank lines, indentation, and whitespace exactly as in the source.
@@ -152,6 +155,34 @@ def extract_liquid_tags(text: str) -> list[str]:
     return LIQUID_TAG_RE.findall(text)
 
 
+def normalize_liquid_tag_structure(tag: str) -> str:
+    """Remove only reader-facing values before comparing Liquid syntax."""
+    return LIQUID_VISIBLE_ATTRIBUTE_RE.sub(
+        lambda match: match.group(0).replace(match.group("value"), "__TRANSLATABLE__"),
+        tag,
+    )
+
+
+def protect_liquid_tag_structure(text: str, replace_value) -> str:
+    """Mask Liquid syntax while leaving human-facing include attributes visible."""
+    def protect_tag(match: re.Match[str]) -> str:
+        tag = match.group(0)
+        attributes = list(LIQUID_VISIBLE_ATTRIBUTE_RE.finditer(tag))
+        if not attributes:
+            return replace_value(tag)
+
+        protected_parts: list[str] = []
+        cursor = 0
+        for attribute in attributes:
+            protected_parts.append(replace_value(tag[cursor : attribute.start("value")]))
+            protected_parts.append(attribute.group("value"))
+            cursor = attribute.end("value")
+        protected_parts.append(replace_value(tag[cursor:]))
+        return "".join(protected_parts)
+
+    return LIQUID_TAG_RE.sub(protect_tag, text)
+
+
 def protect_frontmatter_structural_values(text: str, replace_value) -> str:
     """Mask frontmatter values that configure the site rather than label it."""
     match = FRONTMATTER_RE.match(text)
@@ -181,12 +212,12 @@ def protect_nontranslatable_segments(text: str) -> tuple[str, dict[str, str]]:
         return token
 
     text = protect_frontmatter_structural_values(text, replace_value)
+    text = protect_liquid_tag_structure(text, replace_value)
 
     def replace(match: re.Match[str]) -> str:
         return replace_value(match.group(0))
 
     for pattern in (
-        LIQUID_TAG_RE,
         FENCED_CODE_BLOCK_RE,
         INLINE_CODE_RE,
         URL_RE,
@@ -234,8 +265,8 @@ def validate_translation(src: str, translated: str, label: str) -> list[str]:
         errors.append("Protected non-translatable segments were modified or reordered.")
 
     # 1. Liquid tags must be preserved verbatim and in the same order
-    src_tags = extract_liquid_tags(src)
-    tgt_tags = extract_liquid_tags(translated)
+    src_tags = [normalize_liquid_tag_structure(tag) for tag in extract_liquid_tags(src)]
+    tgt_tags = [normalize_liquid_tag_structure(tag) for tag in extract_liquid_tags(translated)]
     if src_tags != tgt_tags:
         src_set, tgt_set = set(src_tags), set(tgt_tags)
         lost  = src_set - tgt_set

@@ -115,9 +115,9 @@ ninja.data = [{
           description: "Design acoplado de transferência de oxigênio e cisalhamento com CFD de multi-fidelidade",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/0_bioreactor/";
-            },},{id: "projects-kinematic-match-uma-estrutura-de-contato-suave-para-impactos-deformáveis",
-          title: 'Kinematic Match: uma estrutura de contato suave para impactos deformáveis',
-          description: "Uma restrição geométrica que torna as colisões estáveis, precisas e prontas para otimização",
+            },},{id: "projects-construindo-a-próxima-geração-de-software-de-impacto-deformável",
+          title: 'Construindo a próxima geração de software de impacto deformável',
+          description: "Dinâmica de contato espectral para gotas impactando um banho",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/1_KM/";
             },},{id: "projects-transporte-de-spin-por-medição-e-inferência",
@@ -150,9 +150,9 @@ ninja.data = [{
           description: "Busca simbólica por reduções de escala de EDP → EDO",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/7_zsimilarity/";
-            },},{id: "projects-",
-          title: '',
-          description: "",
+            },},{id: "projects-a3dasm-loops-científicos-para-engenharia-de-agentes",
+          title: 'a3dasm: loops científicos para engenharia de agentes',
+          description: "Um fluxo de trabalho aberto e orientado por evidências para agentes resolverem problemas de engenharia baseados em dados",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/8_agentic/";
             },},{id: "projects-por-favor-aprenda-a-programar",

@@ -43,6 +43,28 @@ Visible text.
         self.assertIn("{% include figure.liquid", restored)
         self.assertEqual(translate.validate_translation(source, restored, "example"), [])
 
+    def test_exposes_reader_facing_liquid_attributes_to_translation(self):
+        source = """{% include figure.liquid path="assets/img/example.png" alt="A flexible raft" title="Wave field" caption="A visible caption." %}"""
+
+        protected, replacements = translate.protect_nontranslatable_segments(source)
+        translated = (
+            protected.replace("A flexible raft", "Uma balsa flexível")
+            .replace("Wave field", "Campo de ondas")
+            .replace("A visible caption.", "Uma legenda visível.")
+        )
+        restored = translate.restore_nontranslatable_segments(translated, replacements)
+
+        self.assertIn("A flexible raft", protected)
+        self.assertIn("Wave field", protected)
+        self.assertIn("A visible caption.", protected)
+        self.assertNotIn("figure.liquid", protected)
+        self.assertNotIn("assets/img/example.png", protected)
+        self.assertEqual(
+            restored,
+            "{% include figure.liquid path=\"assets/img/example.png\" alt=\"Uma balsa flexível\" title=\"Campo de ondas\" caption=\"Uma legenda visível.\" %}",
+        )
+        self.assertEqual(translate.validate_translation(source, restored, "example"), [])
+
     def test_restores_nested_liquid_and_html_segments_in_reverse_order(self):
         source = '<source src="{{ \'/assets/demo.mp4\' | relative_url }}" type="video/mp4">'
 
