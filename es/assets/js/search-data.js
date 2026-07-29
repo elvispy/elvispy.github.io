@@ -150,9 +150,9 @@ ninja.data = [{
           description: "Búsqueda simbólica de reducciones de escala de EDP → EDO",
           section: "",handler: () => {
               window.location.href = "/es/projects/7_zsimilarity/";
-            },},{id: "projects-ingeniería-agéntica-bajo-un-estándar-real-de-investigación",
-          title: 'Ingeniería agéntica bajo un estándar real de investigación',
-          description: "Benchmarks abiertos para agentes que diseñan, simulan y defienden afirmaciones de ingeniería",
+            },},{id: "projects-",
+          title: '',
+          description: "",
           section: "",handler: () => {
               window.location.href = "/es/projects/8_agentic/";
             },},{id: "projects-por-favor-aprende-a-programar",
