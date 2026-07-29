@@ -1,60 +1,57 @@
 ---
 page_id: prj_agentic
 layout: page
-title: Agentic engineering under a real research bar
-description: Open benchmarks for agents that design, simulate, and defend engineering claims
+title: a3dasm: scientific loops for agentic engineering
+description: An open, evidence-guided workflow for agents solving data-driven engineering problems
 img: assets/img/agentic-metamaterial.gif
 importance: 1
 category: work
 ---
 
-## A score is not a discovery
+## From an agent graph to a scientific loop
 
-An agent can rank thousands of candidate designs. That is not enough to make a
-scientific result. The harder task is deciding what survives when the model,
-the mechanism, and the evidence are challenged.
+a3dasm turns a graph of agents into an open research loop. The agents can
+follow the evidence, change strategy, and decide which data to produce next.
+The loop is guided by the scientific method: state a mechanism, choose an
+experiment that can test it, retain the evidence, and let criticism change the
+claim.
 
-I am building open benchmarks that put agents inside that harder loop. Each
-benchmark begins with an unresolved engineering problem and a physical oracle.
-The agent has to state a mechanism before spending compute, choose experiments
-under a finite budget, retain failed hypotheses, and deliver a replication
-script. A critic can still refuse the claim.
+Each study starts with a data-driven engineering problem and a runnable
+physical oracle. The workflow records hypotheses, simulation budgets,
+diagnostics, critical review, and replication scripts alongside the result.
+That makes an agent's scientific decisions inspectable and gives the next run
+the evidence needed to improve on the last one.
 
 <div class="row align-items-center">
   <div class="col-md-5">
     {% include figure.liquid path="assets/img/agentic-metamaterial.gif" alt="Animated finite-element simulation of a rocking-mast metamaterial coiling under compression" title="Rocking-mast benchmark simulation" class="img-fluid rounded z-depth-1" %}
-    <p class="caption">A rocking-mast candidate coils as its top ring descends and rotates. This is an actual simulation from the benchmark record.</p>
+    <p class="caption">A rocking-mast metamaterial coiling under axial compression in the supercompressible-material study.</p>
   </div>
   <div class="col-md-7">
-    <h2>5.9× is not the answer</h2>
-    <p>The current numerical leader reaches 5.9 times the Bessa baseline. It is deliberately not recorded as the benchmark answer: it reshapes a known cross-section family instead of supplying the new mechanism the problem asks for. The benchmark keeps that distinction explicit: a large simulated number is progress, not yet a discovery.</p>
+    <h2>One case study, more than a fivefold advance</h2>
+    <p>The supercompressible-material study asks agents to design a printable structure that coils under compression while carrying load. The workflow found a design that improves the state-of-the-art supercompressible reference by more than fivefold. It did so by turning an expensive finite-element oracle into a sequence of hypotheses, evaluations, and design decisions.</p>
   </div>
 </div>
 
-## A hard problem, with a hard oracle
+## A testbed for data-driven engineering
 
-The first benchmark asks for a printable rocking-mast metamaterial that coils
-under axial compression rather than crushing. The target is not merely a higher
-buckling load. A design must coil through 80% compression, remain below a 2%
-local-strain ceiling, be physically credible as a printed object, and clear
-twice the Bessa baseline through a genuinely new mechanism.
+The same loop can work across engineering scales and disciplines. Current
+studies include rocking-bag bioreactors, where motion and geometry must improve
+oxygen transfer without damaging cells; interfacial locomotion, where a floating
+body and its wave field must be designed together; inverse material
+identification from multiaxial stress--strain data; and supercompressible
+metamaterials.
 
-That makes it a useful test of agentic research. A system cannot get credit by
-optimizing inside a known family, by finding a numerical artefact, or by
-skipping the expensive check that could disqualify its own headline result.
+Each study has an executable oracle, a limited evaluation budget, competing
+objectives or constraints, and a scientific claim that can be tested.
 
-## Evidence, including the failures
+## Research that compounds
 
-These benchmarks cover supercompressible materials, bioreactor design, and
-fluid--structure interaction. The oracles range from Abaqus jobs on SLURM to
-two-phase DNS and Julia solvers. A run leaves a record of its hypothesis,
-simulation ledger, critic verdict, and replication script. The metamaterial
-study already preserves sixteen runs and roughly forty-nine ideas, including
-promising results later rejected by a stronger mechanical check.
-
-The point is not to make an agent look busy. It is to make a scientific claim
-auditable: another group should be able to replay the evidence, inspect why an
-idea was retired, and decide whether the stated mechanism earned the result.
+Every run leaves a usable research record: the hypothesis, the data it
+generated, the simulation ledger, the critic's verdict, and the script needed
+to reproduce the result. Failed directions remain part of that record. The
+result is cumulative engineering work that another researcher can inspect,
+replay, and extend.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='bessagroup/f3dasm-agentic-benchmarks' %}

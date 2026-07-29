@@ -1,41 +1,54 @@
 ---
 page_id: prj_agentic
 layout: page
-title: Engenharia de agentes sob um rigor de pesquisa real
-description: Benchmarks abertos para agentes que projetam, simulam e defendem alegações de engenharia
+title: a3dasm: loops científicos para engenharia de agentes
+description: Um fluxo de trabalho aberto e orientado por evidências para agentes resolverem problemas de engenharia baseados em dados
 img: assets/img/agentic-metamaterial.gif
 importance: 1
 category: work
 ---
 
-## Uma pontuação não é uma descoberta
+## De um grafo de agentes a um loop científico
 
-Um agente pode classificar milhares de designs candidatos. Isso não é suficiente para produzir um resultado científico. A tarefa mais difícil é decidir o que sobrevive quando o modelo, o mecanismo e as evidências são desafiados.
+O a3dasm transforma um grafo de agentes em um loop de pesquisa aberto. Os agentes podem
+seguir as evidências, mudar de estratégia e decidir quais dados produzir em seguida.
+O loop é guiado pelo método científico: declarar um mecanismo, escolher um
+experimento que possa testá-lo, reter a evidência e permitir que a crítica altere a
+afirmação.
 
-Estou construindo benchmarks abertos que colocam os agentes dentro desse ciclo mais difícil. Cada benchmark começa com um problema de engenharia não resolvido e um oráculo físico. O agente deve declarar um mecanismo antes de gastar computação, escolher experimentos sob um orçamento finito, reter hipóteses que falharam e entregar um script de replicação. Um crítico ainda pode recusar a alegação.
+Cada estudo começa com um problema de engenharia baseado em dados e um oráculo físico executável. O fluxo de trabalho registra hipóteses, orçamentos de simulação,
+diagnósticos, revisão crítica e scripts de replicação junto com o resultado.
+Isso torna as decisões científicas de um agente inspecionáveis e fornece à próxima execução
+as evidências necessárias para melhorar a anterior.
 
 <div class="row align-items-center">
   <div class="col-md-5">
     {% include figure.liquid path="assets/img/agentic-metamaterial.gif" alt="Animated finite-element simulation of a rocking-mast metamaterial coiling under compression" title="Rocking-mast benchmark simulation" class="img-fluid rounded z-depth-1" %}
-    <p class="caption">Um mastro oscilante candidato se enrola à medida que seu anel superior desce e gira. Esta é uma simulação real do registro do benchmark.</p>
+    <p class="caption">Um metamaterial de mastro oscilante enrolando-se sob compressão axial no estudo de material supercompressível.</p>
   </div>
   <div class="col-md-7">
-    <h2>5.9× não é a resposta</h2>
-    <p>O líder numérico atual atinge 5,9 vezes a linha de base de Bessa. Deliberadamente, ele não é registrado como a resposta do benchmark: ele reformula uma família de seções transversais conhecida em vez de fornecer o novo mecanismo que o problema solicita. O benchmark mantém essa distinção explícita: um número simulado alto é progresso, mas ainda não é uma descoberta.</p>
+    <h2>Um estudo de caso, um avanço de mais de cinco vezes</h2>
+    <p>O estudo de material supercompressível solicita aos agentes que projetem uma estrutura imprimível que se enrole sob compressão enquanto suporta carga. O fluxo de trabalho encontrou um design que melhora a referência de supercompressível de última geração em mais de cinco vezes. Ele fez isso transformando um oráculo de elementos finitos caro em uma sequência de hipóteses, avaliações e decisões de projeto.</p>
   </div>
 </div>
 
-## Um problema difícil, com um oráculo difícil
+## Um banco de testes para engenharia baseada em dados
 
-O primeiro benchmark pede um metamaterial de mastro oscilante imprimível que se enrola sob compressão axial em vez de esmagar. O objetivo não é meramente uma carga de flambagem mais alta. Um design deve se enrolar através de 80% de compressão, permanecer abaixo de um teto de 2% de deformação local, ser fisicamente plausível como um objeto impresso e superar o dobro da linha de base de Bessa através de um mecanismo genuinamente novo.
+O mesmo loop pode funcionar em diferentes escalas e disciplinas de engenharia. Os
+estudos atuais incluem biorreatores de bolsa oscilante, onde o movimento e a geometria devem melhorar
+a transferência de oxigênio sem danificar as células; locomoção interfacial, onde um corpo flutuante
+e seu campo de ondas devem ser projetados em conjunto; identificação inversa de material
+a partir de dados de tensão-deformação multiaxiais; e metamateriais supercompressíveis.
 
-Isso o torna um teste útil de pesquisa agêntica. Um sistema não pode obter crédito otimizando dentro de uma família conhecida, encontrando um artefato numérico ou pulando a verificação dispendiosa que poderia desqualificar seu próprio resultado principal.
+Cada estudo possui um oráculo executável, um orçamento de avaliação limitado, objetivos ou restrições concorrentes e uma afirmação científica que pode ser testada.
 
-## Evidência, incluindo as falhas
+## Pesquisa que se acumula
 
-Esses benchmarks abrangem materiais supercompressíveis, design de biorreatores e interação fluido-estrutura. Os oráculos variam de tarefas Abaqus no SLURM a DNS de duas fases e solvers em Julia. Uma execução deixa um registro de sua hipótese, registro de simulação, veredito do crítico e script de replicação. O estudo do metamaterial já preserva dezesseis execuções e cerca de quarenta e nove ideias, incluindo resultados promissores posteriormente rejeitados por uma verificação mecânica mais rigorosa.
-
-O ponto não é fazer um agente parecer ocupado. É tornar uma alegação científica auditável: outro grupo deve ser capaz de reproduzir as evidências, inspecionar por que uma ideia foi descartada e decidir se o mecanismo declarado justificou o resultado.
+Cada execução deixa um registro de pesquisa utilizável: a hipótese, os dados que
+ela gerou, o livro de registros da simulação, o veredito do crítico e o script necessário
+para reproduzir o resultado. Direções que falharam permanecem como parte desse registro. O
+resultado é um trabalho de engenharia cumulativo que outro pesquisador pode inspecionar,
+reproduzir e estender.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='bessagroup/f3dasm-agentic-benchmarks' %}
