@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Batch translator: translates all en-us markdown files to a target language in a
-single gemini-cli call, with a capped retry loop for files that fail validation.
+Batch translator: translates all en-us markdown files to a target language with
+OpenRouter's free-model router, with a capped retry loop for files that fail
+validation.
 
 Usage:
     python3 translate.py <lang>          # translate all markdown files
@@ -12,8 +13,9 @@ Supported languages: pt-br, es
 import sys
 import re
 import json
-import subprocess
+import os
 from pathlib import Path
+from urllib import error, request
 
 LANGUAGES = {
     "pt-br": "Brazilian Portuguese",
@@ -24,6 +26,8 @@ LANGUAGES = {
 SOURCE_DIRS = ["_projects/en-us", "_pages/en-us", "_news/en-us"]
 
 MAX_RETRIES = 5
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+OPENROUTER_MODEL = "openrouter/free"
 
 COLORS = {
     "green":  "\033[32m",
@@ -90,7 +94,7 @@ Respond with a single JSON code block and nothing else:
 """
 
 # ---------------------------------------------------------------------------
-# Post-translation validation (independent of Gemini)
+# Post-translation validation (independent of the translation provider)
 # ---------------------------------------------------------------------------
 
 def extract_liquid_tags(text: str) -> list[str]:
@@ -187,21 +191,47 @@ def target_path(src: Path, lang: str) -> Path:
     return Path(str(src).replace("/en-us/", f"/{lang}/"))
 
 
-def call_gemini(prompt: str, resume: bool = False) -> str:
-    """Send prompt to gemini-cli in headless mode and return raw text output."""
-    cmd = ["gemini", "-p", prompt, "-o", "text"]
-    if resume:
-        cmd += ["--resume", "latest"]
-    result = subprocess.run(cmd, capture_output=True, text=True)
-    if result.returncode != 0:
+def call_openrouter(prompt: str) -> str:
+    """Send a non-streaming translation prompt to OpenRouter and return text."""
+    api_key = os.environ.get("OPENROUTER_API_KEY")
+    if not api_key:
+        raise RuntimeError("OPENROUTER_API_KEY is required for automatic translation.")
+
+    payload = {
+        "model": OPENROUTER_MODEL,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.2,
+    }
+    http_request = request.Request(
+        OPENROUTER_URL,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+
+    try:
+        with request.urlopen(http_request, timeout=120) as response:
+            body = response.read().decode("utf-8")
+    except error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace")[:500]
         raise RuntimeError(
-            f"gemini CLI exited with code {result.returncode}:\n{result.stderr}"
-        )
-    if not result.stdout.strip():
-        raise RuntimeError(
-            f"gemini CLI returned empty output. stderr:\n{result.stderr}"
-        )
-    return result.stdout
+            f"OpenRouter request failed (HTTP {exc.code}): {detail}"
+        ) from exc
+    except error.URLError as exc:
+        raise RuntimeError(f"OpenRouter request failed: {exc.reason}") from exc
+
+    try:
+        response_json = json.loads(body)
+        content = response_json["choices"][0]["message"]["content"]
+    except (IndexError, KeyError, TypeError, json.JSONDecodeError) as exc:
+        raise RuntimeError("OpenRouter response contained no assistant content.") from exc
+
+    if not isinstance(content, str) or not content.strip():
+        raise RuntimeError("OpenRouter response contained no assistant content.")
+    return content
 
 
 def parse_translated_files(response: str) -> dict[str, str]:
@@ -213,7 +243,7 @@ def parse_translated_files(response: str) -> dict[str, str]:
     matches = pattern.findall(response)
     if not matches:
         raise ValueError(
-            "No <translated_file> blocks found in gemini response.\n"
+            "No <translated_file> blocks found in translation response.\n"
             f"Response preview:\n{response[:800]}"
         )
     return {path: content for path, content in matches}
@@ -307,10 +337,10 @@ def translate_markdown(lang: str):
 
     printc(f"Translating {len(files)} files → {LANGUAGES[lang]} ({lang})...", "cyan")
 
-    # --- Initial call (no session resume) ---
+    # --- Initial call ---
     prompt = build_markdown_prompt(files, lang)
-    printc("Sending batch to gemini-cli...", "cyan")
-    response = call_gemini(prompt, resume=False)
+    printc(f"Sending batch to OpenRouter ({OPENROUTER_MODEL})...", "cyan")
+    response = call_openrouter(prompt)
     translations = parse_translated_files(response)
 
     good, errors_by_path, bad_sources = run_validation_pass(translations, files, lang)
@@ -320,7 +350,7 @@ def translate_markdown(lang: str):
     if bad_sources:
         printc(f"  {len(bad_sources)}/{len(files)} files need correction.", "yellow")
 
-    # --- Retry loop (resume same session) ---
+    # --- Retry loop (each correction prompt is self-contained) ---
     for attempt in range(1, MAX_RETRIES + 1):
         if not bad_sources:
             break
@@ -336,7 +366,7 @@ def translate_markdown(lang: str):
                 printc(f"  [{path_str}] {err}", "yellow")
 
         correction = build_correction_prompt(bad_sources, lang, errors_by_path)
-        response = call_gemini(correction, resume=True)
+        response = call_openrouter(correction)
         new_translations = parse_translated_files(response)
 
         new_good, errors_by_path, bad_sources = run_validation_pass(
@@ -391,11 +421,11 @@ def translate_resume(lang: str):
     prompt = RESUME_PROMPT.format(language=LANGUAGES[lang], content=content)
 
     printc(f"Translating resume → {LANGUAGES[lang]} ({lang})...", "cyan")
-    response = call_gemini(prompt, resume=False)
+    response = call_openrouter(prompt)
 
     match = re.search(r"```(?:json)?\s*([\s\S]*?)\s*```", response, re.DOTALL)
     if not match:
-        printc("No JSON code block found in gemini response.", "red")
+        printc("No JSON code block found in translation response.", "red")
         printc(f"Response preview:\n{response[:600]}", "yellow")
         sys.exit(1)
 
@@ -404,7 +434,7 @@ def translate_resume(lang: str):
     try:
         json.loads(translated_json)
     except json.JSONDecodeError as e:
-        printc(f"Gemini returned invalid JSON: {e}", "red")
+        printc(f"OpenRouter returned invalid JSON: {e}", "red")
         printc(f"Output:\n{translated_json[:600]}", "yellow")
         sys.exit(1)
 

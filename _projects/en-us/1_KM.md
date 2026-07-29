@@ -9,9 +9,11 @@ category: "work"
 related_publications: true
 ---
 
-## Contact is the model
+## A millisecond decides the outcome
 
-In deformable impact, the contact law can decide the result. I build solvers that move pressure, contact extent, and interface motion from prescribed inputs into the dynamics.
+In printing, coating, sprays, and liquid handling, impact decides whether a liquid deposits, spreads, rebounds, or coalesces. That choice is made in milliseconds, while the bodies involved are changing shape.
+
+The difficulty is that a deformable collision has no pre-existing contact area or pressure field. At first touch, pressure reshapes the interfaces, and their shapes alter the pressure. `SpectralKM.jl` asks how to solve that loop when both sides of the collision are liquid.
 
 <figure>
   <video autoplay muted loop controls preload="metadata" poster="{{ '/assets/img/spectralkm-impact-poster.png' | relative_url }}" class="img-fluid rounded z-depth-1" style="width: 100%; display: block;" aria-label="SpectralKM bath-impact animation with a red contact patch and pressure inset">

@@ -10,14 +10,14 @@ CV_LANGS := en-us pt-br es
 
 all: translate translate-cv copy-cv
 
-# Translate all markdown files — one gemini-cli call per language
+# Translate all markdown files — OpenRouter/free calls per language
 translate:
 	@for lang in $(LANGS); do \
 		echo "==> Translating markdown → $$lang"; \
 		python3 translate.py $$lang; \
 	done
 
-# Translate resume JSON — one gemini-cli call per language
+# Translate resume JSON — OpenRouter/free calls per language
 translate-cv: $(foreach lang,$(filter-out en-us,$(CV_LANGS)),assets/json/resume_$(lang).json)
 
 assets/json/resume_pt-br.json: assets/json/resume_en-us.json
