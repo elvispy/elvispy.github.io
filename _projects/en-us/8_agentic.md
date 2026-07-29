@@ -1,7 +1,7 @@
 ---
 page_id: prj_agentic
 layout: page
-title: a3dasm: scientific loops for agentic engineering
+title: "a3dasm: scientific loops for agentic engineering"
 description: An open, evidence-guided workflow for agents solving data-driven engineering problems
 img: assets/img/agentic-metamaterial.gif
 importance: 1

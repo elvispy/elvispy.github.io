@@ -1,7 +1,7 @@
 ---
 page_id: prj_agentic
 layout: page
-title: a3dasm: ciclos científicos para ingeniería agéntica
+title: "a3dasm: ciclos científicos para ingeniería agéntica"
 description: Un flujo de trabajo abierto y guiado por la evidencia para agentes que resuelven problemas de ingeniería basados en datos
 img: assets/img/agentic-metamaterial.gif
 importance: 1

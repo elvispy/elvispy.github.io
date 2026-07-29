@@ -1,7 +1,7 @@
 ---
 page_id: prj_agentic
 layout: page
-title: a3dasm: loops científicos para engenharia de agentes
+title: "a3dasm: loops científicos para engenharia de agentes"
 description: Um fluxo de trabalho aberto e orientado por evidências para agentes resolverem problemas de engenharia baseados em dados
 img: assets/img/agentic-metamaterial.gif
 importance: 1
