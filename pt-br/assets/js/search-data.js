@@ -150,6 +150,11 @@ ninja.data = [{
           description: "Busca simbólica por reduções de escala de EDP → EDO",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/7_zsimilarity/";
+            },},{id: "projects-agentic-engineering-under-a-real-research-bar",
+          title: 'Agentic engineering under a real research bar',
+          description: "Open benchmarks for agents that design, simulate, and defend engineering claims",
+          section: "Projetos",handler: () => {
+              window.location.href = "/pt-br/projects/8_agentic/";
             },},{id: "projects-por-favor-aprenda-a-programar",
           title: 'Por favor, aprenda a programar',
           description: "",

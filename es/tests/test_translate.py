@@ -1,7 +1,9 @@
 import json
 import os
+import tempfile
 import unittest
 from io import BytesIO
+from pathlib import Path
 from urllib.error import HTTPError
 from unittest.mock import patch
 
@@ -23,6 +25,26 @@ class FakeResponse:
 
 
 class OpenRouterClientTests(unittest.TestCase):
+    def test_partitions_markdown_files_without_exceeding_the_batch_budget(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            files = []
+            for name, content in {
+                "first.md": "a" * 8,
+                "second.md": "b" * 7,
+                "third.md": "c" * 5,
+            }.items():
+                path = root / name
+                path.write_text(content, encoding="utf-8")
+                files.append(path)
+
+            batches = translate.partition_markdown_files(files, max_source_chars=12)
+
+        self.assertEqual(
+            [[path.name for path in batch] for batch in batches],
+            [["first.md"], ["second.md", "third.md"]],
+        )
+
     def test_existing_validation_accepts_preserved_liquid_tags(self):
         source = """---
 title: A title
@@ -46,7 +68,9 @@ title: A title
         request = urlopen.call_args.args[0]
         self.assertEqual(request.full_url, translate.OPENROUTER_URL)
         self.assertEqual(request.get_header("Authorization"), "Bearer test-key")
-        self.assertEqual(json.loads(request.data)["model"], "openrouter/free")
+        payload = json.loads(request.data)
+        self.assertEqual(payload["model"], "google/gemma-4-31b-it:free")
+        self.assertEqual(payload["reasoning"], {"effort": "none"})
 
     @patch.dict(os.environ, {}, clear=True)
     def test_requires_openrouter_api_key(self):
@@ -64,16 +88,41 @@ title: A title
     @patch.dict(os.environ, {"OPENROUTER_API_KEY": "test-key"}, clear=True)
     @patch("translate.request.urlopen")
     def test_surfaces_http_errors_without_exposing_the_key(self, urlopen):
-        urlopen.side_effect = HTTPError(
-            translate.OPENROUTER_URL,
-            429,
-            "Too Many Requests",
-            hdrs=None,
-            fp=BytesIO(b'{"error":{"message":"rate limited"}}'),
-        )
+        urlopen.side_effect = [
+            HTTPError(
+                translate.OPENROUTER_URL,
+                429,
+                "Too Many Requests",
+                hdrs=None,
+                fp=BytesIO(b'{"error":{"message":"rate limited"}}'),
+            )
+            for _ in translate.OPENROUTER_MODELS
+        ]
 
         with self.assertRaisesRegex(RuntimeError, r"OpenRouter request failed \(HTTP 429\)"):
             translate.call_openrouter("translate this")
+
+    @patch.dict(os.environ, {"OPENROUTER_API_KEY": "test-key"}, clear=True)
+    @patch("translate.request.urlopen")
+    def test_falls_back_to_a_second_free_model_after_a_rate_limit(self, urlopen):
+        urlopen.side_effect = [
+            HTTPError(
+                translate.OPENROUTER_URL,
+                429,
+                "Too Many Requests",
+                hdrs=None,
+                fp=BytesIO(b'{"error":{"message":"rate limited"}}'),
+            ),
+            FakeResponse({"choices": [{"message": {"content": "translated text"}}]}),
+        ]
+
+        result = translate.call_openrouter("translate this")
+
+        self.assertEqual(result, "translated text")
+        self.assertEqual(
+            [json.loads(call.args[0].data)["model"] for call in urlopen.call_args_list],
+            list(translate.OPENROUTER_MODELS),
+        )
 
 
 if __name__ == "__main__":
