@@ -11,7 +11,7 @@ related_publications: true
 
 ## Impact is a contact problem
 
-Impact looks simple. Its numerical core is not. A drop deforms, a contact region appears, pressure redistributes, and the bodies separate or remain together. The contact law decides much of the answer. I build models that put progressively less of that law in by hand.
+Impact looks simple. A predictive model still has to decide which quantities it treats as laws and which it lets the dynamics determine. I build deformable-impact software that progressively moves pressure, contact extent, and interface motion out of the input file and into the solve.
 
 <figure>
   <video autoplay muted loop controls preload="metadata" poster="{{ '/assets/img/spectralkm-impact-poster.png' | relative_url }}" class="img-fluid rounded z-depth-1" style="width: 100%; display: block;" aria-label="SpectralKM bath-impact animation with a red contact patch and pressure inset">
@@ -25,7 +25,7 @@ Impact looks simple. Its numerical core is not. A drop deforms, a contact region
 
 The first model was a rigid sphere striking an elastic membrane, published in 2022 ({% cite aguero2022impact %}). The simulation below depicts that rigid-sphere / elastic-membrane model. I then moved the problem to a drop against a solid substrate, then to a drop against a bath, where both liquid interfaces deform. The low-Weber drop-rebound study from that bath branch is available as an arXiv preprint ({% cite gabbard2025dropreboundlowweber %}).
 
-<div style="max-width: 300px; margin: 1rem auto;">
+<div style="max-width: 640px; margin: 1.5rem auto;">
   {% include figure.liquid loading="lazy" path="assets/img/km-sphere.gif" alt="Simulation of a rigid sphere impacting an elastic membrane" title="Rigid sphere and elastic membrane" class="img-fluid rounded z-depth-1" caption="Simulation of the 2022 rigid-sphere / elastic-membrane model." %}
 </div>
 
@@ -33,31 +33,36 @@ The solid-substrate branch then took on non-Newtonian constitutive relations. La
 
 ## The fully spectral formulation
 
-`SpectralKM.jl` models a Newtonian, non-coalescing drop impacting a bath. It represents the bath with Fourier–Bessel modes, the drop with Legendre modes, and contact pressure with shifted-Legendre modes. An outer feasibility-filtered selection chooses the contact patch. Contact extent and pressure are therefore solved, not supplied as inputs.
+`SpectralKM.jl` is a Newtonian, non-coalescing drop--bath model. It represents the bath with Fourier–Bessel modes, the drop with Legendre modes, and contact pressure with shifted-Legendre modes. An outer feasibility-filtered selection chooses the contact patch.
 
-The documented water reference case uses $We = 1.0958$, $Bo = 0.017$, and $Oh = 0.006$ for $R = 0.35\,\mathrm{mm}$. There is no mesh-resolved pressure field. The integrated dynamics can converge while the pointwise pressure profile remains unresolved, because the model is driven only by low-order pressure moments. That distinction is why the pressure inset is evidence about the solve, not a claim of pointwise convergence.
+The advance is not the choice of basis alone. Pressure is not assigned a shape. The contact patch is not picked by a mesh-scale tangency test. Neither liquid interface is held fixed. The bath, drop, pressure supported on the patch, and contact extent are solved together. That makes the contact law inspectable: a rebound prediction is no longer inseparable from a pressure curve or contact rule chosen in advance.
 
-Here the deforming bath, drop, contact pressure, and contact extent are part of one solve. The assumptions remain explicit enough to test.
+The model also draws a useful numerical boundary. Rebound dynamics can settle before a pointwise pressure trace does, so the code treats the pressure inset as a diagnostic of the solve rather than a polished field to over-interpret.
 
 ## A solid-substrate branch
 
-`DropRebound.jl` is the solid-substrate and rheology branch of this work, a related lower-order spectral solver for rebound on a flat substrate. `SpectralKM.jl` is the current contact-dynamics formulation for drop--bath impact. The videos below are separate numerical cases from `DropRebound.jl`.
+`DropRebound.jl` is the solid-substrate and rheology branch of this work. Its deliberately simpler geometry isolates how constitutive behaviour changes rebound, while `SpectralKM.jl` carries the contact-dynamics problem to two deforming liquid interfaces. The videos are separate numerical cases, not a performance comparison.
 
-<figure>
-  <video autoplay muted loop controls preload="metadata" poster="{{ '/assets/img/droprebound-oldroyd-b-poster.png' | relative_url }}" class="img-fluid rounded z-depth-1" style="width: 100%; max-width: 540px; display: block; margin: 0 auto;" aria-label="DropRebound numerical Oldroyd-B rebound case">
-    <source src="{{ '/assets/img/droprebound-oldroyd-b.mp4' | relative_url }}" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <figcaption class="caption">Numerical Oldroyd-B case.</figcaption>
-</figure>
-
-<figure>
-  <video autoplay muted loop controls preload="metadata" poster="{{ '/assets/img/droprebound-carreau-poster.png' | relative_url }}" class="img-fluid rounded z-depth-1" style="width: 100%; max-width: 540px; display: block; margin: 0 auto;" aria-label="DropRebound numerical Carreau rebound case">
-    <source src="{{ '/assets/img/droprebound-carreau.mp4' | relative_url }}" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <figcaption class="caption">Numerical Carreau case.</figcaption>
-</figure>
+<div class="row">
+  <div class="col-md-6">
+    <figure>
+      <video autoplay muted loop controls preload="metadata" poster="{{ '/assets/img/droprebound-oldroyd-b-poster.png' | relative_url }}" class="img-fluid rounded z-depth-1" style="width: 100%; display: block;" aria-label="DropRebound numerical Oldroyd-B rebound case">
+        <source src="{{ '/assets/img/droprebound-oldroyd-b.mp4' | relative_url }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <figcaption class="caption">Numerical Oldroyd-B case.</figcaption>
+    </figure>
+  </div>
+  <div class="col-md-6">
+    <figure>
+      <video autoplay muted loop controls preload="metadata" poster="{{ '/assets/img/droprebound-carreau-poster.png' | relative_url }}" class="img-fluid rounded z-depth-1" style="width: 100%; display: block;" aria-label="DropRebound numerical Carreau rebound case">
+        <source src="{{ '/assets/img/droprebound-carreau.mp4' | relative_url }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <figcaption class="caption">Numerical Carreau case.</figcaption>
+    </figure>
+  </div>
+</div>
 
 ## Research in the open
 
