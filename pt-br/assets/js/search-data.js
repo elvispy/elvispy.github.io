@@ -168,6 +168,13 @@ ninja.data = [{
           window.open("https://github.com/elvispy", "_blank");
         },
       },{
+        id: 'social-lichess_username',
+        title: 'Lichess_username',
+        section: 'Redes sociais',
+        handler: () => {
+          window.open("", "_blank");
+        },
+      },{
         id: 'social-linkedin',
         title: 'LinkedIn',
         section: 'Redes sociais',
