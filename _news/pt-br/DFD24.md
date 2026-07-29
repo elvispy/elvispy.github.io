@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Apresentei meu trabalho mais recente na [Reunião Anual da Divisão de Dinâmica de Fluidos da Sociedade Americana de Física](https://meetings.aps.org/Meeting/DFD24/Session/X10)
+Apresentei meu trabalho mais recente no [Annual Meeting of the American Physical Society Division of Fluid Dynamics](https://meetings.aps.org/Meeting/DFD24/Session/X10)

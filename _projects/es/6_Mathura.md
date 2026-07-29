@@ -11,4 +11,4 @@ El gobierno de Paraguay ofrece becas de matrícula completa para estudios de gra
 
 Las becas existen. Los estudiantes existen. Lo que falta es preparación.
 
-<a href="https://www.facebook.com/photo.php?fbid=659786765941152&set=pb.100057295035664.-2207520000">Mathura</a> es una iniciativa regional fundada por un amigo cercano que imparte clases gratuitas de Matemáticas y Literatura para estudiantes de secundaria que se preparan para estos exámenes. Me uní como instructor para ayudar a cerrar esa brecha, no bajando el nivel, sino dando a los estudiantes una oportunidad real de superarlo.
+<a href="https://www.facebook.com/photo.php?fbid=659786765941152&set=pb.100057295035664.-2207520000">Mathura</a> es una iniciativa regional fundada por un amigo cercano que imparte clases gratuitas de Matemáticas y Literatura para estudiantes de secundaria que se preparan para estos exámenes. Me uní como instructor para ayudar a cerrar esa brecha, no bajando la vara sino dándoles a los estudiantes una oportunidad real de superarla.

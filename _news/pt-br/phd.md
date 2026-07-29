@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Vou começar meu doutorado na Escola de Engenharia da Universidade Brown! Será uma excelente oportunidade para aprender novas habilidades.
+Iniciarei meu doutorado na School of Engineering da Brown University! Será uma excelente oportunidade para aprender novas habilidades.

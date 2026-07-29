@@ -4,7 +4,7 @@ layout: default
 permalink: /blog/
 title: blog
 blog_name: al-folio en español
-description: un tema simple de espacio en blanco para académicos
+description: un tema sencillo con espacios en blanco para académicos
 nav: false
 nav_order: 1
 pagination:
@@ -15,8 +15,8 @@ pagination:
   sort_field: date
   sort_reverse: true
   trail:
-    before: 1 # The number of links before the current page
-    after: 3 # The number of links after the current page
+    before: 1 # El número de enlaces antes de la página actual
+    after: 3 # El número de enlaces después de la página actual
 ---
 
 <div class="post">
