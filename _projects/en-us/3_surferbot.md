@@ -1,7 +1,7 @@
 ---
 page_id: prj_surferbot
 layout: page
-title: Flexible Surferbot
+title: Enabling interfacial locomotion
 description: Wave-driven propulsion by a flexible raft
 img: assets/img/surferbot.gif
 importance: 1

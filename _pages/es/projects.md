@@ -6,7 +6,7 @@ permalink: /projects/
 description: Una colección creciente de mis mejores proyectos.
 nav: true
 nav_order: 3
-display_categories: [trabajo, personal, diversión]
+display_categories: [work, personal, fun]
 horizontal: false
 ---
 
