@@ -22,7 +22,7 @@ ninja.data = [{
     },
   },{id: "nav-projetos",
           title: "projetos",
-          description: "Uma coleção crescente de meus projetos legais.",
+          description: "Uma coleção crescente dos meus projetos legais.",
           section: "Menu de navegação",
           handler: () => {
             window.location.href = "/pt-br/projects/";
@@ -74,26 +74,26 @@ ninja.data = [{
             },},{id: "news-um-anúncio-simples-em-uma-linha-com-markdown-emoji-sparkles-smile",
           title: 'Um anúncio simples em uma linha com Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "Novidades",},{id: "news-nosso-artigo-impact-of-a-rigid-sphere-onto-an-elastic-membrane-foi-aceito-no-proceedings-of-the-royal-society-a",
-          title: 'Nosso artigo “Impact of a rigid sphere onto an elastic membrane” foi aceito...',
+          section: "Novidades",},{id: "news-nosso-artigo-impact-of-a-rigid-sphere-onto-an-ellastic-membrane-foi-aceito-no-proceedings-of-the-royal-society-a",
+          title: 'Nosso artigo “Impact of a rigid sphere onto an ellastic membrane” foi aceito...',
           description: "",
-          section: "Novidades",},{id: "news-tive-o-prazer-de-visitar-e-colaborar-com-o-harris-lab-na-universidade-brown",
-          title: 'Tive o prazer de visitar e colaborar com o Harris Lab na Universidade...',
+          section: "Novidades",},{id: "news-tive-o-prazer-de-visitar-e-colaborar-com-o-harris-lab-brown-university",
+          title: 'Tive o prazer de visitar e colaborar com o Harris Lab @ Brown...',
           description: "",
-          section: "Novidades",},{id: "news-participei-da-maravilhosa-escola-avançada-de-física-experimental-no-cbpf-onde-realizamos-pesquisas-sobre-fenômenos-fundamentais-para-dispositivos-spintrônicos",
+          section: "Novidades",},{id: "news-participei-da-maravilhosa-escola-avançada-de-física-experimental-no-cbpf-onde-realizamos-pesquisas-sobre-fenômenos-fundamentais-para-dispositivos-de-spintrônica",
           title: 'Participei da maravilhosa Escola Avançada de Física Experimental no CBPF, onde realizamos pesquisas...',
           description: "",
-          section: "Novidades",},{id: "news-vou-começar-meu-doutorado-na-escola-de-engenharia-da-universidade-brown-será-uma-excelente-oportunidade-para-aprender-novas-habilidades",
-          title: 'Vou começar meu doutorado na Escola de Engenharia da Universidade Brown! Será uma...',
+          section: "Novidades",},{id: "news-iniciarei-meu-doutorado-na-school-of-engineering-da-brown-university-será-uma-excelente-oportunidade-para-aprender-novas-habilidades",
+          title: 'Iniciarei meu doutorado na School of Engineering da Brown University! Será uma excelente...',
           description: "",
           section: "Novidades",},{id: "news-tive-o-prazer-de-ser-selecionado-para-o-programa-de-estudantes-de-verão-do-cern",
           title: 'Tive o prazer de ser selecionado para o programa de estudantes de verão...',
           description: "",
-          section: "Novidades",},{id: "news-apresentei-meu-trabalho-mais-recente-no-encontro-conjunto-de-matemática-brasil-china",
-          title: 'Apresentei meu trabalho mais recente no Encontro Conjunto de Matemática Brasil-China',
+          section: "Novidades",},{id: "news-apresentei-meu-trabalho-mais-recente-no-brazil-china-joint-mathematical-meeting",
+          title: 'Apresentei meu trabalho mais recente no Brazil-China Joint Mathematical Meeting',
           description: "",
-          section: "Novidades",},{id: "news-apresentei-meu-trabalho-mais-recente-na-reunião-anual-da-divisão-de-dinâmica-de-fluidos-da-sociedade-americana-de-física",
-          title: 'Apresentei meu trabalho mais recente na Reunião Anual da Divisão de Dinâmica de...',
+          section: "Novidades",},{id: "news-apresentei-meu-trabalho-mais-recente-no-annual-meeting-of-the-american-physical-society-division-of-fluid-dynamics",
+          title: 'Apresentei meu trabalho mais recente no Annual Meeting of the American Physical Society...',
           description: "",
           section: "Novidades",},{id: "news-nosso-preprint-mais-recente-droplet-rebounds-off-a-fluid-bath-kinematic-match-simulations-and-experiments-está-disponível-no-arxiv",
           title: 'Nosso preprint mais recente “Droplet rebounds off a fluid bath: kinematic match simulations...',
@@ -101,18 +101,18 @@ ninja.data = [{
           section: "Novidades",},{id: "news-nosso-novo-preprint-drop-rebound-at-low-weber-number-está-disponível-no-arxiv",
           title: 'Nosso novo preprint “Drop rebound at low weber number” está disponível no arxiv...',
           description: "",
-          section: "Novidades",},{id: "news-estou-participando-da-escola-de-verão-da-umass-amherst-sobre-matéria-mole-e-fluidos-complexos",
-          title: 'Estou participando da Escola de Verão da UMass Amherst sobre Matéria Mole e...',
+          section: "Novidades",},{id: "news-estou-participando-da-umass-amherst-summer-school-on-soft-matter-and-complex-fluids",
+          title: 'Estou participando da UMass Amherst Summer School on Soft Matter and Complex Fluids!...',
           description: "",
-          section: "Novidades",},{id: "news-apresentei-meu-trabalho-mais-recente-na-reunião-anual-da-divisão-de-dinâmica-de-fluidos-da-sociedade-americana-de-física",
-          title: 'Apresentei meu trabalho mais recente na Reunião Anual da Divisão de Dinâmica de...',
+          section: "Novidades",},{id: "news-apresentei-meu-trabalho-mais-recente-no-annual-meeting-of-the-american-physical-society-division-of-fluid-dynamics",
+          title: 'Apresentei meu trabalho mais recente no Annual Meeting of the American Physical Society...',
           description: "",
-          section: "Novidades",},{id: "news-fui-selecionado-para-me-candidatar-ao-campeonato-de-xadrez-inter-ivy-a-ser-realizado-na-universidade-da-pensilvânia",
-          title: 'Fui selecionado para me candidatar ao campeonato de xadrez Inter-Ivy a ser realizado...',
+          section: "Novidades",},{id: "news-fui-selecionado-para-me-inscrever-no-campeonato-de-xadrez-inter-ivy-que-será-realizado-na-university-of-pennsylvania",
+          title: 'Fui selecionado para me inscrever no campeonato de xadrez Inter-Ivy, que será realizado...',
           description: "",
-          section: "Novidades",},{id: "projects-fusão-bayesiana-para-escalonamento-de-biorreatores",
-          title: 'Fusão Bayesiana para Escalonamento de Biorreatores',
-          description: "Incerteza atribuída por campo para predição de crescimento multifísico",
+          section: "Novidades",},{id: "projects-design-de-multi-fidelidade-para-biorreatores-de-balanço",
+          title: 'Design de multi-fidelidade para biorreatores de balanço',
+          description: "Design acoplado de transferência de oxigênio e cisalhamento com CFD de multi-fidelidade",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/0_bioreactor/";
             },},{id: "projects-kinematic-match-uma-estrutura-de-contato-suave-para-impactos-deformáveis",
@@ -122,17 +122,17 @@ ninja.data = [{
               window.location.href = "/pt-br/projects/1_KM/";
             },},{id: "projects-transporte-de-spin-por-medição-e-inferência",
           title: 'Transporte de spin por medição e inferência',
-          description: "De ajustes de FMR baseados em LLG à desconvolução de iSHE e seleção de materiais",
+          description: "De ajustes de FMR baseados em LLG à deconvolução de iSHE e seleção de materiais",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/2_CBPF/";
-            },},{id: "projects-locomoção-interfacial",
-          title: 'Locomoção interfacial',
-          description: "Física diferenciável para robôs movidos a ondas",
+            },},{id: "projects-surferbot-flexível",
+          title: 'Surferbot Flexível',
+          description: "Propulsão impulsionada por ondas através de uma balsa flexível",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/3_surferbot/";
             },},{id: "projects-promovendo-olimpíadas-científicas",
           title: 'Promovendo Olimpíadas Científicas',
-          description: "Oferecendo acesso a oportunidades de qualidade para estudantes talentosos do ensino médio",
+          description: "Proporcionando acesso a oportunidades de qualidade para jovens e talentosos estudantes do ensino médio",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/4_JT/";
             },},{id: "projects-combatendo-a-corrupção-no-paraguai",
@@ -145,14 +145,14 @@ ninja.data = [{
           description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/6_Mathura/";
-            },},{id: "projects-resolvedor-de-similaridade-dinâmica-para-edps",
-          title: 'Resolvedor de similaridade dinâmica para EDPs',
+            },},{id: "projects-solver-de-auto-similaridade-dinâmica-para-edps",
+          title: 'Solver de auto-similaridade dinâmica para EDPs',
           description: "Busca simbólica por reduções de escala de EDP → EDO",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/7_zsimilarity/";
-            },},{id: "projects-agentic-engineering-under-a-real-research-bar",
-          title: 'Agentic engineering under a real research bar',
-          description: "Open benchmarks for agents that design, simulate, and defend engineering claims",
+            },},{id: "projects-engenharia-de-agentes-sob-um-rigor-de-pesquisa-real",
+          title: 'Engenharia de agentes sob um rigor de pesquisa real',
+          description: "Benchmarks abertos para agentes que projetam, simulam e defendem alegações de engenharia",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/8_agentic/";
             },},{id: "projects-por-favor-aprenda-a-programar",
@@ -162,7 +162,7 @@ ninja.data = [{
               window.location.href = "/pt-br/projects/9_PE/";
             },},{id: "projects-julia-em-escala-em-clusters-heterogêneos",
           title: 'Julia em escala em clusters heterogêneos',
-          description: "Pré-compilação + entrega de artefatos CVMFS para inícios rápidos e reproduzíveis",
+          description: "Pré-compilação + entrega de artefatos CVMFS para inicializações rápidas e reprodutíveis",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/announcement_2/";
             },},{

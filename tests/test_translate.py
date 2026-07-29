@@ -25,6 +25,83 @@ class FakeResponse:
 
 
 class OpenRouterClientTests(unittest.TestCase):
+    def test_restores_protected_liquid_tags_before_validation(self):
+        source = """---
+title: A title
+---
+
+{% include figure.liquid path="assets/img/example.png" caption="Do not translate" %}
+
+Visible text.
+"""
+
+        protected, replacements = translate.protect_nontranslatable_segments(source)
+        translated = protected.replace("Visible text.", "Texto visível.")
+        restored = translate.restore_nontranslatable_segments(translated, replacements)
+
+        self.assertNotIn("{% include", protected)
+        self.assertIn("{% include figure.liquid", restored)
+        self.assertEqual(translate.validate_translation(source, restored, "example"), [])
+
+    def test_restores_nested_liquid_and_html_segments_in_reverse_order(self):
+        source = '<source src="{{ \'/assets/demo.mp4\' | relative_url }}" type="video/mp4">'
+
+        protected, replacements = translate.protect_nontranslatable_segments(source)
+        restored = translate.restore_nontranslatable_segments(protected, replacements)
+
+        self.assertEqual(restored, source)
+
+    def test_protects_structural_frontmatter_urls_and_latex(self):
+        source = """---
+title: A visible title
+layout: page
+img: assets/img/example.png
+permalink: /projects/example/
+---
+
+Read [the paper](https://doi.org/10.1000/example). The model solves $A(\\theta)y=b(\\theta)$.
+"""
+
+        protected, replacements = translate.protect_nontranslatable_segments(source)
+        restored = translate.restore_nontranslatable_segments(protected, replacements)
+
+        self.assertNotIn("layout: page", protected)
+        self.assertNotIn("https://doi.org/10.1000/example", protected)
+        self.assertNotIn("$A(\\theta)y=b(\\theta)$", protected)
+        self.assertIn("title: A visible title", protected)
+        self.assertEqual(restored, source)
+
+    def test_validation_rejects_changed_structural_frontmatter(self):
+        source = """---
+title: A visible title
+layout: page
+---
+
+Visible text.
+"""
+        altered = source.replace("layout: page", "layout: post")
+
+        self.assertIn(
+            "Protected non-translatable segments were modified or reordered.",
+            translate.validate_translation(source, altered, "example"),
+        )
+
+    @patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}, clear=True)
+    @patch("translate.request.urlopen")
+    def test_returns_gemini_content_with_low_thinking(self, urlopen):
+        urlopen.return_value = FakeResponse(
+            {"candidates": [{"content": {"parts": [{"text": "translated text"}]}}]}
+        )
+
+        result = translate.call_gemini("translate this")
+
+        self.assertEqual(result, "translated text")
+        request = urlopen.call_args.args[0]
+        self.assertEqual(request.full_url, translate.GEMINI_URL)
+        self.assertEqual(request.get_header("X-goog-api-key"), "test-key")
+        payload = json.loads(request.data)
+        self.assertEqual(payload["generationConfig"]["thinkingConfig"], {"thinkingLevel": "low"})
+
     def test_partitions_markdown_files_without_exceeding_the_batch_budget(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)

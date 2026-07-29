@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Batch translator: translates all en-us markdown files to a target language with
-OpenRouter's free-model router, with a capped retry loop for files that fail
-validation.
+direct Gemini when available, falling back to OpenRouter's free models. A capped
+retry loop corrects files that fail validation.
 
 Usage:
     python3 translate.py <lang>          # translate all markdown files
@@ -33,6 +33,51 @@ OPENROUTER_MODELS = (
     "cohere/north-mini-code:free",
 )
 OPENROUTER_MODEL = OPENROUTER_MODELS[0]
+GEMINI_MODEL = "gemini-3-flash-preview"
+GEMINI_URL = (
+    "https://generativelanguage.googleapis.com/v1beta/models/"
+    f"{GEMINI_MODEL}:generateContent"
+)
+
+LIQUID_TAG_RE = re.compile(r"\{[{%]-?[\s\S]*?-?[%}]\}")
+FENCED_CODE_BLOCK_RE = re.compile(r"```[^\n]*\n[\s\S]*?```")
+INLINE_CODE_RE = re.compile(r"`[^`\n]+`")
+HTML_TAG_RE = re.compile(r"</?[A-Za-z][^>]*>")
+URL_RE = re.compile(r"https?://[^\s<>()\]\}]+")
+DISPLAY_MATH_RE = re.compile(r"\$\$[\s\S]*?\$\$")
+INLINE_MATH_RE = re.compile(r"(?<!\$)\$(?!\$)(?:\\.|[^$\n])+?\$(?!\$)")
+FRONTMATTER_RE = re.compile(r"\A---\n([\s\S]*?)\n---")
+FRONTMATTER_STRUCTURAL_KEYS = frozenset(
+    {
+        "announcements",
+        "category",
+        "children",
+        "date",
+        "dropdown",
+        "giscus_comments",
+        "horizontal",
+        "id",
+        "img",
+        "importance",
+        "inline",
+        "latest_posts",
+        "layout",
+        "math",
+        "nav",
+        "nav_order",
+        "page_id",
+        "pagination",
+        "permalink",
+        "profile",
+        "profiles",
+        "redirect",
+        "related_posts",
+        "related_publications",
+        "selected_papers",
+        "social",
+        "toc",
+    }
+)
 
 COLORS = {
     "green":  "\033[32m",
@@ -104,7 +149,61 @@ Respond with a single JSON code block and nothing else:
 
 def extract_liquid_tags(text: str) -> list[str]:
     """Return all Liquid tags in order: {{ ... }} and {% ... %}."""
-    return re.findall(r"\{[{%]-?[\s\S]*?-?[%}]\}", text)
+    return LIQUID_TAG_RE.findall(text)
+
+
+def protect_frontmatter_structural_values(text: str, replace_value) -> str:
+    """Mask frontmatter values that configure the site rather than label it."""
+    match = FRONTMATTER_RE.match(text)
+    if not match:
+        return text
+
+    def protect_line(line: str) -> str:
+        key_match = re.match(r"(?P<prefix>[A-Za-z_][\w-]*\s*:\s*)(?P<value>.+)$", line)
+        if not key_match or key_match.group("value").strip() == "":
+            return line
+        key = key_match.group("prefix").split(":", 1)[0].strip()
+        if key not in FRONTMATTER_STRUCTURAL_KEYS:
+            return line
+        return key_match.group("prefix") + replace_value(key_match.group("value"))
+
+    protected = "\n".join(protect_line(line) for line in match.group(1).split("\n"))
+    return text[: match.start(1)] + protected + text[match.end(1) :]
+
+
+def protect_nontranslatable_segments(text: str) -> tuple[str, dict[str, str]]:
+    """Replace syntax the model must not alter with deterministic opaque tokens."""
+    replacements: dict[str, str] = {}
+
+    def replace_value(value: str) -> str:
+        token = f"[[[PROTECTED_{len(replacements):04d}]]]"
+        replacements[token] = value
+        return token
+
+    text = protect_frontmatter_structural_values(text, replace_value)
+
+    def replace(match: re.Match[str]) -> str:
+        return replace_value(match.group(0))
+
+    for pattern in (
+        LIQUID_TAG_RE,
+        FENCED_CODE_BLOCK_RE,
+        INLINE_CODE_RE,
+        URL_RE,
+        DISPLAY_MATH_RE,
+        INLINE_MATH_RE,
+        HTML_TAG_RE,
+    ):
+        text = pattern.sub(replace, text)
+
+    return text, replacements
+
+
+def restore_nontranslatable_segments(text: str, replacements: dict[str, str]) -> str:
+    """Restore only the exact protected tokens returned by a translation model."""
+    for token, original in reversed(tuple(replacements.items())):
+        text = text.replace(token, original)
+    return text
 
 
 def extract_frontmatter_keys(text: str) -> list[str]:
@@ -126,6 +225,13 @@ def validate_translation(src: str, translated: str, label: str) -> list[str]:
     Returns a list of human-readable error strings (empty = all good).
     """
     errors = []
+
+    # 0. Provider-independent comparison of every syntax segment masked before
+    #    translation: frontmatter configuration, Liquid, code, URLs, math, HTML.
+    src_protected = list(protect_nontranslatable_segments(src)[1].values())
+    tgt_protected = list(protect_nontranslatable_segments(translated)[1].values())
+    if src_protected != tgt_protected:
+        errors.append("Protected non-translatable segments were modified or reordered.")
 
     # 1. Liquid tags must be preserved verbatim and in the same order
     src_tags = extract_liquid_tags(src)
@@ -273,6 +379,57 @@ def call_openrouter(prompt: str) -> str:
     raise RuntimeError("OpenRouter exhausted all configured free models.")
 
 
+def call_gemini(prompt: str) -> str:
+    """Send a translation prompt to Gemini 3 Flash with low thinking."""
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        raise RuntimeError("GEMINI_API_KEY is required for direct Gemini translation.")
+
+    payload = {
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {
+            "maxOutputTokens": 16_384,
+            "thinkingConfig": {"thinkingLevel": "low"},
+        },
+    }
+    http_request = request.Request(
+        GEMINI_URL,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "x-goog-api-key": api_key,
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+
+    try:
+        with request.urlopen(http_request, timeout=120) as response:
+            body = response.read().decode("utf-8")
+    except error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace")[:500]
+        raise RuntimeError(f"Gemini request failed (HTTP {exc.code}): {detail}") from exc
+    except error.URLError as exc:
+        raise RuntimeError(f"Gemini request failed: {exc.reason}") from exc
+
+    try:
+        response_json = json.loads(body)
+        parts = response_json["candidates"][0]["content"]["parts"]
+        content = "".join(part.get("text", "") for part in parts)
+    except (IndexError, KeyError, TypeError, json.JSONDecodeError) as exc:
+        raise RuntimeError("Gemini response contained no assistant content.") from exc
+
+    if not content.strip():
+        raise RuntimeError("Gemini response contained no assistant content.")
+    return content
+
+
+def call_translation_provider(prompt: str) -> str:
+    """Prefer the direct Gemini key; retain OpenRouter for environments without it."""
+    if os.environ.get("GEMINI_API_KEY"):
+        return call_gemini(prompt)
+    return call_openrouter(prompt)
+
+
 def parse_translated_files(response: str) -> dict[str, str]:
     """Extract <translated_file path="...">...</translated_file> blocks."""
     pattern = re.compile(
@@ -296,7 +453,7 @@ def build_markdown_prompt(files: list[Path], lang: str) -> str:
     language_name = LANGUAGES[lang]
     source_blocks = [
         f'<source_file path="{target_path(src, lang)}">\n'
-        f'{src.read_text(encoding="utf-8")}\n'
+        f'{protect_nontranslatable_segments(src.read_text(encoding="utf-8"))[0]}\n'
         f'</source_file>'
         for src in files
     ]
@@ -320,7 +477,7 @@ def build_correction_prompt(
 
     source_blocks = [
         f'<source_file path="{target_path(src, lang)}">\n'
-        f'{src.read_text(encoding="utf-8")}\n'
+        f'{protect_nontranslatable_segments(src.read_text(encoding="utf-8"))[0]}\n'
         f'</source_file>'
         for src in bad_sources
     ]
@@ -357,8 +514,10 @@ def run_validation_pass(
             bad_sources.append(src)
             continue
 
-        content = translations[path_str]
-        errs = validate_translation(src.read_text(encoding="utf-8"), content, path_str)
+        source = src.read_text(encoding="utf-8")
+        _, replacements = protect_nontranslatable_segments(source)
+        content = restore_nontranslatable_segments(translations[path_str], replacements)
+        errs = validate_translation(source, content, path_str)
         if errs:
             errors_by_path[path_str] = errs
             bad_sources.append(src)
@@ -371,8 +530,8 @@ def run_validation_pass(
 def translate_markdown_batch(files: list[Path], lang: str) -> dict[str, str] | None:
     """Translate and validate one bounded group of Markdown source files."""
     prompt = build_markdown_prompt(files, lang)
-    printc(f"Sending batch to OpenRouter ({OPENROUTER_MODEL})...", "cyan")
-    response = call_openrouter(prompt)
+    printc("Sending bounded translation batch...", "cyan")
+    response = call_translation_provider(prompt)
     translations = parse_translated_files(response)
 
     good, errors_by_path, bad_sources = run_validation_pass(translations, files, lang)
@@ -398,7 +557,7 @@ def translate_markdown_batch(files: list[Path], lang: str) -> dict[str, str] | N
                 printc(f"  [{path_str}] {err}", "yellow")
 
         correction = build_correction_prompt(bad_sources, lang, errors_by_path)
-        response = call_openrouter(correction)
+        response = call_translation_provider(correction)
         new_translations = parse_translated_files(response)
 
         new_good, errors_by_path, bad_sources = run_validation_pass(
@@ -475,7 +634,7 @@ def translate_resume(lang: str):
     prompt = RESUME_PROMPT.format(language=LANGUAGES[lang], content=content)
 
     printc(f"Translating resume → {LANGUAGES[lang]} ({lang})...", "cyan")
-    response = call_openrouter(prompt)
+    response = call_translation_provider(prompt)
 
     match = re.search(r"```(?:json)?\s*([\s\S]*?)\s*```", response, re.DOTALL)
     if not match:
