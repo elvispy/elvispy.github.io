@@ -42,11 +42,13 @@ The card then follows the lineage in compact prose:
    non-coalescing drop--bath model; its documented reference case is water with
    `We = 1.0958`, `Bo = 0.017`, and `Oh = 0.006` for `R = 0.35 mm`.
 
-The SpectralKM section receives most of the text. It must explain that contact
-pressure and extent are solved rather than prescribed, without claiming that
-spectral methods universally invalidate mesh-based methods. State the important
-caveat from the repository: integrated dynamics can converge even where the
-pointwise pressure profile is not resolved.
+The SpectralKM section receives most of the text. It must explain the modelling
+advance in high-signal terms: pressure shape is not prescribed, the contact patch
+is not selected by a mesh-scale tangency test, and both liquid interfaces remain
+in the solve. Do not spend portfolio space on the documented reference-case
+parameter tuple. Do not claim that spectral methods universally invalidate
+mesh-based methods. Keep the numerical caveat only insofar as it explains why a
+pointwise pressure trace is a diagnostic, not a polished field to over-interpret.
 
 Close with a short open-source statement: the work is released as Julia
 packages with tests, executable derivations, diagnostics, validation material,
@@ -103,9 +105,10 @@ place in the written lineage does not license invented visual evidence.
   identifies dark blue as bath, pale blue as drop, the red arc as the solved
   contact patch, and the inset as the solved pressure profile. It must not imply
   that the displayed pointwise pressure is converged.
-- Use the membrane GIF and the controllable `DropRebound.jl` MP4 files as compact
-  lineage evidence rather than a grid of decorative thumbnails. SpectralKM
-  remains the only lead visual.
+- Use the membrane GIF at a readable centered width (640px maximum) and the
+  controllable `DropRebound.jl` MP4 files as a responsive two-column pair on
+  desktop. SpectralKM remains the only lead visual; the pair stacks naturally
+  on narrow screens.
 - Include the `DropRebound.jl` Oldroyd-B and Carreau animations only as separate
   numerical cases. Do not call them a comparison or infer a rheological
   conclusion from colour or side-by-side placement.
