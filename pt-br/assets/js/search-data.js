@@ -175,6 +175,13 @@ ninja.data = [{
           window.open("", "_blank");
         },
       },{
+        id: 'social-project_euler_username',
+        title: 'Project_euler_username',
+        section: 'Redes sociais',
+        handler: () => {
+          window.open("", "_blank");
+        },
+      },{
         id: 'social-linkedin',
         title: 'LinkedIn',
         section: 'Redes sociais',
