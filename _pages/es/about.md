@@ -1,7 +1,7 @@
 ---
 page_id: about
 layout: about
-title: sobre mí
+title: acerca de
 permalink: /
 subtitle: Ingeniero, Físico, Matemático Aplicado.
 
@@ -11,7 +11,7 @@ profile:
   image_circular: false # crops the image to make it circular
   more_info: >
     <p><a href="https://engineering.brown.edu/"> Brown University </a> </p>
-    <p>Escuela de Ingeniería</p>
+    <p>School of Engineering</p>
     <p>84 Hope St, Providence, RI, USA</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
@@ -28,11 +28,11 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Soy estudiante de doctorado en la [Escuela de Ingeniería](https://engineering.brown.edu/people/graduate-students/phd-students/phd-students-fluids-and-thermal-sciences) de la Universidad de Brown.
-Antes de venir a Brown, completé una Maestría en Matemáticas Aplicadas en el [IMPA](https://impa.br/) bajo la supervisión de [André Nachbin](https://www.wpi.edu/people/faculty/anachbin) (un programa que inicié a los 17 años), y una Licenciatura en Ingeniería Física en la [UNILA](https://portal.unila.edu.br/).
+Soy estudiante de doctorado en la [School of Engineering](https://engineering.brown.edu/people/graduate-students/phd-students/phd-students-fluids-and-thermal-sciences) de la Universidad de Brown.
+Antes de llegar a Brown, completé una maestría en Matemáticas Aplicadas en el [IMPA](https://impa.br/) bajo la supervisión de [André Nachbin](https://www.wpi.edu/people/faculty/anachbin) (un programa que inicié a los 17 años), y una licenciatura en Ingeniería Física en la [UNILA](https://portal.unila.edu.br/).
 
-Mi trabajo explora cómo las matemáticas y la computación pueden iluminar sistemas físicos complejos. Construyo modelos que conectan la teoría, la simulación y el experimento para comprender el comportamiento no lineal en fluidos y materiales blandos. Los proyectos actuales incluyen [locomoción interfacial]({{ '/projects/3_surferbot/' | relative_url }}), impacto no hertziano y mezcla multifásica en biorreactores para la [fabricación de proteínas alternativas]({{ '/projects/0_bioreactor/' | relative_url }}). Estos esfuerzos combinan simulaciones de alta fidelidad con razonamiento de orden reducido para cerrar la brecha entre la física de primeros principios y los métodos emergentes basados en datos.
+Mi trabajo utiliza las matemáticas y la computación para estudiar fluidos no lineales y materiales blandos. Me enfoco en problemas donde el flujo, la deformación y el contacto están tan estrechamente acoplados que simplificar uno de ellos cambia la predicción. Mis proyectos actuales incluyen [locomoción interfacial]({{ '/projects/3_surferbot/' | relative_url }}), impacto no Hertziano y mezcla multifásica en biorreactores para la [manufactura de proteínas alternativas]({{ '/projects/0_bioreactor/' | relative_url }}). Estos esfuerzos combinan simulaciones de alta fidelidad con razonamiento de orden reducido para cerrar la brecha entre la física de primeros principios y los métodos emergentes basados en datos.
 
-En términos más generales, me fascina cómo aprendemos y representamos el mundo físico, a través de escalas que van desde las moléculas hasta las máquinas. Esta curiosidad impulsa mi interés por la computación científica, el modelado probabilístico e incluso las cuestiones filosóficas detrás de qué hace que un modelo sea "suficientemente real" para ser útil.
+En un sentido más amplio, me fascina cómo aprendemos y representamos el mundo físico, a través de escalas que van desde moléculas hasta máquinas. Esta curiosidad impulsa mis intereses en la computación científica, el modelado probabilístico e incluso las preguntas filosóficas detrás de lo que hace que un modelo sea "suficientemente verdadero" para ser útil.
 
 Fuera del laboratorio, he trabajado con organizaciones de tecnología cívica en Paraguay para promover la transparencia en el gasto público, y continúo contribuyendo a las Olimpiadas Nacionales de Matemáticas de Paraguay como autor de problemas y entrenador.
