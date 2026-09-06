@@ -1,8 +1,8 @@
 ---
 page_id: prj_surferbot
 layout: page
-title: Viabilizando a locomoção interfacial
-description: Propulsão impulsionada por ondas através de uma balsa flexível
+title: Habilitando locomoção interfacial
+description: Propulsão por ondas de uma boia flexível
 img: assets/img/surferbot.gif
 importance: 1
 category: work
@@ -12,9 +12,9 @@ math: true
 
 ## Uma vibração pode escolher uma direção
 
-Uma balsa compacta não possui hélice, nem barbatana, nem propulsão constante. No entanto, ao afastar seu motor vibratório do centro, as ondas que ela irradia não saem mais igualmente em ambas as direções. O rastro torna-se assimétrico; esse fluxo de momento assimétrico confere à balsa uma direção de deslocamento. A parte surpreendente é que uma vibração de média zero pode produzir um empuxo médio diferente de zero — não escondendo um ciclo de curso, mas alterando a forma como um corpo deformável lança ondas na superfície.
+Uma boia compacta não tem hélice, nem leme, nem empuxo constante. No entanto, se o motor vibratório for deslocado do centro, as ondas que ela irradia não mais se propagam igualmente nas duas direções. O rastro torna-se assimétrico; esse fluxo de momento assimétrico confere à boia uma direção de deslocamento. O surpreendente é que uma vibração de média zero pode produzir um empuxo médio não nulo. Isso ocorre não por esconder um ciclo de batida, mas por alterar a forma como um corpo deformável lança ondas na superfície.
 
-Esse é um problema útil sempre que a atuação e a estrutura são inseparáveis: um mecanismo pode parecer simétrico em um modelo CAD, enquanto sua dinâmica seleciona uma direção. A questão não é simplesmente se a balsa se dobra ou onde o motor está posicionado. É como essas escolhas remodelam as ondas que transportam o momento para longe.
+Esse é um problema útil sempre que acionamento e estrutura são inseparáveis: um mecanismo pode parecer simétrico em um modelo CAD, enquanto sua dinâmica seleciona uma direção. A questão não é simplesmente se a boia se deforma ou onde o motor está posicionado. É como essas escolhas remodelam as ondas que carregam o momento para fora.
 
 <div style="width: 100%; display: flex; justify-content: center;">
   <div style="position: relative; width: 80%; padding-bottom: 45%; height: 0; overflow: hidden;">
@@ -29,17 +29,17 @@ Esse é um problema útil sempre que a atuação e a estrutura são inseparávei
     </iframe>
   </div>
 </div>
-<p class="caption"><strong>Demonstração publicada do SurferBot.</strong> Uma demonstração física do mecanismo; não se trata de um resultado numérico deste repositório.</p>
+<p class="caption"><strong>Demonstração publicada do SurferBot.</strong> Uma demonstração física do mecanismo; não é saída numérica deste repositório.</p>
 
-{% include figure.liquid path="assets/img/flexible-surferbot-simulation.gif" alt="Simulação numérica de uma balsa flexível e seu rastro assimétrico" title="Simulação numérica do Surferbot flexível" caption="Simulação numérica: a balsa flexível, o campo de ondas irradiado e seu rastro assimétrico evoluem juntos." %}
+{% include figure.liquid path="assets/img/flexible-surferbot-simulation.gif" alt="Simulação numérica de uma boia flexível e seu rastro assimétrico" title="Simulação numérica do Surferbot flexível" caption="Simulação numérica: a boia flexível, o campo de ondas irradiado e seu rastro assimétrico evoluem juntos." %}
 
-O cálculo precisa manter toda a "conversa" intacta. O modelo acoplado de viga e superfície livre resolve a deformação, o campo de ondas de saída e o empuxo médio em um único sistema. O posicionamento do motor altera quais modos de flexão são excitados; a rigidez flexural altera como esses modos alimentam as ondas. O empuxo resultante não é monotônico em nenhuma das variáveis. Uma deformação estática ou o posicionamento do motor sozinhos não podem nos dizer para que lado a balsa irá.
+O cálculo precisa manter o acoplamento intacto. O modelo acoplado viga-superfície livre resolve a deformação, o campo de ondas emitido e o empuxo médio em um único sistema. A posição do motor altera quais modos de flexão são excitados; a rigidez flexional altera como esses modos alimentam as ondas. O empuxo resultante não é monotônico em nenhuma das variáveis. Uma deformação estática ou a posição do motor isoladamente não nos dizem para onde a boia irá.
 
-Criei o fluxo de trabalho de análise reproduzível em Julia por trás desse cálculo: varreduras de parâmetros, redução modal, testes de paridade com MATLAB e geração de figuras a partir dos mesmos dados. Também tornei explícita a verificação de simetria. No benchmark de gravidade pura com simetria de reflexão — o benchmark simétrico — o forçamento centralizado deve resultar em empuxo líquido zero; caso contrário, a discretização terá fabricado propulsão artificial. Esse invariante não se aplica a casos com termos de borda capilares, onde a simetria de reflexão exata é fisicamente quebrada.
+Criei o fluxo de trabalho de análise reprodutível em Julia por trás desse cálculo: varreduras de parâmetros, redução modal, testes de paridade com MATLAB e geração de figuras a partir dos mesmos dados. Também tornei a verificação de simetria explícita. No benchmark de simetria por reflexão com gravidade pura, a excitação centrada deve resultar em empuxo líquido zero; caso contrário, a discretização fabricou propulsão. Essa invariância não se estende a casos com termos capilares de borda, onde a simetria de reflexão exata é fisicamente quebrada.
 
-{% include figure.liquid path="assets/img/flexible-surferbot-thrust-map.png" alt="Empuxo normalizado com sinal conforme posicionamento do motor e rigidez flexural" title="Mapa de empuxo do Surferbot flexível" caption="Este mapa de design mostra o empuxo normalizado com sinal em relação à posição do motor x_M/L e à rigidez flexural normalizada κ. As regiões vermelha e azul representam direções opostas de empuxo, revelando onde a direção muda; os símbolos marcam os casos do artigo publicado." %}
+{% include figure.liquid path="assets/img/flexible-surferbot-thrust-map.png" alt="Empuxo normalizado com sinal em função da posição do motor e da rigidez flexional" title="Mapa de empuxo do Surferbot flexível" caption="Este mapa de projeto mostra o empuxo normalizado com sinal em função da posição do motor x_M/L e da rigidez flexional normalizada κ. As regiões vermelha e azul indicam direções opostas de empuxo, revelando onde a direção muda; os símbolos marcam os casos do artigo publicado." %}
 
-O mapa torna visível a consequência do design: pequenas mudanças no posicionamento do motor podem inverter a direção do deslocamento, e o mesmo atuador pode se comportar de forma diferente à medida que a balsa se torna mais rígida ou mais macia. É um banco de testes compacto para um hábito de P&amp;D mais amplo — tratar o corpo, o forçamento e o meio circundante como um único problema de design dinâmico, em vez de três botões independentes.
+O mapa torna visível a consequência de projeto: pequenas mudanças na posição do motor podem inverter a direção de deslocamento, e o mesmo atuador pode se comportar de forma diferente conforme a boia fica mais rígida ou mais flexível. É um banco de testes compacto para uma prática mais ampla de P&amp;D: tratar o corpo, a excitação e o meio circundante como um único problema de projeto dinâmico, em vez de três parâmetros independentes.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='elvispy/flexible_surferbot' %}

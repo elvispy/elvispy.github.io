@@ -8,9 +8,9 @@ importance: 4
 category: fun
 ---
 
-Vou apoiar [Evan Chen](https://web.evanchen.cc/techspeech.html) nesta. Por favor, aprenda a programar.
+Eu apoio [Evan Chen](https://web.evanchen.cc/techspeech.html) nisso. Por favor, aprenda a programar.
 
-O Project Euler não é o melhor recurso para aprender programação a partir de princípios básicos, mas sim para despertar sua curiosidade para o pensamento algorítmico. Aqui está um problema [legal](https://projecteuler.net/problem=216) para pensar:
+O Project Euler não é o melhor recurso para aprender a programar a partir de princípios fundamentais, mas sim para despertar a curiosidade sobre o pensamento algorítmico. Aqui está um problema [interessante](https://projecteuler.net/problem=216) para refletir:
 
 <p style="text-align: center;">
 Quantos números da forma $2n^2-1$ são primos, para $1 \leq n \leq 50{,}000{,}000$?

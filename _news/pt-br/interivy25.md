@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Fui selecionado para me inscrever no campeonato de xadrez Inter-Ivy, que será realizado na University of Pennsylvania!
+Representei a Brown University no campeonato de xadrez Inter-Ivy, realizado na University of Pennsylvania!

@@ -1,7 +1,7 @@
 ---
 page_id: prj_surferbot
 layout: page
-title: Habilitando la locomoción interfacial
+title: Habilitación de la locomoción interfacial
 description: Propulsión impulsada por ondas mediante una balsa flexible
 img: assets/img/surferbot.gif
 importance: 1
@@ -12,9 +12,9 @@ math: true
 
 ## Una vibración puede elegir una dirección
 
-Una balsa compacta no tiene hélice, ni aleta, ni empuje constante. Sin embargo, al alejar su motor vibratorio del centro, las ondas que irradia ya no salen por igual en ambas direcciones. La estela se vuelve asimétrica; ese flujo de momento asimétrico le da a la balsa una dirección de desplazamiento. Lo sorprendente es que una vibración de media cero puede producir un empuje neto distinto de cero, no ocultando un ciclo de brazada, sino cambiando la forma en que un cuerpo deformable lanza ondas a la superficie.
+Una balsa compacta no tiene hélice, ni aleta, ni empuje constante. Sin embargo, si se desplaza su motor vibratorio desde el centro, las ondas que irradia ya no salen por igual en ambas direcciones. La estela se vuelve asimétrica; ese flujo de momento asimétrico le da a la balsa una dirección de viaje. Lo sorprendente es que una vibración de media cero puede producir un empuje medio no nulo. Lo hace no ocultando un ciclo de carrera, sino cambiando cómo un cuerpo deformable lanza ondas hacia la superficie.
 
-Este es un problema útil siempre que el accionamiento y la estructura son inseparables: un mecanismo puede parecer simétrico en un modelo CAD mientras su dinámica selecciona una dirección. La cuestión no es simplemente si la balsa se dobla o dónde se sitúa el motor. Es cómo esas elecciones reforman las ondas que transportan el momento hacia el exterior.
+Es un problema útil siempre que la actuación y la estructura sean inseparables: un mecanismo puede parecer simétrico en un modelo CAD mientras su dinámica selecciona una dirección. La pregunta no es simplemente si la balsa se dobla, o dónde está el motor. Es cómo esas elecciones remodelan las ondas que llevan el momento lejos.
 
 <div style="width: 100%; display: flex; justify-content: center;">
   <div style="position: relative; width: 80%; padding-bottom: 45%; height: 0; overflow: hidden;">
@@ -29,17 +29,17 @@ Este es un problema útil siempre que el accionamiento y la estructura son insep
     </iframe>
   </div>
 </div>
-<p class="caption"><strong>Demostración publicada del SurferBot.</strong> Una demostración física del mecanismo; no es un resultado numérico de este repositorio.</p>
+<p class="caption"><strong>Demostración publicada de SurferBot.</strong> Una demostración física del mecanismo; no es una salida numérica de este repositorio.</p>
 
-{% include figure.liquid path="assets/img/flexible-surferbot-simulation.gif" alt="Simulación numérica de una balsa flexible y su estela asimétrica" title="Simulación numérica del Surferbot flexible" caption="Simulación numérica: la balsa flexible, el campo de ondas radiado y su estela asimétrica evolucionan conjuntamente." %}
+{% include figure.liquid path="assets/img/flexible-surferbot-simulation.gif" alt="Simulación numérica de una balsa flexible y su estela asimétrica" title="Simulación numérica de Surferbot flexible" caption="Simulación numérica: la balsa flexible, el campo de ondas irradiado y su estela asimétrica evolucionan juntos." %}
 
-El cálculo debe mantener toda la conversación intacta. El modelo acoplado de viga y superficie libre resuelve la deformación, el campo de ondas salientes y el empuje medio en un solo sistema. La ubicación del motor cambia qué modos de flexión se excitan; la rigidez flexural cambia cómo esos modos alimentan las ondas. El empuje resultante no es monotónico en ninguna de las variables. Una deformación estática o la ubicación del motor por sí solas no pueden decirnos hacia dónde irá la balsa.
+El cálculo debe mantener el acoplamiento intacto. El modelo acoplado viga-superficie libre resuelve la deformación, el campo de ondas saliente y el empuje medio en un solo sistema. La ubicación del motor cambia qué modos de flexión se excitan; la rigidez flexural cambia cómo esos modos alimentan las ondas. El empuje resultante no es monótono en ninguna de las dos variables. Una deformación estática o la ubicación del motor por sí solas no pueden decirnos hacia dónde irá la balsa.
 
-Creé el flujo de trabajo de análisis reproducible en Julia que sustenta ese cálculo: barridos de parámetros, reducción modal, pruebas de paridad con MATLAB y generación de figuras a partir de los mismos datos. También hice explícita la comprobación de simetría. En la referencia de gravedad pura con simetría de reflexión —el benchmark simétrico— el forzamiento centrado debe producir un empuje neto de cero; si no es así, la discretización ha fabricado propulsión. Ese invariante no se traslada a los casos con términos de borde capilares, donde la simetría de reflexión exacta se rompe físicamente.
+Creé el flujo de trabajo reproducible de análisis en Julia detrás de ese cálculo: barridos de parámetros, reducción modal, pruebas de paridad con MATLAB y generación de figuras a partir de los mismos datos. También hice explícita la verificación de simetría. En el benchmark de simetría por reflexión con gravedad pura, una fuerza centrada debe producir un empuje neto cero; si no lo hace, la discretización ha fabricado propulsión. Ese invariante no se traslada a los casos con términos de borde capilar, donde la simetría de reflexión exacta se rompe físicamente.
 
-{% include figure.liquid path="assets/img/flexible-surferbot-thrust-map.png" alt="Empuje normalizado con signo según la ubicación del motor y la rigidez flexural" title="Mapa de empuje del Surferbot flexible" caption="Este mapa de diseño muestra el empuje normalizado con signo a través de la posición del motor x_M/L y la rigidez flexural normalizada κ. Las regiones rojas y azules son direcciones opuestas de empuje, revelando dónde cambia la dirección; los símbolos marcan los casos del artículo publicado." %}
+{% include figure.liquid path="assets/img/flexible-surferbot-thrust-map.png" alt="Empuje normalizado con signo en función de la ubicación del motor y la rigidez flexural" title="Mapa de empuje de Surferbot flexible" caption="Este mapa de diseño muestra el empuje normalizado con signo en función de la posición del motor x_M/L y la rigidez flexural normalizada κ. Las regiones roja y azul son direcciones opuestas de empuje, revelando dónde cambia la dirección; los símbolos marcan los casos del artículo publicado." %}
 
-El mapa hace visible la consecuencia del diseño: pequeños cambios en la ubicación del motor pueden invertir la dirección de desplazamiento, y el mismo actuador puede comportarse de forma diferente a medida que la balsa se vuelve más rígida o más blanda. Es un banco de pruebas compacto para un hábito de I+D más amplio: tratar el cuerpo, el forzamiento y el medio circundante como un único problema de diseño dinámico en lugar de tres controles independientes.
+El mapa hace visible la consecuencia de diseño: pequeños cambios en la ubicación del motor pueden invertir la dirección de viaje, y el mismo actuador puede comportarse de manera diferente a medida que la balsa se rigidiza o se ablanda. Es un banco de pruebas compacto para un hábito más amplio de I+D: tratar el cuerpo, la fuerza y el medio circundante como un único problema de diseño dinámico en lugar de tres perillas independientes.
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     {% include repository/repo.liquid repository='elvispy/flexible_surferbot' %}
