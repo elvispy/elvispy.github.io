@@ -30,6 +30,12 @@ the hard modelling decision, what each formulation changed, the evidence that
 supports the current formulation, and the contribution of the open workflow.
 Context belongs when it makes one of those points legible.
 
+The opening must motivate the problem concretely: before impact there is no
+force-carrying contact region, so contact extent, pressure distribution, and
+deforming shapes must emerge together. It must explain the cost of prescribing
+one of those quantities too early. The lineage should make each older model's
+newly exposed hidden variable legible, not read as a chronological changelog.
+
 1. The 2022 rigid-sphere / elastic-membrane model established the initial
    kinematic-match formulation.
 2. A drop-on-solid solver moved the problem to a liquid interface.
@@ -101,11 +107,11 @@ English card or treat it as evidence. Separate legacy media for the intermediate
 Newtonian-solid and explicit-contact stages has not yet been verified; their
 place in the written lineage does not license invented visual evidence.
 
-- Lead with the controllable MP4 derived from the `SpectralKM.jl` bath-impact
-  GIF. Its static first-frame poster is also the project-card image. The caption
-  identifies dark blue as bath, pale blue as drop, the red arc as the solved
-  contact patch, and the inset as the solved pressure profile. It must not imply
-  that the displayed pointwise pressure is converged.
+- Use the animated `SpectralKM.jl` GIF as the project-card image so the project
+  preview carries motion. Lead the detail page with the controllable MP4 derived
+  from that GIF. Its caption identifies dark blue as bath, pale blue as drop,
+  the red arc as the solved contact patch, and the inset as the solved pressure
+  profile. It must not imply that the displayed pointwise pressure is converged.
 - Use the membrane GIF at a readable centered width (640px maximum) and the
   controllable `DropRebound.jl` MP4 files as a responsive two-column pair on
   desktop. SpectralKM remains the only lead visual; the pair stacks naturally

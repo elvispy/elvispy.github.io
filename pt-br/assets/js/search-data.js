@@ -107,16 +107,16 @@ ninja.data = [{
           section: "Novidades",},{id: "news-apresentei-meu-trabalho-mais-recente-no-annual-meeting-of-the-american-physical-society-division-of-fluid-dynamics",
           title: 'Apresentei meu trabalho mais recente no Annual Meeting of the American Physical Society...',
           description: "",
-          section: "Novidades",},{id: "news-fui-selecionado-para-me-inscrever-no-campeonato-de-xadrez-inter-ivy-que-será-realizado-na-university-of-pennsylvania",
-          title: 'Fui selecionado para me inscrever no campeonato de xadrez Inter-Ivy, que será realizado...',
+          section: "Novidades",},{id: "news-representei-a-brown-university-no-campeonato-de-xadrez-inter-ivy-realizado-na-university-of-pennsylvania",
+          title: 'Representei a Brown University no campeonato de xadrez Inter-Ivy, realizado na University of...',
           description: "",
-          section: "Novidades",},{id: "projects-design-de-multi-fidelidade-para-biorreatores-de-balanço",
-          title: 'Design de multi-fidelidade para biorreatores de balanço',
-          description: "Design acoplado de transferência de oxigênio e cisalhamento com CFD de multi-fidelidade",
+          section: "Novidades",},{id: "projects-projeto-multi-fidelidade-para-biorreatores-de-rolagem",
+          title: 'Projeto multi-fidelidade para biorreatores de rolagem',
+          description: "Projeto acoplado de transferência de oxigênio e cisalhamento com CFD multi-fidelidade",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/0_bioreactor/";
-            },},{id: "projects-construindo-a-próxima-geração-de-software-de-impacto-deformável",
-          title: 'Construindo a próxima geração de software de impacto deformável',
+            },},{id: "projects-construção-de-software-para-impacto-deformável",
+          title: 'Construção de software para impacto deformável',
           description: "Dinâmica de contato espectral para gotas impactando um banho",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/1_KM/";
@@ -125,14 +125,14 @@ ninja.data = [{
           description: "De ajustes de FMR baseados em LLG à deconvolução de iSHE e seleção de materiais",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/2_CBPF/";
-            },},{id: "projects-viabilizando-a-locomoção-interfacial",
-          title: 'Viabilizando a locomoção interfacial',
-          description: "Propulsão impulsionada por ondas através de uma balsa flexível",
+            },},{id: "projects-habilitando-locomoção-interfacial",
+          title: 'Habilitando locomoção interfacial',
+          description: "Propulsão por ondas de uma boia flexível",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/3_surferbot/";
-            },},{id: "projects-promovendo-olimpíadas-científicas",
-          title: 'Promovendo Olimpíadas Científicas',
-          description: "Proporcionando acesso a oportunidades de qualidade para jovens e talentosos estudantes do ensino médio",
+            },},{id: "projects-promovendo-olimpíadas-de-ciências",
+          title: 'Promovendo Olimpíadas de Ciências',
+          description: "Oferecendo acesso a oportunidades de qualidade para jovens estudantes talentosos do ensino médio",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/4_JT/";
             },},{id: "projects-combatendo-a-corrupção-no-paraguai",
@@ -145,9 +145,9 @@ ninja.data = [{
           description: "",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/6_Mathura/";
-            },},{id: "projects-solver-de-auto-similaridade-dinâmica-para-edps",
-          title: 'Solver de auto-similaridade dinâmica para EDPs',
-          description: "Busca simbólica por reduções de escala de EDP → EDO",
+            },},{id: "projects-solver-de-similaridade-dinâmica-para-edps",
+          title: 'Solver de similaridade dinâmica para EDPs',
+          description: "Busca simbólica de reduções por escala de EDP → EDO",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/7_zsimilarity/";
             },},{id: "projects-a3dasm-loops-científicos-para-engenharia-de-agentes",
@@ -162,7 +162,7 @@ ninja.data = [{
               window.location.href = "/pt-br/projects/9_PE/";
             },},{id: "projects-julia-em-escala-em-clusters-heterogêneos",
           title: 'Julia em escala em clusters heterogêneos',
-          description: "Pré-compilação + entrega de artefatos CVMFS para inicializações rápidas e reprodutíveis",
+          description: "Pré-compilação + entrega de artefatos via CVMFS para inícios rápidos e reproduzíveis",
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/announcement_2/";
             },},{

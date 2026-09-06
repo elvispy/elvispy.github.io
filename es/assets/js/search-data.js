@@ -107,32 +107,32 @@ ninja.data = [{
           section: "",},{id: "news-presenté-mi-trabajo-más-reciente-en-la-reunión-anual-de-la-división-de-dinámica-de-fluidos-de-la-sociedad-americana-de-física",
           title: 'Presenté mi trabajo más reciente en la Reunión Anual de la División de...',
           description: "",
-          section: "",},{id: "news-fui-seleccionado-para-participar-en-el-campeonato-de-ajedrez-inter-ivy-que-se-celebrará-en-la-universidad-de-pensilvania",
-          title: '¡Fui seleccionado para participar en el campeonato de ajedrez Inter-Ivy que se celebrará...',
+          section: "",},{id: "news-representé-a-la-universidad-brown-en-el-campeonato-de-ajedrez-inter-ivy-celebrado-en-la-universidad-de-pensilvania",
+          title: 'Representé a la Universidad Brown en el campeonato de ajedrez Inter-Ivy, celebrado en...',
           description: "",
-          section: "",},{id: "projects-diseño-de-multi-fidelidad-para-biorreactores-de-balanceo",
-          title: 'Diseño de multi-fidelidad para biorreactores de balanceo',
-          description: "Diseño acoplado de transferencia de oxígeno y cizallamiento con CFD de multi-fidelidad",
+          section: "",},{id: "projects-diseño-multi-fidelidad-para-biorreactores-de-balanceo",
+          title: 'Diseño multi-fidelidad para biorreactores de balanceo',
+          description: "Diseño acoplado de transferencia de oxígeno y cizalla con CFD multi-fidelidad",
           section: "",handler: () => {
               window.location.href = "/es/projects/0_bioreactor/";
-            },},{id: "projects-construyendo-la-próxima-generación-de-software-de-impacto-deformable",
-          title: 'Construyendo la próxima generación de software de impacto deformable',
-          description: "Dinámica de contacto espectral para gotas impactando un baño",
+            },},{id: "projects-desarrollo-de-software-para-impactos-deformables",
+          title: 'Desarrollo de software para impactos deformables',
+          description: "Dinámica de contacto espectral para gotas que impactan un baño",
           section: "",handler: () => {
               window.location.href = "/es/projects/1_KM/";
             },},{id: "projects-transporte-de-espín-por-medición-e-inferencia",
           title: 'Transporte de espín por medición e inferencia',
-          description: "De ajustes FMR basados en LLG a la deconvolución de iSHE y selección de materiales",
+          description: "De los ajustes de FMR basados en LLG a la desconvolución de iSHE y la selección de materiales",
           section: "",handler: () => {
               window.location.href = "/es/projects/2_CBPF/";
-            },},{id: "projects-habilitando-la-locomoción-interfacial",
-          title: 'Habilitando la locomoción interfacial',
+            },},{id: "projects-habilitación-de-la-locomoción-interfacial",
+          title: 'Habilitación de la locomoción interfacial',
           description: "Propulsión impulsada por ondas mediante una balsa flexible",
           section: "",handler: () => {
               window.location.href = "/es/projects/3_surferbot/";
-            },},{id: "projects-promoviendo-las-olimpiadas-científicas",
-          title: 'Promoviendo las Olimpiadas Científicas',
-          description: "Brindando acceso a oportunidades de calidad a jóvenes estudiantes talentosos de secundaria",
+            },},{id: "projects-promoción-de-las-olimpiadas-de-ciencias",
+          title: 'Promoción de las Olimpiadas de Ciencias',
+          description: "Brindar acceso a oportunidades de calidad a estudiantes de secundaria jóvenes y talentosos",
           section: "",handler: () => {
               window.location.href = "/es/projects/4_JT/";
             },},{id: "projects-luchando-contra-la-corrupción-en-paraguay",
@@ -147,7 +147,7 @@ ninja.data = [{
               window.location.href = "/es/projects/6_Mathura/";
             },},{id: "projects-solucionador-de-similitud-dinámica-para-edp",
           title: 'Solucionador de similitud dinámica para EDP',
-          description: "Búsqueda simbólica de reducciones de escala de EDP → EDO",
+          description: "Búsqueda simbólica de reducciones por escalado de EDP → EDO",
           section: "",handler: () => {
               window.location.href = "/es/projects/7_zsimilarity/";
             },},{id: "projects-a3dasm-ciclos-científicos-para-ingeniería-agéntica",
@@ -155,14 +155,14 @@ ninja.data = [{
           description: "Un flujo de trabajo abierto y guiado por la evidencia para agentes que resuelven problemas de ingeniería basados en datos",
           section: "",handler: () => {
               window.location.href = "/es/projects/8_agentic/";
-            },},{id: "projects-por-favor-aprende-a-programar",
-          title: 'Por favor aprende a programar',
+            },},{id: "projects-por-favor-aprendan-a-programar",
+          title: 'Por favor, aprendan a programar',
           description: "",
           section: "",handler: () => {
               window.location.href = "/es/projects/9_PE/";
             },},{id: "projects-julia-a-escala-en-clústeres-heterogéneos",
           title: 'Julia a escala en clústeres heterogéneos',
-          description: "Precompilación + entrega de artefactos CVMFS para inicios rápidos y reproducibles",
+          description: "Precompilación + entrega de artefactos CVMFS para arranques rápidos y reproducibles",
           section: "",handler: () => {
               window.location.href = "/es/projects/announcement_2/";
             },},{

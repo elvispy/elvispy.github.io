@@ -107,16 +107,16 @@ ninja.data = [{
           section: "News",},{id: "news-i-presented-my-latest-work-at-the-annual-meeting-of-the-american-physical-society-division-of-fluid-dynamics",
           title: 'I presented my latest work at the Annual Meeting of the American Physical...',
           description: "",
-          section: "News",},{id: "news-i-was-selected-to-apply-at-the-inter-ivy-chess-championship-to-be-held-at-the-university-of-pennsylvania",
-          title: 'I was selected to apply at the Inter-Ivy chess championship to be held...',
+          section: "News",},{id: "news-i-represented-brown-university-in-the-inter-ivy-chess-championship-held-at-the-university-of-pennsylvania",
+          title: 'I represented Brown University in the Inter-Ivy chess championship, held at the University...',
           description: "",
           section: "News",},{id: "projects-multi-fidelity-design-for-rocking-bioreactors",
           title: 'Multi-fidelity design for rocking bioreactors',
           description: "Coupled oxygen-transfer and shear design with multi-fidelity CFD",
           section: "Projects",handler: () => {
               window.location.href = "/projects/0_bioreactor/";
-            },},{id: "projects-building-the-next-generation-of-deformable-impact-software",
-          title: 'Building the next generation of deformable-impact software',
+            },},{id: "projects-building-deformable-impact-software",
+          title: 'Building deformable-impact software',
           description: "Spectral contact dynamics for drops impacting a bath",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_KM/";

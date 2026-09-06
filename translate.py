@@ -358,6 +358,16 @@ def target_path(src: Path, lang: str) -> Path:
     return Path(str(src).replace("/en-us/", f"/{lang}/"))
 
 
+def stale_files(files: list[Path], lang: str) -> list[Path]:
+    """Return only sources whose translation is missing or older than the English source."""
+    stale = []
+    for src in files:
+        dst = target_path(src, lang)
+        if not dst.exists() or dst.stat().st_mtime < src.stat().st_mtime:
+            stale.append(src)
+    return stale
+
+
 def call_openrouter(prompt: str) -> str:
     """Send a non-streaming translation prompt to OpenRouter and return text."""
     api_key = os.environ.get("OPENROUTER_API_KEY")
@@ -455,8 +465,49 @@ def call_gemini(prompt: str) -> str:
     return content
 
 
+def call_ollama(prompt: str) -> str:
+    """Send a translation prompt to a local Ollama server (OpenAI-compatible endpoint)."""
+    base_url = os.environ["OLLAMA_BASE_URL"].rstrip("/")
+    model = os.environ.get("OLLAMA_MODEL")
+    if not model:
+        raise RuntimeError("OLLAMA_MODEL is required when OLLAMA_BASE_URL is set.")
+
+    payload = {
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.2,
+    }
+    http_request = request.Request(
+        f"{base_url}/chat/completions",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+
+    try:
+        with request.urlopen(http_request, timeout=300) as response:
+            body = response.read().decode("utf-8")
+    except error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace")[:500]
+        raise RuntimeError(f"Ollama request failed (HTTP {exc.code}): {detail}") from exc
+    except error.URLError as exc:
+        raise RuntimeError(f"Ollama request failed: {exc.reason}") from exc
+
+    try:
+        response_json = json.loads(body)
+        content = response_json["choices"][0]["message"]["content"]
+    except (IndexError, KeyError, TypeError, json.JSONDecodeError) as exc:
+        raise RuntimeError("Ollama response contained no assistant content.") from exc
+
+    if not isinstance(content, str) or not content.strip():
+        raise RuntimeError("Ollama response contained no assistant content.")
+    return content
+
+
 def call_translation_provider(prompt: str) -> str:
-    """Prefer the direct Gemini key; retain OpenRouter for environments without it."""
+    """Prefer a local Oscar/Ollama server when configured, then direct Gemini, then OpenRouter."""
+    if os.environ.get("OLLAMA_BASE_URL"):
+        return call_ollama(prompt)
     if os.environ.get("GEMINI_API_KEY"):
         return call_gemini(prompt)
     return call_openrouter(prompt)
@@ -621,10 +672,18 @@ def translate_markdown_batch(files: list[Path], lang: str) -> dict[str, str] | N
 
 
 def translate_markdown(lang: str):
-    files = find_source_files()
-    if not files:
+    all_files = find_source_files()
+    if not all_files:
         printc("No source files found.", "red")
         sys.exit(1)
+
+    files = stale_files(all_files, lang)
+    skipped = len(all_files) - len(files)
+    if skipped:
+        printc(f"Skipping {skipped}/{len(all_files)} file(s) already up to date.", "cyan")
+    if not files:
+        printc(f"Nothing to translate — all files up to date for {lang}.", "green")
+        return
 
     batches = partition_markdown_files(files)
     printc(
