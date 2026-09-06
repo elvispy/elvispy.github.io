@@ -37,3 +37,8 @@ STATUS.md
 PLAN.md
 *_SUMMARY.md
 HANDOFF*.md
+
+# Personal Oscar HPC orchestration (Slurm/SSH details, not for a public repo)
+scripts/translate-oscar.sh
+scripts/humanize-oscar.sh
+scripts/lib/

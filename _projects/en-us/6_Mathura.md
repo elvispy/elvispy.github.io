@@ -7,7 +7,7 @@ importance: 4
 category: personal
 ---
 
-Paraguay's government offers full-tuition scholarships for undergraduate study, and every year, hundreds of them go unclaimed. Not because students don't need them, but because the qualifying exam in math and literature sets a minimum score that most applicants, particularly those from underserved communities with underfunded schools, don't reach.
+Paraguay's government offers full-tuition scholarships for undergraduate study, and every year, many go unclaimed. Not because students don't need them, but because the qualifying exam in math and literature sets a minimum score that most applicants, particularly those from underserved communities with underfunded schools, don't reach.
 
 The scholarships exist. The students exist. What's missing is preparation.
 

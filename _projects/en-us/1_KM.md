@@ -1,7 +1,7 @@
 ---
 page_id: prj_km
 layout: page
-title: "Building the next generation of deformable-impact software"
+title: "Building deformable-impact software"
 description: "Spectral contact dynamics for drops impacting a bath"
 img: "assets/img/spectralkm-impact.gif"
 importance: 1
@@ -49,7 +49,7 @@ The solid-substrate branch then isolated non-Newtonian constitutive behaviour. C
 
 ## Spectral contact dynamics
 
-`SpectralKM.jl` is the current Newtonian, non-coalescing drop--bath formulation. It represents the bath with Fourier–Bessel modes, the drop with Legendre modes, and contact pressure with shifted-Legendre modes. A feasibility-filtered outer search selects the contact patch.
+`SpectralKM.jl` is the current Newtonian, non-coalescing drop–bath formulation. It represents the bath with Fourier–Bessel modes, the drop with Legendre modes, and contact pressure with shifted-Legendre modes. A feasibility-filtered outer search selects the contact patch.
 
 It removes three choices that can otherwise decide a rebound prediction: a prescribed pressure profile, a mesh-level contact search, and a fixed liquid interface. The bath, drop, pressure supported on the patch, and contact extent are solved together. The result is a contact model whose physical assumptions can be inspected rather than buried in a solver switch.
 

@@ -31,11 +31,11 @@ volume-of-fluid hydrodynamics, coupled to dissolved-oxygen transport through
 Henry's law. From each simulated condition, the workflow extracts the process
 quantities that make the trade-off concrete: volumetric mass-transfer
 coefficient kLa, mixing time, and shear stress.
-Those outputs turn a vague request—"mix it better"—into an inspectable design
+Those outputs turn a vague request ("mix it better") into an inspectable design
 decision: which fill level and rocking frequency provide adequate transfer
 without simply pushing every local stress measure upward?
 
-Full CFD is rich enough to answer that question, but too costly to blanket the
+Full CFD can answer that question, but is too costly to sweep the
 entire operating space. The project therefore pairs inexpensive low-fidelity screening with selected high-fidelity calculations. A KRR-LR-GPR
 multi-fidelity surrogate carries information between the two, while Expected Improvement selects the next condition to evaluate. The point is not to make
 the simulator disappear behind a black box; it is to spend high-fidelity runs
