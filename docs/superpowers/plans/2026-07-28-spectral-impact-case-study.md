@@ -17,6 +17,7 @@
 ### Task 1: Bring the canonical animations into the site
 
 **Files:**
+
 - Create: `assets/img/spectralkm-impact.gif`
 - Create: `assets/img/droprebound-oldroyd-b.gif`
 - Create: `assets/img/droprebound-carreau.gif`
@@ -63,6 +64,7 @@
 ### Task 1b: Create controllable browser derivatives
 
 **Files:**
+
 - Create: `assets/img/spectralkm-impact.mp4`
 - Create: `assets/img/droprebound-oldroyd-b.mp4`
 - Create: `assets/img/droprebound-carreau.mp4`
@@ -71,19 +73,20 @@
 - Create: `assets/img/droprebound-carreau-poster.png`
 
 - [x] Convert each pinned GIF to a controllable H.264 MP4 with ffmpeg 7.1.1.
-  Preserve each source frame and geometry. The odd-height 640x441 SpectralKM
-  animation requires a one-pixel bottom pad in its 640x442 `yuv420p` MP4; the
-  source GIF remains unmodified.
+      Preserve each source frame and geometry. The odd-height 640x441 SpectralKM
+      animation requires a one-pixel bottom pad in its 640x442 `yuv420p` MP4; the
+      source GIF remains unmodified.
 - [x] Extract a lossless first-frame PNG poster for each video. Use the
-  SpectralKM poster as the project-card image.
+      SpectralKM poster as the project-card image.
 - [x] Record the source relationship, dimensions, and SHA-256 digests in the
-  design spec, and verify all derivatives with `file`, `ffprobe`, and `shasum`.
+      design spec, and verify all derivatives with `file`, `ffprobe`, and `shasum`.
 
 ## Chunk 2: English narrative and canonical links
 
 ### Task 2: Write the lineage-led English case study
 
 **Files:**
+
 - Modify: `_projects/en-us/1_KM.md`
 - Modify: `_data/repositories.yml`
 - Test: structural assertions over those two files
@@ -164,6 +167,7 @@
 ### Task 3: Validate the deployed page
 
 **Files:**
+
 - Verify: `_projects/en-us/1_KM.md`
 - Verify: `assets/img/spectralkm-impact.gif`
 - Verify: `assets/img/droprebound-oldroyd-b.gif`

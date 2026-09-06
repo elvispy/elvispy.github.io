@@ -68,11 +68,11 @@ Use source-controlled outputs from the canonical repositories, copied into the
 site so deployment does not depend on third-party hotlinks. The remote media is
 pinned to the following immutable source revisions and SHA-256 checksums:
 
-| Site path | Source | Revision | SHA-256 | Depiction |
-| --- | --- | --- | --- | --- |
-| `assets/img/spectralkm-impact.gif` | `SpectralKM.jl/assets/impact_demo.gif` | `9d3be1dedddc1e84b9bc91cd4af0945492e7ad23` | `4e16895dc895a9b3e958664b73412cc972060d0537e21b35735a5ffeb38c7db7` | 640x441 bath-impact simulation |
-| `assets/img/droprebound-oldroyd-b.gif` | `DropRebound.jl/docs/impact_ob.gif` | `9f9f41dca13775e2b270be2a6516359a2aed3670` | `19265179649932d7b24e4225566eee92a2c22dd2e4d08ec05fc251ce95c3c3c7` | 540x540 Oldroyd-B solid-substrate case |
-| `assets/img/droprebound-carreau.gif` | `DropRebound.jl/docs/impact_st.gif` | `9f9f41dca13775e2b270be2a6516359a2aed3670` | `3a777b9c35675131c593b73119daea231c51d128c89ca3a078ece3e2371e66e7` | 540x540 Carreau solid-substrate case |
+| Site path                              | Source                                 | Revision                                   | SHA-256                                                            | Depiction                              |
+| -------------------------------------- | -------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------ | -------------------------------------- |
+| `assets/img/spectralkm-impact.gif`     | `SpectralKM.jl/assets/impact_demo.gif` | `9d3be1dedddc1e84b9bc91cd4af0945492e7ad23` | `4e16895dc895a9b3e958664b73412cc972060d0537e21b35735a5ffeb38c7db7` | 640x441 bath-impact simulation         |
+| `assets/img/droprebound-oldroyd-b.gif` | `DropRebound.jl/docs/impact_ob.gif`    | `9f9f41dca13775e2b270be2a6516359a2aed3670` | `19265179649932d7b24e4225566eee92a2c22dd2e4d08ec05fc251ce95c3c3c7` | 540x540 Oldroyd-B solid-substrate case |
+| `assets/img/droprebound-carreau.gif`   | `DropRebound.jl/docs/impact_st.gif`    | `9f9f41dca13775e2b270be2a6516359a2aed3670` | `3a777b9c35675131c593b73119daea231c51d128c89ca3a078ece3e2371e66e7` | 540x540 Carreau solid-substrate case   |
 
 The GIFs are retained as provenance-controlled source animations. The page uses
 the following derived MP4 files so that each animation has native playback
@@ -83,14 +83,14 @@ posters. The 441-pixel SpectralKM source is padded by one pixel at the bottom in
 its MP4 only because `yuv420p` requires an even height; no source GIF is cropped
 or changed.
 
-| Site path | Derived from | Output | SHA-256 |
-| --- | --- | --- | --- |
-| `assets/img/spectralkm-impact.mp4` | `spectralkm-impact.gif` | 640x442 MP4; one-pixel bottom padding | `282c9213ec59ab4780ca3b0ed5e5d4ea0a87000656e04f2780cf7e010676a7f9` |
-| `assets/img/droprebound-oldroyd-b.mp4` | `droprebound-oldroyd-b.gif` | 540x540 MP4 | `6952e9d3c2bc64753a92130ab03b11785483f191834f145030d43b91c826e2f1` |
-| `assets/img/droprebound-carreau.mp4` | `droprebound-carreau.gif` | 540x540 MP4 | `69fa9db71e92d0ef69916ba9d732f415a76fe843a934925c3d8a88be9cb33822` |
-| `assets/img/spectralkm-impact-poster.png` | first frame of `spectralkm-impact.gif` | 640x441 PNG | `5b44b20383a697d6b37308d615a943e805d711317cea1226c0c4a7756f5a4161` |
-| `assets/img/droprebound-oldroyd-b-poster.png` | first frame of `droprebound-oldroyd-b.gif` | 540x540 PNG | `ca74a80877b50ac33fc94e8bb63037cc944da5f57c6d08c98e1b78b237c1256d` |
-| `assets/img/droprebound-carreau-poster.png` | first frame of `droprebound-carreau.gif` | 540x540 PNG | `388fee52326001bdc2b00b4115019346ebb175f8df12202f5fcf6e103b742b28` |
+| Site path                                     | Derived from                               | Output                                | SHA-256                                                            |
+| --------------------------------------------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------ |
+| `assets/img/spectralkm-impact.mp4`            | `spectralkm-impact.gif`                    | 640x442 MP4; one-pixel bottom padding | `282c9213ec59ab4780ca3b0ed5e5d4ea0a87000656e04f2780cf7e010676a7f9` |
+| `assets/img/droprebound-oldroyd-b.mp4`        | `droprebound-oldroyd-b.gif`                | 540x540 MP4                           | `6952e9d3c2bc64753a92130ab03b11785483f191834f145030d43b91c826e2f1` |
+| `assets/img/droprebound-carreau.mp4`          | `droprebound-carreau.gif`                  | 540x540 MP4                           | `69fa9db71e92d0ef69916ba9d732f415a76fe843a934925c3d8a88be9cb33822` |
+| `assets/img/spectralkm-impact-poster.png`     | first frame of `spectralkm-impact.gif`     | 640x441 PNG                           | `5b44b20383a697d6b37308d615a943e805d711317cea1226c0c4a7756f5a4161` |
+| `assets/img/droprebound-oldroyd-b-poster.png` | first frame of `droprebound-oldroyd-b.gif` | 540x540 PNG                           | `ca74a80877b50ac33fc94e8bb63037cc944da5f57c6d08c98e1b78b237c1256d` |
+| `assets/img/droprebound-carreau-poster.png`   | first frame of `droprebound-carreau.gif`   | 540x540 PNG                           | `388fee52326001bdc2b00b4115019346ebb175f8df12202f5fcf6e103b742b28` |
 
 The original site also contains a 600x317 membrane asset,
 `assets/img/km-sphere.gif` (`b1728ed66d645f2cfeb29d9585f6aa3ac2034f8c1d540df79822c2ebabeb9165`),
