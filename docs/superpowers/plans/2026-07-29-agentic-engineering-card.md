@@ -15,6 +15,7 @@
 ### Task 1: Add the visual asset
 
 **Files:**
+
 - Create: `assets/img/agentic-metamaterial.gif`
 - Source: `/Users/eaguerov/Documents/Github/f3dasm-agentic-benchmarks/supercompressible-material/assets/public/gifs/rect_run17.gif`
 
@@ -24,6 +25,7 @@
 ### Task 2: Add the English project page
 
 **Files:**
+
 - Create: `_projects/en-us/8_agentic.md`
 
 - [ ] Write the front matter for a work project card using `agentic-metamaterial.gif`.
@@ -34,6 +36,7 @@
 ### Task 3: Verify and publish
 
 **Files:**
+
 - Verify: `_projects/en-us/8_agentic.md`, `assets/img/agentic-metamaterial.gif`
 
 - [ ] Run `git diff --check`.

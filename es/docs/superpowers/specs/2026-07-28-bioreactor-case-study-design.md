@@ -56,6 +56,7 @@ the solver: an end-to-end multi-fidelity Bayesian-optimization testbed,
 parameter-validation fixes, CI-deployed documentation, tutorials/figure
 pipeline, and validation/experiment records. It must not claim sole authorship
 of the CFD method or the published paper.
+
 - No manual Spanish or Portuguese edits.
 
 ## Media provenance
@@ -63,10 +64,10 @@ of the CFD method or the published paper.
 Source repository: `rcsc-group/multi-fidelity-bioreactor` at
 `262925ca3752ed2f9ddbf196186653b51acf9289`.
 
-| Site asset | Source | Source SHA-256 | Transformation |
-| --- | --- | --- | --- |
-| `assets/img/bioreactor-interface-hero.mp4` | `docs/canonical_case/volume_fraction_lab.mp4` | `5310f2404d80ba061a03cb9647c7c68d965bcd69aeca785edabfad5d674846d2` | 18-second 12-fps crop of the central reactor, scaled and padded to 1200×674; derived SHA-256 `7156e1e6a00a3b0d8ad50160ec015c8b5e4534f1868695882e6ebda0f27f25fc`. |
-| `assets/img/bioreactor-fill-sweep.png` | `experiments/sweep_fb_fill_l8_mpi_ckpt/figures/heatmap_fill_sweep_l8.pdf` | `caa10dd9102ed39254427a44a4d73a94a801ee6f97b131dcc306d45c50e5f98b` | PNG rendered with `sips`; 699×944; derived SHA-256 `91ccb021633f3d0c6f761f103da57868ade1348693230a908f44de5e767b2391`. |
+| Site asset                                 | Source                                                                    | Source SHA-256                                                     | Transformation                                                                                                                                                   |
+| ------------------------------------------ | ------------------------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `assets/img/bioreactor-interface-hero.mp4` | `docs/canonical_case/volume_fraction_lab.mp4`                             | `5310f2404d80ba061a03cb9647c7c68d965bcd69aeca785edabfad5d674846d2` | 18-second 12-fps crop of the central reactor, scaled and padded to 1200×674; derived SHA-256 `7156e1e6a00a3b0d8ad50160ec015c8b5e4534f1868695882e6ebda0f27f25fc`. |
+| `assets/img/bioreactor-fill-sweep.png`     | `experiments/sweep_fb_fill_l8_mpi_ckpt/figures/heatmap_fill_sweep_l8.pdf` | `caa10dd9102ed39254427a44a4d73a94a801ee6f97b131dcc306d45c50e5f98b` | PNG rendered with `sips`; 699×944; derived SHA-256 `91ccb021633f3d0c6f761f103da57868ade1348693230a908f44de5e767b2391`.                                           |
 
 The hero animation exists to make the modeled interface tangible. The heatmap
 is the visual proof of the actual design-space trade-offs. Neither should be
