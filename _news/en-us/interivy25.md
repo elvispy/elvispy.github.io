@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I was selected to apply at the Inter-Ivy chess championship to be held at the University of Pennsylvania!
+I represented Brown University in the Inter-Ivy chess championship, held at the University of Pennsylvania!
